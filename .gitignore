@@ -137,3 +137,13 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+git-modules
+
+proto/amino/
+proto/cosmos/
+proto/cosmos_proto/
+proto/gogoproto/
+proto/google/
+proto/ibc/
+proto/tendermint/

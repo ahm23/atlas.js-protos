@@ -1,0 +1,66 @@
+{
+  "protoDirs": [
+    "./protos"
+  ],
+  "outPath": "./src/codegen",
+  "options": {
+    "useInterchainJs": true,
+    "interfaces": {
+      "enabled": true,
+      "useByDefault": true,
+      "useUnionTypes": true
+    },
+    "prototypes": {
+      "enabled": true,
+      "parser": {
+        "keepCase": false
+      },
+      "methods": {
+        "fromJSON": false,
+        "toJSON": false,
+        "encode": true,
+        "decode": true,
+        "fromPartial": true,
+        "toAmino": true,
+        "fromAmino": true,
+        "fromProto": true,
+        "toProto": true
+      },
+      "addTypeUrlToObjects": true,
+      "addTypeUrlToDecoders": true,
+      "typingsFormat": {
+        "customTypes": {
+          "useCosmosSDKDec": true
+        },
+        "num64": "bigint",
+        "useDeepPartial": false,
+        "useExact": false,
+        "toJsonUnknown": false,
+        "timestamp": "date",
+        "duration": "duration",
+        "updatedDuration": false,
+        "useTelescopeGeneratedType": true,
+        "setDefaultEnumToUnrecognized": true,
+        "autoFixUndefinedEnumDefault": false
+      }
+    },
+    "bundle": {
+      "enabled": true,
+      "type": "namespace"
+    },
+    "stargateClients": {
+      "enabled": false,
+      "includeCosmosDefaultTypes": true
+    },
+    "aminoEncoding": {
+      "enabled": true,
+      "useLegacyInlineEncoding": false
+    },
+    "lcdClients": {
+      "enabled": false
+    },
+    "rpcClients": {
+      "enabled": false
+    }
+  }
+}
