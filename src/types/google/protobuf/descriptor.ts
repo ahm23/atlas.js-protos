@@ -3276,7 +3276,7 @@ export interface FeatureSetSDKType {
   json_format: FeatureSet_JsonFormat;
   enforce_naming_style: FeatureSet_EnforceNamingStyle;
 }
-export interface FeatureSet_VisibilityFeature {}
+export interface FeatureSet_VisibilityFeature { }
 export interface FeatureSet_VisibilityFeatureProtoMsg {
   typeUrl: "/google.protobuf.VisibilityFeature";
   value: Uint8Array;
@@ -3286,12 +3286,12 @@ export interface FeatureSet_VisibilityFeatureProtoMsg {
  * @package google.protobuf
  * @see proto type: google.protobuf.FeatureSet_VisibilityFeature
  */
-export interface FeatureSet_VisibilityFeatureAmino {}
+export interface FeatureSet_VisibilityFeatureAmino { }
 export interface FeatureSet_VisibilityFeatureAminoMsg {
   type: "/google.protobuf.VisibilityFeature";
   value: FeatureSet_VisibilityFeatureAmino;
 }
-export interface FeatureSet_VisibilityFeatureSDKType {}
+export interface FeatureSet_VisibilityFeatureSDKType { }
 /**
  * A compiled specification for the defaults of a set of features.  These
  * messages are generated from FeatureSet extensions and can be used to seed
@@ -7055,7 +7055,7 @@ function createBaseFeatureSet(): FeatureSet {
     fieldPresence: 1,
     enumType: 1,
     repeatedFieldEncoding: 1,
-    utf8Validation: 1,
+    utf8Validation: 2,
     messageEncoding: 1,
     jsonFormat: 1,
     enforceNamingStyle: 1
@@ -7073,7 +7073,7 @@ export const FeatureSet = {
     if (message.repeatedFieldEncoding !== 1) {
       writer.uint32(24).int32(message.repeatedFieldEncoding);
     }
-    if (message.utf8Validation !== 1) {
+    if (message.utf8Validation !== 2) {
       writer.uint32(32).int32(message.utf8Validation);
     }
     if (message.messageEncoding !== 1) {
@@ -7127,7 +7127,7 @@ export const FeatureSet = {
     message.fieldPresence = object.fieldPresence ?? 1;
     message.enumType = object.enumType ?? 1;
     message.repeatedFieldEncoding = object.repeatedFieldEncoding ?? 1;
-    message.utf8Validation = object.utf8Validation ?? 1;
+    message.utf8Validation = object.utf8Validation ?? 2;
     message.messageEncoding = object.messageEncoding ?? 1;
     message.jsonFormat = object.jsonFormat ?? 1;
     message.enforceNamingStyle = object.enforceNamingStyle ?? 1;
@@ -7163,7 +7163,7 @@ export const FeatureSet = {
     obj.field_presence = message.fieldPresence === 1 ? undefined : message.fieldPresence;
     obj.enum_type = message.enumType === 1 ? undefined : message.enumType;
     obj.repeated_field_encoding = message.repeatedFieldEncoding === 1 ? undefined : message.repeatedFieldEncoding;
-    obj.utf8_validation = message.utf8Validation === 1 ? undefined : message.utf8Validation;
+    obj.utf8_validation = message.utf8Validation === 2 ? undefined : message.utf8Validation;
     obj.message_encoding = message.messageEncoding === 1 ? undefined : message.messageEncoding;
     obj.json_format = message.jsonFormat === 1 ? undefined : message.jsonFormat;
     obj.enforce_naming_style = message.enforceNamingStyle === 1 ? undefined : message.enforceNamingStyle;

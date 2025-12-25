@@ -68,7 +68,7 @@ telescope({
       camelCase: true
     },
     rpcClients: {
-      type: 'grpc-web',
+      type: 'tendermint',
       enabled: true,
       camelCase: true
     }

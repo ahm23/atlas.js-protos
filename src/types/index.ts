@@ -11,7 +11,6 @@ export * from "./gogoproto/bundle";
 export * from "./google/bundle";
 export * from "./nebulix/bundle";
 export * from "./nebulix/client";
-export * from "./grpc-web";
 export * from "./varint";
 export * from "./utf8";
 export * from "./binary";

@@ -60,6 +60,10 @@
     "@cosmjs/proto-signing": "^0.29.4",
     "@cosmjs/stargate": "0.29.4",
     "@cosmjs/tendermint-rpc": "^0.29.4",
+    "@cosmology/lcd": "^0.15.0",
+    "@improbable-eng/grpc-web": "^0.15.0",
+    "@improbable-eng/grpc-web-node-http-transport": "^0.15.0",
+    "browser-headers": "^0.4.1",
     "long": "^5.3.2",
     "protobufjs": "^8.0.0"
   }

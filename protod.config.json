@@ -1,14 +1,21 @@
 {
   "repos": [
-    { "owner": "cosmos", "repo": "cosmos-sdk", "branch": "release/v0.50.x" },
-    { "owner": "cosmos", "repo": "ibc-go" }
+    {
+      "owner": "cosmos",
+      "repo": "cosmos-sdk",
+      "branch": "release/v0.50.x"
+    },
+    {
+      "owner": "cosmos",
+      "repo": "ibc-go"
+    }
   ],
   "protoDirMapping": {
     "gogo/protobuf/master": ".",
     "googleapis/googleapis/master": ".",
     "protocolbuffers/protobuf/main": "src"
   },
-  "outDir": "protos",
+  "outDir": "proto",
   "ssh": true,
   "tempRepoDir": "git-modules",
   "targets": [
