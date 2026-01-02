@@ -366,13 +366,13 @@ export const MsgPostFile = {
       writer.uint32(18).bytes(message.merkle);
     }
     if (message.fileSize !== BigInt(0)) {
-      writer.uint32(32).int64(message.fileSize);
+      writer.uint32(24).int64(message.fileSize);
     }
     if (message.replicas !== BigInt(0)) {
-      writer.uint32(40).int64(message.replicas);
+      writer.uint32(32).int64(message.replicas);
     }
     if (message.subscription !== "") {
-      writer.uint32(50).string(message.subscription);
+      writer.uint32(42).string(message.subscription);
     }
     return writer;
   },
@@ -389,13 +389,13 @@ export const MsgPostFile = {
         case 2:
           message.merkle = reader.bytes();
           break;
-        case 4:
+        case 3:
           message.fileSize = reader.int64();
           break;
-        case 5:
+        case 4:
           message.replicas = reader.int64();
           break;
-        case 6:
+        case 5:
           message.subscription = reader.string();
           break;
         default:

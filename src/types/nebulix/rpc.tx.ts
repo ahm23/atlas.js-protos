@@ -11,6 +11,9 @@ export const createRPCMsgClient = async ({
     }
   },
   nebulix: {
+    filetree: {
+      v1: new (await import("./filetree/v1/tx.rpc.msg")).MsgClientImpl(rpc)
+    },
     storage: {
       v1: new (await import("./storage/v1/tx.rpc.msg")).MsgClientImpl(rpc)
     }

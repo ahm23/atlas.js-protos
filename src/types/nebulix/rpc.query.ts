@@ -15,6 +15,9 @@ export const createRPCQueryClient = async ({
       }
     },
     nebulix: {
+      filetree: {
+        v1: (await import("./filetree/v1/query.rpc.Query")).createRpcQueryExtension(client)
+      },
       storage: {
         v1: (await import("./storage/v1/query.rpc.Query")).createRpcQueryExtension(client)
       }

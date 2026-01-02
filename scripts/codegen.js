@@ -24,7 +24,7 @@ telescope({
         useUnionTypes: true
       },
       includes: {
-        packages: ['nebulix.storage.v1', 'cosmos.bank.v1beta1']
+        packages: ['nebulix.storage.v1', 'nebulix.filetree.v1', 'cosmos.bank.v1beta1']
       },
       methods: {
         fromJSON: false,
