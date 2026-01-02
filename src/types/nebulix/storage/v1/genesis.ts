@@ -1,4 +1,5 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
+//@ts-nocheck
+import { Params, ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 /** GenesisState defines the storage module's genesis state. */
 export interface GenesisState {
@@ -8,22 +9,6 @@ export interface GenesisState {
 export interface GenesisStateProtoMsg {
   typeUrl: "/nebulix.storage.v1.GenesisState";
   value: Uint8Array;
-}
-/**
- * GenesisState defines the storage module's genesis state.
- * @name GenesisStateAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.GenesisState
- */
-export interface GenesisStateAmino {
-  /**
-   * params defines all the parameters of the module.
-   */
-  params: ParamsAmino;
-}
-export interface GenesisStateAminoMsg {
-  type: "/nebulix.storage.v1.GenesisState";
-  value: GenesisStateAmino;
 }
 /** GenesisState defines the storage module's genesis state. */
 export interface GenesisStateSDKType {
@@ -63,21 +48,6 @@ export const GenesisState = {
     const message = createBaseGenesisState();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
-  },
-  fromAmino(object: GenesisStateAmino): GenesisState {
-    const message = createBaseGenesisState();
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromAmino(object.params);
-    }
-    return message;
-  },
-  toAmino(message: GenesisState): GenesisStateAmino {
-    const obj: any = {};
-    obj.params = message.params ? Params.toAmino(message.params) : Params.toAmino(Params.fromPartial({}));
-    return obj;
-  },
-  fromAminoMsg(object: GenesisStateAminoMsg): GenesisState {
-    return GenesisState.fromAmino(object.value);
   },
   fromProtoMsg(message: GenesisStateProtoMsg): GenesisState {
     return GenesisState.decode(message.value);

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { toTimestamp, fromTimestamp } from "../../../helpers";
@@ -15,26 +16,6 @@ export interface StorageSubscription {
 export interface StorageSubscriptionProtoMsg {
   typeUrl: "/nebulix.storage.v1.StorageSubscription";
   value: Uint8Array;
-}
-/**
- * File defines the File message.
- * @name StorageSubscriptionAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.StorageSubscription
- */
-export interface StorageSubscriptionAmino {
-  id?: string;
-  start?: string;
-  end?: string;
-  status?: string;
-  spaceAvailable?: string;
-  spaceUsed?: string;
-  replicaSpaceUsed?: string;
-  credits?: string;
-}
-export interface StorageSubscriptionAminoMsg {
-  type: "/nebulix.storage.v1.StorageSubscription";
-  value: StorageSubscriptionAmino;
 }
 /** File defines the File message. */
 export interface StorageSubscriptionSDKType {
@@ -137,49 +118,6 @@ export const StorageSubscription = {
     message.replicaSpaceUsed = object.replicaSpaceUsed !== undefined && object.replicaSpaceUsed !== null ? BigInt(object.replicaSpaceUsed.toString()) : BigInt(0);
     message.credits = object.credits ?? "";
     return message;
-  },
-  fromAmino(object: StorageSubscriptionAmino): StorageSubscription {
-    const message = createBaseStorageSubscription();
-    if (object.id !== undefined && object.id !== null) {
-      message.id = object.id;
-    }
-    if (object.start !== undefined && object.start !== null) {
-      message.start = fromTimestamp(Timestamp.fromAmino(object.start));
-    }
-    if (object.end !== undefined && object.end !== null) {
-      message.end = fromTimestamp(Timestamp.fromAmino(object.end));
-    }
-    if (object.status !== undefined && object.status !== null) {
-      message.status = object.status;
-    }
-    if (object.spaceAvailable !== undefined && object.spaceAvailable !== null) {
-      message.spaceAvailable = BigInt(object.spaceAvailable);
-    }
-    if (object.spaceUsed !== undefined && object.spaceUsed !== null) {
-      message.spaceUsed = BigInt(object.spaceUsed);
-    }
-    if (object.replicaSpaceUsed !== undefined && object.replicaSpaceUsed !== null) {
-      message.replicaSpaceUsed = BigInt(object.replicaSpaceUsed);
-    }
-    if (object.credits !== undefined && object.credits !== null) {
-      message.credits = object.credits;
-    }
-    return message;
-  },
-  toAmino(message: StorageSubscription): StorageSubscriptionAmino {
-    const obj: any = {};
-    obj.id = message.id === "" ? undefined : message.id;
-    obj.start = message.start ? Timestamp.toAmino(toTimestamp(message.start)) : undefined;
-    obj.end = message.end ? Timestamp.toAmino(toTimestamp(message.end)) : undefined;
-    obj.status = message.status === "" ? undefined : message.status;
-    obj.spaceAvailable = message.spaceAvailable !== BigInt(0) ? message.spaceAvailable?.toString() : undefined;
-    obj.spaceUsed = message.spaceUsed !== BigInt(0) ? message.spaceUsed?.toString() : undefined;
-    obj.replicaSpaceUsed = message.replicaSpaceUsed !== BigInt(0) ? message.replicaSpaceUsed?.toString() : undefined;
-    obj.credits = message.credits === "" ? undefined : message.credits;
-    return obj;
-  },
-  fromAminoMsg(object: StorageSubscriptionAminoMsg): StorageSubscription {
-    return StorageSubscription.fromAmino(object.value);
   },
   fromProtoMsg(message: StorageSubscriptionProtoMsg): StorageSubscription {
     return StorageSubscription.decode(message.value);

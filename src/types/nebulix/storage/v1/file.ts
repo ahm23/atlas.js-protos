@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
 /** File defines the File message. */
 export interface File {
@@ -16,29 +17,6 @@ export interface File {
 export interface FileProtoMsg {
   typeUrl: "/nebulix.storage.v1.File";
   value: Uint8Array;
-}
-/**
- * File defines the File message.
- * @name FileAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.File
- */
-export interface FileAmino {
-  file_id?: string;
-  merkle?: string;
-  creator?: string;
-  subscription?: string;
-  status?: string;
-  file_size?: string;
-  replicas?: string;
-  providers?: string[];
-  start?: string;
-  dedupe_index?: string;
-  last_challenged_height?: string;
-}
-export interface FileAminoMsg {
-  type: "/nebulix.storage.v1.File";
-  value: FileAmino;
 }
 /** File defines the File message. */
 export interface FileSDKType {
@@ -168,63 +146,6 @@ export const File = {
     message.dedupeIndex = object.dedupeIndex !== undefined && object.dedupeIndex !== null ? BigInt(object.dedupeIndex.toString()) : BigInt(0);
     message.lastChallengedHeight = object.lastChallengedHeight !== undefined && object.lastChallengedHeight !== null ? BigInt(object.lastChallengedHeight.toString()) : BigInt(0);
     return message;
-  },
-  fromAmino(object: FileAmino): File {
-    const message = createBaseFile();
-    if (object.file_id !== undefined && object.file_id !== null) {
-      message.fileId = object.file_id;
-    }
-    if (object.merkle !== undefined && object.merkle !== null) {
-      message.merkle = object.merkle;
-    }
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    }
-    if (object.subscription !== undefined && object.subscription !== null) {
-      message.subscription = object.subscription;
-    }
-    if (object.status !== undefined && object.status !== null) {
-      message.status = object.status;
-    }
-    if (object.file_size !== undefined && object.file_size !== null) {
-      message.fileSize = BigInt(object.file_size);
-    }
-    if (object.replicas !== undefined && object.replicas !== null) {
-      message.replicas = BigInt(object.replicas);
-    }
-    message.providers = object.providers?.map(e => e) || [];
-    if (object.start !== undefined && object.start !== null) {
-      message.start = BigInt(object.start);
-    }
-    if (object.dedupe_index !== undefined && object.dedupe_index !== null) {
-      message.dedupeIndex = BigInt(object.dedupe_index);
-    }
-    if (object.last_challenged_height !== undefined && object.last_challenged_height !== null) {
-      message.lastChallengedHeight = BigInt(object.last_challenged_height);
-    }
-    return message;
-  },
-  toAmino(message: File): FileAmino {
-    const obj: any = {};
-    obj.file_id = message.fileId === "" ? undefined : message.fileId;
-    obj.merkle = message.merkle === "" ? undefined : message.merkle;
-    obj.creator = message.creator === "" ? undefined : message.creator;
-    obj.subscription = message.subscription === "" ? undefined : message.subscription;
-    obj.status = message.status === "" ? undefined : message.status;
-    obj.file_size = message.fileSize !== BigInt(0) ? message.fileSize?.toString() : undefined;
-    obj.replicas = message.replicas !== BigInt(0) ? message.replicas?.toString() : undefined;
-    if (message.providers) {
-      obj.providers = message.providers.map(e => e);
-    } else {
-      obj.providers = message.providers;
-    }
-    obj.start = message.start !== BigInt(0) ? message.start?.toString() : undefined;
-    obj.dedupe_index = message.dedupeIndex !== BigInt(0) ? message.dedupeIndex?.toString() : undefined;
-    obj.last_challenged_height = message.lastChallengedHeight !== BigInt(0) ? message.lastChallengedHeight?.toString() : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: FileAminoMsg): File {
-    return File.fromAmino(object.value);
   },
   fromProtoMsg(message: FileProtoMsg): File {
     return File.decode(message.value);

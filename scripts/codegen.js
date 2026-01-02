@@ -12,27 +12,19 @@ telescope({
   outPath,
   options: {
     tsDisable: {
-      files: [
-        'cosmos/authz/v1beta1/tx.amino.ts',
-        'cosmos/staking/v1beta1/tx.amino.ts'
-      ],
-      patterns: ['**/*amino.ts', '**/*registry.ts']
+      files: [],
+      patterns: [],
+      disableAll: true
     },
     prototypes: {
-      includePackageVar: false,
+      enabled: true,
       removeUnusedImports: true,
-      experimentalGlobalProtoNamespace: true,
       interfaces: {
         enabled: true,
-        useUnionTypes: false
+        useUnionTypes: true
       },
       includes: {
-        packages: ['nebulix.storage.v1']
-      },
-      excluded: {
-        packages: [
-          'ibc.applications.fee.v1' // issue with parsing protos (LCD routes with nested objects in params)
-        ]
+        packages: ['nebulix.storage.v1', 'cosmos.bank.v1beta1']
       },
       methods: {
         fromJSON: false,
@@ -40,37 +32,37 @@ telescope({
         encode: true,
         decode: true,
         fromPartial: true,
-        toAmino: true,
-        fromAmino: true,
+        toAmino: false,
+        fromAmino: false,
         fromProto: true,
         toProto: true
       },
-      parser: {
-        keepCase: false
-      }
     },
-    typingsFormat: {
-      duration: 'duration',
-      timestamp: 'date',
-      useExact: false,
-      useDeepPartial: false,
-      num64: 'bigint',
-      customTypes: {
-        useCosmosSDKDec: true
-      }
+    bundle: {
+      enabled: true
+    },
+    stargateClients: {
+      enabled: true,
+      includeCosmosDefaultTypes: true
     },
     aminoEncoding: {
-      enabled: true,
-      exceptions: AMINO_MAP
+      enabled: false
     },
     lcdClients: {
-      enabled: true,
-      camelCase: true
+      enabled: false
     },
     rpcClients: {
       type: 'tendermint',
-      enabled: true,
-      camelCase: true
+      enabled: true
+    },
+    reactQuery: {
+      enabled: false
+    },
+    mobx: {
+      enabled: false
+    },
+    pinia: {
+      enabled: false
     }
   }
 })

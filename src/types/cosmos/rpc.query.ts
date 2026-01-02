@@ -11,12 +11,7 @@ export const createRPCQueryClient = async ({
   return {
     cosmos: {
       bank: {
-        v1beta1: (await import("../cosmos/bank/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
-      }
-    },
-    nebulix: {
-      storage: {
-        v1: (await import("./storage/v1/query.rpc.Query")).createRpcQueryExtension(client)
+        v1beta1: (await import("./bank/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       }
     }
   };

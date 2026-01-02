@@ -1,6 +1,6 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
+//@ts-nocheck
+import { Params, ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** MsgUpdateParams is the Msg/UpdateParams request type. */
 export interface MsgUpdateParams {
   /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
@@ -11,26 +11,6 @@ export interface MsgUpdateParams {
 export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgUpdateParams";
   value: Uint8Array;
-}
-/**
- * MsgUpdateParams is the Msg/UpdateParams request type.
- * @name MsgUpdateParamsAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParams
- */
-export interface MsgUpdateParamsAmino {
-  /**
-   * authority is the address that controls the module (defaults to x/gov unless overwritten).
-   */
-  authority?: string;
-  /**
-   * NOTE: All parameters must be supplied.
-   */
-  params: ParamsAmino;
-}
-export interface MsgUpdateParamsAminoMsg {
-  type: "nebulix/x/storage/MsgUpdateParams";
-  value: MsgUpdateParamsAmino;
 }
 /** MsgUpdateParams is the Msg/UpdateParams request type. */
 export interface MsgUpdateParamsSDKType {
@@ -49,18 +29,6 @@ export interface MsgUpdateParamsResponseProtoMsg {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
- * @name MsgUpdateParamsResponseAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParamsResponse
- */
-export interface MsgUpdateParamsResponseAmino {}
-export interface MsgUpdateParamsResponseAminoMsg {
-  type: "/nebulix.storage.v1.MsgUpdateParamsResponse";
-  value: MsgUpdateParamsResponseAmino;
-}
-/**
- * MsgUpdateParamsResponse defines the response structure for executing a
- * MsgUpdateParams message.
  */
 export interface MsgUpdateParamsResponseSDKType {}
 /** MsgRegisterProvider defines the MsgRegisterProvider message. */
@@ -73,21 +41,6 @@ export interface MsgRegisterProviderProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgRegisterProvider";
   value: Uint8Array;
 }
-/**
- * MsgRegisterProvider defines the MsgRegisterProvider message.
- * @name MsgRegisterProviderAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProvider
- */
-export interface MsgRegisterProviderAmino {
-  creator?: string;
-  hostname?: string;
-  capacity?: string;
-}
-export interface MsgRegisterProviderAminoMsg {
-  type: "/nebulix.storage.v1.MsgRegisterProvider";
-  value: MsgRegisterProviderAmino;
-}
 /** MsgRegisterProvider defines the MsgRegisterProvider message. */
 export interface MsgRegisterProviderSDKType {
   creator: string;
@@ -99,17 +52,6 @@ export interface MsgRegisterProviderResponse {}
 export interface MsgRegisterProviderResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgRegisterProviderResponse";
   value: Uint8Array;
-}
-/**
- * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
- * @name MsgRegisterProviderResponseAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProviderResponse
- */
-export interface MsgRegisterProviderResponseAmino {}
-export interface MsgRegisterProviderResponseAminoMsg {
-  type: "/nebulix.storage.v1.MsgRegisterProviderResponse";
-  value: MsgRegisterProviderResponseAmino;
 }
 /** MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message. */
 export interface MsgRegisterProviderResponseSDKType {}
@@ -124,23 +66,6 @@ export interface MsgPostFile {
 export interface MsgPostFileProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgPostFile";
   value: Uint8Array;
-}
-/**
- * MsgPostFile defines the MsgPostFile message.
- * @name MsgPostFileAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFile
- */
-export interface MsgPostFileAmino {
-  creator?: string;
-  merkle?: string;
-  file_size?: string;
-  replicas?: string;
-  subscription?: string;
-}
-export interface MsgPostFileAminoMsg {
-  type: "/nebulix.storage.v1.MsgPostFile";
-  value: MsgPostFileAmino;
 }
 /** MsgPostFile defines the MsgPostFile message. */
 export interface MsgPostFileSDKType {
@@ -158,19 +83,6 @@ export interface MsgPostFileResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgPostFileResponse";
   value: Uint8Array;
 }
-/**
- * MsgPostFileResponse defines the MsgPostFileResponse message.
- * @name MsgPostFileResponseAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFileResponse
- */
-export interface MsgPostFileResponseAmino {
-  start_block?: string;
-}
-export interface MsgPostFileResponseAminoMsg {
-  type: "/nebulix.storage.v1.MsgPostFileResponse";
-  value: MsgPostFileResponseAmino;
-}
 /** MsgPostFileResponse defines the MsgPostFileResponse message. */
 export interface MsgPostFileResponseSDKType {
   start_block: bigint;
@@ -187,23 +99,6 @@ export interface MsgBuyStorageProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgBuyStorage";
   value: Uint8Array;
 }
-/**
- * MsgBuyStorage defines the MsgBuyStorage message.
- * @name MsgBuyStorageAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorage
- */
-export interface MsgBuyStorageAmino {
-  creator?: string;
-  receiver?: string;
-  duration?: string;
-  bytes?: string;
-  is_default?: boolean;
-}
-export interface MsgBuyStorageAminoMsg {
-  type: "/nebulix.storage.v1.MsgBuyStorage";
-  value: MsgBuyStorageAmino;
-}
 /** MsgBuyStorage defines the MsgBuyStorage message. */
 export interface MsgBuyStorageSDKType {
   creator: string;
@@ -219,19 +114,6 @@ export interface MsgBuyStorageResponse {
 export interface MsgBuyStorageResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgBuyStorageResponse";
   value: Uint8Array;
-}
-/**
- * MsgBuyStorageResponse defines the MsgBuyStorageResponse message.
- * @name MsgBuyStorageResponseAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorageResponse
- */
-export interface MsgBuyStorageResponseAmino {
-  SubscriptionId?: string;
-}
-export interface MsgBuyStorageResponseAminoMsg {
-  type: "/nebulix.storage.v1.MsgBuyStorageResponse";
-  value: MsgBuyStorageResponseAmino;
 }
 /** MsgBuyStorageResponse defines the MsgBuyStorageResponse message. */
 export interface MsgBuyStorageResponseSDKType {
@@ -250,24 +132,6 @@ export interface MsgProveFileProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgProveFile";
   value: Uint8Array;
 }
-/**
- * MsgProveFile defines the MsgProveFile message.
- * @name MsgProveFileAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFile
- */
-export interface MsgProveFileAmino {
-  creator?: string;
-  challenge_id?: string;
-  file_id?: string;
-  data?: string;
-  hashes?: string[];
-  chunk?: string;
-}
-export interface MsgProveFileAminoMsg {
-  type: "/nebulix.storage.v1.MsgProveFile";
-  value: MsgProveFileAmino;
-}
 /** MsgProveFile defines the MsgProveFile message. */
 export interface MsgProveFileSDKType {
   creator: string;
@@ -282,17 +146,6 @@ export interface MsgProveFileResponse {}
 export interface MsgProveFileResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgProveFileResponse";
   value: Uint8Array;
-}
-/**
- * MsgProveFileResponse defines the MsgProveFileResponse message.
- * @name MsgProveFileResponseAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFileResponse
- */
-export interface MsgProveFileResponseAmino {}
-export interface MsgProveFileResponseAminoMsg {
-  type: "/nebulix.storage.v1.MsgProveFileResponse";
-  value: MsgProveFileResponseAmino;
 }
 /** MsgProveFileResponse defines the MsgProveFileResponse message. */
 export interface MsgProveFileResponseSDKType {}
@@ -339,31 +192,6 @@ export const MsgUpdateParams = {
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
-  fromAmino(object: MsgUpdateParamsAmino): MsgUpdateParams {
-    const message = createBaseMsgUpdateParams();
-    if (object.authority !== undefined && object.authority !== null) {
-      message.authority = object.authority;
-    }
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromAmino(object.params);
-    }
-    return message;
-  },
-  toAmino(message: MsgUpdateParams): MsgUpdateParamsAmino {
-    const obj: any = {};
-    obj.authority = message.authority === "" ? undefined : message.authority;
-    obj.params = message.params ? Params.toAmino(message.params) : Params.toAmino(Params.fromPartial({}));
-    return obj;
-  },
-  fromAminoMsg(object: MsgUpdateParamsAminoMsg): MsgUpdateParams {
-    return MsgUpdateParams.fromAmino(object.value);
-  },
-  toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
-    return {
-      type: "nebulix/x/storage/MsgUpdateParams",
-      value: MsgUpdateParams.toAmino(message)
-    };
-  },
   fromProtoMsg(message: MsgUpdateParamsProtoMsg): MsgUpdateParams {
     return MsgUpdateParams.decode(message.value);
   },
@@ -402,17 +230,6 @@ export const MsgUpdateParamsResponse = {
   fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse {
     const message = createBaseMsgUpdateParamsResponse();
     return message;
-  },
-  fromAmino(_: MsgUpdateParamsResponseAmino): MsgUpdateParamsResponse {
-    const message = createBaseMsgUpdateParamsResponse();
-    return message;
-  },
-  toAmino(_: MsgUpdateParamsResponse): MsgUpdateParamsResponseAmino {
-    const obj: any = {};
-    return obj;
-  },
-  fromAminoMsg(object: MsgUpdateParamsResponseAminoMsg): MsgUpdateParamsResponse {
-    return MsgUpdateParamsResponse.fromAmino(object.value);
   },
   fromProtoMsg(message: MsgUpdateParamsResponseProtoMsg): MsgUpdateParamsResponse {
     return MsgUpdateParamsResponse.decode(message.value);
@@ -478,29 +295,6 @@ export const MsgRegisterProvider = {
     message.capacity = object.capacity !== undefined && object.capacity !== null ? BigInt(object.capacity.toString()) : BigInt(0);
     return message;
   },
-  fromAmino(object: MsgRegisterProviderAmino): MsgRegisterProvider {
-    const message = createBaseMsgRegisterProvider();
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    }
-    if (object.hostname !== undefined && object.hostname !== null) {
-      message.hostname = object.hostname;
-    }
-    if (object.capacity !== undefined && object.capacity !== null) {
-      message.capacity = BigInt(object.capacity);
-    }
-    return message;
-  },
-  toAmino(message: MsgRegisterProvider): MsgRegisterProviderAmino {
-    const obj: any = {};
-    obj.creator = message.creator === "" ? undefined : message.creator;
-    obj.hostname = message.hostname === "" ? undefined : message.hostname;
-    obj.capacity = message.capacity !== BigInt(0) ? message.capacity?.toString() : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: MsgRegisterProviderAminoMsg): MsgRegisterProvider {
-    return MsgRegisterProvider.fromAmino(object.value);
-  },
   fromProtoMsg(message: MsgRegisterProviderProtoMsg): MsgRegisterProvider {
     return MsgRegisterProvider.decode(message.value);
   },
@@ -539,17 +333,6 @@ export const MsgRegisterProviderResponse = {
   fromPartial(_: Partial<MsgRegisterProviderResponse>): MsgRegisterProviderResponse {
     const message = createBaseMsgRegisterProviderResponse();
     return message;
-  },
-  fromAmino(_: MsgRegisterProviderResponseAmino): MsgRegisterProviderResponse {
-    const message = createBaseMsgRegisterProviderResponse();
-    return message;
-  },
-  toAmino(_: MsgRegisterProviderResponse): MsgRegisterProviderResponseAmino {
-    const obj: any = {};
-    return obj;
-  },
-  fromAminoMsg(object: MsgRegisterProviderResponseAminoMsg): MsgRegisterProviderResponse {
-    return MsgRegisterProviderResponse.fromAmino(object.value);
   },
   fromProtoMsg(message: MsgRegisterProviderResponseProtoMsg): MsgRegisterProviderResponse {
     return MsgRegisterProviderResponse.decode(message.value);
@@ -631,37 +414,6 @@ export const MsgPostFile = {
     message.subscription = object.subscription ?? "";
     return message;
   },
-  fromAmino(object: MsgPostFileAmino): MsgPostFile {
-    const message = createBaseMsgPostFile();
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    }
-    if (object.merkle !== undefined && object.merkle !== null) {
-      message.merkle = bytesFromBase64(object.merkle);
-    }
-    if (object.file_size !== undefined && object.file_size !== null) {
-      message.fileSize = BigInt(object.file_size);
-    }
-    if (object.replicas !== undefined && object.replicas !== null) {
-      message.replicas = BigInt(object.replicas);
-    }
-    if (object.subscription !== undefined && object.subscription !== null) {
-      message.subscription = object.subscription;
-    }
-    return message;
-  },
-  toAmino(message: MsgPostFile): MsgPostFileAmino {
-    const obj: any = {};
-    obj.creator = message.creator === "" ? undefined : message.creator;
-    obj.merkle = message.merkle ? base64FromBytes(message.merkle) : undefined;
-    obj.file_size = message.fileSize !== BigInt(0) ? message.fileSize?.toString() : undefined;
-    obj.replicas = message.replicas !== BigInt(0) ? message.replicas?.toString() : undefined;
-    obj.subscription = message.subscription === "" ? undefined : message.subscription;
-    return obj;
-  },
-  fromAminoMsg(object: MsgPostFileAminoMsg): MsgPostFile {
-    return MsgPostFile.fromAmino(object.value);
-  },
   fromProtoMsg(message: MsgPostFileProtoMsg): MsgPostFile {
     return MsgPostFile.decode(message.value);
   },
@@ -709,21 +461,6 @@ export const MsgPostFileResponse = {
     const message = createBaseMsgPostFileResponse();
     message.startBlock = object.startBlock !== undefined && object.startBlock !== null ? BigInt(object.startBlock.toString()) : BigInt(0);
     return message;
-  },
-  fromAmino(object: MsgPostFileResponseAmino): MsgPostFileResponse {
-    const message = createBaseMsgPostFileResponse();
-    if (object.start_block !== undefined && object.start_block !== null) {
-      message.startBlock = BigInt(object.start_block);
-    }
-    return message;
-  },
-  toAmino(message: MsgPostFileResponse): MsgPostFileResponseAmino {
-    const obj: any = {};
-    obj.start_block = message.startBlock !== BigInt(0) ? message.startBlock?.toString() : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: MsgPostFileResponseAminoMsg): MsgPostFileResponse {
-    return MsgPostFileResponse.fromAmino(object.value);
   },
   fromProtoMsg(message: MsgPostFileResponseProtoMsg): MsgPostFileResponse {
     return MsgPostFileResponse.decode(message.value);
@@ -805,37 +542,6 @@ export const MsgBuyStorage = {
     message.isDefault = object.isDefault ?? false;
     return message;
   },
-  fromAmino(object: MsgBuyStorageAmino): MsgBuyStorage {
-    const message = createBaseMsgBuyStorage();
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    }
-    if (object.receiver !== undefined && object.receiver !== null) {
-      message.receiver = object.receiver;
-    }
-    if (object.duration !== undefined && object.duration !== null) {
-      message.duration = BigInt(object.duration);
-    }
-    if (object.bytes !== undefined && object.bytes !== null) {
-      message.bytes = BigInt(object.bytes);
-    }
-    if (object.is_default !== undefined && object.is_default !== null) {
-      message.isDefault = object.is_default;
-    }
-    return message;
-  },
-  toAmino(message: MsgBuyStorage): MsgBuyStorageAmino {
-    const obj: any = {};
-    obj.creator = message.creator === "" ? undefined : message.creator;
-    obj.receiver = message.receiver === "" ? undefined : message.receiver;
-    obj.duration = message.duration !== BigInt(0) ? message.duration?.toString() : undefined;
-    obj.bytes = message.bytes !== BigInt(0) ? message.bytes?.toString() : undefined;
-    obj.is_default = message.isDefault === false ? undefined : message.isDefault;
-    return obj;
-  },
-  fromAminoMsg(object: MsgBuyStorageAminoMsg): MsgBuyStorage {
-    return MsgBuyStorage.fromAmino(object.value);
-  },
   fromProtoMsg(message: MsgBuyStorageProtoMsg): MsgBuyStorage {
     return MsgBuyStorage.decode(message.value);
   },
@@ -883,21 +589,6 @@ export const MsgBuyStorageResponse = {
     const message = createBaseMsgBuyStorageResponse();
     message.subscriptionId = object.subscriptionId ?? "";
     return message;
-  },
-  fromAmino(object: MsgBuyStorageResponseAmino): MsgBuyStorageResponse {
-    const message = createBaseMsgBuyStorageResponse();
-    if (object.SubscriptionId !== undefined && object.SubscriptionId !== null) {
-      message.subscriptionId = object.SubscriptionId;
-    }
-    return message;
-  },
-  toAmino(message: MsgBuyStorageResponse): MsgBuyStorageResponseAmino {
-    const obj: any = {};
-    obj.SubscriptionId = message.subscriptionId === "" ? undefined : message.subscriptionId;
-    return obj;
-  },
-  fromAminoMsg(object: MsgBuyStorageResponseAminoMsg): MsgBuyStorageResponse {
-    return MsgBuyStorageResponse.fromAmino(object.value);
   },
   fromProtoMsg(message: MsgBuyStorageResponseProtoMsg): MsgBuyStorageResponse {
     return MsgBuyStorageResponse.decode(message.value);
@@ -987,43 +678,6 @@ export const MsgProveFile = {
     message.chunk = object.chunk !== undefined && object.chunk !== null ? BigInt(object.chunk.toString()) : BigInt(0);
     return message;
   },
-  fromAmino(object: MsgProveFileAmino): MsgProveFile {
-    const message = createBaseMsgProveFile();
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    }
-    if (object.challenge_id !== undefined && object.challenge_id !== null) {
-      message.challengeId = object.challenge_id;
-    }
-    if (object.file_id !== undefined && object.file_id !== null) {
-      message.fileId = object.file_id;
-    }
-    if (object.data !== undefined && object.data !== null) {
-      message.data = bytesFromBase64(object.data);
-    }
-    message.hashes = object.hashes?.map(e => bytesFromBase64(e)) || [];
-    if (object.chunk !== undefined && object.chunk !== null) {
-      message.chunk = BigInt(object.chunk);
-    }
-    return message;
-  },
-  toAmino(message: MsgProveFile): MsgProveFileAmino {
-    const obj: any = {};
-    obj.creator = message.creator === "" ? undefined : message.creator;
-    obj.challenge_id = message.challengeId === "" ? undefined : message.challengeId;
-    obj.file_id = message.fileId === "" ? undefined : message.fileId;
-    obj.data = message.data ? base64FromBytes(message.data) : undefined;
-    if (message.hashes) {
-      obj.hashes = message.hashes.map(e => base64FromBytes(e));
-    } else {
-      obj.hashes = message.hashes;
-    }
-    obj.chunk = message.chunk !== BigInt(0) ? message.chunk?.toString() : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: MsgProveFileAminoMsg): MsgProveFile {
-    return MsgProveFile.fromAmino(object.value);
-  },
   fromProtoMsg(message: MsgProveFileProtoMsg): MsgProveFile {
     return MsgProveFile.decode(message.value);
   },
@@ -1062,17 +716,6 @@ export const MsgProveFileResponse = {
   fromPartial(_: Partial<MsgProveFileResponse>): MsgProveFileResponse {
     const message = createBaseMsgProveFileResponse();
     return message;
-  },
-  fromAmino(_: MsgProveFileResponseAmino): MsgProveFileResponse {
-    const message = createBaseMsgProveFileResponse();
-    return message;
-  },
-  toAmino(_: MsgProveFileResponse): MsgProveFileResponseAmino {
-    const obj: any = {};
-    return obj;
-  },
-  fromAminoMsg(object: MsgProveFileResponseAminoMsg): MsgProveFileResponse {
-    return MsgProveFileResponse.fromAmino(object.value);
   },
   fromProtoMsg(message: MsgProveFileResponseProtoMsg): MsgProveFileResponse {
     return MsgProveFileResponse.decode(message.value);

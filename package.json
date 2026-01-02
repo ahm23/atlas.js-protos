@@ -42,7 +42,7 @@
     "url": "https://github.com/__USERNAME__/__MODULENAME__/issues"
   },
   "devDependencies": {
-    "@cosmology/telescope": "^1.0.1",
+    "@cosmology/telescope": "^1.12.21",
     "@types/jest": "^29.5.0",
     "eslint": "8.45.0",
     "eslint-config-prettier": "^8.8.0",

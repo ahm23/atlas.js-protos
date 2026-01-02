@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
 /** Params defines the parameters for the module. */
 export interface Params {
@@ -9,22 +10,6 @@ export interface Params {
 export interface ParamsProtoMsg {
   typeUrl: "/nebulix.storage.v1.Params";
   value: Uint8Array;
-}
-/**
- * Params defines the parameters for the module.
- * @name ParamsAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Params
- */
-export interface ParamsAmino {
-  price_per_gb_day?: string;
-  provider_deposit?: string;
-  challenge_window?: string;
-  max_challenges_per_round?: string;
-}
-export interface ParamsAminoMsg {
-  type: "nebulix/x/storage/Params";
-  value: ParamsAmino;
 }
 /** Params defines the parameters for the module. */
 export interface ParamsSDKType {
@@ -91,39 +76,6 @@ export const Params = {
     message.challengeWindow = object.challengeWindow !== undefined && object.challengeWindow !== null ? BigInt(object.challengeWindow.toString()) : BigInt(0);
     message.maxChallengesPerRound = object.maxChallengesPerRound !== undefined && object.maxChallengesPerRound !== null ? BigInt(object.maxChallengesPerRound.toString()) : BigInt(0);
     return message;
-  },
-  fromAmino(object: ParamsAmino): Params {
-    const message = createBaseParams();
-    if (object.price_per_gb_day !== undefined && object.price_per_gb_day !== null) {
-      message.pricePerGbDay = BigInt(object.price_per_gb_day);
-    }
-    if (object.provider_deposit !== undefined && object.provider_deposit !== null) {
-      message.providerDeposit = BigInt(object.provider_deposit);
-    }
-    if (object.challenge_window !== undefined && object.challenge_window !== null) {
-      message.challengeWindow = BigInt(object.challenge_window);
-    }
-    if (object.max_challenges_per_round !== undefined && object.max_challenges_per_round !== null) {
-      message.maxChallengesPerRound = BigInt(object.max_challenges_per_round);
-    }
-    return message;
-  },
-  toAmino(message: Params): ParamsAmino {
-    const obj: any = {};
-    obj.price_per_gb_day = message.pricePerGbDay !== BigInt(0) ? message.pricePerGbDay?.toString() : undefined;
-    obj.provider_deposit = message.providerDeposit !== BigInt(0) ? message.providerDeposit?.toString() : undefined;
-    obj.challenge_window = message.challengeWindow !== BigInt(0) ? message.challengeWindow?.toString() : undefined;
-    obj.max_challenges_per_round = message.maxChallengesPerRound !== BigInt(0) ? message.maxChallengesPerRound?.toString() : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: ParamsAminoMsg): Params {
-    return Params.fromAmino(object.value);
-  },
-  toAminoMsg(message: Params): ParamsAminoMsg {
-    return {
-      type: "nebulix/x/storage/Params",
-      value: Params.toAmino(message)
-    };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
     return Params.decode(message.value);

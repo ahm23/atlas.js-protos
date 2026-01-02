@@ -1,14 +1,15 @@
-import * as _5 from "./api/annotations";
-import * as _6 from "./api/http";
-import * as _7 from "./protobuf/descriptor";
-import * as _8 from "./protobuf/timestamp";
+//@ts-nocheck
+import * as _12 from "./api/annotations";
+import * as _13 from "./api/http";
+import * as _14 from "./protobuf/descriptor";
+import * as _15 from "./protobuf/timestamp";
 export namespace google {
   export const api = {
-    ..._5,
-    ..._6
+    ..._12,
+    ..._13
   };
   export const protobuf = {
-    ..._7,
-    ..._8
+    ..._14,
+    ..._15
   };
 }

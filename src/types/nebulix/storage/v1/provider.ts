@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
 /** Provider defines the Provider message. */
 export interface Provider {
@@ -11,24 +12,6 @@ export interface Provider {
 export interface ProviderProtoMsg {
   typeUrl: "/nebulix.storage.v1.Provider";
   value: Uint8Array;
-}
-/**
- * Provider defines the Provider message.
- * @name ProviderAmino
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Provider
- */
-export interface ProviderAmino {
-  address?: string;
-  hostname?: string;
-  space_available?: string;
-  space_used?: string;
-  created_at?: string;
-  credit_delta?: string;
-}
-export interface ProviderAminoMsg {
-  type: "/nebulix.storage.v1.Provider";
-  value: ProviderAmino;
 }
 /** Provider defines the Provider message. */
 export interface ProviderSDKType {
@@ -113,41 +96,6 @@ export const Provider = {
     message.createdAt = object.createdAt !== undefined && object.createdAt !== null ? BigInt(object.createdAt.toString()) : BigInt(0);
     message.creditDelta = object.creditDelta !== undefined && object.creditDelta !== null ? BigInt(object.creditDelta.toString()) : BigInt(0);
     return message;
-  },
-  fromAmino(object: ProviderAmino): Provider {
-    const message = createBaseProvider();
-    if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
-    }
-    if (object.hostname !== undefined && object.hostname !== null) {
-      message.hostname = object.hostname;
-    }
-    if (object.space_available !== undefined && object.space_available !== null) {
-      message.spaceAvailable = BigInt(object.space_available);
-    }
-    if (object.space_used !== undefined && object.space_used !== null) {
-      message.spaceUsed = BigInt(object.space_used);
-    }
-    if (object.created_at !== undefined && object.created_at !== null) {
-      message.createdAt = BigInt(object.created_at);
-    }
-    if (object.credit_delta !== undefined && object.credit_delta !== null) {
-      message.creditDelta = BigInt(object.credit_delta);
-    }
-    return message;
-  },
-  toAmino(message: Provider): ProviderAmino {
-    const obj: any = {};
-    obj.address = message.address === "" ? undefined : message.address;
-    obj.hostname = message.hostname === "" ? undefined : message.hostname;
-    obj.space_available = message.spaceAvailable !== BigInt(0) ? message.spaceAvailable?.toString() : undefined;
-    obj.space_used = message.spaceUsed !== BigInt(0) ? message.spaceUsed?.toString() : undefined;
-    obj.created_at = message.createdAt !== BigInt(0) ? message.createdAt?.toString() : undefined;
-    obj.credit_delta = message.creditDelta !== BigInt(0) ? message.creditDelta?.toString() : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: ProviderAminoMsg): Provider {
-    return Provider.fromAmino(object.value);
   },
   fromProtoMsg(message: ProviderProtoMsg): Provider {
     return Provider.decode(message.value);
