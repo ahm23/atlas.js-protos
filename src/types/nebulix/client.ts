@@ -1,15 +1,10 @@
 //@ts-nocheck
 import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
-import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
+import { defaultRegistryTypes, SigningStargateClient } from "@cosmjs/stargate";
 import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import * as nebulixFiletreeV1TxRegistry from "./filetree/v1/tx.registry";
 import * as nebulixStorageV1TxRegistry from "./storage/v1/tx.registry";
-import * as nebulixFiletreeV1TxAmino from "./filetree/v1/tx.amino";
-import * as nebulixStorageV1TxAmino from "./storage/v1/tx.amino";
-export const nebulixAminoConverters = {
-  ...nebulixFiletreeV1TxAmino.AminoConverter,
-  ...nebulixStorageV1TxAmino.AminoConverter
-};
+
 export const nebulixProtoRegistry: ReadonlyArray<[string, GeneratedType]> = [...nebulixFiletreeV1TxRegistry.registry, ...nebulixStorageV1TxRegistry.registry];
 export const getSigningNebulixClientOptions = ({
   defaultTypes = defaultRegistryTypes
@@ -17,15 +12,10 @@ export const getSigningNebulixClientOptions = ({
   defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 } = {}): {
   registry: Registry;
-  aminoTypes: AminoTypes;
 } => {
   const registry = new Registry([...defaultTypes, ...nebulixProtoRegistry]);
-  const aminoTypes = new AminoTypes({
-    ...nebulixAminoConverters
-  });
   return {
-    registry,
-    aminoTypes
+    registry
   };
 };
 export const getSigningNebulixClient = async ({
@@ -38,14 +28,12 @@ export const getSigningNebulixClient = async ({
   defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 }) => {
   const {
-    registry,
-    aminoTypes
+    registry
   } = getSigningNebulixClientOptions({
     defaultTypes
   });
   const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, signer, {
-    registry: registry as any,
-    aminoTypes
+    registry: registry as any
   });
   return client;
 };
