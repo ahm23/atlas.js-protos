@@ -18,8 +18,6 @@ import * as _33 from "./filetree/v1/tx.rpc.msg";
 import * as _34 from "./storage/v1/tx.rpc.msg";
 import * as _37 from "./rpc.query";
 import * as _38 from "./rpc.tx";
-import * as _40 from "./storage/v1/tx.registry";
-import * as _41 from "./filetree/v1/tx.registry";
 export namespace nebulix {
   export namespace filetree {
     export const v1 = {
@@ -29,8 +27,7 @@ export namespace nebulix {
       ..._19,
       ..._20,
       ..._31,
-      ..._33,
-      ..._41
+      ..._33
     };
   }
   export namespace storage {
@@ -44,8 +41,7 @@ export namespace nebulix {
       ..._27,
       ..._28,
       ..._32,
-      ..._34,
-      ..._40
+      ..._34
     };
   }
   export const ClientFactory = {

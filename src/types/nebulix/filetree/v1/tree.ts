@@ -1,26 +1,26 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-export interface FileTreeNode {
+export interface FileNode {
   nodeType: string;
   contents: string;
 }
-export interface FileTreeNodeProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.FileTreeNode";
+export interface FileNodeProtoMsg {
+  typeUrl: "/nebulix.filetree.v1.FileNode";
   value: Uint8Array;
 }
-export interface FileTreeNodeSDKType {
+export interface FileNodeSDKType {
   node_type: string;
   contents: string;
 }
-function createBaseFileTreeNode(): FileTreeNode {
+function createBaseFileNode(): FileNode {
   return {
     nodeType: "",
     contents: ""
   };
 }
-export const FileTreeNode = {
-  typeUrl: "/nebulix.filetree.v1.FileTreeNode",
-  encode(message: FileTreeNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+export const FileNode = {
+  typeUrl: "/nebulix.filetree.v1.FileNode",
+  encode(message: FileNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nodeType !== "") {
       writer.uint32(10).string(message.nodeType);
     }
@@ -29,10 +29,10 @@ export const FileTreeNode = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FileTreeNode {
+  decode(input: BinaryReader | Uint8Array, length?: number): FileNode {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseFileTreeNode();
+    const message = createBaseFileNode();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -49,22 +49,22 @@ export const FileTreeNode = {
     }
     return message;
   },
-  fromPartial(object: Partial<FileTreeNode>): FileTreeNode {
-    const message = createBaseFileTreeNode();
+  fromPartial(object: Partial<FileNode>): FileNode {
+    const message = createBaseFileNode();
     message.nodeType = object.nodeType ?? "";
     message.contents = object.contents ?? "";
     return message;
   },
-  fromProtoMsg(message: FileTreeNodeProtoMsg): FileTreeNode {
-    return FileTreeNode.decode(message.value);
+  fromProtoMsg(message: FileNodeProtoMsg): FileNode {
+    return FileNode.decode(message.value);
   },
-  toProto(message: FileTreeNode): Uint8Array {
-    return FileTreeNode.encode(message).finish();
+  toProto(message: FileNode): Uint8Array {
+    return FileNode.encode(message).finish();
   },
-  toProtoMsg(message: FileTreeNode): FileTreeNodeProtoMsg {
+  toProtoMsg(message: FileNode): FileNodeProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.FileTreeNode",
-      value: FileTreeNode.encode(message).finish()
+      typeUrl: "/nebulix.filetree.v1.FileNode",
+      value: FileNode.encode(message).finish()
     };
   }
 };

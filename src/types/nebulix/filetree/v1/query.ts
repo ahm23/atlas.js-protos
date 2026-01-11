@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
-import { FileTreeNode, FileTreeNodeSDKType } from "./tree";
+import { FileNode, FileNodeSDKType } from "./tree";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}
@@ -23,31 +23,31 @@ export interface QueryParamsResponseProtoMsg {
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
-/** QueryFileTreeNodeRequest defines the QueryFileTreeNodeRequest message. */
-export interface QueryFileTreeNodeRequest {
+/** QueryFileNodeRequest defines the QueryFileNodeRequest message. */
+export interface QueryFileNodeRequest {
   owner: string;
   path: string;
 }
-export interface QueryFileTreeNodeRequestProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.QueryFileTreeNodeRequest";
+export interface QueryFileNodeRequestProtoMsg {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeRequest";
   value: Uint8Array;
 }
-/** QueryFileTreeNodeRequest defines the QueryFileTreeNodeRequest message. */
-export interface QueryFileTreeNodeRequestSDKType {
+/** QueryFileNodeRequest defines the QueryFileNodeRequest message. */
+export interface QueryFileNodeRequestSDKType {
   owner: string;
   path: string;
 }
-/** QueryFileTreeNodeResponse defines the QueryFileTreeNodeResponse message. */
-export interface QueryFileTreeNodeResponse {
-  node?: FileTreeNode;
+/** QueryFileNodeResponse defines the QueryFileNodeResponse message. */
+export interface QueryFileNodeResponse {
+  node?: FileNode;
 }
-export interface QueryFileTreeNodeResponseProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.QueryFileTreeNodeResponse";
+export interface QueryFileNodeResponseProtoMsg {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeResponse";
   value: Uint8Array;
 }
-/** QueryFileTreeNodeResponse defines the QueryFileTreeNodeResponse message. */
-export interface QueryFileTreeNodeResponseSDKType {
-  node?: FileTreeNodeSDKType;
+/** QueryFileNodeResponse defines the QueryFileNodeResponse message. */
+export interface QueryFileNodeResponseSDKType {
+  node?: FileNodeSDKType;
 }
 /** QueryFileTreePathsRequest defines the QueryFileTreePathsRequest message. */
 export interface QueryFileTreePathsRequest {
@@ -74,6 +74,32 @@ export interface QueryFileTreePathsResponseProtoMsg {
 /** QueryFileTreePathsResponse defines the QueryFileTreePathsResponse message. */
 export interface QueryFileTreePathsResponseSDKType {
   paths: string[];
+}
+/** QueryFileNodeChildrenRequest defines the QueryFileNodeChildrenRequest message. */
+export interface QueryFileNodeChildrenRequest {
+  owner: string;
+  path: string;
+}
+export interface QueryFileNodeChildrenRequestProtoMsg {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenRequest";
+  value: Uint8Array;
+}
+/** QueryFileNodeChildrenRequest defines the QueryFileNodeChildrenRequest message. */
+export interface QueryFileNodeChildrenRequestSDKType {
+  owner: string;
+  path: string;
+}
+/** QueryFileNodeChildrenResponse defines the QueryFileNodeChildrenResponse message. */
+export interface QueryFileNodeChildrenResponse {
+  nodes: FileNode[];
+}
+export interface QueryFileNodeChildrenResponseProtoMsg {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenResponse";
+  value: Uint8Array;
+}
+/** QueryFileNodeChildrenResponse defines the QueryFileNodeChildrenResponse message. */
+export interface QueryFileNodeChildrenResponseSDKType {
+  nodes: FileNodeSDKType[];
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
@@ -162,15 +188,15 @@ export const QueryParamsResponse = {
     };
   }
 };
-function createBaseQueryFileTreeNodeRequest(): QueryFileTreeNodeRequest {
+function createBaseQueryFileNodeRequest(): QueryFileNodeRequest {
   return {
     owner: "",
     path: ""
   };
 }
-export const QueryFileTreeNodeRequest = {
-  typeUrl: "/nebulix.filetree.v1.QueryFileTreeNodeRequest",
-  encode(message: QueryFileTreeNodeRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+export const QueryFileNodeRequest = {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeRequest",
+  encode(message: QueryFileNodeRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
@@ -179,10 +205,10 @@ export const QueryFileTreeNodeRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileTreeNodeRequest {
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeRequest {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryFileTreeNodeRequest();
+    const message = createBaseQueryFileNodeRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -199,47 +225,47 @@ export const QueryFileTreeNodeRequest = {
     }
     return message;
   },
-  fromPartial(object: Partial<QueryFileTreeNodeRequest>): QueryFileTreeNodeRequest {
-    const message = createBaseQueryFileTreeNodeRequest();
+  fromPartial(object: Partial<QueryFileNodeRequest>): QueryFileNodeRequest {
+    const message = createBaseQueryFileNodeRequest();
     message.owner = object.owner ?? "";
     message.path = object.path ?? "";
     return message;
   },
-  fromProtoMsg(message: QueryFileTreeNodeRequestProtoMsg): QueryFileTreeNodeRequest {
-    return QueryFileTreeNodeRequest.decode(message.value);
+  fromProtoMsg(message: QueryFileNodeRequestProtoMsg): QueryFileNodeRequest {
+    return QueryFileNodeRequest.decode(message.value);
   },
-  toProto(message: QueryFileTreeNodeRequest): Uint8Array {
-    return QueryFileTreeNodeRequest.encode(message).finish();
+  toProto(message: QueryFileNodeRequest): Uint8Array {
+    return QueryFileNodeRequest.encode(message).finish();
   },
-  toProtoMsg(message: QueryFileTreeNodeRequest): QueryFileTreeNodeRequestProtoMsg {
+  toProtoMsg(message: QueryFileNodeRequest): QueryFileNodeRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.QueryFileTreeNodeRequest",
-      value: QueryFileTreeNodeRequest.encode(message).finish()
+      typeUrl: "/nebulix.filetree.v1.QueryFileNodeRequest",
+      value: QueryFileNodeRequest.encode(message).finish()
     };
   }
 };
-function createBaseQueryFileTreeNodeResponse(): QueryFileTreeNodeResponse {
+function createBaseQueryFileNodeResponse(): QueryFileNodeResponse {
   return {
     node: undefined
   };
 }
-export const QueryFileTreeNodeResponse = {
-  typeUrl: "/nebulix.filetree.v1.QueryFileTreeNodeResponse",
-  encode(message: QueryFileTreeNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+export const QueryFileNodeResponse = {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeResponse",
+  encode(message: QueryFileNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.node !== undefined) {
-      FileTreeNode.encode(message.node, writer.uint32(10).fork()).ldelim();
+      FileNode.encode(message.node, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileTreeNodeResponse {
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeResponse {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryFileTreeNodeResponse();
+    const message = createBaseQueryFileNodeResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.node = FileTreeNode.decode(reader, reader.uint32());
+          message.node = FileNode.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -248,21 +274,21 @@ export const QueryFileTreeNodeResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<QueryFileTreeNodeResponse>): QueryFileTreeNodeResponse {
-    const message = createBaseQueryFileTreeNodeResponse();
-    message.node = object.node !== undefined && object.node !== null ? FileTreeNode.fromPartial(object.node) : undefined;
+  fromPartial(object: Partial<QueryFileNodeResponse>): QueryFileNodeResponse {
+    const message = createBaseQueryFileNodeResponse();
+    message.node = object.node !== undefined && object.node !== null ? FileNode.fromPartial(object.node) : undefined;
     return message;
   },
-  fromProtoMsg(message: QueryFileTreeNodeResponseProtoMsg): QueryFileTreeNodeResponse {
-    return QueryFileTreeNodeResponse.decode(message.value);
+  fromProtoMsg(message: QueryFileNodeResponseProtoMsg): QueryFileNodeResponse {
+    return QueryFileNodeResponse.decode(message.value);
   },
-  toProto(message: QueryFileTreeNodeResponse): Uint8Array {
-    return QueryFileTreeNodeResponse.encode(message).finish();
+  toProto(message: QueryFileNodeResponse): Uint8Array {
+    return QueryFileNodeResponse.encode(message).finish();
   },
-  toProtoMsg(message: QueryFileTreeNodeResponse): QueryFileTreeNodeResponseProtoMsg {
+  toProtoMsg(message: QueryFileNodeResponse): QueryFileNodeResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.QueryFileTreeNodeResponse",
-      value: QueryFileTreeNodeResponse.encode(message).finish()
+      typeUrl: "/nebulix.filetree.v1.QueryFileNodeResponse",
+      value: QueryFileNodeResponse.encode(message).finish()
     };
   }
 };
@@ -367,6 +393,110 @@ export const QueryFileTreePathsResponse = {
     return {
       typeUrl: "/nebulix.filetree.v1.QueryFileTreePathsResponse",
       value: QueryFileTreePathsResponse.encode(message).finish()
+    };
+  }
+};
+function createBaseQueryFileNodeChildrenRequest(): QueryFileNodeChildrenRequest {
+  return {
+    owner: "",
+    path: ""
+  };
+}
+export const QueryFileNodeChildrenRequest = {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenRequest",
+  encode(message: QueryFileNodeChildrenRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.owner !== "") {
+      writer.uint32(10).string(message.owner);
+    }
+    if (message.path !== "") {
+      writer.uint32(18).string(message.path);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeChildrenRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryFileNodeChildrenRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.owner = reader.string();
+          break;
+        case 2:
+          message.path = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryFileNodeChildrenRequest>): QueryFileNodeChildrenRequest {
+    const message = createBaseQueryFileNodeChildrenRequest();
+    message.owner = object.owner ?? "";
+    message.path = object.path ?? "";
+    return message;
+  },
+  fromProtoMsg(message: QueryFileNodeChildrenRequestProtoMsg): QueryFileNodeChildrenRequest {
+    return QueryFileNodeChildrenRequest.decode(message.value);
+  },
+  toProto(message: QueryFileNodeChildrenRequest): Uint8Array {
+    return QueryFileNodeChildrenRequest.encode(message).finish();
+  },
+  toProtoMsg(message: QueryFileNodeChildrenRequest): QueryFileNodeChildrenRequestProtoMsg {
+    return {
+      typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenRequest",
+      value: QueryFileNodeChildrenRequest.encode(message).finish()
+    };
+  }
+};
+function createBaseQueryFileNodeChildrenResponse(): QueryFileNodeChildrenResponse {
+  return {
+    nodes: []
+  };
+}
+export const QueryFileNodeChildrenResponse = {
+  typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenResponse",
+  encode(message: QueryFileNodeChildrenResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    for (const v of message.nodes) {
+      FileNode.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeChildrenResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryFileNodeChildrenResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.nodes.push(FileNode.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryFileNodeChildrenResponse>): QueryFileNodeChildrenResponse {
+    const message = createBaseQueryFileNodeChildrenResponse();
+    message.nodes = object.nodes?.map(e => FileNode.fromPartial(e)) || [];
+    return message;
+  },
+  fromProtoMsg(message: QueryFileNodeChildrenResponseProtoMsg): QueryFileNodeChildrenResponse {
+    return QueryFileNodeChildrenResponse.decode(message.value);
+  },
+  toProto(message: QueryFileNodeChildrenResponse): Uint8Array {
+    return QueryFileNodeChildrenResponse.encode(message).finish();
+  },
+  toProtoMsg(message: QueryFileNodeChildrenResponse): QueryFileNodeChildrenResponseProtoMsg {
+    return {
+      typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenResponse",
+      value: QueryFileNodeChildrenResponse.encode(message).finish()
     };
   }
 };
