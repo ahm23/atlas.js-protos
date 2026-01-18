@@ -8,10 +8,12 @@ import * as _7 from "./base/query/v1beta1/pagination";
 import * as _8 from "./base/v1beta1/coin";
 import * as _9 from "./msg/v1/msg";
 import * as _10 from "./query/v1/query";
-import * as _29 from "./bank/v1beta1/query.rpc.Query";
-import * as _30 from "./bank/v1beta1/tx.rpc.msg";
-import * as _35 from "./rpc.query";
-import * as _36 from "./rpc.tx";
+import * as _29 from "./bank/v1beta1/query.rpc.func";
+import * as _30 from "./bank/v1beta1/query.rpc.Query";
+import * as _31 from "./bank/v1beta1/tx.rpc.func";
+import * as _32 from "./bank/v1beta1/tx.rpc.msg";
+import * as _41 from "./rpc.query";
+import * as _42 from "./rpc.tx";
 export namespace cosmos {
   export namespace bank {
     export const v1beta1 = {
@@ -21,7 +23,9 @@ export namespace cosmos {
       ..._5,
       ..._6,
       ..._29,
-      ..._30
+      ..._30,
+      ..._31,
+      ..._32
     };
   }
   export namespace base {
@@ -45,7 +49,7 @@ export namespace cosmos {
     };
   }
   export const ClientFactory = {
-    ..._35,
-    ..._36
+    ..._41,
+    ..._42
   };
 }

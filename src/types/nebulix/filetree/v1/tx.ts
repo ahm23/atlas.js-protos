@@ -1,18 +1,33 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
-  /** NOTE: All parameters must be supplied. */
+  /**
+   * NOTE: All parameters must be supplied.
+   */
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/nebulix.filetree.v1.MsgUpdateParams";
   value: Uint8Array;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParamsSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsSDKType {
   authority: string;
   params: ParamsSDKType;
@@ -20,6 +35,9 @@ export interface MsgUpdateParamsSDKType {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -29,9 +47,17 @@ export interface MsgUpdateParamsResponseProtoMsg {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponseSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
-/** MsgPostNode defines the MsgPostNode message. */
+/**
+ * MsgPostNode defines the MsgPostNode message.
+ * @name MsgPostNode
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgPostNode
+ */
 export interface MsgPostNode {
   creator: string;
   path: string;
@@ -42,22 +68,42 @@ export interface MsgPostNodeProtoMsg {
   typeUrl: "/nebulix.filetree.v1.MsgPostNode";
   value: Uint8Array;
 }
-/** MsgPostNode defines the MsgPostNode message. */
+/**
+ * MsgPostNode defines the MsgPostNode message.
+ * @name MsgPostNodeSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgPostNode
+ */
 export interface MsgPostNodeSDKType {
   creator: string;
   path: string;
   node_type: string;
   contents: string;
 }
-/** MsgPostNodeResponse defines the MsgPostNodeResponse message. */
+/**
+ * MsgPostNodeResponse defines the MsgPostNodeResponse message.
+ * @name MsgPostNodeResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgPostNodeResponse
+ */
 export interface MsgPostNodeResponse {}
 export interface MsgPostNodeResponseProtoMsg {
   typeUrl: "/nebulix.filetree.v1.MsgPostNodeResponse";
   value: Uint8Array;
 }
-/** MsgPostNodeResponse defines the MsgPostNodeResponse message. */
+/**
+ * MsgPostNodeResponse defines the MsgPostNodeResponse message.
+ * @name MsgPostNodeResponseSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgPostNodeResponse
+ */
 export interface MsgPostNodeResponseSDKType {}
-/** MsgDeleteNode defines the MsgDeleteNode message. */
+/**
+ * MsgDeleteNode defines the MsgDeleteNode message.
+ * @name MsgDeleteNode
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgDeleteNode
+ */
 export interface MsgDeleteNode {
   creator: string;
   path: string;
@@ -66,18 +112,33 @@ export interface MsgDeleteNodeProtoMsg {
   typeUrl: "/nebulix.filetree.v1.MsgDeleteNode";
   value: Uint8Array;
 }
-/** MsgDeleteNode defines the MsgDeleteNode message. */
+/**
+ * MsgDeleteNode defines the MsgDeleteNode message.
+ * @name MsgDeleteNodeSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgDeleteNode
+ */
 export interface MsgDeleteNodeSDKType {
   creator: string;
   path: string;
 }
-/** MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message. */
+/**
+ * MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message.
+ * @name MsgDeleteNodeResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgDeleteNodeResponse
+ */
 export interface MsgDeleteNodeResponse {}
 export interface MsgDeleteNodeResponseProtoMsg {
   typeUrl: "/nebulix.filetree.v1.MsgDeleteNodeResponse";
   value: Uint8Array;
 }
-/** MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message. */
+/**
+ * MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message.
+ * @name MsgDeleteNodeResponseSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgDeleteNodeResponse
+ */
 export interface MsgDeleteNodeResponseSDKType {}
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
@@ -85,8 +146,21 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/nebulix.filetree.v1.MsgUpdateParams",
+  aminoType: "nebulix/x/filetree/MsgUpdateParams",
+  is(o: any): o is MsgUpdateParams {
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
+  },
+  isSDK(o: any): o is MsgUpdateParamsSDKType {
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
+  },
   encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
@@ -133,13 +207,34 @@ export const MsgUpdateParams = {
       typeUrl: "/nebulix.filetree.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/nebulix.filetree.v1.MsgUpdateParamsResponse",
+  is(o: any): o is MsgUpdateParamsResponse {
+    return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgUpdateParamsResponseSDKType {
+    return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
+  },
   encode(_: MsgUpdateParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -172,8 +267,10 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/nebulix.filetree.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
 function createBaseMsgPostNode(): MsgPostNode {
   return {
     creator: "",
@@ -182,8 +279,20 @@ function createBaseMsgPostNode(): MsgPostNode {
     contents: ""
   };
 }
+/**
+ * MsgPostNode defines the MsgPostNode message.
+ * @name MsgPostNode
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgPostNode
+ */
 export const MsgPostNode = {
   typeUrl: "/nebulix.filetree.v1.MsgPostNode",
+  is(o: any): o is MsgPostNode {
+    return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.nodeType === "string" && typeof o.contents === "string");
+  },
+  isSDK(o: any): o is MsgPostNodeSDKType {
+    return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.node_type === "string" && typeof o.contents === "string");
+  },
   encode(message: MsgPostNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
@@ -244,13 +353,27 @@ export const MsgPostNode = {
       typeUrl: "/nebulix.filetree.v1.MsgPostNode",
       value: MsgPostNode.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgPostNode.typeUrl, MsgPostNode);
 function createBaseMsgPostNodeResponse(): MsgPostNodeResponse {
   return {};
 }
+/**
+ * MsgPostNodeResponse defines the MsgPostNodeResponse message.
+ * @name MsgPostNodeResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgPostNodeResponse
+ */
 export const MsgPostNodeResponse = {
   typeUrl: "/nebulix.filetree.v1.MsgPostNodeResponse",
+  is(o: any): o is MsgPostNodeResponse {
+    return o && o.$typeUrl === MsgPostNodeResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgPostNodeResponseSDKType {
+    return o && o.$typeUrl === MsgPostNodeResponse.typeUrl;
+  },
   encode(_: MsgPostNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -283,16 +406,30 @@ export const MsgPostNodeResponse = {
       typeUrl: "/nebulix.filetree.v1.MsgPostNodeResponse",
       value: MsgPostNodeResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgPostNodeResponse.typeUrl, MsgPostNodeResponse);
 function createBaseMsgDeleteNode(): MsgDeleteNode {
   return {
     creator: "",
     path: ""
   };
 }
+/**
+ * MsgDeleteNode defines the MsgDeleteNode message.
+ * @name MsgDeleteNode
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgDeleteNode
+ */
 export const MsgDeleteNode = {
   typeUrl: "/nebulix.filetree.v1.MsgDeleteNode",
+  is(o: any): o is MsgDeleteNode {
+    return o && (o.$typeUrl === MsgDeleteNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string");
+  },
+  isSDK(o: any): o is MsgDeleteNodeSDKType {
+    return o && (o.$typeUrl === MsgDeleteNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string");
+  },
   encode(message: MsgDeleteNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
@@ -339,13 +476,27 @@ export const MsgDeleteNode = {
       typeUrl: "/nebulix.filetree.v1.MsgDeleteNode",
       value: MsgDeleteNode.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgDeleteNode.typeUrl, MsgDeleteNode);
 function createBaseMsgDeleteNodeResponse(): MsgDeleteNodeResponse {
   return {};
 }
+/**
+ * MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message.
+ * @name MsgDeleteNodeResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.MsgDeleteNodeResponse
+ */
 export const MsgDeleteNodeResponse = {
   typeUrl: "/nebulix.filetree.v1.MsgDeleteNodeResponse",
+  is(o: any): o is MsgDeleteNodeResponse {
+    return o && o.$typeUrl === MsgDeleteNodeResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgDeleteNodeResponseSDKType {
+    return o && o.$typeUrl === MsgDeleteNodeResponse.typeUrl;
+  },
   encode(_: MsgDeleteNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -378,5 +529,7 @@ export const MsgDeleteNodeResponse = {
       typeUrl: "/nebulix.filetree.v1.MsgDeleteNodeResponse",
       value: MsgDeleteNodeResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgDeleteNodeResponse.typeUrl, MsgDeleteNodeResponse);

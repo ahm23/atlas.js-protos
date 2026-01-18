@@ -1,6 +1,12 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** File defines the File message. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * File defines the File message.
+ * @name File
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.File
+ */
 export interface File {
   fileId: string;
   merkle: string;
@@ -18,7 +24,12 @@ export interface FileProtoMsg {
   typeUrl: "/nebulix.storage.v1.File";
   value: Uint8Array;
 }
-/** File defines the File message. */
+/**
+ * File defines the File message.
+ * @name FileSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.File
+ */
 export interface FileSDKType {
   file_id: string;
   merkle: string;
@@ -47,8 +58,20 @@ function createBaseFile(): File {
     lastChallengedHeight: BigInt(0)
   };
 }
+/**
+ * File defines the File message.
+ * @name File
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.File
+ */
 export const File = {
   typeUrl: "/nebulix.storage.v1.File",
+  is(o: any): o is File {
+    return o && (o.$typeUrl === File.typeUrl || typeof o.fileId === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.fileSize === "bigint" && typeof o.replicas === "bigint" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.dedupeIndex === "bigint" && typeof o.lastChallengedHeight === "bigint");
+  },
+  isSDK(o: any): o is FileSDKType {
+    return o && (o.$typeUrl === File.typeUrl || typeof o.file_id === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.file_size === "bigint" && typeof o.replicas === "bigint" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.dedupe_index === "bigint" && typeof o.last_challenged_height === "bigint");
+  },
   encode(message: File, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.fileId !== "") {
       writer.uint32(10).string(message.fileId);
@@ -158,5 +181,7 @@ export const File = {
       typeUrl: "/nebulix.storage.v1.File",
       value: File.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(File.typeUrl, File);

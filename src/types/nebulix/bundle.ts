@@ -12,14 +12,16 @@ import * as _25 from "./storage/v1/provider";
 import * as _26 from "./storage/v1/query";
 import * as _27 from "./storage/v1/subscription";
 import * as _28 from "./storage/v1/tx";
-import * as _31 from "./filetree/v1/query.rpc.Query";
-import * as _32 from "./storage/v1/query.rpc.Query";
-import * as _33 from "./filetree/v1/tx.rpc.msg";
-import * as _34 from "./storage/v1/tx.rpc.msg";
-import * as _37 from "./rpc.query";
-import * as _38 from "./rpc.tx";
-import * as _40 from "./storage/v1/tx.registry";
-import * as _41 from "./filetree/v1/tx.registry";
+import * as _33 from "./filetree/v1/query.rpc.func";
+import * as _34 from "./storage/v1/query.rpc.func";
+import * as _35 from "./filetree/v1/query.rpc.Query";
+import * as _36 from "./storage/v1/query.rpc.Query";
+import * as _37 from "./filetree/v1/tx.rpc.func";
+import * as _38 from "./storage/v1/tx.rpc.func";
+import * as _39 from "./filetree/v1/tx.rpc.msg";
+import * as _40 from "./storage/v1/tx.rpc.msg";
+import * as _43 from "./rpc.query";
+import * as _44 from "./rpc.tx";
 export namespace nebulix {
   export namespace filetree {
     export const v1 = {
@@ -28,9 +30,10 @@ export namespace nebulix {
       ..._18,
       ..._19,
       ..._20,
-      ..._31,
       ..._33,
-      ..._41
+      ..._35,
+      ..._37,
+      ..._39
     };
   }
   export namespace storage {
@@ -43,13 +46,14 @@ export namespace nebulix {
       ..._26,
       ..._27,
       ..._28,
-      ..._32,
       ..._34,
+      ..._36,
+      ..._38,
       ..._40
     };
   }
   export const ClientFactory = {
-    ..._37,
-    ..._38
+    ..._43,
+    ..._44
   };
 }

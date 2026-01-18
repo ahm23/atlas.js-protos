@@ -1,5 +1,11 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * @name FileNode
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.FileNode
+ */
 export interface FileNode {
   nodeType: string;
   contents: string;
@@ -8,6 +14,11 @@ export interface FileNodeProtoMsg {
   typeUrl: "/nebulix.filetree.v1.FileNode";
   value: Uint8Array;
 }
+/**
+ * @name FileNodeSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.FileNode
+ */
 export interface FileNodeSDKType {
   node_type: string;
   contents: string;
@@ -18,8 +29,19 @@ function createBaseFileNode(): FileNode {
     contents: ""
   };
 }
+/**
+ * @name FileNode
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.FileNode
+ */
 export const FileNode = {
   typeUrl: "/nebulix.filetree.v1.FileNode",
+  is(o: any): o is FileNode {
+    return o && (o.$typeUrl === FileNode.typeUrl || typeof o.nodeType === "string" && typeof o.contents === "string");
+  },
+  isSDK(o: any): o is FileNodeSDKType {
+    return o && (o.$typeUrl === FileNode.typeUrl || typeof o.node_type === "string" && typeof o.contents === "string");
+  },
   encode(message: FileNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nodeType !== "") {
       writer.uint32(10).string(message.nodeType);
@@ -66,5 +88,7 @@ export const FileNode = {
       typeUrl: "/nebulix.filetree.v1.FileNode",
       value: FileNode.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(FileNode.typeUrl, FileNode);

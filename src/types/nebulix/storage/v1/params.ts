@@ -1,6 +1,12 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** Params defines the parameters for the module. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * Params defines the parameters for the module.
+ * @name Params
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.Params
+ */
 export interface Params {
   pricePerGbDay: bigint;
   providerDeposit: bigint;
@@ -11,7 +17,12 @@ export interface ParamsProtoMsg {
   typeUrl: "/nebulix.storage.v1.Params";
   value: Uint8Array;
 }
-/** Params defines the parameters for the module. */
+/**
+ * Params defines the parameters for the module.
+ * @name ParamsSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.Params
+ */
 export interface ParamsSDKType {
   price_per_gb_day: bigint;
   provider_deposit: bigint;
@@ -26,8 +37,21 @@ function createBaseParams(): Params {
     maxChallengesPerRound: BigInt(0)
   };
 }
+/**
+ * Params defines the parameters for the module.
+ * @name Params
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.Params
+ */
 export const Params = {
   typeUrl: "/nebulix.storage.v1.Params",
+  aminoType: "nebulix/x/storage/Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.pricePerGbDay === "bigint" && typeof o.providerDeposit === "bigint" && typeof o.challengeWindow === "bigint" && typeof o.maxChallengesPerRound === "bigint");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.price_per_gb_day === "bigint" && typeof o.provider_deposit === "bigint" && typeof o.challenge_window === "bigint" && typeof o.max_challenges_per_round === "bigint");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pricePerGbDay !== BigInt(0)) {
       writer.uint32(8).int64(message.pricePerGbDay);
@@ -88,5 +112,8 @@ export const Params = {
       typeUrl: "/nebulix.storage.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(Params.typeUrl, Params);
+GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

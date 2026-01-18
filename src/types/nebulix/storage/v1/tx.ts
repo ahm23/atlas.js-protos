@@ -1,18 +1,33 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
-  /** NOTE: All parameters must be supplied. */
+  /**
+   * NOTE: All parameters must be supplied.
+   */
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgUpdateParams";
   value: Uint8Array;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParamsSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsSDKType {
   authority: string;
   params: ParamsSDKType;
@@ -20,6 +35,9 @@ export interface MsgUpdateParamsSDKType {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -29,9 +47,17 @@ export interface MsgUpdateParamsResponseProtoMsg {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
-/** MsgRegisterProvider defines the MsgRegisterProvider message. */
+/**
+ * MsgRegisterProvider defines the MsgRegisterProvider message.
+ * @name MsgRegisterProvider
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgRegisterProvider
+ */
 export interface MsgRegisterProvider {
   creator: string;
   hostname: string;
@@ -41,21 +67,41 @@ export interface MsgRegisterProviderProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgRegisterProvider";
   value: Uint8Array;
 }
-/** MsgRegisterProvider defines the MsgRegisterProvider message. */
+/**
+ * MsgRegisterProvider defines the MsgRegisterProvider message.
+ * @name MsgRegisterProviderSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgRegisterProvider
+ */
 export interface MsgRegisterProviderSDKType {
   creator: string;
   hostname: string;
   capacity: bigint;
 }
-/** MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message. */
+/**
+ * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
+ * @name MsgRegisterProviderResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgRegisterProviderResponse
+ */
 export interface MsgRegisterProviderResponse {}
 export interface MsgRegisterProviderResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgRegisterProviderResponse";
   value: Uint8Array;
 }
-/** MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message. */
+/**
+ * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
+ * @name MsgRegisterProviderResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgRegisterProviderResponse
+ */
 export interface MsgRegisterProviderResponseSDKType {}
-/** MsgPostFile defines the MsgPostFile message. */
+/**
+ * MsgPostFile defines the MsgPostFile message.
+ * @name MsgPostFile
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgPostFile
+ */
 export interface MsgPostFile {
   creator: string;
   merkle: Uint8Array;
@@ -67,7 +113,12 @@ export interface MsgPostFileProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgPostFile";
   value: Uint8Array;
 }
-/** MsgPostFile defines the MsgPostFile message. */
+/**
+ * MsgPostFile defines the MsgPostFile message.
+ * @name MsgPostFileSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgPostFile
+ */
 export interface MsgPostFileSDKType {
   creator: string;
   merkle: Uint8Array;
@@ -75,7 +126,12 @@ export interface MsgPostFileSDKType {
   replicas: bigint;
   subscription: string;
 }
-/** MsgPostFileResponse defines the MsgPostFileResponse message. */
+/**
+ * MsgPostFileResponse defines the MsgPostFileResponse message.
+ * @name MsgPostFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgPostFileResponse
+ */
 export interface MsgPostFileResponse {
   startBlock: bigint;
 }
@@ -83,11 +139,21 @@ export interface MsgPostFileResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgPostFileResponse";
   value: Uint8Array;
 }
-/** MsgPostFileResponse defines the MsgPostFileResponse message. */
+/**
+ * MsgPostFileResponse defines the MsgPostFileResponse message.
+ * @name MsgPostFileResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgPostFileResponse
+ */
 export interface MsgPostFileResponseSDKType {
   start_block: bigint;
 }
-/** MsgBuyStorage defines the MsgBuyStorage message. */
+/**
+ * MsgBuyStorage defines the MsgBuyStorage message.
+ * @name MsgBuyStorage
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgBuyStorage
+ */
 export interface MsgBuyStorage {
   creator: string;
   receiver: string;
@@ -99,7 +165,12 @@ export interface MsgBuyStorageProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgBuyStorage";
   value: Uint8Array;
 }
-/** MsgBuyStorage defines the MsgBuyStorage message. */
+/**
+ * MsgBuyStorage defines the MsgBuyStorage message.
+ * @name MsgBuyStorageSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgBuyStorage
+ */
 export interface MsgBuyStorageSDKType {
   creator: string;
   receiver: string;
@@ -107,7 +178,12 @@ export interface MsgBuyStorageSDKType {
   bytes: bigint;
   is_default: boolean;
 }
-/** MsgBuyStorageResponse defines the MsgBuyStorageResponse message. */
+/**
+ * MsgBuyStorageResponse defines the MsgBuyStorageResponse message.
+ * @name MsgBuyStorageResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgBuyStorageResponse
+ */
 export interface MsgBuyStorageResponse {
   subscriptionId: string;
 }
@@ -115,11 +191,21 @@ export interface MsgBuyStorageResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgBuyStorageResponse";
   value: Uint8Array;
 }
-/** MsgBuyStorageResponse defines the MsgBuyStorageResponse message. */
+/**
+ * MsgBuyStorageResponse defines the MsgBuyStorageResponse message.
+ * @name MsgBuyStorageResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgBuyStorageResponse
+ */
 export interface MsgBuyStorageResponseSDKType {
   SubscriptionId: string;
 }
-/** MsgProveFile defines the MsgProveFile message. */
+/**
+ * MsgProveFile defines the MsgProveFile message.
+ * @name MsgProveFile
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgProveFile
+ */
 export interface MsgProveFile {
   creator: string;
   challengeId: string;
@@ -132,7 +218,12 @@ export interface MsgProveFileProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgProveFile";
   value: Uint8Array;
 }
-/** MsgProveFile defines the MsgProveFile message. */
+/**
+ * MsgProveFile defines the MsgProveFile message.
+ * @name MsgProveFileSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgProveFile
+ */
 export interface MsgProveFileSDKType {
   creator: string;
   challenge_id: string;
@@ -141,13 +232,23 @@ export interface MsgProveFileSDKType {
   hashes: Uint8Array[];
   chunk: bigint;
 }
-/** MsgProveFileResponse defines the MsgProveFileResponse message. */
+/**
+ * MsgProveFileResponse defines the MsgProveFileResponse message.
+ * @name MsgProveFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgProveFileResponse
+ */
 export interface MsgProveFileResponse {}
 export interface MsgProveFileResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgProveFileResponse";
   value: Uint8Array;
 }
-/** MsgProveFileResponse defines the MsgProveFileResponse message. */
+/**
+ * MsgProveFileResponse defines the MsgProveFileResponse message.
+ * @name MsgProveFileResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgProveFileResponse
+ */
 export interface MsgProveFileResponseSDKType {}
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
@@ -155,8 +256,21 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/nebulix.storage.v1.MsgUpdateParams",
+  aminoType: "nebulix/x/storage/MsgUpdateParams",
+  is(o: any): o is MsgUpdateParams {
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
+  },
+  isSDK(o: any): o is MsgUpdateParamsSDKType {
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
+  },
   encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
@@ -203,13 +317,34 @@ export const MsgUpdateParams = {
       typeUrl: "/nebulix.storage.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/nebulix.storage.v1.MsgUpdateParamsResponse",
+  is(o: any): o is MsgUpdateParamsResponse {
+    return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgUpdateParamsResponseSDKType {
+    return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
+  },
   encode(_: MsgUpdateParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -242,8 +377,10 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/nebulix.storage.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
 function createBaseMsgRegisterProvider(): MsgRegisterProvider {
   return {
     creator: "",
@@ -251,8 +388,20 @@ function createBaseMsgRegisterProvider(): MsgRegisterProvider {
     capacity: BigInt(0)
   };
 }
+/**
+ * MsgRegisterProvider defines the MsgRegisterProvider message.
+ * @name MsgRegisterProvider
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgRegisterProvider
+ */
 export const MsgRegisterProvider = {
   typeUrl: "/nebulix.storage.v1.MsgRegisterProvider",
+  is(o: any): o is MsgRegisterProvider {
+    return o && (o.$typeUrl === MsgRegisterProvider.typeUrl || typeof o.creator === "string" && typeof o.hostname === "string" && typeof o.capacity === "bigint");
+  },
+  isSDK(o: any): o is MsgRegisterProviderSDKType {
+    return o && (o.$typeUrl === MsgRegisterProvider.typeUrl || typeof o.creator === "string" && typeof o.hostname === "string" && typeof o.capacity === "bigint");
+  },
   encode(message: MsgRegisterProvider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
@@ -306,13 +455,27 @@ export const MsgRegisterProvider = {
       typeUrl: "/nebulix.storage.v1.MsgRegisterProvider",
       value: MsgRegisterProvider.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgRegisterProvider.typeUrl, MsgRegisterProvider);
 function createBaseMsgRegisterProviderResponse(): MsgRegisterProviderResponse {
   return {};
 }
+/**
+ * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
+ * @name MsgRegisterProviderResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgRegisterProviderResponse
+ */
 export const MsgRegisterProviderResponse = {
   typeUrl: "/nebulix.storage.v1.MsgRegisterProviderResponse",
+  is(o: any): o is MsgRegisterProviderResponse {
+    return o && o.$typeUrl === MsgRegisterProviderResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgRegisterProviderResponseSDKType {
+    return o && o.$typeUrl === MsgRegisterProviderResponse.typeUrl;
+  },
   encode(_: MsgRegisterProviderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -345,8 +508,10 @@ export const MsgRegisterProviderResponse = {
       typeUrl: "/nebulix.storage.v1.MsgRegisterProviderResponse",
       value: MsgRegisterProviderResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgRegisterProviderResponse.typeUrl, MsgRegisterProviderResponse);
 function createBaseMsgPostFile(): MsgPostFile {
   return {
     creator: "",
@@ -356,8 +521,20 @@ function createBaseMsgPostFile(): MsgPostFile {
     subscription: ""
   };
 }
+/**
+ * MsgPostFile defines the MsgPostFile message.
+ * @name MsgPostFile
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgPostFile
+ */
 export const MsgPostFile = {
   typeUrl: "/nebulix.storage.v1.MsgPostFile",
+  is(o: any): o is MsgPostFile {
+    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.fileSize === "bigint" && typeof o.replicas === "bigint" && typeof o.subscription === "string");
+  },
+  isSDK(o: any): o is MsgPostFileSDKType {
+    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.file_size === "bigint" && typeof o.replicas === "bigint" && typeof o.subscription === "string");
+  },
   encode(message: MsgPostFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
@@ -425,15 +602,29 @@ export const MsgPostFile = {
       typeUrl: "/nebulix.storage.v1.MsgPostFile",
       value: MsgPostFile.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgPostFile.typeUrl, MsgPostFile);
 function createBaseMsgPostFileResponse(): MsgPostFileResponse {
   return {
     startBlock: BigInt(0)
   };
 }
+/**
+ * MsgPostFileResponse defines the MsgPostFileResponse message.
+ * @name MsgPostFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgPostFileResponse
+ */
 export const MsgPostFileResponse = {
   typeUrl: "/nebulix.storage.v1.MsgPostFileResponse",
+  is(o: any): o is MsgPostFileResponse {
+    return o && (o.$typeUrl === MsgPostFileResponse.typeUrl || typeof o.startBlock === "bigint");
+  },
+  isSDK(o: any): o is MsgPostFileResponseSDKType {
+    return o && (o.$typeUrl === MsgPostFileResponse.typeUrl || typeof o.start_block === "bigint");
+  },
   encode(message: MsgPostFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.startBlock !== BigInt(0)) {
       writer.uint32(8).int64(message.startBlock);
@@ -473,8 +664,10 @@ export const MsgPostFileResponse = {
       typeUrl: "/nebulix.storage.v1.MsgPostFileResponse",
       value: MsgPostFileResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgPostFileResponse.typeUrl, MsgPostFileResponse);
 function createBaseMsgBuyStorage(): MsgBuyStorage {
   return {
     creator: "",
@@ -484,8 +677,20 @@ function createBaseMsgBuyStorage(): MsgBuyStorage {
     isDefault: false
   };
 }
+/**
+ * MsgBuyStorage defines the MsgBuyStorage message.
+ * @name MsgBuyStorage
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgBuyStorage
+ */
 export const MsgBuyStorage = {
   typeUrl: "/nebulix.storage.v1.MsgBuyStorage",
+  is(o: any): o is MsgBuyStorage {
+    return o && (o.$typeUrl === MsgBuyStorage.typeUrl || typeof o.creator === "string" && typeof o.receiver === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint" && typeof o.isDefault === "boolean");
+  },
+  isSDK(o: any): o is MsgBuyStorageSDKType {
+    return o && (o.$typeUrl === MsgBuyStorage.typeUrl || typeof o.creator === "string" && typeof o.receiver === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint" && typeof o.is_default === "boolean");
+  },
   encode(message: MsgBuyStorage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
@@ -553,15 +758,29 @@ export const MsgBuyStorage = {
       typeUrl: "/nebulix.storage.v1.MsgBuyStorage",
       value: MsgBuyStorage.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgBuyStorage.typeUrl, MsgBuyStorage);
 function createBaseMsgBuyStorageResponse(): MsgBuyStorageResponse {
   return {
     subscriptionId: ""
   };
 }
+/**
+ * MsgBuyStorageResponse defines the MsgBuyStorageResponse message.
+ * @name MsgBuyStorageResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgBuyStorageResponse
+ */
 export const MsgBuyStorageResponse = {
   typeUrl: "/nebulix.storage.v1.MsgBuyStorageResponse",
+  is(o: any): o is MsgBuyStorageResponse {
+    return o && (o.$typeUrl === MsgBuyStorageResponse.typeUrl || typeof o.subscriptionId === "string");
+  },
+  isSDK(o: any): o is MsgBuyStorageResponseSDKType {
+    return o && (o.$typeUrl === MsgBuyStorageResponse.typeUrl || typeof o.SubscriptionId === "string");
+  },
   encode(message: MsgBuyStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.subscriptionId !== "") {
       writer.uint32(10).string(message.subscriptionId);
@@ -601,8 +820,10 @@ export const MsgBuyStorageResponse = {
       typeUrl: "/nebulix.storage.v1.MsgBuyStorageResponse",
       value: MsgBuyStorageResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgBuyStorageResponse.typeUrl, MsgBuyStorageResponse);
 function createBaseMsgProveFile(): MsgProveFile {
   return {
     creator: "",
@@ -613,8 +834,20 @@ function createBaseMsgProveFile(): MsgProveFile {
     chunk: BigInt(0)
   };
 }
+/**
+ * MsgProveFile defines the MsgProveFile message.
+ * @name MsgProveFile
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgProveFile
+ */
 export const MsgProveFile = {
   typeUrl: "/nebulix.storage.v1.MsgProveFile",
+  is(o: any): o is MsgProveFile {
+    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challengeId === "string" && typeof o.fileId === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
+  },
+  isSDK(o: any): o is MsgProveFileSDKType {
+    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challenge_id === "string" && typeof o.file_id === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
+  },
   encode(message: MsgProveFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
@@ -689,13 +922,27 @@ export const MsgProveFile = {
       typeUrl: "/nebulix.storage.v1.MsgProveFile",
       value: MsgProveFile.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgProveFile.typeUrl, MsgProveFile);
 function createBaseMsgProveFileResponse(): MsgProveFileResponse {
   return {};
 }
+/**
+ * MsgProveFileResponse defines the MsgProveFileResponse message.
+ * @name MsgProveFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgProveFileResponse
+ */
 export const MsgProveFileResponse = {
   typeUrl: "/nebulix.storage.v1.MsgProveFileResponse",
+  is(o: any): o is MsgProveFileResponse {
+    return o && o.$typeUrl === MsgProveFileResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgProveFileResponseSDKType {
+    return o && o.$typeUrl === MsgProveFileResponse.typeUrl;
+  },
   encode(_: MsgProveFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -728,5 +975,7 @@ export const MsgProveFileResponse = {
       typeUrl: "/nebulix.storage.v1.MsgProveFileResponse",
       value: MsgProveFileResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MsgProveFileResponse.typeUrl, MsgProveFileResponse);

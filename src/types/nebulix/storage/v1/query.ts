@@ -5,28 +5,56 @@ import { Provider, ProviderSDKType } from "./provider";
 import { File, FileSDKType } from "./file";
 import { StorageSubscription, StorageSubscriptionSDKType } from "./subscription";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** QueryParamsRequest is request type for the Query/Params RPC method. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
-  /** params holds all the parameters of this module. */
+  /**
+   * params holds all the parameters of this module.
+   */
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
-/** QueryProviderRequest defines the QueryProviderRequest message. */
+/**
+ * QueryProviderRequest defines the QueryProviderRequest message.
+ * @name QueryProviderRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProviderRequest
+ */
 export interface QueryProviderRequest {
   address: string;
 }
@@ -34,11 +62,21 @@ export interface QueryProviderRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryProviderRequest";
   value: Uint8Array;
 }
-/** QueryProviderRequest defines the QueryProviderRequest message. */
+/**
+ * QueryProviderRequest defines the QueryProviderRequest message.
+ * @name QueryProviderRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProviderRequest
+ */
 export interface QueryProviderRequestSDKType {
   address: string;
 }
-/** QueryProviderResponse defines the QueryProviderResponse message. */
+/**
+ * QueryProviderResponse defines the QueryProviderResponse message.
+ * @name QueryProviderResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProviderResponse
+ */
 export interface QueryProviderResponse {
   provider?: Provider;
 }
@@ -46,19 +84,39 @@ export interface QueryProviderResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryProviderResponse";
   value: Uint8Array;
 }
-/** QueryProviderResponse defines the QueryProviderResponse message. */
+/**
+ * QueryProviderResponse defines the QueryProviderResponse message.
+ * @name QueryProviderResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProviderResponse
+ */
 export interface QueryProviderResponseSDKType {
   provider?: ProviderSDKType;
 }
-/** QueryProvidersRequest defines the QueryProvidersRequest message. */
+/**
+ * QueryProvidersRequest defines the QueryProvidersRequest message.
+ * @name QueryProvidersRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProvidersRequest
+ */
 export interface QueryProvidersRequest {}
 export interface QueryProvidersRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryProvidersRequest";
   value: Uint8Array;
 }
-/** QueryProvidersRequest defines the QueryProvidersRequest message. */
+/**
+ * QueryProvidersRequest defines the QueryProvidersRequest message.
+ * @name QueryProvidersRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProvidersRequest
+ */
 export interface QueryProvidersRequestSDKType {}
-/** QueryProvidersResponse defines the QueryProvidersResponse message. */
+/**
+ * QueryProvidersResponse defines the QueryProvidersResponse message.
+ * @name QueryProvidersResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProvidersResponse
+ */
 export interface QueryProvidersResponse {
   providers: Provider[];
 }
@@ -66,11 +124,21 @@ export interface QueryProvidersResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryProvidersResponse";
   value: Uint8Array;
 }
-/** QueryProvidersResponse defines the QueryProvidersResponse message. */
+/**
+ * QueryProvidersResponse defines the QueryProvidersResponse message.
+ * @name QueryProvidersResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProvidersResponse
+ */
 export interface QueryProvidersResponseSDKType {
   providers: ProviderSDKType[];
 }
-/** QueryFileRequest defines the QueryFileRequest message. */
+/**
+ * QueryFileRequest defines the QueryFileRequest message.
+ * @name QueryFileRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileRequest
+ */
 export interface QueryFileRequest {
   fid: string;
 }
@@ -78,11 +146,21 @@ export interface QueryFileRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryFileRequest";
   value: Uint8Array;
 }
-/** QueryFileRequest defines the QueryFileRequest message. */
+/**
+ * QueryFileRequest defines the QueryFileRequest message.
+ * @name QueryFileRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileRequest
+ */
 export interface QueryFileRequestSDKType {
   fid: string;
 }
-/** QueryFileResponse defines the QueryFileResponse message. */
+/**
+ * QueryFileResponse defines the QueryFileResponse message.
+ * @name QueryFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileResponse
+ */
 export interface QueryFileResponse {
   file?: File;
 }
@@ -90,11 +168,21 @@ export interface QueryFileResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryFileResponse";
   value: Uint8Array;
 }
-/** QueryFileResponse defines the QueryFileResponse message. */
+/**
+ * QueryFileResponse defines the QueryFileResponse message.
+ * @name QueryFileResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileResponse
+ */
 export interface QueryFileResponseSDKType {
   file?: FileSDKType;
 }
-/** QueryFilesRequest defines the QueryFilesRequest message. */
+/**
+ * QueryFilesRequest defines the QueryFilesRequest message.
+ * @name QueryFilesRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFilesRequest
+ */
 export interface QueryFilesRequest {
   creator: string;
   subscription: string;
@@ -104,13 +192,23 @@ export interface QueryFilesRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryFilesRequest";
   value: Uint8Array;
 }
-/** QueryFilesRequest defines the QueryFilesRequest message. */
+/**
+ * QueryFilesRequest defines the QueryFilesRequest message.
+ * @name QueryFilesRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFilesRequest
+ */
 export interface QueryFilesRequestSDKType {
   creator: string;
   subscription: string;
   pagination?: PageRequestSDKType;
 }
-/** QueryFilesResponse defines the QueryFilesResponse message. */
+/**
+ * QueryFilesResponse defines the QueryFilesResponse message.
+ * @name QueryFilesResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFilesResponse
+ */
 export interface QueryFilesResponse {
   files: File[];
   pagination?: PageResponse;
@@ -119,12 +217,22 @@ export interface QueryFilesResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryFilesResponse";
   value: Uint8Array;
 }
-/** QueryFilesResponse defines the QueryFilesResponse message. */
+/**
+ * QueryFilesResponse defines the QueryFilesResponse message.
+ * @name QueryFilesResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFilesResponse
+ */
 export interface QueryFilesResponseSDKType {
   files: FileSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QuerySubscriptionRequest defines the QuerySubscriptionRequest message. */
+/**
+ * QuerySubscriptionRequest defines the QuerySubscriptionRequest message.
+ * @name QuerySubscriptionRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionRequest
+ */
 export interface QuerySubscriptionRequest {
   subscriberAddress: string;
   subscriptionId: string;
@@ -133,12 +241,22 @@ export interface QuerySubscriptionRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionRequest";
   value: Uint8Array;
 }
-/** QuerySubscriptionRequest defines the QuerySubscriptionRequest message. */
+/**
+ * QuerySubscriptionRequest defines the QuerySubscriptionRequest message.
+ * @name QuerySubscriptionRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionRequest
+ */
 export interface QuerySubscriptionRequestSDKType {
   subscriber_address: string;
   subscription_id: string;
 }
-/** QuerySubscriptionResponse defines the QuerySubscriptionResponse message. */
+/**
+ * QuerySubscriptionResponse defines the QuerySubscriptionResponse message.
+ * @name QuerySubscriptionResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionResponse
+ */
 export interface QuerySubscriptionResponse {
   subscription?: StorageSubscription;
 }
@@ -146,11 +264,21 @@ export interface QuerySubscriptionResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionResponse";
   value: Uint8Array;
 }
-/** QuerySubscriptionResponse defines the QuerySubscriptionResponse message. */
+/**
+ * QuerySubscriptionResponse defines the QuerySubscriptionResponse message.
+ * @name QuerySubscriptionResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionResponse
+ */
 export interface QuerySubscriptionResponseSDKType {
   subscription?: StorageSubscriptionSDKType;
 }
-/** QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message. */
+/**
+ * QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message.
+ * @name QuerySubscriptionsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionsRequest
+ */
 export interface QuerySubscriptionsRequest {
   subscriberAddress: string;
   pagination?: PageRequest;
@@ -159,12 +287,22 @@ export interface QuerySubscriptionsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionsRequest";
   value: Uint8Array;
 }
-/** QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message. */
+/**
+ * QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message.
+ * @name QuerySubscriptionsRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionsRequest
+ */
 export interface QuerySubscriptionsRequestSDKType {
   subscriber_address: string;
   pagination?: PageRequestSDKType;
 }
-/** QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message. */
+/**
+ * QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message.
+ * @name QuerySubscriptionsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionsResponse
+ */
 export interface QuerySubscriptionsResponse {
   subscriptions: StorageSubscription[];
   pagination?: PageResponse;
@@ -173,7 +311,12 @@ export interface QuerySubscriptionsResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionsResponse";
   value: Uint8Array;
 }
-/** QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message. */
+/**
+ * QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message.
+ * @name QuerySubscriptionsResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionsResponse
+ */
 export interface QuerySubscriptionsResponseSDKType {
   subscriptions: StorageSubscriptionSDKType[];
   pagination?: PageResponseSDKType;
@@ -181,8 +324,20 @@ export interface QuerySubscriptionsResponseSDKType {
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/nebulix.storage.v1.QueryParamsRequest",
+  is(o: any): o is QueryParamsRequest {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryParamsRequestSDKType {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
   encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -215,15 +370,29 @@ export const QueryParamsRequest = {
       typeUrl: "/nebulix.storage.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: Params.fromPartial({})
   };
 }
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/nebulix.storage.v1.QueryParamsResponse",
+  is(o: any): o is QueryParamsResponse {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
+  },
+  isSDK(o: any): o is QueryParamsResponseSDKType {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isSDK(o.params));
+  },
   encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -263,15 +432,34 @@ export const QueryParamsResponse = {
       typeUrl: "/nebulix.storage.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
 function createBaseQueryProviderRequest(): QueryProviderRequest {
   return {
     address: ""
   };
 }
+/**
+ * QueryProviderRequest defines the QueryProviderRequest message.
+ * @name QueryProviderRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProviderRequest
+ */
 export const QueryProviderRequest = {
   typeUrl: "/nebulix.storage.v1.QueryProviderRequest",
+  is(o: any): o is QueryProviderRequest {
+    return o && (o.$typeUrl === QueryProviderRequest.typeUrl || typeof o.address === "string");
+  },
+  isSDK(o: any): o is QueryProviderRequestSDKType {
+    return o && (o.$typeUrl === QueryProviderRequest.typeUrl || typeof o.address === "string");
+  },
   encode(message: QueryProviderRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
@@ -311,15 +499,29 @@ export const QueryProviderRequest = {
       typeUrl: "/nebulix.storage.v1.QueryProviderRequest",
       value: QueryProviderRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryProviderRequest.typeUrl, QueryProviderRequest);
 function createBaseQueryProviderResponse(): QueryProviderResponse {
   return {
     provider: undefined
   };
 }
+/**
+ * QueryProviderResponse defines the QueryProviderResponse message.
+ * @name QueryProviderResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProviderResponse
+ */
 export const QueryProviderResponse = {
   typeUrl: "/nebulix.storage.v1.QueryProviderResponse",
+  is(o: any): o is QueryProviderResponse {
+    return o && o.$typeUrl === QueryProviderResponse.typeUrl;
+  },
+  isSDK(o: any): o is QueryProviderResponseSDKType {
+    return o && o.$typeUrl === QueryProviderResponse.typeUrl;
+  },
   encode(message: QueryProviderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.provider !== undefined) {
       Provider.encode(message.provider, writer.uint32(10).fork()).ldelim();
@@ -359,13 +561,32 @@ export const QueryProviderResponse = {
       typeUrl: "/nebulix.storage.v1.QueryProviderResponse",
       value: QueryProviderResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryProviderResponse.typeUrl)) {
+      return;
+    }
+    Provider.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryProviderResponse.typeUrl, QueryProviderResponse);
 function createBaseQueryProvidersRequest(): QueryProvidersRequest {
   return {};
 }
+/**
+ * QueryProvidersRequest defines the QueryProvidersRequest message.
+ * @name QueryProvidersRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProvidersRequest
+ */
 export const QueryProvidersRequest = {
   typeUrl: "/nebulix.storage.v1.QueryProvidersRequest",
+  is(o: any): o is QueryProvidersRequest {
+    return o && o.$typeUrl === QueryProvidersRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryProvidersRequestSDKType {
+    return o && o.$typeUrl === QueryProvidersRequest.typeUrl;
+  },
   encode(_: QueryProvidersRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -398,15 +619,29 @@ export const QueryProvidersRequest = {
       typeUrl: "/nebulix.storage.v1.QueryProvidersRequest",
       value: QueryProvidersRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryProvidersRequest.typeUrl, QueryProvidersRequest);
 function createBaseQueryProvidersResponse(): QueryProvidersResponse {
   return {
     providers: []
   };
 }
+/**
+ * QueryProvidersResponse defines the QueryProvidersResponse message.
+ * @name QueryProvidersResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryProvidersResponse
+ */
 export const QueryProvidersResponse = {
   typeUrl: "/nebulix.storage.v1.QueryProvidersResponse",
+  is(o: any): o is QueryProvidersResponse {
+    return o && (o.$typeUrl === QueryProvidersResponse.typeUrl || Array.isArray(o.providers) && (!o.providers.length || Provider.is(o.providers[0])));
+  },
+  isSDK(o: any): o is QueryProvidersResponseSDKType {
+    return o && (o.$typeUrl === QueryProvidersResponse.typeUrl || Array.isArray(o.providers) && (!o.providers.length || Provider.isSDK(o.providers[0])));
+  },
   encode(message: QueryProvidersResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.providers) {
       Provider.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -446,15 +681,34 @@ export const QueryProvidersResponse = {
       typeUrl: "/nebulix.storage.v1.QueryProvidersResponse",
       value: QueryProvidersResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryProvidersResponse.typeUrl)) {
+      return;
+    }
+    Provider.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryProvidersResponse.typeUrl, QueryProvidersResponse);
 function createBaseQueryFileRequest(): QueryFileRequest {
   return {
     fid: ""
   };
 }
+/**
+ * QueryFileRequest defines the QueryFileRequest message.
+ * @name QueryFileRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileRequest
+ */
 export const QueryFileRequest = {
   typeUrl: "/nebulix.storage.v1.QueryFileRequest",
+  is(o: any): o is QueryFileRequest {
+    return o && (o.$typeUrl === QueryFileRequest.typeUrl || typeof o.fid === "string");
+  },
+  isSDK(o: any): o is QueryFileRequestSDKType {
+    return o && (o.$typeUrl === QueryFileRequest.typeUrl || typeof o.fid === "string");
+  },
   encode(message: QueryFileRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.fid !== "") {
       writer.uint32(10).string(message.fid);
@@ -494,15 +748,29 @@ export const QueryFileRequest = {
       typeUrl: "/nebulix.storage.v1.QueryFileRequest",
       value: QueryFileRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryFileRequest.typeUrl, QueryFileRequest);
 function createBaseQueryFileResponse(): QueryFileResponse {
   return {
     file: undefined
   };
 }
+/**
+ * QueryFileResponse defines the QueryFileResponse message.
+ * @name QueryFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileResponse
+ */
 export const QueryFileResponse = {
   typeUrl: "/nebulix.storage.v1.QueryFileResponse",
+  is(o: any): o is QueryFileResponse {
+    return o && o.$typeUrl === QueryFileResponse.typeUrl;
+  },
+  isSDK(o: any): o is QueryFileResponseSDKType {
+    return o && o.$typeUrl === QueryFileResponse.typeUrl;
+  },
   encode(message: QueryFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.file !== undefined) {
       File.encode(message.file, writer.uint32(10).fork()).ldelim();
@@ -542,8 +810,15 @@ export const QueryFileResponse = {
       typeUrl: "/nebulix.storage.v1.QueryFileResponse",
       value: QueryFileResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryFileResponse.typeUrl)) {
+      return;
+    }
+    File.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryFileResponse.typeUrl, QueryFileResponse);
 function createBaseQueryFilesRequest(): QueryFilesRequest {
   return {
     creator: "",
@@ -551,8 +826,20 @@ function createBaseQueryFilesRequest(): QueryFilesRequest {
     pagination: undefined
   };
 }
+/**
+ * QueryFilesRequest defines the QueryFilesRequest message.
+ * @name QueryFilesRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFilesRequest
+ */
 export const QueryFilesRequest = {
   typeUrl: "/nebulix.storage.v1.QueryFilesRequest",
+  is(o: any): o is QueryFilesRequest {
+    return o && (o.$typeUrl === QueryFilesRequest.typeUrl || typeof o.creator === "string" && typeof o.subscription === "string");
+  },
+  isSDK(o: any): o is QueryFilesRequestSDKType {
+    return o && (o.$typeUrl === QueryFilesRequest.typeUrl || typeof o.creator === "string" && typeof o.subscription === "string");
+  },
   encode(message: QueryFilesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
@@ -606,16 +893,35 @@ export const QueryFilesRequest = {
       typeUrl: "/nebulix.storage.v1.QueryFilesRequest",
       value: QueryFilesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryFilesRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryFilesRequest.typeUrl, QueryFilesRequest);
 function createBaseQueryFilesResponse(): QueryFilesResponse {
   return {
     files: [],
     pagination: undefined
   };
 }
+/**
+ * QueryFilesResponse defines the QueryFilesResponse message.
+ * @name QueryFilesResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFilesResponse
+ */
 export const QueryFilesResponse = {
   typeUrl: "/nebulix.storage.v1.QueryFilesResponse",
+  is(o: any): o is QueryFilesResponse {
+    return o && (o.$typeUrl === QueryFilesResponse.typeUrl || Array.isArray(o.files) && (!o.files.length || File.is(o.files[0])));
+  },
+  isSDK(o: any): o is QueryFilesResponseSDKType {
+    return o && (o.$typeUrl === QueryFilesResponse.typeUrl || Array.isArray(o.files) && (!o.files.length || File.isSDK(o.files[0])));
+  },
   encode(message: QueryFilesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.files) {
       File.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -662,16 +968,36 @@ export const QueryFilesResponse = {
       typeUrl: "/nebulix.storage.v1.QueryFilesResponse",
       value: QueryFilesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryFilesResponse.typeUrl)) {
+      return;
+    }
+    File.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryFilesResponse.typeUrl, QueryFilesResponse);
 function createBaseQuerySubscriptionRequest(): QuerySubscriptionRequest {
   return {
     subscriberAddress: "",
     subscriptionId: ""
   };
 }
+/**
+ * QuerySubscriptionRequest defines the QuerySubscriptionRequest message.
+ * @name QuerySubscriptionRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionRequest
+ */
 export const QuerySubscriptionRequest = {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionRequest",
+  is(o: any): o is QuerySubscriptionRequest {
+    return o && (o.$typeUrl === QuerySubscriptionRequest.typeUrl || typeof o.subscriberAddress === "string" && typeof o.subscriptionId === "string");
+  },
+  isSDK(o: any): o is QuerySubscriptionRequestSDKType {
+    return o && (o.$typeUrl === QuerySubscriptionRequest.typeUrl || typeof o.subscriber_address === "string" && typeof o.subscription_id === "string");
+  },
   encode(message: QuerySubscriptionRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.subscriberAddress !== "") {
       writer.uint32(10).string(message.subscriberAddress);
@@ -718,15 +1044,29 @@ export const QuerySubscriptionRequest = {
       typeUrl: "/nebulix.storage.v1.QuerySubscriptionRequest",
       value: QuerySubscriptionRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QuerySubscriptionRequest.typeUrl, QuerySubscriptionRequest);
 function createBaseQuerySubscriptionResponse(): QuerySubscriptionResponse {
   return {
     subscription: undefined
   };
 }
+/**
+ * QuerySubscriptionResponse defines the QuerySubscriptionResponse message.
+ * @name QuerySubscriptionResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionResponse
+ */
 export const QuerySubscriptionResponse = {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionResponse",
+  is(o: any): o is QuerySubscriptionResponse {
+    return o && o.$typeUrl === QuerySubscriptionResponse.typeUrl;
+  },
+  isSDK(o: any): o is QuerySubscriptionResponseSDKType {
+    return o && o.$typeUrl === QuerySubscriptionResponse.typeUrl;
+  },
   encode(message: QuerySubscriptionResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.subscription !== undefined) {
       StorageSubscription.encode(message.subscription, writer.uint32(10).fork()).ldelim();
@@ -766,16 +1106,35 @@ export const QuerySubscriptionResponse = {
       typeUrl: "/nebulix.storage.v1.QuerySubscriptionResponse",
       value: QuerySubscriptionResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QuerySubscriptionResponse.typeUrl)) {
+      return;
+    }
+    StorageSubscription.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QuerySubscriptionResponse.typeUrl, QuerySubscriptionResponse);
 function createBaseQuerySubscriptionsRequest(): QuerySubscriptionsRequest {
   return {
     subscriberAddress: "",
     pagination: undefined
   };
 }
+/**
+ * QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message.
+ * @name QuerySubscriptionsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionsRequest
+ */
 export const QuerySubscriptionsRequest = {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionsRequest",
+  is(o: any): o is QuerySubscriptionsRequest {
+    return o && (o.$typeUrl === QuerySubscriptionsRequest.typeUrl || typeof o.subscriberAddress === "string");
+  },
+  isSDK(o: any): o is QuerySubscriptionsRequestSDKType {
+    return o && (o.$typeUrl === QuerySubscriptionsRequest.typeUrl || typeof o.subscriber_address === "string");
+  },
   encode(message: QuerySubscriptionsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.subscriberAddress !== "") {
       writer.uint32(10).string(message.subscriberAddress);
@@ -822,16 +1181,35 @@ export const QuerySubscriptionsRequest = {
       typeUrl: "/nebulix.storage.v1.QuerySubscriptionsRequest",
       value: QuerySubscriptionsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QuerySubscriptionsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QuerySubscriptionsRequest.typeUrl, QuerySubscriptionsRequest);
 function createBaseQuerySubscriptionsResponse(): QuerySubscriptionsResponse {
   return {
     subscriptions: [],
     pagination: undefined
   };
 }
+/**
+ * QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message.
+ * @name QuerySubscriptionsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QuerySubscriptionsResponse
+ */
 export const QuerySubscriptionsResponse = {
   typeUrl: "/nebulix.storage.v1.QuerySubscriptionsResponse",
+  is(o: any): o is QuerySubscriptionsResponse {
+    return o && (o.$typeUrl === QuerySubscriptionsResponse.typeUrl || Array.isArray(o.subscriptions) && (!o.subscriptions.length || StorageSubscription.is(o.subscriptions[0])));
+  },
+  isSDK(o: any): o is QuerySubscriptionsResponseSDKType {
+    return o && (o.$typeUrl === QuerySubscriptionsResponse.typeUrl || Array.isArray(o.subscriptions) && (!o.subscriptions.length || StorageSubscription.isSDK(o.subscriptions[0])));
+  },
   encode(message: QuerySubscriptionsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.subscriptions) {
       StorageSubscription.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -878,5 +1256,13 @@ export const QuerySubscriptionsResponse = {
       typeUrl: "/nebulix.storage.v1.QuerySubscriptionsResponse",
       value: QuerySubscriptionsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QuerySubscriptionsResponse.typeUrl)) {
+      return;
+    }
+    StorageSubscription.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QuerySubscriptionsResponse.typeUrl, QuerySubscriptionsResponse);

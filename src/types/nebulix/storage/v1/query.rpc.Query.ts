@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse } from "./query";
@@ -21,8 +21,8 @@ export interface Query {
   subscriptions(request: QuerySubscriptionsRequest): Promise<QuerySubscriptionsResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.params = this.params.bind(this);
     this.provider = this.provider.bind(this);

@@ -1,22 +1,44 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * @name MerkleProof
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MerkleProof
+ */
 export interface MerkleProof {
-  /** The 1KB chunk data */
+  /**
+   * The 1KB chunk data
+   */
   chunk: Uint8Array;
-  /** Position in file (0-based) */
+  /**
+   * Position in file (0-based)
+   */
   index: bigint;
-  /** Sibling hashes for Merkle path */
+  /**
+   * Sibling hashes for Merkle path
+   */
   siblings: Uint8Array[];
 }
 export interface MerkleProofProtoMsg {
   typeUrl: "/nebulix.storage.v1.MerkleProof";
   value: Uint8Array;
 }
+/**
+ * @name MerkleProofSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MerkleProof
+ */
 export interface MerkleProofSDKType {
   chunk: Uint8Array;
   index: bigint;
   siblings: Uint8Array[];
 }
+/**
+ * @name StorageChallenge
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.StorageChallenge
+ */
 export interface StorageChallenge {
   challengeId: string;
   fileId: string;
@@ -31,6 +53,11 @@ export interface StorageChallengeProtoMsg {
   typeUrl: "/nebulix.storage.v1.StorageChallenge";
   value: Uint8Array;
 }
+/**
+ * @name StorageChallengeSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.StorageChallenge
+ */
 export interface StorageChallengeSDKType {
   challenge_id: string;
   file_id: string;
@@ -48,8 +75,19 @@ function createBaseMerkleProof(): MerkleProof {
     siblings: []
   };
 }
+/**
+ * @name MerkleProof
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MerkleProof
+ */
 export const MerkleProof = {
   typeUrl: "/nebulix.storage.v1.MerkleProof",
+  is(o: any): o is MerkleProof {
+    return o && (o.$typeUrl === MerkleProof.typeUrl || (o.chunk instanceof Uint8Array || typeof o.chunk === "string") && typeof o.index === "bigint" && Array.isArray(o.siblings) && (!o.siblings.length || o.siblings[0] instanceof Uint8Array || typeof o.siblings[0] === "string"));
+  },
+  isSDK(o: any): o is MerkleProofSDKType {
+    return o && (o.$typeUrl === MerkleProof.typeUrl || (o.chunk instanceof Uint8Array || typeof o.chunk === "string") && typeof o.index === "bigint" && Array.isArray(o.siblings) && (!o.siblings.length || o.siblings[0] instanceof Uint8Array || typeof o.siblings[0] === "string"));
+  },
   encode(message: MerkleProof, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.chunk.length !== 0) {
       writer.uint32(10).bytes(message.chunk);
@@ -103,8 +141,10 @@ export const MerkleProof = {
       typeUrl: "/nebulix.storage.v1.MerkleProof",
       value: MerkleProof.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(MerkleProof.typeUrl, MerkleProof);
 function createBaseStorageChallenge(): StorageChallenge {
   return {
     challengeId: "",
@@ -117,8 +157,19 @@ function createBaseStorageChallenge(): StorageChallenge {
     completed: false
   };
 }
+/**
+ * @name StorageChallenge
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.StorageChallenge
+ */
 export const StorageChallenge = {
   typeUrl: "/nebulix.storage.v1.StorageChallenge",
+  is(o: any): o is StorageChallenge {
+    return o && (o.$typeUrl === StorageChallenge.typeUrl || typeof o.challengeId === "string" && typeof o.fileId === "string" && typeof o.fileMerkle === "string" && typeof o.provider === "string" && typeof o.chunkIndex === "bigint" && typeof o.createdHeight === "bigint" && (o.seed instanceof Uint8Array || typeof o.seed === "string") && typeof o.completed === "boolean");
+  },
+  isSDK(o: any): o is StorageChallengeSDKType {
+    return o && (o.$typeUrl === StorageChallenge.typeUrl || typeof o.challenge_id === "string" && typeof o.file_id === "string" && typeof o.file_merkle === "string" && typeof o.provider === "string" && typeof o.chunk_index === "bigint" && typeof o.created_height === "bigint" && (o.seed instanceof Uint8Array || typeof o.seed === "string") && typeof o.completed === "boolean");
+  },
   encode(message: StorageChallenge, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.challengeId !== "") {
       writer.uint32(10).string(message.challengeId);
@@ -207,5 +258,7 @@ export const StorageChallenge = {
       typeUrl: "/nebulix.storage.v1.StorageChallenge",
       value: StorageChallenge.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(StorageChallenge.typeUrl, StorageChallenge);

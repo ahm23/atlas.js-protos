@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgUpdateParams, MsgUpdateParamsResponse, MsgPostNode, MsgPostNodeResponse, MsgDeleteNode, MsgDeleteNodeResponse } from "./tx";
 /** Msg defines the Msg service. */
@@ -15,8 +15,8 @@ export interface Msg {
   deleteNode(request: MsgDeleteNode): Promise<MsgDeleteNodeResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.updateParams = this.updateParams.bind(this);
     this.postNode = this.postNode.bind(this);
@@ -38,3 +38,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgDeleteNodeResponse.decode(new BinaryReader(data)));
   }
 }
+export const createClientImpl = (rpc: TxRpc) => {
+  return new MsgClientImpl(rpc);
+};

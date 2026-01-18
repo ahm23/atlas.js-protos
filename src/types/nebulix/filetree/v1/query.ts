@@ -2,28 +2,56 @@
 import { Params, ParamsSDKType } from "./params";
 import { FileNode, FileNodeSDKType } from "./tree";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** QueryParamsRequest is request type for the Query/Params RPC method. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequestSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
-  /** params holds all the parameters of this module. */
+  /**
+   * params holds all the parameters of this module.
+   */
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponseSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
-/** QueryFileNodeRequest defines the QueryFileNodeRequest message. */
+/**
+ * QueryFileNodeRequest defines the QueryFileNodeRequest message.
+ * @name QueryFileNodeRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeRequest
+ */
 export interface QueryFileNodeRequest {
   owner: string;
   path: string;
@@ -32,12 +60,22 @@ export interface QueryFileNodeRequestProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeRequest";
   value: Uint8Array;
 }
-/** QueryFileNodeRequest defines the QueryFileNodeRequest message. */
+/**
+ * QueryFileNodeRequest defines the QueryFileNodeRequest message.
+ * @name QueryFileNodeRequestSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeRequest
+ */
 export interface QueryFileNodeRequestSDKType {
   owner: string;
   path: string;
 }
-/** QueryFileNodeResponse defines the QueryFileNodeResponse message. */
+/**
+ * QueryFileNodeResponse defines the QueryFileNodeResponse message.
+ * @name QueryFileNodeResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeResponse
+ */
 export interface QueryFileNodeResponse {
   node?: FileNode;
 }
@@ -45,11 +83,21 @@ export interface QueryFileNodeResponseProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeResponse";
   value: Uint8Array;
 }
-/** QueryFileNodeResponse defines the QueryFileNodeResponse message. */
+/**
+ * QueryFileNodeResponse defines the QueryFileNodeResponse message.
+ * @name QueryFileNodeResponseSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeResponse
+ */
 export interface QueryFileNodeResponseSDKType {
   node?: FileNodeSDKType;
 }
-/** QueryFileTreePathsRequest defines the QueryFileTreePathsRequest message. */
+/**
+ * QueryFileTreePathsRequest defines the QueryFileTreePathsRequest message.
+ * @name QueryFileTreePathsRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileTreePathsRequest
+ */
 export interface QueryFileTreePathsRequest {
   owner: string;
   basepath: string;
@@ -58,12 +106,22 @@ export interface QueryFileTreePathsRequestProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryFileTreePathsRequest";
   value: Uint8Array;
 }
-/** QueryFileTreePathsRequest defines the QueryFileTreePathsRequest message. */
+/**
+ * QueryFileTreePathsRequest defines the QueryFileTreePathsRequest message.
+ * @name QueryFileTreePathsRequestSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileTreePathsRequest
+ */
 export interface QueryFileTreePathsRequestSDKType {
   owner: string;
   basepath: string;
 }
-/** QueryFileTreePathsResponse defines the QueryFileTreePathsResponse message. */
+/**
+ * QueryFileTreePathsResponse defines the QueryFileTreePathsResponse message.
+ * @name QueryFileTreePathsResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileTreePathsResponse
+ */
 export interface QueryFileTreePathsResponse {
   paths: string[];
 }
@@ -71,11 +129,21 @@ export interface QueryFileTreePathsResponseProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryFileTreePathsResponse";
   value: Uint8Array;
 }
-/** QueryFileTreePathsResponse defines the QueryFileTreePathsResponse message. */
+/**
+ * QueryFileTreePathsResponse defines the QueryFileTreePathsResponse message.
+ * @name QueryFileTreePathsResponseSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileTreePathsResponse
+ */
 export interface QueryFileTreePathsResponseSDKType {
   paths: string[];
 }
-/** QueryFileNodeChildrenRequest defines the QueryFileNodeChildrenRequest message. */
+/**
+ * QueryFileNodeChildrenRequest defines the QueryFileNodeChildrenRequest message.
+ * @name QueryFileNodeChildrenRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeChildrenRequest
+ */
 export interface QueryFileNodeChildrenRequest {
   owner: string;
   path: string;
@@ -84,12 +152,22 @@ export interface QueryFileNodeChildrenRequestProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenRequest";
   value: Uint8Array;
 }
-/** QueryFileNodeChildrenRequest defines the QueryFileNodeChildrenRequest message. */
+/**
+ * QueryFileNodeChildrenRequest defines the QueryFileNodeChildrenRequest message.
+ * @name QueryFileNodeChildrenRequestSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeChildrenRequest
+ */
 export interface QueryFileNodeChildrenRequestSDKType {
   owner: string;
   path: string;
 }
-/** QueryFileNodeChildrenResponse defines the QueryFileNodeChildrenResponse message. */
+/**
+ * QueryFileNodeChildrenResponse defines the QueryFileNodeChildrenResponse message.
+ * @name QueryFileNodeChildrenResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeChildrenResponse
+ */
 export interface QueryFileNodeChildrenResponse {
   nodes: FileNode[];
 }
@@ -97,15 +175,32 @@ export interface QueryFileNodeChildrenResponseProtoMsg {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenResponse";
   value: Uint8Array;
 }
-/** QueryFileNodeChildrenResponse defines the QueryFileNodeChildrenResponse message. */
+/**
+ * QueryFileNodeChildrenResponse defines the QueryFileNodeChildrenResponse message.
+ * @name QueryFileNodeChildrenResponseSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeChildrenResponse
+ */
 export interface QueryFileNodeChildrenResponseSDKType {
   nodes: FileNodeSDKType[];
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/nebulix.filetree.v1.QueryParamsRequest",
+  is(o: any): o is QueryParamsRequest {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryParamsRequestSDKType {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
   encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -138,15 +233,29 @@ export const QueryParamsRequest = {
       typeUrl: "/nebulix.filetree.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: Params.fromPartial({})
   };
 }
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/nebulix.filetree.v1.QueryParamsResponse",
+  is(o: any): o is QueryParamsResponse {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
+  },
+  isSDK(o: any): o is QueryParamsResponseSDKType {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isSDK(o.params));
+  },
   encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -186,16 +295,35 @@ export const QueryParamsResponse = {
       typeUrl: "/nebulix.filetree.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
 function createBaseQueryFileNodeRequest(): QueryFileNodeRequest {
   return {
     owner: "",
     path: ""
   };
 }
+/**
+ * QueryFileNodeRequest defines the QueryFileNodeRequest message.
+ * @name QueryFileNodeRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeRequest
+ */
 export const QueryFileNodeRequest = {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeRequest",
+  is(o: any): o is QueryFileNodeRequest {
+    return o && (o.$typeUrl === QueryFileNodeRequest.typeUrl || typeof o.owner === "string" && typeof o.path === "string");
+  },
+  isSDK(o: any): o is QueryFileNodeRequestSDKType {
+    return o && (o.$typeUrl === QueryFileNodeRequest.typeUrl || typeof o.owner === "string" && typeof o.path === "string");
+  },
   encode(message: QueryFileNodeRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -242,15 +370,29 @@ export const QueryFileNodeRequest = {
       typeUrl: "/nebulix.filetree.v1.QueryFileNodeRequest",
       value: QueryFileNodeRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryFileNodeRequest.typeUrl, QueryFileNodeRequest);
 function createBaseQueryFileNodeResponse(): QueryFileNodeResponse {
   return {
     node: undefined
   };
 }
+/**
+ * QueryFileNodeResponse defines the QueryFileNodeResponse message.
+ * @name QueryFileNodeResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeResponse
+ */
 export const QueryFileNodeResponse = {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeResponse",
+  is(o: any): o is QueryFileNodeResponse {
+    return o && o.$typeUrl === QueryFileNodeResponse.typeUrl;
+  },
+  isSDK(o: any): o is QueryFileNodeResponseSDKType {
+    return o && o.$typeUrl === QueryFileNodeResponse.typeUrl;
+  },
   encode(message: QueryFileNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.node !== undefined) {
       FileNode.encode(message.node, writer.uint32(10).fork()).ldelim();
@@ -290,16 +432,35 @@ export const QueryFileNodeResponse = {
       typeUrl: "/nebulix.filetree.v1.QueryFileNodeResponse",
       value: QueryFileNodeResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryFileNodeResponse.typeUrl)) {
+      return;
+    }
+    FileNode.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryFileNodeResponse.typeUrl, QueryFileNodeResponse);
 function createBaseQueryFileTreePathsRequest(): QueryFileTreePathsRequest {
   return {
     owner: "",
     basepath: ""
   };
 }
+/**
+ * QueryFileTreePathsRequest defines the QueryFileTreePathsRequest message.
+ * @name QueryFileTreePathsRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileTreePathsRequest
+ */
 export const QueryFileTreePathsRequest = {
   typeUrl: "/nebulix.filetree.v1.QueryFileTreePathsRequest",
+  is(o: any): o is QueryFileTreePathsRequest {
+    return o && (o.$typeUrl === QueryFileTreePathsRequest.typeUrl || typeof o.owner === "string" && typeof o.basepath === "string");
+  },
+  isSDK(o: any): o is QueryFileTreePathsRequestSDKType {
+    return o && (o.$typeUrl === QueryFileTreePathsRequest.typeUrl || typeof o.owner === "string" && typeof o.basepath === "string");
+  },
   encode(message: QueryFileTreePathsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -346,15 +507,29 @@ export const QueryFileTreePathsRequest = {
       typeUrl: "/nebulix.filetree.v1.QueryFileTreePathsRequest",
       value: QueryFileTreePathsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryFileTreePathsRequest.typeUrl, QueryFileTreePathsRequest);
 function createBaseQueryFileTreePathsResponse(): QueryFileTreePathsResponse {
   return {
     paths: []
   };
 }
+/**
+ * QueryFileTreePathsResponse defines the QueryFileTreePathsResponse message.
+ * @name QueryFileTreePathsResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileTreePathsResponse
+ */
 export const QueryFileTreePathsResponse = {
   typeUrl: "/nebulix.filetree.v1.QueryFileTreePathsResponse",
+  is(o: any): o is QueryFileTreePathsResponse {
+    return o && (o.$typeUrl === QueryFileTreePathsResponse.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
+  },
+  isSDK(o: any): o is QueryFileTreePathsResponseSDKType {
+    return o && (o.$typeUrl === QueryFileTreePathsResponse.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
+  },
   encode(message: QueryFileTreePathsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.paths) {
       writer.uint32(10).string(v!);
@@ -394,16 +569,30 @@ export const QueryFileTreePathsResponse = {
       typeUrl: "/nebulix.filetree.v1.QueryFileTreePathsResponse",
       value: QueryFileTreePathsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryFileTreePathsResponse.typeUrl, QueryFileTreePathsResponse);
 function createBaseQueryFileNodeChildrenRequest(): QueryFileNodeChildrenRequest {
   return {
     owner: "",
     path: ""
   };
 }
+/**
+ * QueryFileNodeChildrenRequest defines the QueryFileNodeChildrenRequest message.
+ * @name QueryFileNodeChildrenRequest
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeChildrenRequest
+ */
 export const QueryFileNodeChildrenRequest = {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenRequest",
+  is(o: any): o is QueryFileNodeChildrenRequest {
+    return o && (o.$typeUrl === QueryFileNodeChildrenRequest.typeUrl || typeof o.owner === "string" && typeof o.path === "string");
+  },
+  isSDK(o: any): o is QueryFileNodeChildrenRequestSDKType {
+    return o && (o.$typeUrl === QueryFileNodeChildrenRequest.typeUrl || typeof o.owner === "string" && typeof o.path === "string");
+  },
   encode(message: QueryFileNodeChildrenRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -450,15 +639,29 @@ export const QueryFileNodeChildrenRequest = {
       typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenRequest",
       value: QueryFileNodeChildrenRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(QueryFileNodeChildrenRequest.typeUrl, QueryFileNodeChildrenRequest);
 function createBaseQueryFileNodeChildrenResponse(): QueryFileNodeChildrenResponse {
   return {
     nodes: []
   };
 }
+/**
+ * QueryFileNodeChildrenResponse defines the QueryFileNodeChildrenResponse message.
+ * @name QueryFileNodeChildrenResponse
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.QueryFileNodeChildrenResponse
+ */
 export const QueryFileNodeChildrenResponse = {
   typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenResponse",
+  is(o: any): o is QueryFileNodeChildrenResponse {
+    return o && (o.$typeUrl === QueryFileNodeChildrenResponse.typeUrl || Array.isArray(o.nodes) && (!o.nodes.length || FileNode.is(o.nodes[0])));
+  },
+  isSDK(o: any): o is QueryFileNodeChildrenResponseSDKType {
+    return o && (o.$typeUrl === QueryFileNodeChildrenResponse.typeUrl || Array.isArray(o.nodes) && (!o.nodes.length || FileNode.isSDK(o.nodes[0])));
+  },
   encode(message: QueryFileNodeChildrenResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.nodes) {
       FileNode.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -498,5 +701,12 @@ export const QueryFileNodeChildrenResponse = {
       typeUrl: "/nebulix.filetree.v1.QueryFileNodeChildrenResponse",
       value: QueryFileNodeChildrenResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryFileNodeChildrenResponse.typeUrl)) {
+      return;
+    }
+    FileNode.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(QueryFileNodeChildrenResponse.typeUrl, QueryFileNodeChildrenResponse);

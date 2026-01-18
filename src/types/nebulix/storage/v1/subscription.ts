@@ -2,7 +2,13 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { toTimestamp, fromTimestamp } from "../../../helpers";
-/** File defines the File message. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * File defines the File message.
+ * @name StorageSubscription
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.StorageSubscription
+ */
 export interface StorageSubscription {
   id: string;
   start: Date;
@@ -17,7 +23,12 @@ export interface StorageSubscriptionProtoMsg {
   typeUrl: "/nebulix.storage.v1.StorageSubscription";
   value: Uint8Array;
 }
-/** File defines the File message. */
+/**
+ * File defines the File message.
+ * @name StorageSubscriptionSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.StorageSubscription
+ */
 export interface StorageSubscriptionSDKType {
   id: string;
   start: Date;
@@ -40,8 +51,20 @@ function createBaseStorageSubscription(): StorageSubscription {
     credits: ""
   };
 }
+/**
+ * File defines the File message.
+ * @name StorageSubscription
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.StorageSubscription
+ */
 export const StorageSubscription = {
   typeUrl: "/nebulix.storage.v1.StorageSubscription",
+  is(o: any): o is StorageSubscription {
+    return o && (o.$typeUrl === StorageSubscription.typeUrl || typeof o.id === "string" && Timestamp.is(o.start) && Timestamp.is(o.end) && typeof o.status === "string" && typeof o.spaceAvailable === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.replicaSpaceUsed === "bigint" && typeof o.credits === "string");
+  },
+  isSDK(o: any): o is StorageSubscriptionSDKType {
+    return o && (o.$typeUrl === StorageSubscription.typeUrl || typeof o.id === "string" && Timestamp.isSDK(o.start) && Timestamp.isSDK(o.end) && typeof o.status === "string" && typeof o.spaceAvailable === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.replicaSpaceUsed === "bigint" && typeof o.credits === "string");
+  },
   encode(message: StorageSubscription, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
@@ -130,5 +153,7 @@ export const StorageSubscription = {
       typeUrl: "/nebulix.storage.v1.StorageSubscription",
       value: StorageSubscription.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(StorageSubscription.typeUrl, StorageSubscription);

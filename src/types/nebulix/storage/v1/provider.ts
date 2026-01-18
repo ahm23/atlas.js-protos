@@ -1,6 +1,12 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** Provider defines the Provider message. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * Provider defines the Provider message.
+ * @name Provider
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.Provider
+ */
 export interface Provider {
   address: string;
   hostname: string;
@@ -13,7 +19,12 @@ export interface ProviderProtoMsg {
   typeUrl: "/nebulix.storage.v1.Provider";
   value: Uint8Array;
 }
-/** Provider defines the Provider message. */
+/**
+ * Provider defines the Provider message.
+ * @name ProviderSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.Provider
+ */
 export interface ProviderSDKType {
   address: string;
   hostname: string;
@@ -32,8 +43,20 @@ function createBaseProvider(): Provider {
     creditDelta: BigInt(0)
   };
 }
+/**
+ * Provider defines the Provider message.
+ * @name Provider
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.Provider
+ */
 export const Provider = {
   typeUrl: "/nebulix.storage.v1.Provider",
+  is(o: any): o is Provider {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.address === "string" && typeof o.hostname === "string" && typeof o.spaceAvailable === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.createdAt === "bigint" && typeof o.creditDelta === "bigint");
+  },
+  isSDK(o: any): o is ProviderSDKType {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.address === "string" && typeof o.hostname === "string" && typeof o.space_available === "bigint" && typeof o.space_used === "bigint" && typeof o.created_at === "bigint" && typeof o.credit_delta === "bigint");
+  },
   encode(message: Provider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
@@ -108,5 +131,7 @@ export const Provider = {
       typeUrl: "/nebulix.storage.v1.Provider",
       value: Provider.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(Provider.typeUrl, Provider);

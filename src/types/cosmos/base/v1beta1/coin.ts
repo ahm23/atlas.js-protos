@@ -1,11 +1,15 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { GlobalDecoderRegistry } from "../../../registry";
+import { Decimal } from "@interchainjs/math";
 /**
  * Coin defines a token with a denomination and an amount.
  * 
  * NOTE: The amount field is an Int which implements the custom method
  * signatures required by gogoproto.
+ * @name Coin
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.Coin
  */
 export interface Coin {
   denom: string;
@@ -20,6 +24,9 @@ export interface CoinProtoMsg {
  * 
  * NOTE: The amount field is an Int which implements the custom method
  * signatures required by gogoproto.
+ * @name CoinSDKType
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.Coin
  */
 export interface CoinSDKType {
   denom: string;
@@ -30,6 +37,9 @@ export interface CoinSDKType {
  * 
  * NOTE: The amount field is an Dec which implements the custom method
  * signatures required by gogoproto.
+ * @name DecCoin
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.DecCoin
  */
 export interface DecCoin {
   denom: string;
@@ -44,6 +54,9 @@ export interface DecCoinProtoMsg {
  * 
  * NOTE: The amount field is an Dec which implements the custom method
  * signatures required by gogoproto.
+ * @name DecCoinSDKType
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.DecCoin
  */
 export interface DecCoinSDKType {
   denom: string;
@@ -52,6 +65,9 @@ export interface DecCoinSDKType {
 /**
  * IntProto defines a Protobuf wrapper around an Int object.
  * Deprecated: Prefer to use math.Int directly. It supports binary Marshal and Unmarshal.
+ * @name IntProto
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.IntProto
  */
 export interface IntProto {
   int: string;
@@ -63,6 +79,9 @@ export interface IntProtoProtoMsg {
 /**
  * IntProto defines a Protobuf wrapper around an Int object.
  * Deprecated: Prefer to use math.Int directly. It supports binary Marshal and Unmarshal.
+ * @name IntProtoSDKType
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.IntProto
  */
 export interface IntProtoSDKType {
   int: string;
@@ -70,6 +89,9 @@ export interface IntProtoSDKType {
 /**
  * DecProto defines a Protobuf wrapper around a Dec object.
  * Deprecated: Prefer to use math.LegacyDec directly. It supports binary Marshal and Unmarshal.
+ * @name DecProto
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.DecProto
  */
 export interface DecProto {
   dec: string;
@@ -81,6 +103,9 @@ export interface DecProtoProtoMsg {
 /**
  * DecProto defines a Protobuf wrapper around a Dec object.
  * Deprecated: Prefer to use math.LegacyDec directly. It supports binary Marshal and Unmarshal.
+ * @name DecProtoSDKType
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.DecProto
  */
 export interface DecProtoSDKType {
   dec: string;
@@ -91,8 +116,24 @@ function createBaseCoin(): Coin {
     amount: ""
   };
 }
+/**
+ * Coin defines a token with a denomination and an amount.
+ * 
+ * NOTE: The amount field is an Int which implements the custom method
+ * signatures required by gogoproto.
+ * @name Coin
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.Coin
+ */
 export const Coin = {
   typeUrl: "/cosmos.base.v1beta1.Coin",
+  aminoType: "cosmos-sdk/Coin",
+  is(o: any): o is Coin {
+    return o && (o.$typeUrl === Coin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
+  isSDK(o: any): o is CoinSDKType {
+    return o && (o.$typeUrl === Coin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
   encode(message: Coin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -139,16 +180,35 @@ export const Coin = {
       typeUrl: "/cosmos.base.v1beta1.Coin",
       value: Coin.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(Coin.typeUrl, Coin);
+GlobalDecoderRegistry.registerAminoProtoMapping(Coin.aminoType, Coin.typeUrl);
 function createBaseDecCoin(): DecCoin {
   return {
     denom: "",
     amount: ""
   };
 }
+/**
+ * DecCoin defines a token with a denomination and a decimal amount.
+ * 
+ * NOTE: The amount field is an Dec which implements the custom method
+ * signatures required by gogoproto.
+ * @name DecCoin
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.DecCoin
+ */
 export const DecCoin = {
   typeUrl: "/cosmos.base.v1beta1.DecCoin",
+  aminoType: "cosmos-sdk/DecCoin",
+  is(o: any): o is DecCoin {
+    return o && (o.$typeUrl === DecCoin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
+  isSDK(o: any): o is DecCoinSDKType {
+    return o && (o.$typeUrl === DecCoin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
   encode(message: DecCoin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -195,15 +255,32 @@ export const DecCoin = {
       typeUrl: "/cosmos.base.v1beta1.DecCoin",
       value: DecCoin.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(DecCoin.typeUrl, DecCoin);
+GlobalDecoderRegistry.registerAminoProtoMapping(DecCoin.aminoType, DecCoin.typeUrl);
 function createBaseIntProto(): IntProto {
   return {
     int: ""
   };
 }
+/**
+ * IntProto defines a Protobuf wrapper around an Int object.
+ * Deprecated: Prefer to use math.Int directly. It supports binary Marshal and Unmarshal.
+ * @name IntProto
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.IntProto
+ */
 export const IntProto = {
   typeUrl: "/cosmos.base.v1beta1.IntProto",
+  aminoType: "cosmos-sdk/IntProto",
+  is(o: any): o is IntProto {
+    return o && (o.$typeUrl === IntProto.typeUrl || typeof o.int === "string");
+  },
+  isSDK(o: any): o is IntProtoSDKType {
+    return o && (o.$typeUrl === IntProto.typeUrl || typeof o.int === "string");
+  },
   encode(message: IntProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.int !== "") {
       writer.uint32(10).string(message.int);
@@ -243,15 +320,32 @@ export const IntProto = {
       typeUrl: "/cosmos.base.v1beta1.IntProto",
       value: IntProto.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(IntProto.typeUrl, IntProto);
+GlobalDecoderRegistry.registerAminoProtoMapping(IntProto.aminoType, IntProto.typeUrl);
 function createBaseDecProto(): DecProto {
   return {
     dec: ""
   };
 }
+/**
+ * DecProto defines a Protobuf wrapper around a Dec object.
+ * Deprecated: Prefer to use math.LegacyDec directly. It supports binary Marshal and Unmarshal.
+ * @name DecProto
+ * @package cosmos.base.v1beta1
+ * @see proto type: cosmos.base.v1beta1.DecProto
+ */
 export const DecProto = {
   typeUrl: "/cosmos.base.v1beta1.DecProto",
+  aminoType: "cosmos-sdk/DecProto",
+  is(o: any): o is DecProto {
+    return o && (o.$typeUrl === DecProto.typeUrl || typeof o.dec === "string");
+  },
+  isSDK(o: any): o is DecProtoSDKType {
+    return o && (o.$typeUrl === DecProto.typeUrl || typeof o.dec === "string");
+  },
   encode(message: DecProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.dec !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.dec, 18).atomics);
@@ -291,5 +385,8 @@ export const DecProto = {
       typeUrl: "/cosmos.base.v1beta1.DecProto",
       value: DecProto.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(DecProto.typeUrl, DecProto);
+GlobalDecoderRegistry.registerAminoProtoMapping(DecProto.aminoType, DecProto.typeUrl);

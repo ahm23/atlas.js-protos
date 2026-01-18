@@ -1,6 +1,6 @@
 {
   "name": "@atlas/atlas.js-protos",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "__MODULEDESC__",
   "author": "__USERFULLNAME__ <__USEREMAIL__>",
   "homepage": "https://github.com/__USERNAME__/__MODULENAME__#readme",
@@ -42,7 +42,7 @@
     "url": "https://github.com/__USERNAME__/__MODULENAME__/issues"
   },
   "devDependencies": {
-    "@cosmology/telescope": "^1.12.21",
+    "@hyperweb/telescope": "^2.1.0",
     "@types/jest": "^29.5.0",
     "eslint": "8.45.0",
     "eslint-config-prettier": "^8.8.0",
@@ -57,13 +57,16 @@
   },
   "dependencies": {
     "@cosmjs/amino": "0.29.4",
-    "@cosmjs/proto-signing": "^0.29.4",
-    "@cosmjs/stargate": "0.29.4",
-    "@cosmjs/tendermint-rpc": "^0.29.4",
+    "@cosmjs/proto-signing": "^0.38.1",
+    "@cosmjs/stargate": "^0.38.1",
+    "@cosmjs/tendermint-rpc": "^0.38.1",
     "@cosmology/lcd": "^0.15.0",
     "@improbable-eng/grpc-web": "^0.15.0",
     "@improbable-eng/grpc-web-node-http-transport": "^0.15.0",
+    "@interchainjs/cosmos": "^1.19.3",
+    "@interchainjs/types": "^1.19.1",
     "browser-headers": "^0.4.1",
+    "cosmjs-types": "^0.11.0",
     "long": "^5.3.2",
     "protobufjs": "^8.0.0"
   }

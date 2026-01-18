@@ -1,18 +1,42 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** Params defines the parameters for the module. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * Params defines the parameters for the module.
+ * @name Params
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.Params
+ */
 export interface Params {}
 export interface ParamsProtoMsg {
   typeUrl: "/nebulix.filetree.v1.Params";
   value: Uint8Array;
 }
-/** Params defines the parameters for the module. */
+/**
+ * Params defines the parameters for the module.
+ * @name ParamsSDKType
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.Params
+ */
 export interface ParamsSDKType {}
 function createBaseParams(): Params {
   return {};
 }
+/**
+ * Params defines the parameters for the module.
+ * @name Params
+ * @package nebulix.filetree.v1
+ * @see proto type: nebulix.filetree.v1.Params
+ */
 export const Params = {
   typeUrl: "/nebulix.filetree.v1.Params",
+  aminoType: "nebulix/x/filetree/Params",
+  is(o: any): o is Params {
+    return o && o.$typeUrl === Params.typeUrl;
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && o.$typeUrl === Params.typeUrl;
+  },
   encode(_: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -45,5 +69,8 @@ export const Params = {
       typeUrl: "/nebulix.filetree.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(Params.typeUrl, Params);
+GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

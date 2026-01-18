@@ -1,16 +1,29 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-/** GenesisState defines the storage module's genesis state. */
+import { GlobalDecoderRegistry } from "../../../registry";
+/**
+ * GenesisState defines the storage module's genesis state.
+ * @name GenesisState
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.GenesisState
+ */
 export interface GenesisState {
-  /** params defines all the parameters of the module. */
+  /**
+   * params defines all the parameters of the module.
+   */
   params: Params;
 }
 export interface GenesisStateProtoMsg {
   typeUrl: "/nebulix.storage.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the storage module's genesis state. */
+/**
+ * GenesisState defines the storage module's genesis state.
+ * @name GenesisStateSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   params: ParamsSDKType;
 }
@@ -19,8 +32,20 @@ function createBaseGenesisState(): GenesisState {
     params: Params.fromPartial({})
   };
 }
+/**
+ * GenesisState defines the storage module's genesis state.
+ * @name GenesisState
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/nebulix.storage.v1.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -60,5 +85,12 @@ export const GenesisState = {
       typeUrl: "/nebulix.storage.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
+GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);

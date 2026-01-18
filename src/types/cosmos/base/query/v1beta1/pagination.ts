@@ -1,5 +1,6 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * PageRequest is to be embedded in gRPC request messages for efficient
  * pagination. Ex:
@@ -8,6 +9,9 @@ import { BinaryReader, BinaryWriter } from "../../../../binary";
  *          Foo some_parameter = 1;
  *          PageRequest pagination = 2;
  *  }
+ * @name PageRequest
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageRequest
  */
 export interface PageRequest {
   /**
@@ -53,6 +57,9 @@ export interface PageRequestProtoMsg {
  *          Foo some_parameter = 1;
  *          PageRequest pagination = 2;
  *  }
+ * @name PageRequestSDKType
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageRequest
  */
 export interface PageRequestSDKType {
   key: Uint8Array;
@@ -69,6 +76,9 @@ export interface PageRequestSDKType {
  *          repeated Bar results = 1;
  *          PageResponse page = 2;
  *  }
+ * @name PageResponse
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageResponse
  */
 export interface PageResponse {
   /**
@@ -95,6 +105,9 @@ export interface PageResponseProtoMsg {
  *          repeated Bar results = 1;
  *          PageResponse page = 2;
  *  }
+ * @name PageResponseSDKType
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageResponse
  */
 export interface PageResponseSDKType {
   next_key: Uint8Array;
@@ -109,8 +122,27 @@ function createBasePageRequest(): PageRequest {
     reverse: false
   };
 }
+/**
+ * PageRequest is to be embedded in gRPC request messages for efficient
+ * pagination. Ex:
+ * 
+ *  message SomeRequest {
+ *          Foo some_parameter = 1;
+ *          PageRequest pagination = 2;
+ *  }
+ * @name PageRequest
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageRequest
+ */
 export const PageRequest = {
   typeUrl: "/cosmos.base.query.v1beta1.PageRequest",
+  aminoType: "cosmos-sdk/PageRequest",
+  is(o: any): o is PageRequest {
+    return o && (o.$typeUrl === PageRequest.typeUrl || (o.key instanceof Uint8Array || typeof o.key === "string") && typeof o.offset === "bigint" && typeof o.limit === "bigint" && typeof o.countTotal === "boolean" && typeof o.reverse === "boolean");
+  },
+  isSDK(o: any): o is PageRequestSDKType {
+    return o && (o.$typeUrl === PageRequest.typeUrl || (o.key instanceof Uint8Array || typeof o.key === "string") && typeof o.offset === "bigint" && typeof o.limit === "bigint" && typeof o.count_total === "boolean" && typeof o.reverse === "boolean");
+  },
   encode(message: PageRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.key.length !== 0) {
       writer.uint32(10).bytes(message.key);
@@ -178,16 +210,38 @@ export const PageRequest = {
       typeUrl: "/cosmos.base.query.v1beta1.PageRequest",
       value: PageRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(PageRequest.typeUrl, PageRequest);
+GlobalDecoderRegistry.registerAminoProtoMapping(PageRequest.aminoType, PageRequest.typeUrl);
 function createBasePageResponse(): PageResponse {
   return {
     nextKey: new Uint8Array(),
     total: BigInt(0)
   };
 }
+/**
+ * PageResponse is to be embedded in gRPC response messages where the
+ * corresponding request message has used PageRequest.
+ * 
+ *  message SomeResponse {
+ *          repeated Bar results = 1;
+ *          PageResponse page = 2;
+ *  }
+ * @name PageResponse
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageResponse
+ */
 export const PageResponse = {
   typeUrl: "/cosmos.base.query.v1beta1.PageResponse",
+  aminoType: "cosmos-sdk/PageResponse",
+  is(o: any): o is PageResponse {
+    return o && (o.$typeUrl === PageResponse.typeUrl || (o.nextKey instanceof Uint8Array || typeof o.nextKey === "string") && typeof o.total === "bigint");
+  },
+  isSDK(o: any): o is PageResponseSDKType {
+    return o && (o.$typeUrl === PageResponse.typeUrl || (o.next_key instanceof Uint8Array || typeof o.next_key === "string") && typeof o.total === "bigint");
+  },
   encode(message: PageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nextKey.length !== 0) {
       writer.uint32(10).bytes(message.nextKey);
@@ -234,5 +288,8 @@ export const PageResponse = {
       typeUrl: "/cosmos.base.query.v1beta1.PageResponse",
       value: PageResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
+GlobalDecoderRegistry.register(PageResponse.typeUrl, PageResponse);
+GlobalDecoderRegistry.registerAminoProtoMapping(PageResponse.aminoType, PageResponse.typeUrl);
