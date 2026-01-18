@@ -14,10 +14,12 @@ telescope({
     tsDisable: {
       files: [],
       patterns: [],
-      disableAll: true
+      disableAll: false
     },
     prototypes: {
       enabled: true,
+      enableRegistryLoader: true,
+      enableMessageComposer: true,
       removeUnusedImports: true,
       includes: {
         packages: [
@@ -39,8 +41,7 @@ telescope({
         fromProto: true,
         toProto: true
       },
-      addTypeUrlToDecoders: true,
-      enableMessageComposer: true
+      addTypeUrlToDecoders: true
     },
     interfaces: {
       enabled: true,
@@ -50,10 +51,6 @@ telescope({
     },
     bundle: {
       enabled: true
-    },
-    stargateClients: {
-      enabled: true,
-      includeCosmosDefaultTypes: true
     },
     aminoEncoding: {
       enabled: false
