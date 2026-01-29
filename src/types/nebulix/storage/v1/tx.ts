@@ -106,8 +106,9 @@ export interface MsgPostFile {
   creator: string;
   merkle: Uint8Array;
   fileSize: bigint;
-  replicas: bigint;
+  replicas: number;
   subscription: string;
+  nonce: number;
 }
 export interface MsgPostFileProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgPostFile";
@@ -123,8 +124,9 @@ export interface MsgPostFileSDKType {
   creator: string;
   merkle: Uint8Array;
   file_size: bigint;
-  replicas: bigint;
+  replicas: number;
   subscription: string;
+  nonce: number;
 }
 /**
  * MsgPostFileResponse defines the MsgPostFileResponse message.
@@ -517,8 +519,9 @@ function createBaseMsgPostFile(): MsgPostFile {
     creator: "",
     merkle: new Uint8Array(),
     fileSize: BigInt(0),
-    replicas: BigInt(0),
-    subscription: ""
+    replicas: 0,
+    subscription: "",
+    nonce: 0
   };
 }
 /**
@@ -530,10 +533,10 @@ function createBaseMsgPostFile(): MsgPostFile {
 export const MsgPostFile = {
   typeUrl: "/nebulix.storage.v1.MsgPostFile",
   is(o: any): o is MsgPostFile {
-    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.fileSize === "bigint" && typeof o.replicas === "bigint" && typeof o.subscription === "string");
+    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string" && typeof o.nonce === "number");
   },
   isSDK(o: any): o is MsgPostFileSDKType {
-    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.file_size === "bigint" && typeof o.replicas === "bigint" && typeof o.subscription === "string");
+    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.file_size === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string" && typeof o.nonce === "number");
   },
   encode(message: MsgPostFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
@@ -545,11 +548,14 @@ export const MsgPostFile = {
     if (message.fileSize !== BigInt(0)) {
       writer.uint32(24).int64(message.fileSize);
     }
-    if (message.replicas !== BigInt(0)) {
-      writer.uint32(32).int64(message.replicas);
+    if (message.replicas !== 0) {
+      writer.uint32(32).int32(message.replicas);
     }
     if (message.subscription !== "") {
       writer.uint32(42).string(message.subscription);
+    }
+    if (message.nonce !== 0) {
+      writer.uint32(48).int32(message.nonce);
     }
     return writer;
   },
@@ -570,10 +576,13 @@ export const MsgPostFile = {
           message.fileSize = reader.int64();
           break;
         case 4:
-          message.replicas = reader.int64();
+          message.replicas = reader.int32();
           break;
         case 5:
           message.subscription = reader.string();
+          break;
+        case 6:
+          message.nonce = reader.int32();
           break;
         default:
           reader.skipType(tag & 7);
@@ -587,8 +596,9 @@ export const MsgPostFile = {
     message.creator = object.creator ?? "";
     message.merkle = object.merkle ?? new Uint8Array();
     message.fileSize = object.fileSize !== undefined && object.fileSize !== null ? BigInt(object.fileSize.toString()) : BigInt(0);
-    message.replicas = object.replicas !== undefined && object.replicas !== null ? BigInt(object.replicas.toString()) : BigInt(0);
+    message.replicas = object.replicas ?? 0;
     message.subscription = object.subscription ?? "";
+    message.nonce = object.nonce ?? 0;
     return message;
   },
   fromProtoMsg(message: MsgPostFileProtoMsg): MsgPostFile {

@@ -14,10 +14,10 @@ export interface File {
   subscription: string;
   status: string;
   fileSize: bigint;
-  replicas: bigint;
+  replicas: number;
   providers: string[];
   start: bigint;
-  dedupeIndex: bigint;
+  nonce: number;
   lastChallengedHeight: bigint;
 }
 export interface FileProtoMsg {
@@ -37,10 +37,10 @@ export interface FileSDKType {
   subscription: string;
   status: string;
   file_size: bigint;
-  replicas: bigint;
+  replicas: number;
   providers: string[];
   start: bigint;
-  dedupe_index: bigint;
+  nonce: number;
   last_challenged_height: bigint;
 }
 function createBaseFile(): File {
@@ -51,10 +51,10 @@ function createBaseFile(): File {
     subscription: "",
     status: "",
     fileSize: BigInt(0),
-    replicas: BigInt(0),
+    replicas: 0,
     providers: [],
     start: BigInt(0),
-    dedupeIndex: BigInt(0),
+    nonce: 0,
     lastChallengedHeight: BigInt(0)
   };
 }
@@ -67,10 +67,10 @@ function createBaseFile(): File {
 export const File = {
   typeUrl: "/nebulix.storage.v1.File",
   is(o: any): o is File {
-    return o && (o.$typeUrl === File.typeUrl || typeof o.fileId === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.fileSize === "bigint" && typeof o.replicas === "bigint" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.dedupeIndex === "bigint" && typeof o.lastChallengedHeight === "bigint");
+    return o && (o.$typeUrl === File.typeUrl || typeof o.fileId === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.nonce === "number" && typeof o.lastChallengedHeight === "bigint");
   },
   isSDK(o: any): o is FileSDKType {
-    return o && (o.$typeUrl === File.typeUrl || typeof o.file_id === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.file_size === "bigint" && typeof o.replicas === "bigint" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.dedupe_index === "bigint" && typeof o.last_challenged_height === "bigint");
+    return o && (o.$typeUrl === File.typeUrl || typeof o.file_id === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.file_size === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.nonce === "number" && typeof o.last_challenged_height === "bigint");
   },
   encode(message: File, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.fileId !== "") {
@@ -91,8 +91,8 @@ export const File = {
     if (message.fileSize !== BigInt(0)) {
       writer.uint32(48).int64(message.fileSize);
     }
-    if (message.replicas !== BigInt(0)) {
-      writer.uint32(56).int64(message.replicas);
+    if (message.replicas !== 0) {
+      writer.uint32(56).int32(message.replicas);
     }
     for (const v of message.providers) {
       writer.uint32(66).string(v!);
@@ -100,8 +100,8 @@ export const File = {
     if (message.start !== BigInt(0)) {
       writer.uint32(72).int64(message.start);
     }
-    if (message.dedupeIndex !== BigInt(0)) {
-      writer.uint32(80).int64(message.dedupeIndex);
+    if (message.nonce !== 0) {
+      writer.uint32(80).int32(message.nonce);
     }
     if (message.lastChallengedHeight !== BigInt(0)) {
       writer.uint32(88).int64(message.lastChallengedHeight);
@@ -134,7 +134,7 @@ export const File = {
           message.fileSize = reader.int64();
           break;
         case 7:
-          message.replicas = reader.int64();
+          message.replicas = reader.int32();
           break;
         case 8:
           message.providers.push(reader.string());
@@ -143,7 +143,7 @@ export const File = {
           message.start = reader.int64();
           break;
         case 10:
-          message.dedupeIndex = reader.int64();
+          message.nonce = reader.int32();
           break;
         case 11:
           message.lastChallengedHeight = reader.int64();
@@ -163,10 +163,10 @@ export const File = {
     message.subscription = object.subscription ?? "";
     message.status = object.status ?? "";
     message.fileSize = object.fileSize !== undefined && object.fileSize !== null ? BigInt(object.fileSize.toString()) : BigInt(0);
-    message.replicas = object.replicas !== undefined && object.replicas !== null ? BigInt(object.replicas.toString()) : BigInt(0);
+    message.replicas = object.replicas ?? 0;
     message.providers = object.providers?.map(e => e) || [];
     message.start = object.start !== undefined && object.start !== null ? BigInt(object.start.toString()) : BigInt(0);
-    message.dedupeIndex = object.dedupeIndex !== undefined && object.dedupeIndex !== null ? BigInt(object.dedupeIndex.toString()) : BigInt(0);
+    message.nonce = object.nonce ?? 0;
     message.lastChallengedHeight = object.lastChallengedHeight !== undefined && object.lastChallengedHeight !== null ? BigInt(object.lastChallengedHeight.toString()) : BigInt(0);
     return message;
   },

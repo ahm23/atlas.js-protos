@@ -14,7 +14,7 @@ telescope({
     tsDisable: {
       files: [],
       patterns: [],
-      disableAll: false
+      disableAll: true
     },
     prototypes: {
       enabled: true,
