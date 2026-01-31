@@ -8,7 +8,7 @@ import { GlobalDecoderRegistry } from "../../../registry";
  * @see proto type: nebulix.storage.v1.File
  */
 export interface File {
-  fileId: string;
+  fid: string;
   merkle: string;
   creator: string;
   subscription: string;
@@ -17,7 +17,6 @@ export interface File {
   replicas: number;
   providers: string[];
   start: bigint;
-  nonce: number;
   lastChallengedHeight: bigint;
 }
 export interface FileProtoMsg {
@@ -31,7 +30,7 @@ export interface FileProtoMsg {
  * @see proto type: nebulix.storage.v1.File
  */
 export interface FileSDKType {
-  file_id: string;
+  fid: string;
   merkle: string;
   creator: string;
   subscription: string;
@@ -40,12 +39,11 @@ export interface FileSDKType {
   replicas: number;
   providers: string[];
   start: bigint;
-  nonce: number;
   last_challenged_height: bigint;
 }
 function createBaseFile(): File {
   return {
-    fileId: "",
+    fid: "",
     merkle: "",
     creator: "",
     subscription: "",
@@ -54,7 +52,6 @@ function createBaseFile(): File {
     replicas: 0,
     providers: [],
     start: BigInt(0),
-    nonce: 0,
     lastChallengedHeight: BigInt(0)
   };
 }
@@ -67,14 +64,14 @@ function createBaseFile(): File {
 export const File = {
   typeUrl: "/nebulix.storage.v1.File",
   is(o: any): o is File {
-    return o && (o.$typeUrl === File.typeUrl || typeof o.fileId === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.nonce === "number" && typeof o.lastChallengedHeight === "bigint");
+    return o && (o.$typeUrl === File.typeUrl || typeof o.fid === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.lastChallengedHeight === "bigint");
   },
   isSDK(o: any): o is FileSDKType {
-    return o && (o.$typeUrl === File.typeUrl || typeof o.file_id === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.file_size === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.nonce === "number" && typeof o.last_challenged_height === "bigint");
+    return o && (o.$typeUrl === File.typeUrl || typeof o.fid === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.file_size === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.last_challenged_height === "bigint");
   },
   encode(message: File, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.fileId !== "") {
-      writer.uint32(10).string(message.fileId);
+    if (message.fid !== "") {
+      writer.uint32(10).string(message.fid);
     }
     if (message.merkle !== "") {
       writer.uint32(18).string(message.merkle);
@@ -100,11 +97,8 @@ export const File = {
     if (message.start !== BigInt(0)) {
       writer.uint32(72).int64(message.start);
     }
-    if (message.nonce !== 0) {
-      writer.uint32(80).int32(message.nonce);
-    }
     if (message.lastChallengedHeight !== BigInt(0)) {
-      writer.uint32(88).int64(message.lastChallengedHeight);
+      writer.uint32(80).int64(message.lastChallengedHeight);
     }
     return writer;
   },
@@ -116,7 +110,7 @@ export const File = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.fileId = reader.string();
+          message.fid = reader.string();
           break;
         case 2:
           message.merkle = reader.string();
@@ -143,9 +137,6 @@ export const File = {
           message.start = reader.int64();
           break;
         case 10:
-          message.nonce = reader.int32();
-          break;
-        case 11:
           message.lastChallengedHeight = reader.int64();
           break;
         default:
@@ -157,7 +148,7 @@ export const File = {
   },
   fromPartial(object: Partial<File>): File {
     const message = createBaseFile();
-    message.fileId = object.fileId ?? "";
+    message.fid = object.fid ?? "";
     message.merkle = object.merkle ?? "";
     message.creator = object.creator ?? "";
     message.subscription = object.subscription ?? "";
@@ -166,7 +157,6 @@ export const File = {
     message.replicas = object.replicas ?? 0;
     message.providers = object.providers?.map(e => e) || [];
     message.start = object.start !== undefined && object.start !== null ? BigInt(object.start.toString()) : BigInt(0);
-    message.nonce = object.nonce ?? 0;
     message.lastChallengedHeight = object.lastChallengedHeight !== undefined && object.lastChallengedHeight !== null ? BigInt(object.lastChallengedHeight.toString()) : BigInt(0);
     return message;
   },

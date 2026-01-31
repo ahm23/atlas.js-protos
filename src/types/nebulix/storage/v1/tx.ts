@@ -104,11 +104,11 @@ export interface MsgRegisterProviderResponseSDKType {}
  */
 export interface MsgPostFile {
   creator: string;
+  fid: string;
   merkle: Uint8Array;
   fileSize: bigint;
   replicas: number;
   subscription: string;
-  nonce: number;
 }
 export interface MsgPostFileProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgPostFile";
@@ -122,11 +122,11 @@ export interface MsgPostFileProtoMsg {
  */
 export interface MsgPostFileSDKType {
   creator: string;
+  fid: string;
   merkle: Uint8Array;
   file_size: bigint;
   replicas: number;
   subscription: string;
-  nonce: number;
 }
 /**
  * MsgPostFileResponse defines the MsgPostFileResponse message.
@@ -211,7 +211,7 @@ export interface MsgBuyStorageResponseSDKType {
 export interface MsgProveFile {
   creator: string;
   challengeId: string;
-  fileId: string;
+  fid: string;
   data: Uint8Array;
   hashes: Uint8Array[];
   chunk: bigint;
@@ -229,7 +229,7 @@ export interface MsgProveFileProtoMsg {
 export interface MsgProveFileSDKType {
   creator: string;
   challenge_id: string;
-  file_id: string;
+  fid: string;
   data: Uint8Array;
   hashes: Uint8Array[];
   chunk: bigint;
@@ -517,11 +517,11 @@ GlobalDecoderRegistry.register(MsgRegisterProviderResponse.typeUrl, MsgRegisterP
 function createBaseMsgPostFile(): MsgPostFile {
   return {
     creator: "",
+    fid: "",
     merkle: new Uint8Array(),
     fileSize: BigInt(0),
     replicas: 0,
-    subscription: "",
-    nonce: 0
+    subscription: ""
   };
 }
 /**
@@ -533,29 +533,29 @@ function createBaseMsgPostFile(): MsgPostFile {
 export const MsgPostFile = {
   typeUrl: "/nebulix.storage.v1.MsgPostFile",
   is(o: any): o is MsgPostFile {
-    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string" && typeof o.nonce === "number");
+    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && typeof o.fid === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string");
   },
   isSDK(o: any): o is MsgPostFileSDKType {
-    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.file_size === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string" && typeof o.nonce === "number");
+    return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && typeof o.fid === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.file_size === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string");
   },
   encode(message: MsgPostFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
+    if (message.fid !== "") {
+      writer.uint32(18).string(message.fid);
+    }
     if (message.merkle.length !== 0) {
-      writer.uint32(18).bytes(message.merkle);
+      writer.uint32(26).bytes(message.merkle);
     }
     if (message.fileSize !== BigInt(0)) {
-      writer.uint32(24).int64(message.fileSize);
+      writer.uint32(32).int64(message.fileSize);
     }
     if (message.replicas !== 0) {
-      writer.uint32(32).int32(message.replicas);
+      writer.uint32(40).int32(message.replicas);
     }
     if (message.subscription !== "") {
-      writer.uint32(42).string(message.subscription);
-    }
-    if (message.nonce !== 0) {
-      writer.uint32(48).int32(message.nonce);
+      writer.uint32(50).string(message.subscription);
     }
     return writer;
   },
@@ -570,19 +570,19 @@ export const MsgPostFile = {
           message.creator = reader.string();
           break;
         case 2:
-          message.merkle = reader.bytes();
+          message.fid = reader.string();
           break;
         case 3:
-          message.fileSize = reader.int64();
+          message.merkle = reader.bytes();
           break;
         case 4:
-          message.replicas = reader.int32();
+          message.fileSize = reader.int64();
           break;
         case 5:
-          message.subscription = reader.string();
+          message.replicas = reader.int32();
           break;
         case 6:
-          message.nonce = reader.int32();
+          message.subscription = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -594,11 +594,11 @@ export const MsgPostFile = {
   fromPartial(object: Partial<MsgPostFile>): MsgPostFile {
     const message = createBaseMsgPostFile();
     message.creator = object.creator ?? "";
+    message.fid = object.fid ?? "";
     message.merkle = object.merkle ?? new Uint8Array();
     message.fileSize = object.fileSize !== undefined && object.fileSize !== null ? BigInt(object.fileSize.toString()) : BigInt(0);
     message.replicas = object.replicas ?? 0;
     message.subscription = object.subscription ?? "";
-    message.nonce = object.nonce ?? 0;
     return message;
   },
   fromProtoMsg(message: MsgPostFileProtoMsg): MsgPostFile {
@@ -838,7 +838,7 @@ function createBaseMsgProveFile(): MsgProveFile {
   return {
     creator: "",
     challengeId: "",
-    fileId: "",
+    fid: "",
     data: new Uint8Array(),
     hashes: [],
     chunk: BigInt(0)
@@ -853,10 +853,10 @@ function createBaseMsgProveFile(): MsgProveFile {
 export const MsgProveFile = {
   typeUrl: "/nebulix.storage.v1.MsgProveFile",
   is(o: any): o is MsgProveFile {
-    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challengeId === "string" && typeof o.fileId === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
+    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challengeId === "string" && typeof o.fid === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
   },
   isSDK(o: any): o is MsgProveFileSDKType {
-    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challenge_id === "string" && typeof o.file_id === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
+    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challenge_id === "string" && typeof o.fid === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
   },
   encode(message: MsgProveFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creator !== "") {
@@ -865,8 +865,8 @@ export const MsgProveFile = {
     if (message.challengeId !== "") {
       writer.uint32(18).string(message.challengeId);
     }
-    if (message.fileId !== "") {
-      writer.uint32(26).string(message.fileId);
+    if (message.fid !== "") {
+      writer.uint32(26).string(message.fid);
     }
     if (message.data.length !== 0) {
       writer.uint32(34).bytes(message.data);
@@ -893,7 +893,7 @@ export const MsgProveFile = {
           message.challengeId = reader.string();
           break;
         case 3:
-          message.fileId = reader.string();
+          message.fid = reader.string();
           break;
         case 4:
           message.data = reader.bytes();
@@ -915,7 +915,7 @@ export const MsgProveFile = {
     const message = createBaseMsgProveFile();
     message.creator = object.creator ?? "";
     message.challengeId = object.challengeId ?? "";
-    message.fileId = object.fileId ?? "";
+    message.fid = object.fid ?? "";
     message.data = object.data ?? new Uint8Array();
     message.hashes = object.hashes?.map(e => e) || [];
     message.chunk = object.chunk !== undefined && object.chunk !== null ? BigInt(object.chunk.toString()) : BigInt(0);
