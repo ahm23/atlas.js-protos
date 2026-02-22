@@ -46,8 +46,7 @@ export interface StorageChallenge {
   provider: string;
   chunkIndex: bigint;
   createdHeight: bigint;
-  seed: Uint8Array;
-  completed: boolean;
+  deadlineHeight: bigint;
 }
 export interface StorageChallengeProtoMsg {
   typeUrl: "/nebulix.storage.v1.StorageChallenge";
@@ -65,8 +64,7 @@ export interface StorageChallengeSDKType {
   provider: string;
   chunk_index: bigint;
   created_height: bigint;
-  seed: Uint8Array;
-  completed: boolean;
+  deadline_height: bigint;
 }
 function createBaseMerkleProof(): MerkleProof {
   return {
@@ -153,8 +151,7 @@ function createBaseStorageChallenge(): StorageChallenge {
     provider: "",
     chunkIndex: BigInt(0),
     createdHeight: BigInt(0),
-    seed: new Uint8Array(),
-    completed: false
+    deadlineHeight: BigInt(0)
   };
 }
 /**
@@ -165,10 +162,10 @@ function createBaseStorageChallenge(): StorageChallenge {
 export const StorageChallenge = {
   typeUrl: "/nebulix.storage.v1.StorageChallenge",
   is(o: any): o is StorageChallenge {
-    return o && (o.$typeUrl === StorageChallenge.typeUrl || typeof o.challengeId === "string" && typeof o.fileId === "string" && typeof o.fileMerkle === "string" && typeof o.provider === "string" && typeof o.chunkIndex === "bigint" && typeof o.createdHeight === "bigint" && (o.seed instanceof Uint8Array || typeof o.seed === "string") && typeof o.completed === "boolean");
+    return o && (o.$typeUrl === StorageChallenge.typeUrl || typeof o.challengeId === "string" && typeof o.fileId === "string" && typeof o.fileMerkle === "string" && typeof o.provider === "string" && typeof o.chunkIndex === "bigint" && typeof o.createdHeight === "bigint" && typeof o.deadlineHeight === "bigint");
   },
   isSDK(o: any): o is StorageChallengeSDKType {
-    return o && (o.$typeUrl === StorageChallenge.typeUrl || typeof o.challenge_id === "string" && typeof o.file_id === "string" && typeof o.file_merkle === "string" && typeof o.provider === "string" && typeof o.chunk_index === "bigint" && typeof o.created_height === "bigint" && (o.seed instanceof Uint8Array || typeof o.seed === "string") && typeof o.completed === "boolean");
+    return o && (o.$typeUrl === StorageChallenge.typeUrl || typeof o.challenge_id === "string" && typeof o.file_id === "string" && typeof o.file_merkle === "string" && typeof o.provider === "string" && typeof o.chunk_index === "bigint" && typeof o.created_height === "bigint" && typeof o.deadline_height === "bigint");
   },
   encode(message: StorageChallenge, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.challengeId !== "") {
@@ -189,11 +186,8 @@ export const StorageChallenge = {
     if (message.createdHeight !== BigInt(0)) {
       writer.uint32(48).uint64(message.createdHeight);
     }
-    if (message.seed.length !== 0) {
-      writer.uint32(58).bytes(message.seed);
-    }
-    if (message.completed === true) {
-      writer.uint32(64).bool(message.completed);
+    if (message.deadlineHeight !== BigInt(0)) {
+      writer.uint32(56).uint64(message.deadlineHeight);
     }
     return writer;
   },
@@ -223,10 +217,7 @@ export const StorageChallenge = {
           message.createdHeight = reader.uint64();
           break;
         case 7:
-          message.seed = reader.bytes();
-          break;
-        case 8:
-          message.completed = reader.bool();
+          message.deadlineHeight = reader.uint64();
           break;
         default:
           reader.skipType(tag & 7);
@@ -243,8 +234,7 @@ export const StorageChallenge = {
     message.provider = object.provider ?? "";
     message.chunkIndex = object.chunkIndex !== undefined && object.chunkIndex !== null ? BigInt(object.chunkIndex.toString()) : BigInt(0);
     message.createdHeight = object.createdHeight !== undefined && object.createdHeight !== null ? BigInt(object.createdHeight.toString()) : BigInt(0);
-    message.seed = object.seed ?? new Uint8Array();
-    message.completed = object.completed ?? false;
+    message.deadlineHeight = object.deadlineHeight !== undefined && object.deadlineHeight !== null ? BigInt(object.deadlineHeight.toString()) : BigInt(0);
     return message;
   },
   fromProtoMsg(message: StorageChallengeProtoMsg): StorageChallenge {

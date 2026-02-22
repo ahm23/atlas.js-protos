@@ -4,6 +4,7 @@ import { Params, ParamsSDKType } from "./params";
 import { Provider, ProviderSDKType } from "./provider";
 import { File, FileSDKType } from "./file";
 import { StorageSubscription, StorageSubscriptionSDKType } from "./subscription";
+import { StorageChallenge, StorageChallengeSDKType } from "./proof";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
@@ -319,6 +320,54 @@ export interface QuerySubscriptionsResponseProtoMsg {
  */
 export interface QuerySubscriptionsResponseSDKType {
   subscriptions: StorageSubscriptionSDKType[];
+  pagination?: PageResponseSDKType;
+}
+/**
+ * QueryChallengesRequest defines the QueryChallengesRequest message.
+ * @name QueryChallengesRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryChallengesRequest
+ */
+export interface QueryChallengesRequest {
+  provider: string;
+  pagination?: PageRequest;
+}
+export interface QueryChallengesRequestProtoMsg {
+  typeUrl: "/nebulix.storage.v1.QueryChallengesRequest";
+  value: Uint8Array;
+}
+/**
+ * QueryChallengesRequest defines the QueryChallengesRequest message.
+ * @name QueryChallengesRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryChallengesRequest
+ */
+export interface QueryChallengesRequestSDKType {
+  provider: string;
+  pagination?: PageRequestSDKType;
+}
+/**
+ * QueryChallengesResponse defines the QueryChallengesResponse message.
+ * @name QueryChallengesResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryChallengesResponse
+ */
+export interface QueryChallengesResponse {
+  challenges: StorageChallenge[];
+  pagination?: PageResponse;
+}
+export interface QueryChallengesResponseProtoMsg {
+  typeUrl: "/nebulix.storage.v1.QueryChallengesResponse";
+  value: Uint8Array;
+}
+/**
+ * QueryChallengesResponse defines the QueryChallengesResponse message.
+ * @name QueryChallengesResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryChallengesResponse
+ */
+export interface QueryChallengesResponseSDKType {
+  challenges: StorageChallengeSDKType[];
   pagination?: PageResponseSDKType;
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
@@ -1266,3 +1315,154 @@ export const QuerySubscriptionsResponse = {
   }
 };
 GlobalDecoderRegistry.register(QuerySubscriptionsResponse.typeUrl, QuerySubscriptionsResponse);
+function createBaseQueryChallengesRequest(): QueryChallengesRequest {
+  return {
+    provider: "",
+    pagination: undefined
+  };
+}
+/**
+ * QueryChallengesRequest defines the QueryChallengesRequest message.
+ * @name QueryChallengesRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryChallengesRequest
+ */
+export const QueryChallengesRequest = {
+  typeUrl: "/nebulix.storage.v1.QueryChallengesRequest",
+  is(o: any): o is QueryChallengesRequest {
+    return o && (o.$typeUrl === QueryChallengesRequest.typeUrl || typeof o.provider === "string");
+  },
+  isSDK(o: any): o is QueryChallengesRequestSDKType {
+    return o && (o.$typeUrl === QueryChallengesRequest.typeUrl || typeof o.provider === "string");
+  },
+  encode(message: QueryChallengesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.provider !== "") {
+      writer.uint32(10).string(message.provider);
+    }
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryChallengesRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryChallengesRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.provider = reader.string();
+          break;
+        case 2:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryChallengesRequest>): QueryChallengesRequest {
+    const message = createBaseQueryChallengesRequest();
+    message.provider = object.provider ?? "";
+    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
+    return message;
+  },
+  fromProtoMsg(message: QueryChallengesRequestProtoMsg): QueryChallengesRequest {
+    return QueryChallengesRequest.decode(message.value);
+  },
+  toProto(message: QueryChallengesRequest): Uint8Array {
+    return QueryChallengesRequest.encode(message).finish();
+  },
+  toProtoMsg(message: QueryChallengesRequest): QueryChallengesRequestProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.QueryChallengesRequest",
+      value: QueryChallengesRequest.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryChallengesRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
+  }
+};
+GlobalDecoderRegistry.register(QueryChallengesRequest.typeUrl, QueryChallengesRequest);
+function createBaseQueryChallengesResponse(): QueryChallengesResponse {
+  return {
+    challenges: [],
+    pagination: undefined
+  };
+}
+/**
+ * QueryChallengesResponse defines the QueryChallengesResponse message.
+ * @name QueryChallengesResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryChallengesResponse
+ */
+export const QueryChallengesResponse = {
+  typeUrl: "/nebulix.storage.v1.QueryChallengesResponse",
+  is(o: any): o is QueryChallengesResponse {
+    return o && (o.$typeUrl === QueryChallengesResponse.typeUrl || Array.isArray(o.challenges) && (!o.challenges.length || StorageChallenge.is(o.challenges[0])));
+  },
+  isSDK(o: any): o is QueryChallengesResponseSDKType {
+    return o && (o.$typeUrl === QueryChallengesResponse.typeUrl || Array.isArray(o.challenges) && (!o.challenges.length || StorageChallenge.isSDK(o.challenges[0])));
+  },
+  encode(message: QueryChallengesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    for (const v of message.challenges) {
+      StorageChallenge.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryChallengesResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryChallengesResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.challenges.push(StorageChallenge.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryChallengesResponse>): QueryChallengesResponse {
+    const message = createBaseQueryChallengesResponse();
+    message.challenges = object.challenges?.map(e => StorageChallenge.fromPartial(e)) || [];
+    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
+    return message;
+  },
+  fromProtoMsg(message: QueryChallengesResponseProtoMsg): QueryChallengesResponse {
+    return QueryChallengesResponse.decode(message.value);
+  },
+  toProto(message: QueryChallengesResponse): Uint8Array {
+    return QueryChallengesResponse.encode(message).finish();
+  },
+  toProtoMsg(message: QueryChallengesResponse): QueryChallengesResponseProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.QueryChallengesResponse",
+      value: QueryChallengesResponse.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryChallengesResponse.typeUrl)) {
+      return;
+    }
+    StorageChallenge.registerTypeUrl();
+    PageResponse.registerTypeUrl();
+  }
+};
+GlobalDecoderRegistry.register(QueryChallengesResponse.typeUrl, QueryChallengesResponse);

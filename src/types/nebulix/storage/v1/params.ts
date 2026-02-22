@@ -10,8 +10,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 export interface Params {
   pricePerGbDay: bigint;
   providerDeposit: bigint;
-  challengeWindow: bigint;
-  maxChallengesPerRound: bigint;
+  proofWindowBlocks: bigint;
+  proofRoundBlocks: bigint;
 }
 export interface ParamsProtoMsg {
   typeUrl: "/nebulix.storage.v1.Params";
@@ -26,15 +26,15 @@ export interface ParamsProtoMsg {
 export interface ParamsSDKType {
   price_per_gb_day: bigint;
   provider_deposit: bigint;
-  challenge_window: bigint;
-  max_challenges_per_round: bigint;
+  proof_window_blocks: bigint;
+  proof_round_blocks: bigint;
 }
 function createBaseParams(): Params {
   return {
     pricePerGbDay: BigInt(0),
     providerDeposit: BigInt(0),
-    challengeWindow: BigInt(0),
-    maxChallengesPerRound: BigInt(0)
+    proofWindowBlocks: BigInt(0),
+    proofRoundBlocks: BigInt(0)
   };
 }
 /**
@@ -47,10 +47,10 @@ export const Params = {
   typeUrl: "/nebulix.storage.v1.Params",
   aminoType: "nebulix/x/storage/Params",
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.pricePerGbDay === "bigint" && typeof o.providerDeposit === "bigint" && typeof o.challengeWindow === "bigint" && typeof o.maxChallengesPerRound === "bigint");
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.pricePerGbDay === "bigint" && typeof o.providerDeposit === "bigint" && typeof o.proofWindowBlocks === "bigint" && typeof o.proofRoundBlocks === "bigint");
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.price_per_gb_day === "bigint" && typeof o.provider_deposit === "bigint" && typeof o.challenge_window === "bigint" && typeof o.max_challenges_per_round === "bigint");
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.price_per_gb_day === "bigint" && typeof o.provider_deposit === "bigint" && typeof o.proof_window_blocks === "bigint" && typeof o.proof_round_blocks === "bigint");
   },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pricePerGbDay !== BigInt(0)) {
@@ -59,11 +59,11 @@ export const Params = {
     if (message.providerDeposit !== BigInt(0)) {
       writer.uint32(16).int64(message.providerDeposit);
     }
-    if (message.challengeWindow !== BigInt(0)) {
-      writer.uint32(24).int64(message.challengeWindow);
+    if (message.proofWindowBlocks !== BigInt(0)) {
+      writer.uint32(24).uint64(message.proofWindowBlocks);
     }
-    if (message.maxChallengesPerRound !== BigInt(0)) {
-      writer.uint32(32).int64(message.maxChallengesPerRound);
+    if (message.proofRoundBlocks !== BigInt(0)) {
+      writer.uint32(32).uint64(message.proofRoundBlocks);
     }
     return writer;
   },
@@ -81,10 +81,10 @@ export const Params = {
           message.providerDeposit = reader.int64();
           break;
         case 3:
-          message.challengeWindow = reader.int64();
+          message.proofWindowBlocks = reader.uint64();
           break;
         case 4:
-          message.maxChallengesPerRound = reader.int64();
+          message.proofRoundBlocks = reader.uint64();
           break;
         default:
           reader.skipType(tag & 7);
@@ -97,8 +97,8 @@ export const Params = {
     const message = createBaseParams();
     message.pricePerGbDay = object.pricePerGbDay !== undefined && object.pricePerGbDay !== null ? BigInt(object.pricePerGbDay.toString()) : BigInt(0);
     message.providerDeposit = object.providerDeposit !== undefined && object.providerDeposit !== null ? BigInt(object.providerDeposit.toString()) : BigInt(0);
-    message.challengeWindow = object.challengeWindow !== undefined && object.challengeWindow !== null ? BigInt(object.challengeWindow.toString()) : BigInt(0);
-    message.maxChallengesPerRound = object.maxChallengesPerRound !== undefined && object.maxChallengesPerRound !== null ? BigInt(object.maxChallengesPerRound.toString()) : BigInt(0);
+    message.proofWindowBlocks = object.proofWindowBlocks !== undefined && object.proofWindowBlocks !== null ? BigInt(object.proofWindowBlocks.toString()) : BigInt(0);
+    message.proofRoundBlocks = object.proofRoundBlocks !== undefined && object.proofRoundBlocks !== null ? BigInt(object.proofRoundBlocks.toString()) : BigInt(0);
     return message;
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {

@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { buildTx } from "../../../helper-func-types";
-import { MsgUpdateParams, MsgRegisterProvider, MsgPostFile, MsgBuyStorage, MsgProveFile } from "./tx";
+import { MsgUpdateParams, MsgRegisterProvider, MsgPostFile, MsgBuyStorage, MsgProveFile, MsgDeleteFile } from "./tx";
 /**
  * UpdateParams defines a (governance) operation for updating the module
  * parameters. The authority defaults to the x/gov module account.
@@ -44,4 +44,13 @@ export const buyStorage = buildTx<MsgBuyStorage>({
  */
 export const proveFile = buildTx<MsgProveFile>({
   msg: MsgProveFile
+});
+/**
+ * DeleteFile defines the DeleteFile RPC.
+ * @name deleteFile
+ * @package nebulix.storage.v1
+ * @see proto service: nebulix.storage.v1.DeleteFile
+ */
+export const deleteFile = buildTx<MsgDeleteFile>({
+  msg: MsgDeleteFile
 });

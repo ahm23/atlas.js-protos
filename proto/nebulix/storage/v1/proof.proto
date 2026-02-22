@@ -16,6 +16,5 @@ message StorageChallenge {
   string provider = 4;
   uint64 chunk_index = 5;
   uint64 created_height = 6;
-  bytes seed = 7;
-  bool completed = 8;
+  uint64 deadline_height = 7;
 }

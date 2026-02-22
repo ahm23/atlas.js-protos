@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
-import { MsgUpdateParams, MsgUpdateParamsResponse, MsgRegisterProvider, MsgRegisterProviderResponse, MsgPostFile, MsgPostFileResponse, MsgBuyStorage, MsgBuyStorageResponse, MsgProveFile, MsgProveFileResponse } from "./tx";
+import { MsgUpdateParams, MsgUpdateParamsResponse, MsgRegisterProvider, MsgRegisterProviderResponse, MsgPostFile, MsgPostFileResponse, MsgBuyStorage, MsgBuyStorageResponse, MsgProveFile, MsgProveFileResponse, MsgDeleteFile, MsgDeleteFileResponse } from "./tx";
 /** Msg defines the Msg service. */
 export interface Msg {
   /**
@@ -15,6 +15,8 @@ export interface Msg {
   buyStorage(request: MsgBuyStorage): Promise<MsgBuyStorageResponse>;
   /** ProveFile defines the ProveFile RPC. */
   proveFile(request: MsgProveFile): Promise<MsgProveFileResponse>;
+  /** DeleteFile defines the DeleteFile RPC. */
+  deleteFile(request: MsgDeleteFile): Promise<MsgDeleteFileResponse>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -25,6 +27,7 @@ export class MsgClientImpl implements Msg {
     this.postFile = this.postFile.bind(this);
     this.buyStorage = this.buyStorage.bind(this);
     this.proveFile = this.proveFile.bind(this);
+    this.deleteFile = this.deleteFile.bind(this);
   }
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse> {
     const data = MsgUpdateParams.encode(request).finish();
@@ -50,6 +53,11 @@ export class MsgClientImpl implements Msg {
     const data = MsgProveFile.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "ProveFile", data);
     return promise.then(data => MsgProveFileResponse.decode(new BinaryReader(data)));
+  }
+  deleteFile(request: MsgDeleteFile): Promise<MsgDeleteFileResponse> {
+    const data = MsgDeleteFile.encode(request).finish();
+    const promise = this.rpc.request("nebulix.storage.v1.Msg", "DeleteFile", data);
+    return promise.then(data => MsgDeleteFileResponse.decode(new BinaryReader(data)));
   }
 }
 export const createClientImpl = (rpc: TxRpc) => {

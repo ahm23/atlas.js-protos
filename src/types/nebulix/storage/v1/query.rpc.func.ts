@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { buildQuery } from "../../../helper-func-types";
-import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse, QueryChallengesRequest, QueryChallengesResponse } from "./query";
 /**
  * Parameters queries the parameters of the module.
  * @name getParams
@@ -91,4 +91,17 @@ export const getSubscriptions = buildQuery<QuerySubscriptionsRequest, QuerySubsc
   service: "nebulix.storage.v1.Query",
   method: "Subscriptions",
   deps: [QuerySubscriptionsRequest, QuerySubscriptionsResponse]
+});
+/**
+ * Challenges Queries a list of Challenges items.
+ * @name getChallenges
+ * @package nebulix.storage.v1
+ * @see proto service: nebulix.storage.v1.Challenges
+ */
+export const getChallenges = buildQuery<QueryChallengesRequest, QueryChallengesResponse>({
+  encode: QueryChallengesRequest.encode,
+  decode: QueryChallengesResponse.decode,
+  service: "nebulix.storage.v1.Query",
+  method: "Challenges",
+  deps: [QueryChallengesRequest, QueryChallengesResponse]
 });

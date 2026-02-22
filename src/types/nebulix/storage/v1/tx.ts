@@ -252,6 +252,48 @@ export interface MsgProveFileResponseProtoMsg {
  * @see proto type: nebulix.storage.v1.MsgProveFileResponse
  */
 export interface MsgProveFileResponseSDKType {}
+/**
+ * MsgDeleteFile defines the MsgDeleteFile message.
+ * @name MsgDeleteFile
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgDeleteFile
+ */
+export interface MsgDeleteFile {
+  creator: string;
+  fileId: string;
+}
+export interface MsgDeleteFileProtoMsg {
+  typeUrl: "/nebulix.storage.v1.MsgDeleteFile";
+  value: Uint8Array;
+}
+/**
+ * MsgDeleteFile defines the MsgDeleteFile message.
+ * @name MsgDeleteFileSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgDeleteFile
+ */
+export interface MsgDeleteFileSDKType {
+  creator: string;
+  file_id: string;
+}
+/**
+ * MsgDeleteFileResponse defines the MsgDeleteFileResponse message.
+ * @name MsgDeleteFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgDeleteFileResponse
+ */
+export interface MsgDeleteFileResponse {}
+export interface MsgDeleteFileResponseProtoMsg {
+  typeUrl: "/nebulix.storage.v1.MsgDeleteFileResponse";
+  value: Uint8Array;
+}
+/**
+ * MsgDeleteFileResponse defines the MsgDeleteFileResponse message.
+ * @name MsgDeleteFileResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgDeleteFileResponse
+ */
+export interface MsgDeleteFileResponseSDKType {}
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
@@ -989,3 +1031,126 @@ export const MsgProveFileResponse = {
   registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(MsgProveFileResponse.typeUrl, MsgProveFileResponse);
+function createBaseMsgDeleteFile(): MsgDeleteFile {
+  return {
+    creator: "",
+    fileId: ""
+  };
+}
+/**
+ * MsgDeleteFile defines the MsgDeleteFile message.
+ * @name MsgDeleteFile
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgDeleteFile
+ */
+export const MsgDeleteFile = {
+  typeUrl: "/nebulix.storage.v1.MsgDeleteFile",
+  is(o: any): o is MsgDeleteFile {
+    return o && (o.$typeUrl === MsgDeleteFile.typeUrl || typeof o.creator === "string" && typeof o.fileId === "string");
+  },
+  isSDK(o: any): o is MsgDeleteFileSDKType {
+    return o && (o.$typeUrl === MsgDeleteFile.typeUrl || typeof o.creator === "string" && typeof o.file_id === "string");
+  },
+  encode(message: MsgDeleteFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.fileId !== "") {
+      writer.uint32(18).string(message.fileId);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): MsgDeleteFile {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgDeleteFile();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.fileId = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<MsgDeleteFile>): MsgDeleteFile {
+    const message = createBaseMsgDeleteFile();
+    message.creator = object.creator ?? "";
+    message.fileId = object.fileId ?? "";
+    return message;
+  },
+  fromProtoMsg(message: MsgDeleteFileProtoMsg): MsgDeleteFile {
+    return MsgDeleteFile.decode(message.value);
+  },
+  toProto(message: MsgDeleteFile): Uint8Array {
+    return MsgDeleteFile.encode(message).finish();
+  },
+  toProtoMsg(message: MsgDeleteFile): MsgDeleteFileProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.MsgDeleteFile",
+      value: MsgDeleteFile.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(MsgDeleteFile.typeUrl, MsgDeleteFile);
+function createBaseMsgDeleteFileResponse(): MsgDeleteFileResponse {
+  return {};
+}
+/**
+ * MsgDeleteFileResponse defines the MsgDeleteFileResponse message.
+ * @name MsgDeleteFileResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgDeleteFileResponse
+ */
+export const MsgDeleteFileResponse = {
+  typeUrl: "/nebulix.storage.v1.MsgDeleteFileResponse",
+  is(o: any): o is MsgDeleteFileResponse {
+    return o && o.$typeUrl === MsgDeleteFileResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgDeleteFileResponseSDKType {
+    return o && o.$typeUrl === MsgDeleteFileResponse.typeUrl;
+  },
+  encode(_: MsgDeleteFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): MsgDeleteFileResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgDeleteFileResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(_: Partial<MsgDeleteFileResponse>): MsgDeleteFileResponse {
+    const message = createBaseMsgDeleteFileResponse();
+    return message;
+  },
+  fromProtoMsg(message: MsgDeleteFileResponseProtoMsg): MsgDeleteFileResponse {
+    return MsgDeleteFileResponse.decode(message.value);
+  },
+  toProto(message: MsgDeleteFileResponse): Uint8Array {
+    return MsgDeleteFileResponse.encode(message).finish();
+  },
+  toProtoMsg(message: MsgDeleteFileResponse): MsgDeleteFileResponseProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.MsgDeleteFileResponse",
+      value: MsgDeleteFileResponse.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(MsgDeleteFileResponse.typeUrl, MsgDeleteFileResponse);

@@ -2,7 +2,7 @@
 import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse, QueryChallengesRequest, QueryChallengesResponse } from "./query";
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Parameters queries the parameters of the module. */
@@ -19,6 +19,8 @@ export interface Query {
   subscription(request: QuerySubscriptionRequest): Promise<QuerySubscriptionResponse>;
   /** Subscriptions Queries a list of Subscriptions items. */
   subscriptions(request: QuerySubscriptionsRequest): Promise<QuerySubscriptionsResponse>;
+  /** Challenges Queries a list of Challenges items. */
+  challenges(request: QueryChallengesRequest): Promise<QueryChallengesResponse>;
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: TxRpc;
@@ -31,6 +33,7 @@ export class QueryClientImpl implements Query {
     this.files = this.files.bind(this);
     this.subscription = this.subscription.bind(this);
     this.subscriptions = this.subscriptions.bind(this);
+    this.challenges = this.challenges.bind(this);
   }
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
@@ -67,6 +70,11 @@ export class QueryClientImpl implements Query {
     const promise = this.rpc.request("nebulix.storage.v1.Query", "Subscriptions", data);
     return promise.then(data => QuerySubscriptionsResponse.decode(new BinaryReader(data)));
   }
+  challenges(request: QueryChallengesRequest): Promise<QueryChallengesResponse> {
+    const data = QueryChallengesRequest.encode(request).finish();
+    const promise = this.rpc.request("nebulix.storage.v1.Query", "Challenges", data);
+    return promise.then(data => QueryChallengesResponse.decode(new BinaryReader(data)));
+  }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);
@@ -92,6 +100,9 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     },
     subscriptions(request: QuerySubscriptionsRequest): Promise<QuerySubscriptionsResponse> {
       return queryService.subscriptions(request);
+    },
+    challenges(request: QueryChallengesRequest): Promise<QueryChallengesResponse> {
+      return queryService.challenges(request);
     }
   };
 };
