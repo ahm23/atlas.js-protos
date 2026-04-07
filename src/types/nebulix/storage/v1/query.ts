@@ -13,7 +13,7 @@ import { GlobalDecoderRegistry } from "../../../registry";
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryParamsRequest
  */
-export interface QueryParamsRequest {}
+export interface QueryParamsRequest { }
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryParamsRequest";
   value: Uint8Array;
@@ -24,7 +24,7 @@ export interface QueryParamsRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryParamsRequest
  */
-export interface QueryParamsRequestSDKType {}
+export interface QueryParamsRequestSDKType { }
 /**
  * QueryParamsResponse is response type for the Query/Params RPC method.
  * @name QueryParamsResponse
@@ -100,7 +100,7 @@ export interface QueryProviderResponseSDKType {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryProvidersRequest
  */
-export interface QueryProvidersRequest {}
+export interface QueryProvidersRequest { }
 export interface QueryProvidersRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryProvidersRequest";
   value: Uint8Array;
@@ -111,7 +111,7 @@ export interface QueryProvidersRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryProvidersRequest
  */
-export interface QueryProvidersRequestSDKType {}
+export interface QueryProvidersRequestSDKType { }
 /**
  * QueryProvidersResponse defines the QueryProvidersResponse message.
  * @name QueryProvidersResponse
@@ -376,7 +376,7 @@ export interface QueryChallengesResponseSDKType {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
  */
-export interface QueryStorageStatsRequest {}
+export interface QueryStorageStatsRequest { }
 export interface QueryStorageStatsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest";
   value: Uint8Array;
@@ -387,7 +387,7 @@ export interface QueryStorageStatsRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
  */
-export interface QueryStorageStatsRequestSDKType {}
+export interface QueryStorageStatsRequestSDKType { }
 /**
  * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
  * @name QueryStorageStatsResponse
@@ -426,7 +426,7 @@ export interface QueryStorageStatsResponseSDKType {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
  */
-export interface QueryFileStatsRequest {}
+export interface QueryFileStatsRequest { }
 export interface QueryFileStatsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest";
   value: Uint8Array;
@@ -437,7 +437,7 @@ export interface QueryFileStatsRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
  */
-export interface QueryFileStatsRequestSDKType {}
+export interface QueryFileStatsRequestSDKType { }
 /**
  * QueryFileStatsResponse defines the QueryFileStatsResponse message.
  * @name QueryFileStatsResponse
@@ -514,7 +514,7 @@ export const QueryParamsRequest = {
       value: QueryParamsRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
@@ -643,7 +643,7 @@ export const QueryProviderRequest = {
       value: QueryProviderRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryProviderRequest.typeUrl, QueryProviderRequest);
 function createBaseQueryProviderResponse(): QueryProviderResponse {
@@ -763,7 +763,7 @@ export const QueryProvidersRequest = {
       value: QueryProvidersRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryProvidersRequest.typeUrl, QueryProvidersRequest);
 function createBaseQueryProvidersResponse(): QueryProvidersResponse {
@@ -892,7 +892,7 @@ export const QueryFileRequest = {
       value: QueryFileRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryFileRequest.typeUrl, QueryFileRequest);
 function createBaseQueryFileResponse(): QueryFileResponse {
@@ -1188,7 +1188,7 @@ export const QuerySubscriptionRequest = {
       value: QuerySubscriptionRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QuerySubscriptionRequest.typeUrl, QuerySubscriptionRequest);
 function createBaseQuerySubscriptionResponse(): QuerySubscriptionResponse {
@@ -1610,17 +1610,17 @@ export const QueryStorageStatsRequest = {
       value: QueryStorageStatsRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryStorageStatsRequest.typeUrl, QueryStorageStatsRequest);
 function createBaseQueryStorageStatsResponse(): QueryStorageStatsResponse {
   return {
     subscriptionCount: 0,
-    spacePurchased: BigInt(0),
-    spaceUsed: BigInt(0),
-    spaceReplicas: BigInt(0),
+    spacePurchased: 0,
+    spaceUsed: 0,
+    spaceReplicas: 0,
     providerCount: 0,
-    spaceAvailable: BigInt(0)
+    spaceAvailable: 0
   };
 }
 /**
@@ -1641,19 +1641,19 @@ export const QueryStorageStatsResponse = {
     if (message.subscriptionCount !== 0) {
       writer.uint32(8).int32(message.subscriptionCount);
     }
-    if (message.spacePurchased !== BigInt(0)) {
+    if (message.spacePurchased !== 0) {
       writer.uint32(16).int64(message.spacePurchased);
     }
-    if (message.spaceUsed !== BigInt(0)) {
+    if (message.spaceUsed !== 0) {
       writer.uint32(24).int64(message.spaceUsed);
     }
-    if (message.spaceReplicas !== BigInt(0)) {
+    if (message.spaceReplicas !== 0) {
       writer.uint32(32).int64(message.spaceReplicas);
     }
     if (message.providerCount !== 0) {
       writer.uint32(40).int32(message.providerCount);
     }
-    if (message.spaceAvailable !== BigInt(0)) {
+    if (message.spaceAvailable !== 0) {
       writer.uint32(48).int64(message.spaceAvailable);
     }
     return writer;
@@ -1693,11 +1693,11 @@ export const QueryStorageStatsResponse = {
   fromPartial(object: Partial<QueryStorageStatsResponse>): QueryStorageStatsResponse {
     const message = createBaseQueryStorageStatsResponse();
     message.subscriptionCount = object.subscriptionCount ?? 0;
-    message.spacePurchased = object.spacePurchased !== undefined && object.spacePurchased !== null ? BigInt(object.spacePurchased.toString()) : BigInt(0);
-    message.spaceUsed = object.spaceUsed !== undefined && object.spaceUsed !== null ? BigInt(object.spaceUsed.toString()) : BigInt(0);
-    message.spaceReplicas = object.spaceReplicas !== undefined && object.spaceReplicas !== null ? BigInt(object.spaceReplicas.toString()) : BigInt(0);
+    message.spacePurchased = object.spacePurchased !== undefined && object.spacePurchased !== null ? BigInt(object.spacePurchased.toString()) : 0;
+    message.spaceUsed = object.spaceUsed !== undefined && object.spaceUsed !== null ? BigInt(object.spaceUsed.toString()) : 0;
+    message.spaceReplicas = object.spaceReplicas !== undefined && object.spaceReplicas !== null ? BigInt(object.spaceReplicas.toString()) : 0;
     message.providerCount = object.providerCount ?? 0;
-    message.spaceAvailable = object.spaceAvailable !== undefined && object.spaceAvailable !== null ? BigInt(object.spaceAvailable.toString()) : BigInt(0);
+    message.spaceAvailable = object.spaceAvailable !== undefined && object.spaceAvailable !== null ? BigInt(object.spaceAvailable.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: QueryStorageStatsResponseProtoMsg): QueryStorageStatsResponse {
@@ -1712,7 +1712,7 @@ export const QueryStorageStatsResponse = {
       value: QueryStorageStatsResponse.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryStorageStatsResponse.typeUrl, QueryStorageStatsResponse);
 function createBaseQueryFileStatsRequest(): QueryFileStatsRequest {
@@ -1765,14 +1765,14 @@ export const QueryFileStatsRequest = {
       value: QueryFileStatsRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryFileStatsRequest.typeUrl, QueryFileStatsRequest);
 function createBaseQueryFileStatsResponse(): QueryFileStatsResponse {
   return {
-    totalFiles: BigInt(0),
-    strayFiles: BigInt(0),
-    deadFiles: BigInt(0)
+    totalFiles: 0,
+    strayFiles: 0,
+    deadFiles: 0
   };
 }
 /**
@@ -1790,13 +1790,13 @@ export const QueryFileStatsResponse = {
     return o && (o.$typeUrl === QueryFileStatsResponse.typeUrl || typeof o.total_files === "bigint" && typeof o.stray_files === "bigint" && typeof o.dead_files === "bigint");
   },
   encode(message: QueryFileStatsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.totalFiles !== BigInt(0)) {
+    if (message.totalFiles !== 0) {
       writer.uint32(8).int64(message.totalFiles);
     }
-    if (message.strayFiles !== BigInt(0)) {
+    if (message.strayFiles !== 0) {
       writer.uint32(16).int64(message.strayFiles);
     }
-    if (message.deadFiles !== BigInt(0)) {
+    if (message.deadFiles !== 0) {
       writer.uint32(24).int64(message.deadFiles);
     }
     return writer;
@@ -1826,9 +1826,9 @@ export const QueryFileStatsResponse = {
   },
   fromPartial(object: Partial<QueryFileStatsResponse>): QueryFileStatsResponse {
     const message = createBaseQueryFileStatsResponse();
-    message.totalFiles = object.totalFiles !== undefined && object.totalFiles !== null ? BigInt(object.totalFiles.toString()) : BigInt(0);
-    message.strayFiles = object.strayFiles !== undefined && object.strayFiles !== null ? BigInt(object.strayFiles.toString()) : BigInt(0);
-    message.deadFiles = object.deadFiles !== undefined && object.deadFiles !== null ? BigInt(object.deadFiles.toString()) : BigInt(0);
+    message.totalFiles = object.totalFiles !== undefined && object.totalFiles !== null ? BigInt(object.totalFiles.toString()) : 0;
+    message.strayFiles = object.strayFiles !== undefined && object.strayFiles !== null ? BigInt(object.strayFiles.toString()) : 0;
+    message.deadFiles = object.deadFiles !== undefined && object.deadFiles !== null ? BigInt(object.deadFiles.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: QueryFileStatsResponseProtoMsg): QueryFileStatsResponse {
@@ -1843,6 +1843,6 @@ export const QueryFileStatsResponse = {
       value: QueryFileStatsResponse.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 GlobalDecoderRegistry.register(QueryFileStatsResponse.typeUrl, QueryFileStatsResponse);
