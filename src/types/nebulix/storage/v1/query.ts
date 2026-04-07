@@ -370,6 +370,100 @@ export interface QueryChallengesResponseSDKType {
   challenges: StorageChallengeSDKType[];
   pagination?: PageResponseSDKType;
 }
+/**
+ * QueryStorageStatsRequest defines the QueryStorageStatsRequest message.
+ * @name QueryStorageStatsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
+ */
+export interface QueryStorageStatsRequest {}
+export interface QueryStorageStatsRequestProtoMsg {
+  typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest";
+  value: Uint8Array;
+}
+/**
+ * QueryStorageStatsRequest defines the QueryStorageStatsRequest message.
+ * @name QueryStorageStatsRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
+ */
+export interface QueryStorageStatsRequestSDKType {}
+/**
+ * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
+ * @name QueryStorageStatsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryStorageStatsResponse
+ */
+export interface QueryStorageStatsResponse {
+  subscriptionCount: number;
+  spacePurchased: bigint;
+  spaceUsed: bigint;
+  spaceReplicas: bigint;
+  providerCount: number;
+  spaceAvailable: bigint;
+}
+export interface QueryStorageStatsResponseProtoMsg {
+  typeUrl: "/nebulix.storage.v1.QueryStorageStatsResponse";
+  value: Uint8Array;
+}
+/**
+ * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
+ * @name QueryStorageStatsResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryStorageStatsResponse
+ */
+export interface QueryStorageStatsResponseSDKType {
+  subscription_count: number;
+  space_purchased: bigint;
+  space_used: bigint;
+  space_replicas: bigint;
+  provider_count: number;
+  space_available: bigint;
+}
+/**
+ * QueryFileStatsRequest defines the QueryFileStatsRequest message.
+ * @name QueryFileStatsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
+ */
+export interface QueryFileStatsRequest {}
+export interface QueryFileStatsRequestProtoMsg {
+  typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest";
+  value: Uint8Array;
+}
+/**
+ * QueryFileStatsRequest defines the QueryFileStatsRequest message.
+ * @name QueryFileStatsRequestSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
+ */
+export interface QueryFileStatsRequestSDKType {}
+/**
+ * QueryFileStatsResponse defines the QueryFileStatsResponse message.
+ * @name QueryFileStatsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
+ */
+export interface QueryFileStatsResponse {
+  totalFiles: bigint;
+  strayFiles: bigint;
+  deadFiles: bigint;
+}
+export interface QueryFileStatsResponseProtoMsg {
+  typeUrl: "/nebulix.storage.v1.QueryFileStatsResponse";
+  value: Uint8Array;
+}
+/**
+ * QueryFileStatsResponse defines the QueryFileStatsResponse message.
+ * @name QueryFileStatsResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
+ */
+export interface QueryFileStatsResponseSDKType {
+  total_files: bigint;
+  stray_files: bigint;
+  dead_files: bigint;
+}
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
@@ -1466,3 +1560,289 @@ export const QueryChallengesResponse = {
   }
 };
 GlobalDecoderRegistry.register(QueryChallengesResponse.typeUrl, QueryChallengesResponse);
+function createBaseQueryStorageStatsRequest(): QueryStorageStatsRequest {
+  return {};
+}
+/**
+ * QueryStorageStatsRequest defines the QueryStorageStatsRequest message.
+ * @name QueryStorageStatsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
+ */
+export const QueryStorageStatsRequest = {
+  typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest",
+  is(o: any): o is QueryStorageStatsRequest {
+    return o && o.$typeUrl === QueryStorageStatsRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryStorageStatsRequestSDKType {
+    return o && o.$typeUrl === QueryStorageStatsRequest.typeUrl;
+  },
+  encode(_: QueryStorageStatsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryStorageStatsRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryStorageStatsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(_: Partial<QueryStorageStatsRequest>): QueryStorageStatsRequest {
+    const message = createBaseQueryStorageStatsRequest();
+    return message;
+  },
+  fromProtoMsg(message: QueryStorageStatsRequestProtoMsg): QueryStorageStatsRequest {
+    return QueryStorageStatsRequest.decode(message.value);
+  },
+  toProto(message: QueryStorageStatsRequest): Uint8Array {
+    return QueryStorageStatsRequest.encode(message).finish();
+  },
+  toProtoMsg(message: QueryStorageStatsRequest): QueryStorageStatsRequestProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest",
+      value: QueryStorageStatsRequest.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(QueryStorageStatsRequest.typeUrl, QueryStorageStatsRequest);
+function createBaseQueryStorageStatsResponse(): QueryStorageStatsResponse {
+  return {
+    subscriptionCount: 0,
+    spacePurchased: BigInt(0),
+    spaceUsed: BigInt(0),
+    spaceReplicas: BigInt(0),
+    providerCount: 0,
+    spaceAvailable: BigInt(0)
+  };
+}
+/**
+ * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
+ * @name QueryStorageStatsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryStorageStatsResponse
+ */
+export const QueryStorageStatsResponse = {
+  typeUrl: "/nebulix.storage.v1.QueryStorageStatsResponse",
+  is(o: any): o is QueryStorageStatsResponse {
+    return o && (o.$typeUrl === QueryStorageStatsResponse.typeUrl || typeof o.subscriptionCount === "number" && typeof o.spacePurchased === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.spaceReplicas === "bigint" && typeof o.providerCount === "number" && typeof o.spaceAvailable === "bigint");
+  },
+  isSDK(o: any): o is QueryStorageStatsResponseSDKType {
+    return o && (o.$typeUrl === QueryStorageStatsResponse.typeUrl || typeof o.subscription_count === "number" && typeof o.space_purchased === "bigint" && typeof o.space_used === "bigint" && typeof o.space_replicas === "bigint" && typeof o.provider_count === "number" && typeof o.space_available === "bigint");
+  },
+  encode(message: QueryStorageStatsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.subscriptionCount !== 0) {
+      writer.uint32(8).int32(message.subscriptionCount);
+    }
+    if (message.spacePurchased !== BigInt(0)) {
+      writer.uint32(16).int64(message.spacePurchased);
+    }
+    if (message.spaceUsed !== BigInt(0)) {
+      writer.uint32(24).int64(message.spaceUsed);
+    }
+    if (message.spaceReplicas !== BigInt(0)) {
+      writer.uint32(32).int64(message.spaceReplicas);
+    }
+    if (message.providerCount !== 0) {
+      writer.uint32(40).int32(message.providerCount);
+    }
+    if (message.spaceAvailable !== BigInt(0)) {
+      writer.uint32(48).int64(message.spaceAvailable);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryStorageStatsResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryStorageStatsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.subscriptionCount = reader.int32();
+          break;
+        case 2:
+          message.spacePurchased = reader.int64();
+          break;
+        case 3:
+          message.spaceUsed = reader.int64();
+          break;
+        case 4:
+          message.spaceReplicas = reader.int64();
+          break;
+        case 5:
+          message.providerCount = reader.int32();
+          break;
+        case 6:
+          message.spaceAvailable = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryStorageStatsResponse>): QueryStorageStatsResponse {
+    const message = createBaseQueryStorageStatsResponse();
+    message.subscriptionCount = object.subscriptionCount ?? 0;
+    message.spacePurchased = object.spacePurchased !== undefined && object.spacePurchased !== null ? BigInt(object.spacePurchased.toString()) : BigInt(0);
+    message.spaceUsed = object.spaceUsed !== undefined && object.spaceUsed !== null ? BigInt(object.spaceUsed.toString()) : BigInt(0);
+    message.spaceReplicas = object.spaceReplicas !== undefined && object.spaceReplicas !== null ? BigInt(object.spaceReplicas.toString()) : BigInt(0);
+    message.providerCount = object.providerCount ?? 0;
+    message.spaceAvailable = object.spaceAvailable !== undefined && object.spaceAvailable !== null ? BigInt(object.spaceAvailable.toString()) : BigInt(0);
+    return message;
+  },
+  fromProtoMsg(message: QueryStorageStatsResponseProtoMsg): QueryStorageStatsResponse {
+    return QueryStorageStatsResponse.decode(message.value);
+  },
+  toProto(message: QueryStorageStatsResponse): Uint8Array {
+    return QueryStorageStatsResponse.encode(message).finish();
+  },
+  toProtoMsg(message: QueryStorageStatsResponse): QueryStorageStatsResponseProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.QueryStorageStatsResponse",
+      value: QueryStorageStatsResponse.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(QueryStorageStatsResponse.typeUrl, QueryStorageStatsResponse);
+function createBaseQueryFileStatsRequest(): QueryFileStatsRequest {
+  return {};
+}
+/**
+ * QueryFileStatsRequest defines the QueryFileStatsRequest message.
+ * @name QueryFileStatsRequest
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
+ */
+export const QueryFileStatsRequest = {
+  typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest",
+  is(o: any): o is QueryFileStatsRequest {
+    return o && o.$typeUrl === QueryFileStatsRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryFileStatsRequestSDKType {
+    return o && o.$typeUrl === QueryFileStatsRequest.typeUrl;
+  },
+  encode(_: QueryFileStatsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileStatsRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryFileStatsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(_: Partial<QueryFileStatsRequest>): QueryFileStatsRequest {
+    const message = createBaseQueryFileStatsRequest();
+    return message;
+  },
+  fromProtoMsg(message: QueryFileStatsRequestProtoMsg): QueryFileStatsRequest {
+    return QueryFileStatsRequest.decode(message.value);
+  },
+  toProto(message: QueryFileStatsRequest): Uint8Array {
+    return QueryFileStatsRequest.encode(message).finish();
+  },
+  toProtoMsg(message: QueryFileStatsRequest): QueryFileStatsRequestProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest",
+      value: QueryFileStatsRequest.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(QueryFileStatsRequest.typeUrl, QueryFileStatsRequest);
+function createBaseQueryFileStatsResponse(): QueryFileStatsResponse {
+  return {
+    totalFiles: BigInt(0),
+    strayFiles: BigInt(0),
+    deadFiles: BigInt(0)
+  };
+}
+/**
+ * QueryFileStatsResponse defines the QueryFileStatsResponse message.
+ * @name QueryFileStatsResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
+ */
+export const QueryFileStatsResponse = {
+  typeUrl: "/nebulix.storage.v1.QueryFileStatsResponse",
+  is(o: any): o is QueryFileStatsResponse {
+    return o && (o.$typeUrl === QueryFileStatsResponse.typeUrl || typeof o.totalFiles === "bigint" && typeof o.strayFiles === "bigint" && typeof o.deadFiles === "bigint");
+  },
+  isSDK(o: any): o is QueryFileStatsResponseSDKType {
+    return o && (o.$typeUrl === QueryFileStatsResponse.typeUrl || typeof o.total_files === "bigint" && typeof o.stray_files === "bigint" && typeof o.dead_files === "bigint");
+  },
+  encode(message: QueryFileStatsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.totalFiles !== BigInt(0)) {
+      writer.uint32(8).int64(message.totalFiles);
+    }
+    if (message.strayFiles !== BigInt(0)) {
+      writer.uint32(16).int64(message.strayFiles);
+    }
+    if (message.deadFiles !== BigInt(0)) {
+      writer.uint32(24).int64(message.deadFiles);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileStatsResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryFileStatsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.totalFiles = reader.int64();
+          break;
+        case 2:
+          message.strayFiles = reader.int64();
+          break;
+        case 3:
+          message.deadFiles = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryFileStatsResponse>): QueryFileStatsResponse {
+    const message = createBaseQueryFileStatsResponse();
+    message.totalFiles = object.totalFiles !== undefined && object.totalFiles !== null ? BigInt(object.totalFiles.toString()) : BigInt(0);
+    message.strayFiles = object.strayFiles !== undefined && object.strayFiles !== null ? BigInt(object.strayFiles.toString()) : BigInt(0);
+    message.deadFiles = object.deadFiles !== undefined && object.deadFiles !== null ? BigInt(object.deadFiles.toString()) : BigInt(0);
+    return message;
+  },
+  fromProtoMsg(message: QueryFileStatsResponseProtoMsg): QueryFileStatsResponse {
+    return QueryFileStatsResponse.decode(message.value);
+  },
+  toProto(message: QueryFileStatsResponse): Uint8Array {
+    return QueryFileStatsResponse.encode(message).finish();
+  },
+  toProtoMsg(message: QueryFileStatsResponse): QueryFileStatsResponseProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.QueryFileStatsResponse",
+      value: QueryFileStatsResponse.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(QueryFileStatsResponse.typeUrl, QueryFileStatsResponse);

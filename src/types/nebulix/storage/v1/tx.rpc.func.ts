@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { buildTx } from "../../../helper-func-types";
-import { MsgUpdateParams, MsgRegisterProvider, MsgPostFile, MsgBuyStorage, MsgProveFile, MsgDeleteFile } from "./tx";
+import { MsgUpdateParams, MsgRegisterProvider, MsgPostFile, MsgBuyStorage, MsgProveFile, MsgDeleteFile, MsgExpandStorage } from "./tx";
 /**
  * UpdateParams defines a (governance) operation for updating the module
  * parameters. The authority defaults to the x/gov module account.
@@ -53,4 +53,13 @@ export const proveFile = buildTx<MsgProveFile>({
  */
 export const deleteFile = buildTx<MsgDeleteFile>({
   msg: MsgDeleteFile
+});
+/**
+ * ExpandStorage defines the ExpandStorage RPC.
+ * @name expandStorage
+ * @package nebulix.storage.v1
+ * @see proto service: nebulix.storage.v1.ExpandStorage
+ */
+export const expandStorage = buildTx<MsgExpandStorage>({
+  msg: MsgExpandStorage
 });

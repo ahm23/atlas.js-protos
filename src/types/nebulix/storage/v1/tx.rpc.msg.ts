@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
-import { MsgUpdateParams, MsgUpdateParamsResponse, MsgRegisterProvider, MsgRegisterProviderResponse, MsgPostFile, MsgPostFileResponse, MsgBuyStorage, MsgBuyStorageResponse, MsgProveFile, MsgProveFileResponse, MsgDeleteFile, MsgDeleteFileResponse } from "./tx";
+import { MsgUpdateParams, MsgUpdateParamsResponse, MsgRegisterProvider, MsgRegisterProviderResponse, MsgPostFile, MsgPostFileResponse, MsgBuyStorage, MsgBuyStorageResponse, MsgProveFile, MsgProveFileResponse, MsgDeleteFile, MsgDeleteFileResponse, MsgExpandStorage, MsgExpandStorageResponse } from "./tx";
 /** Msg defines the Msg service. */
 export interface Msg {
   /**
@@ -17,6 +17,8 @@ export interface Msg {
   proveFile(request: MsgProveFile): Promise<MsgProveFileResponse>;
   /** DeleteFile defines the DeleteFile RPC. */
   deleteFile(request: MsgDeleteFile): Promise<MsgDeleteFileResponse>;
+  /** ExpandStorage defines the ExpandStorage RPC. */
+  expandStorage(request: MsgExpandStorage): Promise<MsgExpandStorageResponse>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -28,6 +30,7 @@ export class MsgClientImpl implements Msg {
     this.buyStorage = this.buyStorage.bind(this);
     this.proveFile = this.proveFile.bind(this);
     this.deleteFile = this.deleteFile.bind(this);
+    this.expandStorage = this.expandStorage.bind(this);
   }
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse> {
     const data = MsgUpdateParams.encode(request).finish();
@@ -58,6 +61,11 @@ export class MsgClientImpl implements Msg {
     const data = MsgDeleteFile.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "DeleteFile", data);
     return promise.then(data => MsgDeleteFileResponse.decode(new BinaryReader(data)));
+  }
+  expandStorage(request: MsgExpandStorage): Promise<MsgExpandStorageResponse> {
+    const data = MsgExpandStorage.encode(request).finish();
+    const promise = this.rpc.request("nebulix.storage.v1.Msg", "ExpandStorage", data);
+    return promise.then(data => MsgExpandStorageResponse.decode(new BinaryReader(data)));
   }
 }
 export const createClientImpl = (rpc: TxRpc) => {

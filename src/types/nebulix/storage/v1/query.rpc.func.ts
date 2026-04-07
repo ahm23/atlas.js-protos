@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { buildQuery } from "../../../helper-func-types";
-import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse, QueryChallengesRequest, QueryChallengesResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse, QueryChallengesRequest, QueryChallengesResponse, QueryStorageStatsRequest, QueryStorageStatsResponse, QueryFileStatsRequest, QueryFileStatsResponse } from "./query";
 /**
  * Parameters queries the parameters of the module.
  * @name getParams
@@ -104,4 +104,30 @@ export const getChallenges = buildQuery<QueryChallengesRequest, QueryChallengesR
   service: "nebulix.storage.v1.Query",
   method: "Challenges",
   deps: [QueryChallengesRequest, QueryChallengesResponse]
+});
+/**
+ * StorageStats Queries a list of StorageStats items.
+ * @name getStorageStats
+ * @package nebulix.storage.v1
+ * @see proto service: nebulix.storage.v1.StorageStats
+ */
+export const getStorageStats = buildQuery<QueryStorageStatsRequest, QueryStorageStatsResponse>({
+  encode: QueryStorageStatsRequest.encode,
+  decode: QueryStorageStatsResponse.decode,
+  service: "nebulix.storage.v1.Query",
+  method: "StorageStats",
+  deps: [QueryStorageStatsRequest, QueryStorageStatsResponse]
+});
+/**
+ * FileStats Queries a list of FileStats items.
+ * @name getFileStats
+ * @package nebulix.storage.v1
+ * @see proto service: nebulix.storage.v1.FileStats
+ */
+export const getFileStats = buildQuery<QueryFileStatsRequest, QueryFileStatsResponse>({
+  encode: QueryFileStatsRequest.encode,
+  decode: QueryFileStatsResponse.decode,
+  service: "nebulix.storage.v1.Query",
+  method: "FileStats",
+  deps: [QueryFileStatsRequest, QueryFileStatsResponse]
 });

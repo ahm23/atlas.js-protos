@@ -2,7 +2,7 @@
 import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse, QueryChallengesRequest, QueryChallengesResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryProviderRequest, QueryProviderResponse, QueryProvidersRequest, QueryProvidersResponse, QueryFileRequest, QueryFileResponse, QueryFilesRequest, QueryFilesResponse, QuerySubscriptionRequest, QuerySubscriptionResponse, QuerySubscriptionsRequest, QuerySubscriptionsResponse, QueryChallengesRequest, QueryChallengesResponse, QueryStorageStatsRequest, QueryStorageStatsResponse, QueryFileStatsRequest, QueryFileStatsResponse } from "./query";
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Parameters queries the parameters of the module. */
@@ -21,6 +21,10 @@ export interface Query {
   subscriptions(request: QuerySubscriptionsRequest): Promise<QuerySubscriptionsResponse>;
   /** Challenges Queries a list of Challenges items. */
   challenges(request: QueryChallengesRequest): Promise<QueryChallengesResponse>;
+  /** StorageStats Queries a list of StorageStats items. */
+  storageStats(request?: QueryStorageStatsRequest): Promise<QueryStorageStatsResponse>;
+  /** FileStats Queries a list of FileStats items. */
+  fileStats(request?: QueryFileStatsRequest): Promise<QueryFileStatsResponse>;
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: TxRpc;
@@ -34,6 +38,8 @@ export class QueryClientImpl implements Query {
     this.subscription = this.subscription.bind(this);
     this.subscriptions = this.subscriptions.bind(this);
     this.challenges = this.challenges.bind(this);
+    this.storageStats = this.storageStats.bind(this);
+    this.fileStats = this.fileStats.bind(this);
   }
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
@@ -75,6 +81,16 @@ export class QueryClientImpl implements Query {
     const promise = this.rpc.request("nebulix.storage.v1.Query", "Challenges", data);
     return promise.then(data => QueryChallengesResponse.decode(new BinaryReader(data)));
   }
+  storageStats(request: QueryStorageStatsRequest = {}): Promise<QueryStorageStatsResponse> {
+    const data = QueryStorageStatsRequest.encode(request).finish();
+    const promise = this.rpc.request("nebulix.storage.v1.Query", "StorageStats", data);
+    return promise.then(data => QueryStorageStatsResponse.decode(new BinaryReader(data)));
+  }
+  fileStats(request: QueryFileStatsRequest = {}): Promise<QueryFileStatsResponse> {
+    const data = QueryFileStatsRequest.encode(request).finish();
+    const promise = this.rpc.request("nebulix.storage.v1.Query", "FileStats", data);
+    return promise.then(data => QueryFileStatsResponse.decode(new BinaryReader(data)));
+  }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);
@@ -103,6 +119,12 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     },
     challenges(request: QueryChallengesRequest): Promise<QueryChallengesResponse> {
       return queryService.challenges(request);
+    },
+    storageStats(request?: QueryStorageStatsRequest): Promise<QueryStorageStatsResponse> {
+      return queryService.storageStats(request);
+    },
+    fileStats(request?: QueryFileStatsRequest): Promise<QueryFileStatsResponse> {
+      return queryService.fileStats(request);
     }
   };
 };

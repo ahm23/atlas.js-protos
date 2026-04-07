@@ -294,6 +294,60 @@ export interface MsgDeleteFileResponseProtoMsg {
  * @see proto type: nebulix.storage.v1.MsgDeleteFileResponse
  */
 export interface MsgDeleteFileResponseSDKType {}
+/**
+ * MsgExpandStorage defines the MsgExpandStorage message.
+ * @name MsgExpandStorage
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgExpandStorage
+ */
+export interface MsgExpandStorage {
+  creator: string;
+  subscriptionId: string;
+  duration: bigint;
+  bytes: bigint;
+}
+export interface MsgExpandStorageProtoMsg {
+  typeUrl: "/nebulix.storage.v1.MsgExpandStorage";
+  value: Uint8Array;
+}
+/**
+ * MsgExpandStorage defines the MsgExpandStorage message.
+ * @name MsgExpandStorageSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgExpandStorage
+ */
+export interface MsgExpandStorageSDKType {
+  creator: string;
+  subscription_id: string;
+  duration: bigint;
+  bytes: bigint;
+}
+/**
+ * MsgExpandStorageResponse defines the MsgExpandStorageResponse message.
+ * @name MsgExpandStorageResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgExpandStorageResponse
+ */
+export interface MsgExpandStorageResponse {
+  subscriptionId: string;
+  newExpiration: bigint;
+  newSpaceAvailable: bigint;
+}
+export interface MsgExpandStorageResponseProtoMsg {
+  typeUrl: "/nebulix.storage.v1.MsgExpandStorageResponse";
+  value: Uint8Array;
+}
+/**
+ * MsgExpandStorageResponse defines the MsgExpandStorageResponse message.
+ * @name MsgExpandStorageResponseSDKType
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgExpandStorageResponse
+ */
+export interface MsgExpandStorageResponseSDKType {
+  subscription_id: string;
+  new_expiration: bigint;
+  new_space_available: bigint;
+}
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
@@ -1154,3 +1208,167 @@ export const MsgDeleteFileResponse = {
   registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(MsgDeleteFileResponse.typeUrl, MsgDeleteFileResponse);
+function createBaseMsgExpandStorage(): MsgExpandStorage {
+  return {
+    creator: "",
+    subscriptionId: "",
+    duration: BigInt(0),
+    bytes: BigInt(0)
+  };
+}
+/**
+ * MsgExpandStorage defines the MsgExpandStorage message.
+ * @name MsgExpandStorage
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgExpandStorage
+ */
+export const MsgExpandStorage = {
+  typeUrl: "/nebulix.storage.v1.MsgExpandStorage",
+  is(o: any): o is MsgExpandStorage {
+    return o && (o.$typeUrl === MsgExpandStorage.typeUrl || typeof o.creator === "string" && typeof o.subscriptionId === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint");
+  },
+  isSDK(o: any): o is MsgExpandStorageSDKType {
+    return o && (o.$typeUrl === MsgExpandStorage.typeUrl || typeof o.creator === "string" && typeof o.subscription_id === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint");
+  },
+  encode(message: MsgExpandStorage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.subscriptionId !== "") {
+      writer.uint32(18).string(message.subscriptionId);
+    }
+    if (message.duration !== BigInt(0)) {
+      writer.uint32(24).int64(message.duration);
+    }
+    if (message.bytes !== BigInt(0)) {
+      writer.uint32(32).int64(message.bytes);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): MsgExpandStorage {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgExpandStorage();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.subscriptionId = reader.string();
+          break;
+        case 3:
+          message.duration = reader.int64();
+          break;
+        case 4:
+          message.bytes = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<MsgExpandStorage>): MsgExpandStorage {
+    const message = createBaseMsgExpandStorage();
+    message.creator = object.creator ?? "";
+    message.subscriptionId = object.subscriptionId ?? "";
+    message.duration = object.duration !== undefined && object.duration !== null ? BigInt(object.duration.toString()) : BigInt(0);
+    message.bytes = object.bytes !== undefined && object.bytes !== null ? BigInt(object.bytes.toString()) : BigInt(0);
+    return message;
+  },
+  fromProtoMsg(message: MsgExpandStorageProtoMsg): MsgExpandStorage {
+    return MsgExpandStorage.decode(message.value);
+  },
+  toProto(message: MsgExpandStorage): Uint8Array {
+    return MsgExpandStorage.encode(message).finish();
+  },
+  toProtoMsg(message: MsgExpandStorage): MsgExpandStorageProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.MsgExpandStorage",
+      value: MsgExpandStorage.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(MsgExpandStorage.typeUrl, MsgExpandStorage);
+function createBaseMsgExpandStorageResponse(): MsgExpandStorageResponse {
+  return {
+    subscriptionId: "",
+    newExpiration: BigInt(0),
+    newSpaceAvailable: BigInt(0)
+  };
+}
+/**
+ * MsgExpandStorageResponse defines the MsgExpandStorageResponse message.
+ * @name MsgExpandStorageResponse
+ * @package nebulix.storage.v1
+ * @see proto type: nebulix.storage.v1.MsgExpandStorageResponse
+ */
+export const MsgExpandStorageResponse = {
+  typeUrl: "/nebulix.storage.v1.MsgExpandStorageResponse",
+  is(o: any): o is MsgExpandStorageResponse {
+    return o && (o.$typeUrl === MsgExpandStorageResponse.typeUrl || typeof o.subscriptionId === "string" && typeof o.newExpiration === "bigint" && typeof o.newSpaceAvailable === "bigint");
+  },
+  isSDK(o: any): o is MsgExpandStorageResponseSDKType {
+    return o && (o.$typeUrl === MsgExpandStorageResponse.typeUrl || typeof o.subscription_id === "string" && typeof o.new_expiration === "bigint" && typeof o.new_space_available === "bigint");
+  },
+  encode(message: MsgExpandStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.subscriptionId !== "") {
+      writer.uint32(10).string(message.subscriptionId);
+    }
+    if (message.newExpiration !== BigInt(0)) {
+      writer.uint32(16).int64(message.newExpiration);
+    }
+    if (message.newSpaceAvailable !== BigInt(0)) {
+      writer.uint32(24).int64(message.newSpaceAvailable);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): MsgExpandStorageResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgExpandStorageResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.subscriptionId = reader.string();
+          break;
+        case 2:
+          message.newExpiration = reader.int64();
+          break;
+        case 3:
+          message.newSpaceAvailable = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<MsgExpandStorageResponse>): MsgExpandStorageResponse {
+    const message = createBaseMsgExpandStorageResponse();
+    message.subscriptionId = object.subscriptionId ?? "";
+    message.newExpiration = object.newExpiration !== undefined && object.newExpiration !== null ? BigInt(object.newExpiration.toString()) : BigInt(0);
+    message.newSpaceAvailable = object.newSpaceAvailable !== undefined && object.newSpaceAvailable !== null ? BigInt(object.newSpaceAvailable.toString()) : BigInt(0);
+    return message;
+  },
+  fromProtoMsg(message: MsgExpandStorageResponseProtoMsg): MsgExpandStorageResponse {
+    return MsgExpandStorageResponse.decode(message.value);
+  },
+  toProto(message: MsgExpandStorageResponse): Uint8Array {
+    return MsgExpandStorageResponse.encode(message).finish();
+  },
+  toProtoMsg(message: MsgExpandStorageResponse): MsgExpandStorageResponseProtoMsg {
+    return {
+      typeUrl: "/nebulix.storage.v1.MsgExpandStorageResponse",
+      value: MsgExpandStorageResponse.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(MsgExpandStorageResponse.typeUrl, MsgExpandStorageResponse);
