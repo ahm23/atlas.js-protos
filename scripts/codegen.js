@@ -41,7 +41,10 @@ telescope({
         fromProto: true,
         toProto: true
       },
-      addTypeUrlToDecoders: true
+      addTypeUrlToDecoders: true,
+      typingsFormat: {
+        num64: 'number'
+      }
     },
     interfaces: {
       enabled: true,

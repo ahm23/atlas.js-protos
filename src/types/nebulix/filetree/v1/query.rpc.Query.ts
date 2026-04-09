@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { TxRpc } from "../../../types";
-import { BinaryReader } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryParamsRequest, QueryParamsResponse, QueryFileNodeRequest, QueryFileNodeResponse, QueryFileTreePathsRequest, QueryFileTreePathsResponse, QueryFileNodeChildrenRequest, QueryFileNodeChildrenResponse } from "./query";
 /** Query defines the gRPC querier service. */
@@ -26,22 +26,22 @@ export class QueryClientImpl implements Query {
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
     const promise = this.rpc.request("nebulix.filetree.v1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new BinaryReader(data)));
+    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
   }
   fileNode(request: QueryFileNodeRequest): Promise<QueryFileNodeResponse> {
     const data = QueryFileNodeRequest.encode(request).finish();
     const promise = this.rpc.request("nebulix.filetree.v1.Query", "FileNode", data);
-    return promise.then(data => QueryFileNodeResponse.decode(new BinaryReader(data)));
+    return promise.then(data => QueryFileNodeResponse.decode(new _m0.Reader(data)));
   }
   fileTreePaths(request: QueryFileTreePathsRequest): Promise<QueryFileTreePathsResponse> {
     const data = QueryFileTreePathsRequest.encode(request).finish();
     const promise = this.rpc.request("nebulix.filetree.v1.Query", "FileTreePaths", data);
-    return promise.then(data => QueryFileTreePathsResponse.decode(new BinaryReader(data)));
+    return promise.then(data => QueryFileTreePathsResponse.decode(new _m0.Reader(data)));
   }
   fileNodeChildren(request: QueryFileNodeChildrenRequest): Promise<QueryFileNodeChildrenResponse> {
     const data = QueryFileNodeChildrenRequest.encode(request).finish();
     const promise = this.rpc.request("nebulix.filetree.v1.Query", "FileNodeChildren", data);
-    return promise.then(data => QueryFileNodeChildrenResponse.decode(new BinaryReader(data)));
+    return promise.then(data => QueryFileNodeChildrenResponse.decode(new _m0.Reader(data)));
   }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {

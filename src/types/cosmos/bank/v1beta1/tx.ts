@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Input, InputSDKType, Output, OutputSDKType, Params, ParamsSDKType, SendEnabled, SendEnabledSDKType } from "./bank";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * MsgSend represents a message to send coins from one account to another.
@@ -247,7 +247,7 @@ export const MsgSend = {
   isSDK(o: any): o is MsgSendSDKType {
     return o && (o.$typeUrl === MsgSend.typeUrl || typeof o.from_address === "string" && typeof o.to_address === "string" && Array.isArray(o.amount) && (!o.amount.length || Coin.isSDK(o.amount[0])));
   },
-  encode(message: MsgSend, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgSend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.fromAddress !== "") {
       writer.uint32(10).string(message.fromAddress);
     }
@@ -259,8 +259,8 @@ export const MsgSend = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSend {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSend {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSend();
     while (reader.pos < end) {
@@ -328,11 +328,11 @@ export const MsgSendResponse = {
   isSDK(o: any): o is MsgSendResponseSDKType {
     return o && o.$typeUrl === MsgSendResponse.typeUrl;
   },
-  encode(_: MsgSendResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgSendResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSendResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSendResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSendResponse();
     while (reader.pos < end) {
@@ -386,7 +386,7 @@ export const MsgMultiSend = {
   isSDK(o: any): o is MsgMultiSendSDKType {
     return o && (o.$typeUrl === MsgMultiSend.typeUrl || Array.isArray(o.inputs) && (!o.inputs.length || Input.isSDK(o.inputs[0])) && Array.isArray(o.outputs) && (!o.outputs.length || Output.isSDK(o.outputs[0])));
   },
-  encode(message: MsgMultiSend, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgMultiSend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.inputs) {
       Input.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -395,8 +395,8 @@ export const MsgMultiSend = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgMultiSend {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgMultiSend {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgMultiSend();
     while (reader.pos < end) {
@@ -461,11 +461,11 @@ export const MsgMultiSendResponse = {
   isSDK(o: any): o is MsgMultiSendResponseSDKType {
     return o && o.$typeUrl === MsgMultiSendResponse.typeUrl;
   },
-  encode(_: MsgMultiSendResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgMultiSendResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgMultiSendResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgMultiSendResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgMultiSendResponse();
     while (reader.pos < end) {
@@ -521,7 +521,7 @@ export const MsgUpdateParams = {
   isSDK(o: any): o is MsgUpdateParamsSDKType {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
   },
-  encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgUpdateParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
@@ -530,8 +530,8 @@ export const MsgUpdateParams = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUpdateParams();
     while (reader.pos < end) {
@@ -598,11 +598,11 @@ export const MsgUpdateParamsResponse = {
   isSDK(o: any): o is MsgUpdateParamsResponseSDKType {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
-  encode(_: MsgUpdateParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgUpdateParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUpdateParamsResponse();
     while (reader.pos < end) {
@@ -663,7 +663,7 @@ export const MsgSetSendEnabled = {
   isSDK(o: any): o is MsgSetSendEnabledSDKType {
     return o && (o.$typeUrl === MsgSetSendEnabled.typeUrl || typeof o.authority === "string" && Array.isArray(o.send_enabled) && (!o.send_enabled.length || SendEnabled.isSDK(o.send_enabled[0])) && Array.isArray(o.use_default_for) && (!o.use_default_for.length || typeof o.use_default_for[0] === "string"));
   },
-  encode(message: MsgSetSendEnabled, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgSetSendEnabled, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
@@ -675,8 +675,8 @@ export const MsgSetSendEnabled = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSetSendEnabled {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSetSendEnabled {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSetSendEnabled();
     while (reader.pos < end) {
@@ -746,11 +746,11 @@ export const MsgSetSendEnabledResponse = {
   isSDK(o: any): o is MsgSetSendEnabledResponseSDKType {
     return o && o.$typeUrl === MsgSetSendEnabledResponse.typeUrl;
   },
-  encode(_: MsgSetSendEnabledResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgSetSendEnabledResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSetSendEnabledResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSetSendEnabledResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSetSendEnabledResponse();
     while (reader.pos < end) {

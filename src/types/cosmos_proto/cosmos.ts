@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../registry";
 export enum ScalarType {
   SCALAR_TYPE_UNSPECIFIED = 0,
@@ -150,7 +150,7 @@ export const InterfaceDescriptor = {
   isSDK(o: any): o is InterfaceDescriptorSDKType {
     return o && (o.$typeUrl === InterfaceDescriptor.typeUrl || typeof o.name === "string" && typeof o.description === "string");
   },
-  encode(message: InterfaceDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: InterfaceDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -159,8 +159,8 @@ export const InterfaceDescriptor = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): InterfaceDescriptor {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): InterfaceDescriptor {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseInterfaceDescriptor();
     while (reader.pos < end) {
@@ -227,7 +227,7 @@ export const ScalarDescriptor = {
   isSDK(o: any): o is ScalarDescriptorSDKType {
     return o && (o.$typeUrl === ScalarDescriptor.typeUrl || typeof o.name === "string" && typeof o.description === "string" && Array.isArray(o.field_type));
   },
-  encode(message: ScalarDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ScalarDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -241,8 +241,8 @@ export const ScalarDescriptor = {
     writer.ldelim();
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ScalarDescriptor {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ScalarDescriptor {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseScalarDescriptor();
     while (reader.pos < end) {

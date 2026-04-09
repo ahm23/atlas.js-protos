@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { toTimestamp, fromTimestamp } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
@@ -14,9 +14,9 @@ export interface StorageSubscription {
   start: Date;
   end: Date;
   status: string;
-  spaceAvailable: bigint;
-  spaceUsed: bigint;
-  replicaSpaceUsed: bigint;
+  spaceAvailable: number;
+  spaceUsed: number;
+  replicaSpaceUsed: number;
   credits: string;
 }
 export interface StorageSubscriptionProtoMsg {
@@ -34,9 +34,9 @@ export interface StorageSubscriptionSDKType {
   start: Date;
   end: Date;
   status: string;
-  spaceAvailable: bigint;
-  spaceUsed: bigint;
-  replicaSpaceUsed: bigint;
+  spaceAvailable: number;
+  spaceUsed: number;
+  replicaSpaceUsed: number;
   credits: string;
 }
 function createBaseStorageSubscription(): StorageSubscription {
@@ -45,9 +45,9 @@ function createBaseStorageSubscription(): StorageSubscription {
     start: new Date(),
     end: new Date(),
     status: "",
-    spaceAvailable: BigInt(0),
-    spaceUsed: BigInt(0),
-    replicaSpaceUsed: BigInt(0),
+    spaceAvailable: 0,
+    spaceUsed: 0,
+    replicaSpaceUsed: 0,
     credits: ""
   };
 }
@@ -65,7 +65,7 @@ export const StorageSubscription = {
   isSDK(o: any): o is StorageSubscriptionSDKType {
     return o && (o.$typeUrl === StorageSubscription.typeUrl || typeof o.id === "string" && Timestamp.isSDK(o.start) && Timestamp.isSDK(o.end) && typeof o.status === "string" && typeof o.spaceAvailable === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.replicaSpaceUsed === "bigint" && typeof o.credits === "string");
   },
-  encode(message: StorageSubscription, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: StorageSubscription, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
@@ -78,13 +78,13 @@ export const StorageSubscription = {
     if (message.status !== "") {
       writer.uint32(34).string(message.status);
     }
-    if (message.spaceAvailable !== BigInt(0)) {
+    if (message.spaceAvailable !== 0) {
       writer.uint32(40).int64(message.spaceAvailable);
     }
-    if (message.spaceUsed !== BigInt(0)) {
+    if (message.spaceUsed !== 0) {
       writer.uint32(48).int64(message.spaceUsed);
     }
-    if (message.replicaSpaceUsed !== BigInt(0)) {
+    if (message.replicaSpaceUsed !== 0) {
       writer.uint32(56).int64(message.replicaSpaceUsed);
     }
     if (message.credits !== "") {
@@ -92,8 +92,8 @@ export const StorageSubscription = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): StorageSubscription {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): StorageSubscription {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseStorageSubscription();
     while (reader.pos < end) {
@@ -112,13 +112,13 @@ export const StorageSubscription = {
           message.status = reader.string();
           break;
         case 5:
-          message.spaceAvailable = reader.int64();
+          message.spaceAvailable = Number(reader.int64().toString());
           break;
         case 6:
-          message.spaceUsed = reader.int64();
+          message.spaceUsed = Number(reader.int64().toString());
           break;
         case 7:
-          message.replicaSpaceUsed = reader.int64();
+          message.replicaSpaceUsed = Number(reader.int64().toString());
           break;
         case 8:
           message.credits = reader.string();
@@ -136,9 +136,9 @@ export const StorageSubscription = {
     message.start = object.start ?? undefined;
     message.end = object.end ?? undefined;
     message.status = object.status ?? "";
-    message.spaceAvailable = object.spaceAvailable !== undefined && object.spaceAvailable !== null ? BigInt(object.spaceAvailable.toString()) : BigInt(0);
-    message.spaceUsed = object.spaceUsed !== undefined && object.spaceUsed !== null ? BigInt(object.spaceUsed.toString()) : BigInt(0);
-    message.replicaSpaceUsed = object.replicaSpaceUsed !== undefined && object.replicaSpaceUsed !== null ? BigInt(object.replicaSpaceUsed.toString()) : BigInt(0);
+    message.spaceAvailable = object.spaceAvailable !== undefined && object.spaceAvailable !== null ? Number(object.spaceAvailable.toString()) : 0;
+    message.spaceUsed = object.spaceUsed !== undefined && object.spaceUsed !== null ? Number(object.spaceUsed.toString()) : 0;
+    message.replicaSpaceUsed = object.replicaSpaceUsed !== undefined && object.replicaSpaceUsed !== null ? Number(object.replicaSpaceUsed.toString()) : 0;
     message.credits = object.credits ?? "";
     return message;
   },

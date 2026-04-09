@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * SendAuthorization allows the grantee to spend up to spend_limit coins from
@@ -65,7 +65,7 @@ export const SendAuthorization = {
   isSDK(o: any): o is SendAuthorizationSDKType {
     return o && (o.$typeUrl === SendAuthorization.typeUrl || Array.isArray(o.spend_limit) && (!o.spend_limit.length || Coin.isSDK(o.spend_limit[0])) && Array.isArray(o.allow_list) && (!o.allow_list.length || typeof o.allow_list[0] === "string"));
   },
-  encode(message: SendAuthorization, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SendAuthorization, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.spendLimit) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -74,8 +74,8 @@ export const SendAuthorization = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SendAuthorization {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SendAuthorization {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSendAuthorization();
     while (reader.pos < end) {

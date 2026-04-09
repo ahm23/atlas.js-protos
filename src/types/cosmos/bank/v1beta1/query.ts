@@ -2,7 +2,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Params, ParamsSDKType, Metadata, MetadataSDKType, SendEnabled, SendEnabledSDKType } from "./bank";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * QueryBalanceRequest is the request type for the Query/Balance RPC method.
@@ -846,7 +846,7 @@ export const QueryBalanceRequest = {
   isSDK(o: any): o is QueryBalanceRequestSDKType {
     return o && (o.$typeUrl === QueryBalanceRequest.typeUrl || typeof o.address === "string" && typeof o.denom === "string");
   },
-  encode(message: QueryBalanceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryBalanceRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -855,8 +855,8 @@ export const QueryBalanceRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryBalanceRequest();
     while (reader.pos < end) {
@@ -917,14 +917,14 @@ export const QueryBalanceResponse = {
   isSDK(o: any): o is QueryBalanceResponseSDKType {
     return o && o.$typeUrl === QueryBalanceResponse.typeUrl;
   },
-  encode(message: QueryBalanceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryBalanceResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.balance !== undefined) {
       Coin.encode(message.balance, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryBalanceResponse();
     while (reader.pos < end) {
@@ -988,7 +988,7 @@ export const QueryAllBalancesRequest = {
   isSDK(o: any): o is QueryAllBalancesRequestSDKType {
     return o && (o.$typeUrl === QueryAllBalancesRequest.typeUrl || typeof o.address === "string" && typeof o.resolve_denom === "boolean");
   },
-  encode(message: QueryAllBalancesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryAllBalancesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -1000,8 +1000,8 @@ export const QueryAllBalancesRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryAllBalancesRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllBalancesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryAllBalancesRequest();
     while (reader.pos < end) {
@@ -1073,7 +1073,7 @@ export const QueryAllBalancesResponse = {
   isSDK(o: any): o is QueryAllBalancesResponseSDKType {
     return o && (o.$typeUrl === QueryAllBalancesResponse.typeUrl || Array.isArray(o.balances) && (!o.balances.length || Coin.isSDK(o.balances[0])));
   },
-  encode(message: QueryAllBalancesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryAllBalancesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.balances) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1082,8 +1082,8 @@ export const QueryAllBalancesResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryAllBalancesResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllBalancesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryAllBalancesResponse();
     while (reader.pos < end) {
@@ -1154,7 +1154,7 @@ export const QuerySpendableBalancesRequest = {
   isSDK(o: any): o is QuerySpendableBalancesRequestSDKType {
     return o && (o.$typeUrl === QuerySpendableBalancesRequest.typeUrl || typeof o.address === "string");
   },
-  encode(message: QuerySpendableBalancesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySpendableBalancesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -1163,8 +1163,8 @@ export const QuerySpendableBalancesRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalancesRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalancesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySpendableBalancesRequest();
     while (reader.pos < end) {
@@ -1234,7 +1234,7 @@ export const QuerySpendableBalancesResponse = {
   isSDK(o: any): o is QuerySpendableBalancesResponseSDKType {
     return o && (o.$typeUrl === QuerySpendableBalancesResponse.typeUrl || Array.isArray(o.balances) && (!o.balances.length || Coin.isSDK(o.balances[0])));
   },
-  encode(message: QuerySpendableBalancesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySpendableBalancesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.balances) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1243,8 +1243,8 @@ export const QuerySpendableBalancesResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalancesResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalancesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySpendableBalancesResponse();
     while (reader.pos < end) {
@@ -1315,7 +1315,7 @@ export const QuerySpendableBalanceByDenomRequest = {
   isSDK(o: any): o is QuerySpendableBalanceByDenomRequestSDKType {
     return o && (o.$typeUrl === QuerySpendableBalanceByDenomRequest.typeUrl || typeof o.address === "string" && typeof o.denom === "string");
   },
-  encode(message: QuerySpendableBalanceByDenomRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySpendableBalanceByDenomRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -1324,8 +1324,8 @@ export const QuerySpendableBalanceByDenomRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalanceByDenomRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalanceByDenomRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySpendableBalanceByDenomRequest();
     while (reader.pos < end) {
@@ -1389,14 +1389,14 @@ export const QuerySpendableBalanceByDenomResponse = {
   isSDK(o: any): o is QuerySpendableBalanceByDenomResponseSDKType {
     return o && o.$typeUrl === QuerySpendableBalanceByDenomResponse.typeUrl;
   },
-  encode(message: QuerySpendableBalanceByDenomResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySpendableBalanceByDenomResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.balance !== undefined) {
       Coin.encode(message.balance, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalanceByDenomResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalanceByDenomResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySpendableBalanceByDenomResponse();
     while (reader.pos < end) {
@@ -1459,14 +1459,14 @@ export const QueryTotalSupplyRequest = {
   isSDK(o: any): o is QueryTotalSupplyRequestSDKType {
     return o && o.$typeUrl === QueryTotalSupplyRequest.typeUrl;
   },
-  encode(message: QueryTotalSupplyRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryTotalSupplyRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalSupplyRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalSupplyRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryTotalSupplyRequest();
     while (reader.pos < end) {
@@ -1530,7 +1530,7 @@ export const QueryTotalSupplyResponse = {
   isSDK(o: any): o is QueryTotalSupplyResponseSDKType {
     return o && (o.$typeUrl === QueryTotalSupplyResponse.typeUrl || Array.isArray(o.supply) && (!o.supply.length || Coin.isSDK(o.supply[0])));
   },
-  encode(message: QueryTotalSupplyResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryTotalSupplyResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.supply) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1539,8 +1539,8 @@ export const QueryTotalSupplyResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalSupplyResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalSupplyResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryTotalSupplyResponse();
     while (reader.pos < end) {
@@ -1607,14 +1607,14 @@ export const QuerySupplyOfRequest = {
   isSDK(o: any): o is QuerySupplyOfRequestSDKType {
     return o && (o.$typeUrl === QuerySupplyOfRequest.typeUrl || typeof o.denom === "string");
   },
-  encode(message: QuerySupplyOfRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySupplyOfRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyOfRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyOfRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySupplyOfRequest();
     while (reader.pos < end) {
@@ -1671,14 +1671,14 @@ export const QuerySupplyOfResponse = {
   isSDK(o: any): o is QuerySupplyOfResponseSDKType {
     return o && (o.$typeUrl === QuerySupplyOfResponse.typeUrl || Coin.isSDK(o.amount));
   },
-  encode(message: QuerySupplyOfResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySupplyOfResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.amount !== undefined) {
       Coin.encode(message.amount, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyOfResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyOfResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySupplyOfResponse();
     while (reader.pos < end) {
@@ -1738,11 +1738,11 @@ export const QueryParamsRequest = {
   isSDK(o: any): o is QueryParamsRequestSDKType {
     return o && o.$typeUrl === QueryParamsRequest.typeUrl;
   },
-  encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
@@ -1795,14 +1795,14 @@ export const QueryParamsResponse = {
   isSDK(o: any): o is QueryParamsResponseSDKType {
     return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isSDK(o.params));
   },
-  encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
@@ -1864,14 +1864,14 @@ export const QueryDenomsMetadataRequest = {
   isSDK(o: any): o is QueryDenomsMetadataRequestSDKType {
     return o && o.$typeUrl === QueryDenomsMetadataRequest.typeUrl;
   },
-  encode(message: QueryDenomsMetadataRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomsMetadataRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomsMetadataRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomsMetadataRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomsMetadataRequest();
     while (reader.pos < end) {
@@ -1935,7 +1935,7 @@ export const QueryDenomsMetadataResponse = {
   isSDK(o: any): o is QueryDenomsMetadataResponseSDKType {
     return o && (o.$typeUrl === QueryDenomsMetadataResponse.typeUrl || Array.isArray(o.metadatas) && (!o.metadatas.length || Metadata.isSDK(o.metadatas[0])));
   },
-  encode(message: QueryDenomsMetadataResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomsMetadataResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.metadatas) {
       Metadata.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1944,8 +1944,8 @@ export const QueryDenomsMetadataResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomsMetadataResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomsMetadataResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomsMetadataResponse();
     while (reader.pos < end) {
@@ -2012,14 +2012,14 @@ export const QueryDenomMetadataRequest = {
   isSDK(o: any): o is QueryDenomMetadataRequestSDKType {
     return o && (o.$typeUrl === QueryDenomMetadataRequest.typeUrl || typeof o.denom === "string");
   },
-  encode(message: QueryDenomMetadataRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomMetadataRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomMetadataRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomMetadataRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomMetadataRequest();
     while (reader.pos < end) {
@@ -2077,14 +2077,14 @@ export const QueryDenomMetadataResponse = {
   isSDK(o: any): o is QueryDenomMetadataResponseSDKType {
     return o && (o.$typeUrl === QueryDenomMetadataResponse.typeUrl || Metadata.isSDK(o.metadata));
   },
-  encode(message: QueryDenomMetadataResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomMetadataResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.metadata !== undefined) {
       Metadata.encode(message.metadata, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomMetadataResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomMetadataResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomMetadataResponse();
     while (reader.pos < end) {
@@ -2147,14 +2147,14 @@ export const QueryDenomMetadataByQueryStringRequest = {
   isSDK(o: any): o is QueryDenomMetadataByQueryStringRequestSDKType {
     return o && (o.$typeUrl === QueryDenomMetadataByQueryStringRequest.typeUrl || typeof o.denom === "string");
   },
-  encode(message: QueryDenomMetadataByQueryStringRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomMetadataByQueryStringRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomMetadataByQueryStringRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomMetadataByQueryStringRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomMetadataByQueryStringRequest();
     while (reader.pos < end) {
@@ -2212,14 +2212,14 @@ export const QueryDenomMetadataByQueryStringResponse = {
   isSDK(o: any): o is QueryDenomMetadataByQueryStringResponseSDKType {
     return o && (o.$typeUrl === QueryDenomMetadataByQueryStringResponse.typeUrl || Metadata.isSDK(o.metadata));
   },
-  encode(message: QueryDenomMetadataByQueryStringResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomMetadataByQueryStringResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.metadata !== undefined) {
       Metadata.encode(message.metadata, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomMetadataByQueryStringResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomMetadataByQueryStringResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomMetadataByQueryStringResponse();
     while (reader.pos < end) {
@@ -2284,7 +2284,7 @@ export const QueryDenomOwnersRequest = {
   isSDK(o: any): o is QueryDenomOwnersRequestSDKType {
     return o && (o.$typeUrl === QueryDenomOwnersRequest.typeUrl || typeof o.denom === "string");
   },
-  encode(message: QueryDenomOwnersRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomOwnersRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
@@ -2293,8 +2293,8 @@ export const QueryDenomOwnersRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomOwnersRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomOwnersRequest();
     while (reader.pos < end) {
@@ -2365,7 +2365,7 @@ export const DenomOwner = {
   isSDK(o: any): o is DenomOwnerSDKType {
     return o && (o.$typeUrl === DenomOwner.typeUrl || typeof o.address === "string" && Coin.isSDK(o.balance));
   },
-  encode(message: DenomOwner, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: DenomOwner, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -2374,8 +2374,8 @@ export const DenomOwner = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DenomOwner {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): DenomOwner {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDenomOwner();
     while (reader.pos < end) {
@@ -2444,7 +2444,7 @@ export const QueryDenomOwnersResponse = {
   isSDK(o: any): o is QueryDenomOwnersResponseSDKType {
     return o && (o.$typeUrl === QueryDenomOwnersResponse.typeUrl || Array.isArray(o.denom_owners) && (!o.denom_owners.length || DenomOwner.isSDK(o.denom_owners[0])));
   },
-  encode(message: QueryDenomOwnersResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomOwnersResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.denomOwners) {
       DenomOwner.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -2453,8 +2453,8 @@ export const QueryDenomOwnersResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomOwnersResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomOwnersResponse();
     while (reader.pos < end) {
@@ -2526,7 +2526,7 @@ export const QueryDenomOwnersByQueryRequest = {
   isSDK(o: any): o is QueryDenomOwnersByQueryRequestSDKType {
     return o && (o.$typeUrl === QueryDenomOwnersByQueryRequest.typeUrl || typeof o.denom === "string");
   },
-  encode(message: QueryDenomOwnersByQueryRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomOwnersByQueryRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
@@ -2535,8 +2535,8 @@ export const QueryDenomOwnersByQueryRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomOwnersByQueryRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersByQueryRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomOwnersByQueryRequest();
     while (reader.pos < end) {
@@ -2605,7 +2605,7 @@ export const QueryDenomOwnersByQueryResponse = {
   isSDK(o: any): o is QueryDenomOwnersByQueryResponseSDKType {
     return o && (o.$typeUrl === QueryDenomOwnersByQueryResponse.typeUrl || Array.isArray(o.denom_owners) && (!o.denom_owners.length || DenomOwner.isSDK(o.denom_owners[0])));
   },
-  encode(message: QueryDenomOwnersByQueryResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryDenomOwnersByQueryResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.denomOwners) {
       DenomOwner.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -2614,8 +2614,8 @@ export const QueryDenomOwnersByQueryResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomOwnersByQueryResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersByQueryResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryDenomOwnersByQueryResponse();
     while (reader.pos < end) {
@@ -2685,7 +2685,7 @@ export const QuerySendEnabledRequest = {
   isSDK(o: any): o is QuerySendEnabledRequestSDKType {
     return o && (o.$typeUrl === QuerySendEnabledRequest.typeUrl || Array.isArray(o.denoms) && (!o.denoms.length || typeof o.denoms[0] === "string"));
   },
-  encode(message: QuerySendEnabledRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySendEnabledRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.denoms) {
       writer.uint32(10).string(v!);
     }
@@ -2694,8 +2694,8 @@ export const QuerySendEnabledRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySendEnabledRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySendEnabledRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySendEnabledRequest();
     while (reader.pos < end) {
@@ -2764,7 +2764,7 @@ export const QuerySendEnabledResponse = {
   isSDK(o: any): o is QuerySendEnabledResponseSDKType {
     return o && (o.$typeUrl === QuerySendEnabledResponse.typeUrl || Array.isArray(o.send_enabled) && (!o.send_enabled.length || SendEnabled.isSDK(o.send_enabled[0])));
   },
-  encode(message: QuerySendEnabledResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySendEnabledResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.sendEnabled) {
       SendEnabled.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -2773,8 +2773,8 @@ export const QuerySendEnabledResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySendEnabledResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySendEnabledResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySendEnabledResponse();
     while (reader.pos < end) {

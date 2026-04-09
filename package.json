@@ -1,6 +1,6 @@
 {
   "name": "@atlas/atlas.js-protos",
-  "version": "0.0.10",
+  "version": "0.0.15",
   "description": "__MODULEDESC__",
   "author": "__USERFULLNAME__ <__USEREMAIL__>",
   "homepage": "https://github.com/__USERNAME__/__MODULENAME__#readme",
@@ -42,7 +42,6 @@
     "url": "https://github.com/__USERNAME__/__MODULENAME__/issues"
   },
   "devDependencies": {
-    "@hyperweb/telescope": "^2.1.0",
     "@types/jest": "^29.5.0",
     "eslint": "8.45.0",
     "eslint-config-prettier": "^8.8.0",
@@ -56,6 +55,9 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@hyperweb/telescope": "file:E:/dev/telescope-build/packages/telescope/dist",
+    "@cosmology/ast": "file:E:/dev/telescope-build/packages/ast/dist",
+    "@cosmology/proto-parser": "file:E:/dev/telescope-build/packages/parser/dist",
     "@cosmjs/amino": "0.29.4",
     "@cosmjs/proto-signing": "^0.38.1",
     "@cosmjs/stargate": "^0.38.1",
@@ -69,5 +71,14 @@
     "cosmjs-types": "^0.11.0",
     "long": "^5.3.2",
     "protobufjs": "^8.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@cosmology/utils": "file:E:/dev/telescope-build/packages/utils/dist",
+      "@cosmology/types": "file:E:/dev/telescope-build/packages/types/dist",
+      "@cosmology/proto-parser": "file:E:/dev/telescope-build/packages/parser/dist",
+      "@cosmology/ast": "file:E:/dev/telescope-build/packages/ast/dist",
+      "@hyperweb/telescope": "file:E:/dev/telescope-build/packages/telescope/dist"
+    }
   }
 }

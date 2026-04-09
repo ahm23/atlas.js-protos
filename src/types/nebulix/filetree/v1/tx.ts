@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
@@ -161,7 +161,7 @@ export const MsgUpdateParams = {
   isSDK(o: any): o is MsgUpdateParamsSDKType {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
   },
-  encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgUpdateParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
@@ -170,8 +170,8 @@ export const MsgUpdateParams = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUpdateParams();
     while (reader.pos < end) {
@@ -235,11 +235,11 @@ export const MsgUpdateParamsResponse = {
   isSDK(o: any): o is MsgUpdateParamsResponseSDKType {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
-  encode(_: MsgUpdateParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgUpdateParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUpdateParamsResponse();
     while (reader.pos < end) {
@@ -293,7 +293,7 @@ export const MsgPostNode = {
   isSDK(o: any): o is MsgPostNodeSDKType {
     return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.node_type === "string" && typeof o.contents === "string");
   },
-  encode(message: MsgPostNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgPostNode, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
@@ -308,8 +308,8 @@ export const MsgPostNode = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgPostNode {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgPostNode {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgPostNode();
     while (reader.pos < end) {
@@ -374,11 +374,11 @@ export const MsgPostNodeResponse = {
   isSDK(o: any): o is MsgPostNodeResponseSDKType {
     return o && o.$typeUrl === MsgPostNodeResponse.typeUrl;
   },
-  encode(_: MsgPostNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgPostNodeResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgPostNodeResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgPostNodeResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgPostNodeResponse();
     while (reader.pos < end) {
@@ -430,7 +430,7 @@ export const MsgDeleteNode = {
   isSDK(o: any): o is MsgDeleteNodeSDKType {
     return o && (o.$typeUrl === MsgDeleteNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string");
   },
-  encode(message: MsgDeleteNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgDeleteNode, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
@@ -439,8 +439,8 @@ export const MsgDeleteNode = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgDeleteNode {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeleteNode {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgDeleteNode();
     while (reader.pos < end) {
@@ -497,11 +497,11 @@ export const MsgDeleteNodeResponse = {
   isSDK(o: any): o is MsgDeleteNodeResponseSDKType {
     return o && o.$typeUrl === MsgDeleteNodeResponse.typeUrl;
   },
-  encode(_: MsgDeleteNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgDeleteNodeResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgDeleteNodeResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeleteNodeResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgDeleteNodeResponse();
     while (reader.pos < end) {

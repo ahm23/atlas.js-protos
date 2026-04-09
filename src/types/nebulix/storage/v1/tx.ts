@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
@@ -61,7 +61,7 @@ export interface MsgUpdateParamsResponseSDKType {}
 export interface MsgRegisterProvider {
   creator: string;
   hostname: string;
-  capacity: bigint;
+  capacity: number;
 }
 export interface MsgRegisterProviderProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgRegisterProvider";
@@ -76,7 +76,7 @@ export interface MsgRegisterProviderProtoMsg {
 export interface MsgRegisterProviderSDKType {
   creator: string;
   hostname: string;
-  capacity: bigint;
+  capacity: number;
 }
 /**
  * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
@@ -106,7 +106,7 @@ export interface MsgPostFile {
   creator: string;
   fid: string;
   merkle: Uint8Array;
-  fileSize: bigint;
+  fileSize: number;
   replicas: number;
   subscription: string;
 }
@@ -124,7 +124,7 @@ export interface MsgPostFileSDKType {
   creator: string;
   fid: string;
   merkle: Uint8Array;
-  file_size: bigint;
+  file_size: number;
   replicas: number;
   subscription: string;
 }
@@ -135,7 +135,7 @@ export interface MsgPostFileSDKType {
  * @see proto type: nebulix.storage.v1.MsgPostFileResponse
  */
 export interface MsgPostFileResponse {
-  startBlock: bigint;
+  startBlock: number;
 }
 export interface MsgPostFileResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgPostFileResponse";
@@ -148,7 +148,7 @@ export interface MsgPostFileResponseProtoMsg {
  * @see proto type: nebulix.storage.v1.MsgPostFileResponse
  */
 export interface MsgPostFileResponseSDKType {
-  start_block: bigint;
+  start_block: number;
 }
 /**
  * MsgBuyStorage defines the MsgBuyStorage message.
@@ -159,8 +159,8 @@ export interface MsgPostFileResponseSDKType {
 export interface MsgBuyStorage {
   creator: string;
   receiver: string;
-  duration: bigint;
-  bytes: bigint;
+  duration: number;
+  bytes: number;
   isDefault: boolean;
 }
 export interface MsgBuyStorageProtoMsg {
@@ -176,8 +176,8 @@ export interface MsgBuyStorageProtoMsg {
 export interface MsgBuyStorageSDKType {
   creator: string;
   receiver: string;
-  duration: bigint;
-  bytes: bigint;
+  duration: number;
+  bytes: number;
   is_default: boolean;
 }
 /**
@@ -214,7 +214,7 @@ export interface MsgProveFile {
   fid: string;
   data: Uint8Array;
   hashes: Uint8Array[];
-  chunk: bigint;
+  chunk: number;
 }
 export interface MsgProveFileProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgProveFile";
@@ -232,7 +232,7 @@ export interface MsgProveFileSDKType {
   fid: string;
   data: Uint8Array;
   hashes: Uint8Array[];
-  chunk: bigint;
+  chunk: number;
 }
 /**
  * MsgProveFileResponse defines the MsgProveFileResponse message.
@@ -303,8 +303,8 @@ export interface MsgDeleteFileResponseSDKType {}
 export interface MsgExpandStorage {
   creator: string;
   subscriptionId: string;
-  duration: bigint;
-  bytes: bigint;
+  duration: number;
+  bytes: number;
 }
 export interface MsgExpandStorageProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgExpandStorage";
@@ -319,8 +319,8 @@ export interface MsgExpandStorageProtoMsg {
 export interface MsgExpandStorageSDKType {
   creator: string;
   subscription_id: string;
-  duration: bigint;
-  bytes: bigint;
+  duration: number;
+  bytes: number;
 }
 /**
  * MsgExpandStorageResponse defines the MsgExpandStorageResponse message.
@@ -330,8 +330,8 @@ export interface MsgExpandStorageSDKType {
  */
 export interface MsgExpandStorageResponse {
   subscriptionId: string;
-  newExpiration: bigint;
-  newSpaceAvailable: bigint;
+  newExpiration: number;
+  newSpaceAvailable: number;
 }
 export interface MsgExpandStorageResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.MsgExpandStorageResponse";
@@ -345,8 +345,8 @@ export interface MsgExpandStorageResponseProtoMsg {
  */
 export interface MsgExpandStorageResponseSDKType {
   subscription_id: string;
-  new_expiration: bigint;
-  new_space_available: bigint;
+  new_expiration: number;
+  new_space_available: number;
 }
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
@@ -369,7 +369,7 @@ export const MsgUpdateParams = {
   isSDK(o: any): o is MsgUpdateParamsSDKType {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
   },
-  encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgUpdateParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
@@ -378,8 +378,8 @@ export const MsgUpdateParams = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUpdateParams();
     while (reader.pos < end) {
@@ -443,11 +443,11 @@ export const MsgUpdateParamsResponse = {
   isSDK(o: any): o is MsgUpdateParamsResponseSDKType {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
-  encode(_: MsgUpdateParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgUpdateParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUpdateParamsResponse();
     while (reader.pos < end) {
@@ -483,7 +483,7 @@ function createBaseMsgRegisterProvider(): MsgRegisterProvider {
   return {
     creator: "",
     hostname: "",
-    capacity: BigInt(0)
+    capacity: 0
   };
 }
 /**
@@ -500,20 +500,20 @@ export const MsgRegisterProvider = {
   isSDK(o: any): o is MsgRegisterProviderSDKType {
     return o && (o.$typeUrl === MsgRegisterProvider.typeUrl || typeof o.creator === "string" && typeof o.hostname === "string" && typeof o.capacity === "bigint");
   },
-  encode(message: MsgRegisterProvider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgRegisterProvider, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
     if (message.hostname !== "") {
       writer.uint32(18).string(message.hostname);
     }
-    if (message.capacity !== BigInt(0)) {
+    if (message.capacity !== 0) {
       writer.uint32(24).int64(message.capacity);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterProvider {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterProvider {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgRegisterProvider();
     while (reader.pos < end) {
@@ -526,7 +526,7 @@ export const MsgRegisterProvider = {
           message.hostname = reader.string();
           break;
         case 3:
-          message.capacity = reader.int64();
+          message.capacity = Number(reader.int64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -539,7 +539,7 @@ export const MsgRegisterProvider = {
     const message = createBaseMsgRegisterProvider();
     message.creator = object.creator ?? "";
     message.hostname = object.hostname ?? "";
-    message.capacity = object.capacity !== undefined && object.capacity !== null ? BigInt(object.capacity.toString()) : BigInt(0);
+    message.capacity = object.capacity !== undefined && object.capacity !== null ? Number(object.capacity.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: MsgRegisterProviderProtoMsg): MsgRegisterProvider {
@@ -574,11 +574,11 @@ export const MsgRegisterProviderResponse = {
   isSDK(o: any): o is MsgRegisterProviderResponseSDKType {
     return o && o.$typeUrl === MsgRegisterProviderResponse.typeUrl;
   },
-  encode(_: MsgRegisterProviderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgRegisterProviderResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterProviderResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterProviderResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgRegisterProviderResponse();
     while (reader.pos < end) {
@@ -615,7 +615,7 @@ function createBaseMsgPostFile(): MsgPostFile {
     creator: "",
     fid: "",
     merkle: new Uint8Array(),
-    fileSize: BigInt(0),
+    fileSize: 0,
     replicas: 0,
     subscription: ""
   };
@@ -634,7 +634,7 @@ export const MsgPostFile = {
   isSDK(o: any): o is MsgPostFileSDKType {
     return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && typeof o.fid === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.file_size === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string");
   },
-  encode(message: MsgPostFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgPostFile, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
@@ -644,7 +644,7 @@ export const MsgPostFile = {
     if (message.merkle.length !== 0) {
       writer.uint32(26).bytes(message.merkle);
     }
-    if (message.fileSize !== BigInt(0)) {
+    if (message.fileSize !== 0) {
       writer.uint32(32).int64(message.fileSize);
     }
     if (message.replicas !== 0) {
@@ -655,8 +655,8 @@ export const MsgPostFile = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgPostFile {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgPostFile {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgPostFile();
     while (reader.pos < end) {
@@ -672,7 +672,7 @@ export const MsgPostFile = {
           message.merkle = reader.bytes();
           break;
         case 4:
-          message.fileSize = reader.int64();
+          message.fileSize = Number(reader.int64().toString());
           break;
         case 5:
           message.replicas = reader.int32();
@@ -692,7 +692,7 @@ export const MsgPostFile = {
     message.creator = object.creator ?? "";
     message.fid = object.fid ?? "";
     message.merkle = object.merkle ?? new Uint8Array();
-    message.fileSize = object.fileSize !== undefined && object.fileSize !== null ? BigInt(object.fileSize.toString()) : BigInt(0);
+    message.fileSize = object.fileSize !== undefined && object.fileSize !== null ? Number(object.fileSize.toString()) : 0;
     message.replicas = object.replicas ?? 0;
     message.subscription = object.subscription ?? "";
     return message;
@@ -714,7 +714,7 @@ export const MsgPostFile = {
 GlobalDecoderRegistry.register(MsgPostFile.typeUrl, MsgPostFile);
 function createBaseMsgPostFileResponse(): MsgPostFileResponse {
   return {
-    startBlock: BigInt(0)
+    startBlock: 0
   };
 }
 /**
@@ -731,21 +731,21 @@ export const MsgPostFileResponse = {
   isSDK(o: any): o is MsgPostFileResponseSDKType {
     return o && (o.$typeUrl === MsgPostFileResponse.typeUrl || typeof o.start_block === "bigint");
   },
-  encode(message: MsgPostFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.startBlock !== BigInt(0)) {
+  encode(message: MsgPostFileResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.startBlock !== 0) {
       writer.uint32(8).int64(message.startBlock);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgPostFileResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgPostFileResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgPostFileResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.startBlock = reader.int64();
+          message.startBlock = Number(reader.int64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -756,7 +756,7 @@ export const MsgPostFileResponse = {
   },
   fromPartial(object: Partial<MsgPostFileResponse>): MsgPostFileResponse {
     const message = createBaseMsgPostFileResponse();
-    message.startBlock = object.startBlock !== undefined && object.startBlock !== null ? BigInt(object.startBlock.toString()) : BigInt(0);
+    message.startBlock = object.startBlock !== undefined && object.startBlock !== null ? Number(object.startBlock.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: MsgPostFileResponseProtoMsg): MsgPostFileResponse {
@@ -778,8 +778,8 @@ function createBaseMsgBuyStorage(): MsgBuyStorage {
   return {
     creator: "",
     receiver: "",
-    duration: BigInt(0),
-    bytes: BigInt(0),
+    duration: 0,
+    bytes: 0,
     isDefault: false
   };
 }
@@ -797,17 +797,17 @@ export const MsgBuyStorage = {
   isSDK(o: any): o is MsgBuyStorageSDKType {
     return o && (o.$typeUrl === MsgBuyStorage.typeUrl || typeof o.creator === "string" && typeof o.receiver === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint" && typeof o.is_default === "boolean");
   },
-  encode(message: MsgBuyStorage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgBuyStorage, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
     if (message.receiver !== "") {
       writer.uint32(18).string(message.receiver);
     }
-    if (message.duration !== BigInt(0)) {
+    if (message.duration !== 0) {
       writer.uint32(24).int64(message.duration);
     }
-    if (message.bytes !== BigInt(0)) {
+    if (message.bytes !== 0) {
       writer.uint32(32).int64(message.bytes);
     }
     if (message.isDefault === true) {
@@ -815,8 +815,8 @@ export const MsgBuyStorage = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgBuyStorage {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgBuyStorage {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgBuyStorage();
     while (reader.pos < end) {
@@ -829,10 +829,10 @@ export const MsgBuyStorage = {
           message.receiver = reader.string();
           break;
         case 3:
-          message.duration = reader.int64();
+          message.duration = Number(reader.int64().toString());
           break;
         case 4:
-          message.bytes = reader.int64();
+          message.bytes = Number(reader.int64().toString());
           break;
         case 5:
           message.isDefault = reader.bool();
@@ -848,8 +848,8 @@ export const MsgBuyStorage = {
     const message = createBaseMsgBuyStorage();
     message.creator = object.creator ?? "";
     message.receiver = object.receiver ?? "";
-    message.duration = object.duration !== undefined && object.duration !== null ? BigInt(object.duration.toString()) : BigInt(0);
-    message.bytes = object.bytes !== undefined && object.bytes !== null ? BigInt(object.bytes.toString()) : BigInt(0);
+    message.duration = object.duration !== undefined && object.duration !== null ? Number(object.duration.toString()) : 0;
+    message.bytes = object.bytes !== undefined && object.bytes !== null ? Number(object.bytes.toString()) : 0;
     message.isDefault = object.isDefault ?? false;
     return message;
   },
@@ -887,14 +887,14 @@ export const MsgBuyStorageResponse = {
   isSDK(o: any): o is MsgBuyStorageResponseSDKType {
     return o && (o.$typeUrl === MsgBuyStorageResponse.typeUrl || typeof o.SubscriptionId === "string");
   },
-  encode(message: MsgBuyStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgBuyStorageResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.subscriptionId !== "") {
       writer.uint32(10).string(message.subscriptionId);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgBuyStorageResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgBuyStorageResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgBuyStorageResponse();
     while (reader.pos < end) {
@@ -937,7 +937,7 @@ function createBaseMsgProveFile(): MsgProveFile {
     fid: "",
     data: new Uint8Array(),
     hashes: [],
-    chunk: BigInt(0)
+    chunk: 0
   };
 }
 /**
@@ -954,7 +954,7 @@ export const MsgProveFile = {
   isSDK(o: any): o is MsgProveFileSDKType {
     return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challenge_id === "string" && typeof o.fid === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
   },
-  encode(message: MsgProveFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgProveFile, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
@@ -970,13 +970,13 @@ export const MsgProveFile = {
     for (const v of message.hashes) {
       writer.uint32(42).bytes(v!);
     }
-    if (message.chunk !== BigInt(0)) {
+    if (message.chunk !== 0) {
       writer.uint32(48).uint64(message.chunk);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgProveFile {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgProveFile {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgProveFile();
     while (reader.pos < end) {
@@ -998,7 +998,7 @@ export const MsgProveFile = {
           message.hashes.push(reader.bytes());
           break;
         case 6:
-          message.chunk = reader.uint64();
+          message.chunk = Number(reader.uint64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -1014,7 +1014,7 @@ export const MsgProveFile = {
     message.fid = object.fid ?? "";
     message.data = object.data ?? new Uint8Array();
     message.hashes = object.hashes?.map(e => e) || [];
-    message.chunk = object.chunk !== undefined && object.chunk !== null ? BigInt(object.chunk.toString()) : BigInt(0);
+    message.chunk = object.chunk !== undefined && object.chunk !== null ? Number(object.chunk.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: MsgProveFileProtoMsg): MsgProveFile {
@@ -1049,11 +1049,11 @@ export const MsgProveFileResponse = {
   isSDK(o: any): o is MsgProveFileResponseSDKType {
     return o && o.$typeUrl === MsgProveFileResponse.typeUrl;
   },
-  encode(_: MsgProveFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgProveFileResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgProveFileResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgProveFileResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgProveFileResponse();
     while (reader.pos < end) {
@@ -1105,7 +1105,7 @@ export const MsgDeleteFile = {
   isSDK(o: any): o is MsgDeleteFileSDKType {
     return o && (o.$typeUrl === MsgDeleteFile.typeUrl || typeof o.creator === "string" && typeof o.file_id === "string");
   },
-  encode(message: MsgDeleteFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgDeleteFile, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
@@ -1114,8 +1114,8 @@ export const MsgDeleteFile = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgDeleteFile {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeleteFile {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgDeleteFile();
     while (reader.pos < end) {
@@ -1172,11 +1172,11 @@ export const MsgDeleteFileResponse = {
   isSDK(o: any): o is MsgDeleteFileResponseSDKType {
     return o && o.$typeUrl === MsgDeleteFileResponse.typeUrl;
   },
-  encode(_: MsgDeleteFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgDeleteFileResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgDeleteFileResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeleteFileResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgDeleteFileResponse();
     while (reader.pos < end) {
@@ -1212,8 +1212,8 @@ function createBaseMsgExpandStorage(): MsgExpandStorage {
   return {
     creator: "",
     subscriptionId: "",
-    duration: BigInt(0),
-    bytes: BigInt(0)
+    duration: 0,
+    bytes: 0
   };
 }
 /**
@@ -1230,23 +1230,23 @@ export const MsgExpandStorage = {
   isSDK(o: any): o is MsgExpandStorageSDKType {
     return o && (o.$typeUrl === MsgExpandStorage.typeUrl || typeof o.creator === "string" && typeof o.subscription_id === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint");
   },
-  encode(message: MsgExpandStorage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgExpandStorage, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
     if (message.subscriptionId !== "") {
       writer.uint32(18).string(message.subscriptionId);
     }
-    if (message.duration !== BigInt(0)) {
+    if (message.duration !== 0) {
       writer.uint32(24).int64(message.duration);
     }
-    if (message.bytes !== BigInt(0)) {
+    if (message.bytes !== 0) {
       writer.uint32(32).int64(message.bytes);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgExpandStorage {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgExpandStorage {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgExpandStorage();
     while (reader.pos < end) {
@@ -1259,10 +1259,10 @@ export const MsgExpandStorage = {
           message.subscriptionId = reader.string();
           break;
         case 3:
-          message.duration = reader.int64();
+          message.duration = Number(reader.int64().toString());
           break;
         case 4:
-          message.bytes = reader.int64();
+          message.bytes = Number(reader.int64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -1275,8 +1275,8 @@ export const MsgExpandStorage = {
     const message = createBaseMsgExpandStorage();
     message.creator = object.creator ?? "";
     message.subscriptionId = object.subscriptionId ?? "";
-    message.duration = object.duration !== undefined && object.duration !== null ? BigInt(object.duration.toString()) : BigInt(0);
-    message.bytes = object.bytes !== undefined && object.bytes !== null ? BigInt(object.bytes.toString()) : BigInt(0);
+    message.duration = object.duration !== undefined && object.duration !== null ? Number(object.duration.toString()) : 0;
+    message.bytes = object.bytes !== undefined && object.bytes !== null ? Number(object.bytes.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: MsgExpandStorageProtoMsg): MsgExpandStorage {
@@ -1297,8 +1297,8 @@ GlobalDecoderRegistry.register(MsgExpandStorage.typeUrl, MsgExpandStorage);
 function createBaseMsgExpandStorageResponse(): MsgExpandStorageResponse {
   return {
     subscriptionId: "",
-    newExpiration: BigInt(0),
-    newSpaceAvailable: BigInt(0)
+    newExpiration: 0,
+    newSpaceAvailable: 0
   };
 }
 /**
@@ -1315,20 +1315,20 @@ export const MsgExpandStorageResponse = {
   isSDK(o: any): o is MsgExpandStorageResponseSDKType {
     return o && (o.$typeUrl === MsgExpandStorageResponse.typeUrl || typeof o.subscription_id === "string" && typeof o.new_expiration === "bigint" && typeof o.new_space_available === "bigint");
   },
-  encode(message: MsgExpandStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgExpandStorageResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.subscriptionId !== "") {
       writer.uint32(10).string(message.subscriptionId);
     }
-    if (message.newExpiration !== BigInt(0)) {
+    if (message.newExpiration !== 0) {
       writer.uint32(16).int64(message.newExpiration);
     }
-    if (message.newSpaceAvailable !== BigInt(0)) {
+    if (message.newSpaceAvailable !== 0) {
       writer.uint32(24).int64(message.newSpaceAvailable);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgExpandStorageResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgExpandStorageResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgExpandStorageResponse();
     while (reader.pos < end) {
@@ -1338,10 +1338,10 @@ export const MsgExpandStorageResponse = {
           message.subscriptionId = reader.string();
           break;
         case 2:
-          message.newExpiration = reader.int64();
+          message.newExpiration = Number(reader.int64().toString());
           break;
         case 3:
-          message.newSpaceAvailable = reader.int64();
+          message.newSpaceAvailable = Number(reader.int64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -1353,8 +1353,8 @@ export const MsgExpandStorageResponse = {
   fromPartial(object: Partial<MsgExpandStorageResponse>): MsgExpandStorageResponse {
     const message = createBaseMsgExpandStorageResponse();
     message.subscriptionId = object.subscriptionId ?? "";
-    message.newExpiration = object.newExpiration !== undefined && object.newExpiration !== null ? BigInt(object.newExpiration.toString()) : BigInt(0);
-    message.newSpaceAvailable = object.newSpaceAvailable !== undefined && object.newSpaceAvailable !== null ? BigInt(object.newSpaceAvailable.toString()) : BigInt(0);
+    message.newExpiration = object.newExpiration !== undefined && object.newExpiration !== null ? Number(object.newExpiration.toString()) : 0;
+    message.newSpaceAvailable = object.newSpaceAvailable !== undefined && object.newSpaceAvailable !== null ? Number(object.newSpaceAvailable.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: MsgExpandStorageResponseProtoMsg): MsgExpandStorageResponse {

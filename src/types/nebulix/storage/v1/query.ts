@@ -5,7 +5,7 @@ import { Provider, ProviderSDKType } from "./provider";
 import { File, FileSDKType } from "./file";
 import { StorageSubscription, StorageSubscriptionSDKType } from "./subscription";
 import { StorageChallenge, StorageChallengeSDKType } from "./proof";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
@@ -13,7 +13,7 @@ import { GlobalDecoderRegistry } from "../../../registry";
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryParamsRequest
  */
-export interface QueryParamsRequest { }
+export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryParamsRequest";
   value: Uint8Array;
@@ -24,7 +24,7 @@ export interface QueryParamsRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryParamsRequest
  */
-export interface QueryParamsRequestSDKType { }
+export interface QueryParamsRequestSDKType {}
 /**
  * QueryParamsResponse is response type for the Query/Params RPC method.
  * @name QueryParamsResponse
@@ -100,7 +100,7 @@ export interface QueryProviderResponseSDKType {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryProvidersRequest
  */
-export interface QueryProvidersRequest { }
+export interface QueryProvidersRequest {}
 export interface QueryProvidersRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryProvidersRequest";
   value: Uint8Array;
@@ -111,7 +111,7 @@ export interface QueryProvidersRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryProvidersRequest
  */
-export interface QueryProvidersRequestSDKType { }
+export interface QueryProvidersRequestSDKType {}
 /**
  * QueryProvidersResponse defines the QueryProvidersResponse message.
  * @name QueryProvidersResponse
@@ -376,7 +376,7 @@ export interface QueryChallengesResponseSDKType {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
  */
-export interface QueryStorageStatsRequest { }
+export interface QueryStorageStatsRequest {}
 export interface QueryStorageStatsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest";
   value: Uint8Array;
@@ -387,7 +387,7 @@ export interface QueryStorageStatsRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
  */
-export interface QueryStorageStatsRequestSDKType { }
+export interface QueryStorageStatsRequestSDKType {}
 /**
  * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
  * @name QueryStorageStatsResponse
@@ -396,11 +396,11 @@ export interface QueryStorageStatsRequestSDKType { }
  */
 export interface QueryStorageStatsResponse {
   subscriptionCount: number;
-  spacePurchased: bigint;
-  spaceUsed: bigint;
-  spaceReplicas: bigint;
+  spacePurchased: number;
+  spaceUsed: number;
+  spaceReplicas: number;
   providerCount: number;
-  spaceAvailable: bigint;
+  spaceAvailable: number;
 }
 export interface QueryStorageStatsResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryStorageStatsResponse";
@@ -414,11 +414,11 @@ export interface QueryStorageStatsResponseProtoMsg {
  */
 export interface QueryStorageStatsResponseSDKType {
   subscription_count: number;
-  space_purchased: bigint;
-  space_used: bigint;
-  space_replicas: bigint;
+  space_purchased: number;
+  space_used: number;
+  space_replicas: number;
   provider_count: number;
-  space_available: bigint;
+  space_available: number;
 }
 /**
  * QueryFileStatsRequest defines the QueryFileStatsRequest message.
@@ -426,7 +426,7 @@ export interface QueryStorageStatsResponseSDKType {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
  */
-export interface QueryFileStatsRequest { }
+export interface QueryFileStatsRequest {}
 export interface QueryFileStatsRequestProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest";
   value: Uint8Array;
@@ -437,7 +437,7 @@ export interface QueryFileStatsRequestProtoMsg {
  * @package nebulix.storage.v1
  * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
  */
-export interface QueryFileStatsRequestSDKType { }
+export interface QueryFileStatsRequestSDKType {}
 /**
  * QueryFileStatsResponse defines the QueryFileStatsResponse message.
  * @name QueryFileStatsResponse
@@ -445,9 +445,9 @@ export interface QueryFileStatsRequestSDKType { }
  * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
  */
 export interface QueryFileStatsResponse {
-  totalFiles: bigint;
-  strayFiles: bigint;
-  deadFiles: bigint;
+  totalFiles: number;
+  strayFiles: number;
+  deadFiles: number;
 }
 export interface QueryFileStatsResponseProtoMsg {
   typeUrl: "/nebulix.storage.v1.QueryFileStatsResponse";
@@ -460,9 +460,9 @@ export interface QueryFileStatsResponseProtoMsg {
  * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
  */
 export interface QueryFileStatsResponseSDKType {
-  total_files: bigint;
-  stray_files: bigint;
-  dead_files: bigint;
+  total_files: number;
+  stray_files: number;
+  dead_files: number;
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
@@ -481,11 +481,11 @@ export const QueryParamsRequest = {
   isSDK(o: any): o is QueryParamsRequestSDKType {
     return o && o.$typeUrl === QueryParamsRequest.typeUrl;
   },
-  encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
@@ -514,7 +514,7 @@ export const QueryParamsRequest = {
       value: QueryParamsRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
@@ -536,14 +536,14 @@ export const QueryParamsResponse = {
   isSDK(o: any): o is QueryParamsResponseSDKType {
     return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isSDK(o.params));
   },
-  encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
@@ -603,14 +603,14 @@ export const QueryProviderRequest = {
   isSDK(o: any): o is QueryProviderRequestSDKType {
     return o && (o.$typeUrl === QueryProviderRequest.typeUrl || typeof o.address === "string");
   },
-  encode(message: QueryProviderRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryProviderRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryProviderRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryProviderRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryProviderRequest();
     while (reader.pos < end) {
@@ -643,7 +643,7 @@ export const QueryProviderRequest = {
       value: QueryProviderRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryProviderRequest.typeUrl, QueryProviderRequest);
 function createBaseQueryProviderResponse(): QueryProviderResponse {
@@ -665,14 +665,14 @@ export const QueryProviderResponse = {
   isSDK(o: any): o is QueryProviderResponseSDKType {
     return o && o.$typeUrl === QueryProviderResponse.typeUrl;
   },
-  encode(message: QueryProviderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryProviderResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.provider !== undefined) {
       Provider.encode(message.provider, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryProviderResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryProviderResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryProviderResponse();
     while (reader.pos < end) {
@@ -730,11 +730,11 @@ export const QueryProvidersRequest = {
   isSDK(o: any): o is QueryProvidersRequestSDKType {
     return o && o.$typeUrl === QueryProvidersRequest.typeUrl;
   },
-  encode(_: QueryProvidersRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryProvidersRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryProvidersRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryProvidersRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryProvidersRequest();
     while (reader.pos < end) {
@@ -763,7 +763,7 @@ export const QueryProvidersRequest = {
       value: QueryProvidersRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryProvidersRequest.typeUrl, QueryProvidersRequest);
 function createBaseQueryProvidersResponse(): QueryProvidersResponse {
@@ -785,14 +785,14 @@ export const QueryProvidersResponse = {
   isSDK(o: any): o is QueryProvidersResponseSDKType {
     return o && (o.$typeUrl === QueryProvidersResponse.typeUrl || Array.isArray(o.providers) && (!o.providers.length || Provider.isSDK(o.providers[0])));
   },
-  encode(message: QueryProvidersResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryProvidersResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.providers) {
       Provider.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryProvidersResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryProvidersResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryProvidersResponse();
     while (reader.pos < end) {
@@ -852,14 +852,14 @@ export const QueryFileRequest = {
   isSDK(o: any): o is QueryFileRequestSDKType {
     return o && (o.$typeUrl === QueryFileRequest.typeUrl || typeof o.fid === "string");
   },
-  encode(message: QueryFileRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.fid !== "") {
       writer.uint32(10).string(message.fid);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileRequest();
     while (reader.pos < end) {
@@ -892,7 +892,7 @@ export const QueryFileRequest = {
       value: QueryFileRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryFileRequest.typeUrl, QueryFileRequest);
 function createBaseQueryFileResponse(): QueryFileResponse {
@@ -914,14 +914,14 @@ export const QueryFileResponse = {
   isSDK(o: any): o is QueryFileResponseSDKType {
     return o && o.$typeUrl === QueryFileResponse.typeUrl;
   },
-  encode(message: QueryFileResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.file !== undefined) {
       File.encode(message.file, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileResponse();
     while (reader.pos < end) {
@@ -983,7 +983,7 @@ export const QueryFilesRequest = {
   isSDK(o: any): o is QueryFilesRequestSDKType {
     return o && (o.$typeUrl === QueryFilesRequest.typeUrl || typeof o.creator === "string" && typeof o.subscription === "string");
   },
-  encode(message: QueryFilesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFilesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
@@ -995,8 +995,8 @@ export const QueryFilesRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFilesRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFilesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFilesRequest();
     while (reader.pos < end) {
@@ -1065,7 +1065,7 @@ export const QueryFilesResponse = {
   isSDK(o: any): o is QueryFilesResponseSDKType {
     return o && (o.$typeUrl === QueryFilesResponse.typeUrl || Array.isArray(o.files) && (!o.files.length || File.isSDK(o.files[0])));
   },
-  encode(message: QueryFilesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFilesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.files) {
       File.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1074,8 +1074,8 @@ export const QueryFilesResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFilesResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFilesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFilesResponse();
     while (reader.pos < end) {
@@ -1141,7 +1141,7 @@ export const QuerySubscriptionRequest = {
   isSDK(o: any): o is QuerySubscriptionRequestSDKType {
     return o && (o.$typeUrl === QuerySubscriptionRequest.typeUrl || typeof o.subscriber_address === "string" && typeof o.subscription_id === "string");
   },
-  encode(message: QuerySubscriptionRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySubscriptionRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.subscriberAddress !== "") {
       writer.uint32(10).string(message.subscriberAddress);
     }
@@ -1150,8 +1150,8 @@ export const QuerySubscriptionRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySubscriptionRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySubscriptionRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySubscriptionRequest();
     while (reader.pos < end) {
@@ -1188,7 +1188,7 @@ export const QuerySubscriptionRequest = {
       value: QuerySubscriptionRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QuerySubscriptionRequest.typeUrl, QuerySubscriptionRequest);
 function createBaseQuerySubscriptionResponse(): QuerySubscriptionResponse {
@@ -1210,14 +1210,14 @@ export const QuerySubscriptionResponse = {
   isSDK(o: any): o is QuerySubscriptionResponseSDKType {
     return o && o.$typeUrl === QuerySubscriptionResponse.typeUrl;
   },
-  encode(message: QuerySubscriptionResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySubscriptionResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.subscription !== undefined) {
       StorageSubscription.encode(message.subscription, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySubscriptionResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySubscriptionResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySubscriptionResponse();
     while (reader.pos < end) {
@@ -1278,7 +1278,7 @@ export const QuerySubscriptionsRequest = {
   isSDK(o: any): o is QuerySubscriptionsRequestSDKType {
     return o && (o.$typeUrl === QuerySubscriptionsRequest.typeUrl || typeof o.subscriber_address === "string");
   },
-  encode(message: QuerySubscriptionsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySubscriptionsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.subscriberAddress !== "") {
       writer.uint32(10).string(message.subscriberAddress);
     }
@@ -1287,8 +1287,8 @@ export const QuerySubscriptionsRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySubscriptionsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySubscriptionsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySubscriptionsRequest();
     while (reader.pos < end) {
@@ -1353,7 +1353,7 @@ export const QuerySubscriptionsResponse = {
   isSDK(o: any): o is QuerySubscriptionsResponseSDKType {
     return o && (o.$typeUrl === QuerySubscriptionsResponse.typeUrl || Array.isArray(o.subscriptions) && (!o.subscriptions.length || StorageSubscription.isSDK(o.subscriptions[0])));
   },
-  encode(message: QuerySubscriptionsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySubscriptionsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.subscriptions) {
       StorageSubscription.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1362,8 +1362,8 @@ export const QuerySubscriptionsResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySubscriptionsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySubscriptionsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySubscriptionsResponse();
     while (reader.pos < end) {
@@ -1429,7 +1429,7 @@ export const QueryChallengesRequest = {
   isSDK(o: any): o is QueryChallengesRequestSDKType {
     return o && (o.$typeUrl === QueryChallengesRequest.typeUrl || typeof o.provider === "string");
   },
-  encode(message: QueryChallengesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryChallengesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.provider !== "") {
       writer.uint32(10).string(message.provider);
     }
@@ -1438,8 +1438,8 @@ export const QueryChallengesRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryChallengesRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChallengesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryChallengesRequest();
     while (reader.pos < end) {
@@ -1504,7 +1504,7 @@ export const QueryChallengesResponse = {
   isSDK(o: any): o is QueryChallengesResponseSDKType {
     return o && (o.$typeUrl === QueryChallengesResponse.typeUrl || Array.isArray(o.challenges) && (!o.challenges.length || StorageChallenge.isSDK(o.challenges[0])));
   },
-  encode(message: QueryChallengesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryChallengesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.challenges) {
       StorageChallenge.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1513,8 +1513,8 @@ export const QueryChallengesResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryChallengesResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChallengesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryChallengesResponse();
     while (reader.pos < end) {
@@ -1577,11 +1577,11 @@ export const QueryStorageStatsRequest = {
   isSDK(o: any): o is QueryStorageStatsRequestSDKType {
     return o && o.$typeUrl === QueryStorageStatsRequest.typeUrl;
   },
-  encode(_: QueryStorageStatsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryStorageStatsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryStorageStatsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryStorageStatsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryStorageStatsRequest();
     while (reader.pos < end) {
@@ -1610,7 +1610,7 @@ export const QueryStorageStatsRequest = {
       value: QueryStorageStatsRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryStorageStatsRequest.typeUrl, QueryStorageStatsRequest);
 function createBaseQueryStorageStatsResponse(): QueryStorageStatsResponse {
@@ -1637,7 +1637,7 @@ export const QueryStorageStatsResponse = {
   isSDK(o: any): o is QueryStorageStatsResponseSDKType {
     return o && (o.$typeUrl === QueryStorageStatsResponse.typeUrl || typeof o.subscription_count === "number" && typeof o.space_purchased === "bigint" && typeof o.space_used === "bigint" && typeof o.space_replicas === "bigint" && typeof o.provider_count === "number" && typeof o.space_available === "bigint");
   },
-  encode(message: QueryStorageStatsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryStorageStatsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.subscriptionCount !== 0) {
       writer.uint32(8).int32(message.subscriptionCount);
     }
@@ -1658,8 +1658,8 @@ export const QueryStorageStatsResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryStorageStatsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryStorageStatsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryStorageStatsResponse();
     while (reader.pos < end) {
@@ -1669,19 +1669,19 @@ export const QueryStorageStatsResponse = {
           message.subscriptionCount = reader.int32();
           break;
         case 2:
-          message.spacePurchased = reader.int64();
+          message.spacePurchased = Number(reader.int64().toString());
           break;
         case 3:
-          message.spaceUsed = reader.int64();
+          message.spaceUsed = Number(reader.int64().toString());
           break;
         case 4:
-          message.spaceReplicas = reader.int64();
+          message.spaceReplicas = Number(reader.int64().toString());
           break;
         case 5:
           message.providerCount = reader.int32();
           break;
         case 6:
-          message.spaceAvailable = reader.int64();
+          message.spaceAvailable = Number(reader.int64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -1693,11 +1693,11 @@ export const QueryStorageStatsResponse = {
   fromPartial(object: Partial<QueryStorageStatsResponse>): QueryStorageStatsResponse {
     const message = createBaseQueryStorageStatsResponse();
     message.subscriptionCount = object.subscriptionCount ?? 0;
-    message.spacePurchased = object.spacePurchased !== undefined && object.spacePurchased !== null ? BigInt(object.spacePurchased.toString()) : 0;
-    message.spaceUsed = object.spaceUsed !== undefined && object.spaceUsed !== null ? BigInt(object.spaceUsed.toString()) : 0;
-    message.spaceReplicas = object.spaceReplicas !== undefined && object.spaceReplicas !== null ? BigInt(object.spaceReplicas.toString()) : 0;
+    message.spacePurchased = object.spacePurchased !== undefined && object.spacePurchased !== null ? Number(object.spacePurchased.toString()) : 0;
+    message.spaceUsed = object.spaceUsed !== undefined && object.spaceUsed !== null ? Number(object.spaceUsed.toString()) : 0;
+    message.spaceReplicas = object.spaceReplicas !== undefined && object.spaceReplicas !== null ? Number(object.spaceReplicas.toString()) : 0;
     message.providerCount = object.providerCount ?? 0;
-    message.spaceAvailable = object.spaceAvailable !== undefined && object.spaceAvailable !== null ? BigInt(object.spaceAvailable.toString()) : 0;
+    message.spaceAvailable = object.spaceAvailable !== undefined && object.spaceAvailable !== null ? Number(object.spaceAvailable.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: QueryStorageStatsResponseProtoMsg): QueryStorageStatsResponse {
@@ -1712,7 +1712,7 @@ export const QueryStorageStatsResponse = {
       value: QueryStorageStatsResponse.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryStorageStatsResponse.typeUrl, QueryStorageStatsResponse);
 function createBaseQueryFileStatsRequest(): QueryFileStatsRequest {
@@ -1732,11 +1732,11 @@ export const QueryFileStatsRequest = {
   isSDK(o: any): o is QueryFileStatsRequestSDKType {
     return o && o.$typeUrl === QueryFileStatsRequest.typeUrl;
   },
-  encode(_: QueryFileStatsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryFileStatsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileStatsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileStatsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileStatsRequest();
     while (reader.pos < end) {
@@ -1765,7 +1765,7 @@ export const QueryFileStatsRequest = {
       value: QueryFileStatsRequest.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryFileStatsRequest.typeUrl, QueryFileStatsRequest);
 function createBaseQueryFileStatsResponse(): QueryFileStatsResponse {
@@ -1789,7 +1789,7 @@ export const QueryFileStatsResponse = {
   isSDK(o: any): o is QueryFileStatsResponseSDKType {
     return o && (o.$typeUrl === QueryFileStatsResponse.typeUrl || typeof o.total_files === "bigint" && typeof o.stray_files === "bigint" && typeof o.dead_files === "bigint");
   },
-  encode(message: QueryFileStatsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileStatsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.totalFiles !== 0) {
       writer.uint32(8).int64(message.totalFiles);
     }
@@ -1801,21 +1801,21 @@ export const QueryFileStatsResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileStatsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileStatsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileStatsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.totalFiles = reader.int64();
+          message.totalFiles = Number(reader.int64().toString());
           break;
         case 2:
-          message.strayFiles = reader.int64();
+          message.strayFiles = Number(reader.int64().toString());
           break;
         case 3:
-          message.deadFiles = reader.int64();
+          message.deadFiles = Number(reader.int64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -1826,9 +1826,9 @@ export const QueryFileStatsResponse = {
   },
   fromPartial(object: Partial<QueryFileStatsResponse>): QueryFileStatsResponse {
     const message = createBaseQueryFileStatsResponse();
-    message.totalFiles = object.totalFiles !== undefined && object.totalFiles !== null ? BigInt(object.totalFiles.toString()) : 0;
-    message.strayFiles = object.strayFiles !== undefined && object.strayFiles !== null ? BigInt(object.strayFiles.toString()) : 0;
-    message.deadFiles = object.deadFiles !== undefined && object.deadFiles !== null ? BigInt(object.deadFiles.toString()) : 0;
+    message.totalFiles = object.totalFiles !== undefined && object.totalFiles !== null ? Number(object.totalFiles.toString()) : 0;
+    message.strayFiles = object.strayFiles !== undefined && object.strayFiles !== null ? Number(object.strayFiles.toString()) : 0;
+    message.deadFiles = object.deadFiles !== undefined && object.deadFiles !== null ? Number(object.deadFiles.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: QueryFileStatsResponseProtoMsg): QueryFileStatsResponse {
@@ -1843,6 +1843,6 @@ export const QueryFileStatsResponse = {
       value: QueryFileStatsResponse.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 GlobalDecoderRegistry.register(QueryFileStatsResponse.typeUrl, QueryFileStatsResponse);

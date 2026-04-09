@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * @name MerkleProof
@@ -14,7 +14,7 @@ export interface MerkleProof {
   /**
    * Position in file (0-based)
    */
-  index: bigint;
+  index: number;
   /**
    * Sibling hashes for Merkle path
    */
@@ -31,7 +31,7 @@ export interface MerkleProofProtoMsg {
  */
 export interface MerkleProofSDKType {
   chunk: Uint8Array;
-  index: bigint;
+  index: number;
   siblings: Uint8Array[];
 }
 /**
@@ -44,9 +44,9 @@ export interface StorageChallenge {
   fileId: string;
   fileMerkle: string;
   provider: string;
-  chunkIndex: bigint;
-  createdHeight: bigint;
-  deadlineHeight: bigint;
+  chunkIndex: number;
+  createdHeight: number;
+  deadlineHeight: number;
 }
 export interface StorageChallengeProtoMsg {
   typeUrl: "/nebulix.storage.v1.StorageChallenge";
@@ -62,14 +62,14 @@ export interface StorageChallengeSDKType {
   file_id: string;
   file_merkle: string;
   provider: string;
-  chunk_index: bigint;
-  created_height: bigint;
-  deadline_height: bigint;
+  chunk_index: number;
+  created_height: number;
+  deadline_height: number;
 }
 function createBaseMerkleProof(): MerkleProof {
   return {
     chunk: new Uint8Array(),
-    index: BigInt(0),
+    index: 0,
     siblings: []
   };
 }
@@ -86,11 +86,11 @@ export const MerkleProof = {
   isSDK(o: any): o is MerkleProofSDKType {
     return o && (o.$typeUrl === MerkleProof.typeUrl || (o.chunk instanceof Uint8Array || typeof o.chunk === "string") && typeof o.index === "bigint" && Array.isArray(o.siblings) && (!o.siblings.length || o.siblings[0] instanceof Uint8Array || typeof o.siblings[0] === "string"));
   },
-  encode(message: MerkleProof, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MerkleProof, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.chunk.length !== 0) {
       writer.uint32(10).bytes(message.chunk);
     }
-    if (message.index !== BigInt(0)) {
+    if (message.index !== 0) {
       writer.uint32(16).uint64(message.index);
     }
     for (const v of message.siblings) {
@@ -98,8 +98,8 @@ export const MerkleProof = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MerkleProof {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MerkleProof {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMerkleProof();
     while (reader.pos < end) {
@@ -109,7 +109,7 @@ export const MerkleProof = {
           message.chunk = reader.bytes();
           break;
         case 2:
-          message.index = reader.uint64();
+          message.index = Number(reader.uint64().toString());
           break;
         case 3:
           message.siblings.push(reader.bytes());
@@ -124,7 +124,7 @@ export const MerkleProof = {
   fromPartial(object: Partial<MerkleProof>): MerkleProof {
     const message = createBaseMerkleProof();
     message.chunk = object.chunk ?? new Uint8Array();
-    message.index = object.index !== undefined && object.index !== null ? BigInt(object.index.toString()) : BigInt(0);
+    message.index = object.index !== undefined && object.index !== null ? Number(object.index.toString()) : 0;
     message.siblings = object.siblings?.map(e => e) || [];
     return message;
   },
@@ -149,9 +149,9 @@ function createBaseStorageChallenge(): StorageChallenge {
     fileId: "",
     fileMerkle: "",
     provider: "",
-    chunkIndex: BigInt(0),
-    createdHeight: BigInt(0),
-    deadlineHeight: BigInt(0)
+    chunkIndex: 0,
+    createdHeight: 0,
+    deadlineHeight: 0
   };
 }
 /**
@@ -167,7 +167,7 @@ export const StorageChallenge = {
   isSDK(o: any): o is StorageChallengeSDKType {
     return o && (o.$typeUrl === StorageChallenge.typeUrl || typeof o.challenge_id === "string" && typeof o.file_id === "string" && typeof o.file_merkle === "string" && typeof o.provider === "string" && typeof o.chunk_index === "bigint" && typeof o.created_height === "bigint" && typeof o.deadline_height === "bigint");
   },
-  encode(message: StorageChallenge, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: StorageChallenge, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.challengeId !== "") {
       writer.uint32(10).string(message.challengeId);
     }
@@ -180,19 +180,19 @@ export const StorageChallenge = {
     if (message.provider !== "") {
       writer.uint32(34).string(message.provider);
     }
-    if (message.chunkIndex !== BigInt(0)) {
+    if (message.chunkIndex !== 0) {
       writer.uint32(40).uint64(message.chunkIndex);
     }
-    if (message.createdHeight !== BigInt(0)) {
+    if (message.createdHeight !== 0) {
       writer.uint32(48).uint64(message.createdHeight);
     }
-    if (message.deadlineHeight !== BigInt(0)) {
+    if (message.deadlineHeight !== 0) {
       writer.uint32(56).uint64(message.deadlineHeight);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): StorageChallenge {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): StorageChallenge {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseStorageChallenge();
     while (reader.pos < end) {
@@ -211,13 +211,13 @@ export const StorageChallenge = {
           message.provider = reader.string();
           break;
         case 5:
-          message.chunkIndex = reader.uint64();
+          message.chunkIndex = Number(reader.uint64().toString());
           break;
         case 6:
-          message.createdHeight = reader.uint64();
+          message.createdHeight = Number(reader.uint64().toString());
           break;
         case 7:
-          message.deadlineHeight = reader.uint64();
+          message.deadlineHeight = Number(reader.uint64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -232,9 +232,9 @@ export const StorageChallenge = {
     message.fileId = object.fileId ?? "";
     message.fileMerkle = object.fileMerkle ?? "";
     message.provider = object.provider ?? "";
-    message.chunkIndex = object.chunkIndex !== undefined && object.chunkIndex !== null ? BigInt(object.chunkIndex.toString()) : BigInt(0);
-    message.createdHeight = object.createdHeight !== undefined && object.createdHeight !== null ? BigInt(object.createdHeight.toString()) : BigInt(0);
-    message.deadlineHeight = object.deadlineHeight !== undefined && object.deadlineHeight !== null ? BigInt(object.deadlineHeight.toString()) : BigInt(0);
+    message.chunkIndex = object.chunkIndex !== undefined && object.chunkIndex !== null ? Number(object.chunkIndex.toString()) : 0;
+    message.createdHeight = object.createdHeight !== undefined && object.createdHeight !== null ? Number(object.createdHeight.toString()) : 0;
+    message.deadlineHeight = object.deadlineHeight !== undefined && object.deadlineHeight !== null ? Number(object.deadlineHeight.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: StorageChallengeProtoMsg): StorageChallenge {

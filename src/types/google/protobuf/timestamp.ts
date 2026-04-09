@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../registry";
 /**
  * A Timestamp represents a point in time independent of any time zone or local
@@ -101,7 +101,7 @@ export interface Timestamp {
    * be between -62135596800 and 253402300799 inclusive (which corresponds to
    * 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z).
    */
-  seconds: bigint;
+  seconds: number;
   /**
    * Non-negative fractions of a second at nanosecond resolution. This field is
    * the nanosecond portion of the duration, not an alternative to seconds.
@@ -210,12 +210,12 @@ export interface TimestampProtoMsg {
  * @see proto type: google.protobuf.Timestamp
  */
 export interface TimestampSDKType {
-  seconds: bigint;
+  seconds: number;
   nanos: number;
 }
 function createBaseTimestamp(): Timestamp {
   return {
-    seconds: BigInt(0),
+    seconds: 0,
     nanos: 0
   };
 }
@@ -321,8 +321,8 @@ export const Timestamp = {
   isSDK(o: any): o is TimestampSDKType {
     return o && (o.$typeUrl === Timestamp.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
   },
-  encode(message: Timestamp, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.seconds !== BigInt(0)) {
+  encode(message: Timestamp, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.seconds !== 0) {
       writer.uint32(8).int64(message.seconds);
     }
     if (message.nanos !== 0) {
@@ -330,15 +330,15 @@ export const Timestamp = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Timestamp {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Timestamp {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseTimestamp();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.seconds = reader.int64();
+          message.seconds = Number(reader.int64().toString());
           break;
         case 2:
           message.nanos = reader.int32();
@@ -352,7 +352,7 @@ export const Timestamp = {
   },
   fromPartial(object: Partial<Timestamp>): Timestamp {
     const message = createBaseTimestamp();
-    message.seconds = object.seconds !== undefined && object.seconds !== null ? BigInt(object.seconds.toString()) : BigInt(0);
+    message.seconds = object.seconds !== undefined && object.seconds !== null ? Number(object.seconds.toString()) : 0;
     message.nanos = object.nanos ?? 0;
     return message;
   },

@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * @name FileNode
@@ -42,7 +42,7 @@ export const FileNode = {
   isSDK(o: any): o is FileNodeSDKType {
     return o && (o.$typeUrl === FileNode.typeUrl || typeof o.node_type === "string" && typeof o.contents === "string");
   },
-  encode(message: FileNode, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FileNode, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.nodeType !== "") {
       writer.uint32(10).string(message.nodeType);
     }
@@ -51,8 +51,8 @@ export const FileNode = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FileNode {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FileNode {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFileNode();
     while (reader.pos < end) {

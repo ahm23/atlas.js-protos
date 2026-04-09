@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../registry";
 import { isSet } from "../../helpers";
 /** The full set of known editions. */
@@ -2404,8 +2404,8 @@ export interface UninterpretedOption {
    * identified it as during parsing. Exactly one of these should be set.
    */
   identifierValue: string;
-  positiveIntValue: bigint;
-  negativeIntValue: bigint;
+  positiveIntValue: number;
+  negativeIntValue: number;
   doubleValue: number;
   stringValue: Uint8Array;
   aggregateValue: string;
@@ -2428,8 +2428,8 @@ export interface UninterpretedOptionProtoMsg {
 export interface UninterpretedOptionSDKType {
   name: UninterpretedOption_NamePartSDKType[];
   identifier_value: string;
-  positive_int_value: bigint;
-  negative_int_value: bigint;
+  positive_int_value: number;
+  negative_int_value: number;
   double_value: number;
   string_value: Uint8Array;
   aggregate_value: string;
@@ -2876,14 +2876,14 @@ export const FileDescriptorSet = {
   isSDK(o: any): o is FileDescriptorSetSDKType {
     return o && (o.$typeUrl === FileDescriptorSet.typeUrl || Array.isArray(o.file) && (!o.file.length || FileDescriptorProto.isSDK(o.file[0])));
   },
-  encode(message: FileDescriptorSet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FileDescriptorSet, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.file) {
       FileDescriptorProto.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FileDescriptorSet {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FileDescriptorSet {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFileDescriptorSet();
     while (reader.pos < end) {
@@ -2956,7 +2956,7 @@ export const FileDescriptorProto = {
   isSDK(o: any): o is FileDescriptorProtoSDKType {
     return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === "number") && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === "number") && Array.isArray(o.option_dependency) && (!o.option_dependency.length || typeof o.option_dependency[0] === "string") && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isSDK(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isSDK(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && typeof o.syntax === "string" && isSet(o.edition));
   },
-  encode(message: FileDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FileDescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -3005,8 +3005,8 @@ export const FileDescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FileDescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FileDescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFileDescriptorProto();
     while (reader.pos < end) {
@@ -3147,7 +3147,7 @@ export const DescriptorProto = {
   isSDK(o: any): o is DescriptorProtoSDKType {
     return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isSDK(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isSDK(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isSDK(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isSDK(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string") && isSet(o.visibility));
   },
-  encode(message: DescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: DescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -3183,8 +3183,8 @@ export const DescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): DescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDescriptorProto();
     while (reader.pos < end) {
@@ -3291,7 +3291,7 @@ export const DescriptorProto_ExtensionRange = {
   isSDK(o: any): o is DescriptorProto_ExtensionRangeSDKType {
     return o && (o.$typeUrl === DescriptorProto_ExtensionRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
-  encode(message: DescriptorProto_ExtensionRange, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: DescriptorProto_ExtensionRange, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.start !== 0) {
       writer.uint32(8).int32(message.start);
     }
@@ -3303,8 +3303,8 @@ export const DescriptorProto_ExtensionRange = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DescriptorProto_ExtensionRange {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): DescriptorProto_ExtensionRange {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDescriptorProto_ExtensionRange();
     while (reader.pos < end) {
@@ -3375,7 +3375,7 @@ export const DescriptorProto_ReservedRange = {
   isSDK(o: any): o is DescriptorProto_ReservedRangeSDKType {
     return o && (o.$typeUrl === DescriptorProto_ReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
-  encode(message: DescriptorProto_ReservedRange, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: DescriptorProto_ReservedRange, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.start !== 0) {
       writer.uint32(8).int32(message.start);
     }
@@ -3384,8 +3384,8 @@ export const DescriptorProto_ReservedRange = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DescriptorProto_ReservedRange {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): DescriptorProto_ReservedRange {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDescriptorProto_ReservedRange();
     while (reader.pos < end) {
@@ -3446,7 +3446,7 @@ export const ExtensionRangeOptions = {
   isSDK(o: any): o is ExtensionRangeOptionsSDKType {
     return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])) && Array.isArray(o.declaration) && (!o.declaration.length || ExtensionRangeOptions_Declaration.isSDK(o.declaration[0])) && isSet(o.verification));
   },
-  encode(message: ExtensionRangeOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ExtensionRangeOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
     }
@@ -3461,8 +3461,8 @@ export const ExtensionRangeOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ExtensionRangeOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ExtensionRangeOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseExtensionRangeOptions();
     while (reader.pos < end) {
@@ -3539,7 +3539,7 @@ export const ExtensionRangeOptions_Declaration = {
   isSDK(o: any): o is ExtensionRangeOptions_DeclarationSDKType {
     return o && (o.$typeUrl === ExtensionRangeOptions_Declaration.typeUrl || typeof o.number === "number" && typeof o.full_name === "string" && typeof o.type === "string" && typeof o.reserved === "boolean" && typeof o.repeated === "boolean");
   },
-  encode(message: ExtensionRangeOptions_Declaration, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ExtensionRangeOptions_Declaration, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.number !== 0) {
       writer.uint32(8).int32(message.number);
     }
@@ -3557,8 +3557,8 @@ export const ExtensionRangeOptions_Declaration = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ExtensionRangeOptions_Declaration {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ExtensionRangeOptions_Declaration {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseExtensionRangeOptions_Declaration();
     while (reader.pos < end) {
@@ -3639,7 +3639,7 @@ export const FieldDescriptorProto = {
   isSDK(o: any): o is FieldDescriptorProtoSDKType {
     return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.type_name === "string" && typeof o.extendee === "string" && typeof o.default_value === "string" && typeof o.oneof_index === "number" && typeof o.json_name === "string" && typeof o.proto3_optional === "boolean");
   },
-  encode(message: FieldDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FieldDescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -3675,8 +3675,8 @@ export const FieldDescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FieldDescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FieldDescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFieldDescriptorProto();
     while (reader.pos < end) {
@@ -3777,7 +3777,7 @@ export const OneofDescriptorProto = {
   isSDK(o: any): o is OneofDescriptorProtoSDKType {
     return o && (o.$typeUrl === OneofDescriptorProto.typeUrl || typeof o.name === "string");
   },
-  encode(message: OneofDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: OneofDescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -3786,8 +3786,8 @@ export const OneofDescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): OneofDescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): OneofDescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseOneofDescriptorProto();
     while (reader.pos < end) {
@@ -3856,7 +3856,7 @@ export const EnumDescriptorProto = {
   isSDK(o: any): o is EnumDescriptorProtoSDKType {
     return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isSDK(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string") && isSet(o.visibility));
   },
-  encode(message: EnumDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: EnumDescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -3877,8 +3877,8 @@ export const EnumDescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EnumDescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EnumDescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEnumDescriptorProto();
     while (reader.pos < end) {
@@ -3966,7 +3966,7 @@ export const EnumDescriptorProto_EnumReservedRange = {
   isSDK(o: any): o is EnumDescriptorProto_EnumReservedRangeSDKType {
     return o && (o.$typeUrl === EnumDescriptorProto_EnumReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
-  encode(message: EnumDescriptorProto_EnumReservedRange, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: EnumDescriptorProto_EnumReservedRange, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.start !== 0) {
       writer.uint32(8).int32(message.start);
     }
@@ -3975,8 +3975,8 @@ export const EnumDescriptorProto_EnumReservedRange = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EnumDescriptorProto_EnumReservedRange {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EnumDescriptorProto_EnumReservedRange {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEnumDescriptorProto_EnumReservedRange();
     while (reader.pos < end) {
@@ -4037,7 +4037,7 @@ export const EnumValueDescriptorProto = {
   isSDK(o: any): o is EnumValueDescriptorProtoSDKType {
     return o && (o.$typeUrl === EnumValueDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number");
   },
-  encode(message: EnumValueDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: EnumValueDescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -4049,8 +4049,8 @@ export const EnumValueDescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EnumValueDescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EnumValueDescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEnumValueDescriptorProto();
     while (reader.pos < end) {
@@ -4120,7 +4120,7 @@ export const ServiceDescriptorProto = {
   isSDK(o: any): o is ServiceDescriptorProtoSDKType {
     return o && (o.$typeUrl === ServiceDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.method) && (!o.method.length || MethodDescriptorProto.isSDK(o.method[0])));
   },
-  encode(message: ServiceDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ServiceDescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -4132,8 +4132,8 @@ export const ServiceDescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ServiceDescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ServiceDescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseServiceDescriptorProto();
     while (reader.pos < end) {
@@ -4207,7 +4207,7 @@ export const MethodDescriptorProto = {
   isSDK(o: any): o is MethodDescriptorProtoSDKType {
     return o && (o.$typeUrl === MethodDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.input_type === "string" && typeof o.output_type === "string" && typeof o.client_streaming === "boolean" && typeof o.server_streaming === "boolean");
   },
-  encode(message: MethodDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MethodDescriptorProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -4228,8 +4228,8 @@ export const MethodDescriptorProto = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MethodDescriptorProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MethodDescriptorProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMethodDescriptorProto();
     while (reader.pos < end) {
@@ -4328,7 +4328,7 @@ export const FileOptions = {
   isSDK(o: any): o is FileOptionsSDKType {
     return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === "string" && typeof o.java_outer_classname === "string" && typeof o.java_multiple_files === "boolean" && typeof o.java_generate_equals_and_hash === "boolean" && typeof o.java_string_check_utf8 === "boolean" && isSet(o.optimize_for) && typeof o.go_package === "string" && typeof o.cc_generic_services === "boolean" && typeof o.java_generic_services === "boolean" && typeof o.py_generic_services === "boolean" && typeof o.deprecated === "boolean" && typeof o.cc_enable_arenas === "boolean" && typeof o.objc_class_prefix === "string" && typeof o.csharp_namespace === "string" && typeof o.swift_prefix === "string" && typeof o.php_class_prefix === "string" && typeof o.php_namespace === "string" && typeof o.php_metadata_namespace === "string" && typeof o.ruby_package === "string" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: FileOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FileOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.javaPackage !== "") {
       writer.uint32(10).string(message.javaPackage);
     }
@@ -4394,8 +4394,8 @@ export const FileOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FileOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FileOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFileOptions();
     while (reader.pos < end) {
@@ -4541,7 +4541,7 @@ export const MessageOptions = {
   isSDK(o: any): o is MessageOptionsSDKType {
     return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === "boolean" && typeof o.no_standard_descriptor_accessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.map_entry === "boolean" && typeof o.deprecated_legacy_json_field_conflicts === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: MessageOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MessageOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.messageSetWireFormat === true) {
       writer.uint32(8).bool(message.messageSetWireFormat);
     }
@@ -4565,8 +4565,8 @@ export const MessageOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MessageOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MessageOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMessageOptions();
     while (reader.pos < end) {
@@ -4663,7 +4663,7 @@ export const FieldOptions = {
   isSDK(o: any): o is FieldOptionsSDKType {
     return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.unverified_lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && typeof o.debug_redact === "boolean" && isSet(o.retention) && Array.isArray(o.targets) && Array.isArray(o.edition_defaults) && (!o.edition_defaults.length || FieldOptions_EditionDefault.isSDK(o.edition_defaults[0])) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: FieldOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FieldOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.ctype !== 1) {
       writer.uint32(8).int32(message.ctype);
     }
@@ -4710,8 +4710,8 @@ export const FieldOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FieldOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FieldOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFieldOptions();
     while (reader.pos < end) {
@@ -4833,7 +4833,7 @@ export const FieldOptions_EditionDefault = {
   isSDK(o: any): o is FieldOptions_EditionDefaultSDKType {
     return o && (o.$typeUrl === FieldOptions_EditionDefault.typeUrl || isSet(o.edition) && typeof o.value === "string");
   },
-  encode(message: FieldOptions_EditionDefault, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FieldOptions_EditionDefault, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.edition !== 1) {
       writer.uint32(24).int32(message.edition);
     }
@@ -4842,8 +4842,8 @@ export const FieldOptions_EditionDefault = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FieldOptions_EditionDefault {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FieldOptions_EditionDefault {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFieldOptions_EditionDefault();
     while (reader.pos < end) {
@@ -4906,7 +4906,7 @@ export const FieldOptions_FeatureSupport = {
   isSDK(o: any): o is FieldOptions_FeatureSupportSDKType {
     return o && (o.$typeUrl === FieldOptions_FeatureSupport.typeUrl || isSet(o.edition_introduced) && isSet(o.edition_deprecated) && typeof o.deprecation_warning === "string" && isSet(o.edition_removed) && typeof o.removal_error === "string");
   },
-  encode(message: FieldOptions_FeatureSupport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FieldOptions_FeatureSupport, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.editionIntroduced !== 1) {
       writer.uint32(8).int32(message.editionIntroduced);
     }
@@ -4924,8 +4924,8 @@ export const FieldOptions_FeatureSupport = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FieldOptions_FeatureSupport {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FieldOptions_FeatureSupport {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFieldOptions_FeatureSupport();
     while (reader.pos < end) {
@@ -4996,7 +4996,7 @@ export const OneofOptions = {
   isSDK(o: any): o is OneofOptionsSDKType {
     return o && (o.$typeUrl === OneofOptions.typeUrl || Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: OneofOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: OneofOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.features !== undefined) {
       FeatureSet.encode(message.features, writer.uint32(10).fork()).ldelim();
     }
@@ -5005,8 +5005,8 @@ export const OneofOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): OneofOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): OneofOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseOneofOptions();
     while (reader.pos < end) {
@@ -5074,7 +5074,7 @@ export const EnumOptions = {
   isSDK(o: any): o is EnumOptionsSDKType {
     return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === "boolean" && typeof o.deprecated === "boolean" && typeof o.deprecated_legacy_json_field_conflicts === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: EnumOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: EnumOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.allowAlias === true) {
       writer.uint32(16).bool(message.allowAlias);
     }
@@ -5092,8 +5092,8 @@ export const EnumOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EnumOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EnumOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEnumOptions();
     while (reader.pos < end) {
@@ -5173,7 +5173,7 @@ export const EnumValueOptions = {
   isSDK(o: any): o is EnumValueOptionsSDKType {
     return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && typeof o.debug_redact === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: EnumValueOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: EnumValueOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.deprecated === true) {
       writer.uint32(8).bool(message.deprecated);
     }
@@ -5191,8 +5191,8 @@ export const EnumValueOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EnumValueOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EnumValueOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEnumValueOptions();
     while (reader.pos < end) {
@@ -5271,7 +5271,7 @@ export const ServiceOptions = {
   isSDK(o: any): o is ServiceOptionsSDKType {
     return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: ServiceOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ServiceOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.features !== undefined) {
       FeatureSet.encode(message.features, writer.uint32(274).fork()).ldelim();
     }
@@ -5283,8 +5283,8 @@ export const ServiceOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ServiceOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ServiceOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseServiceOptions();
     while (reader.pos < end) {
@@ -5355,7 +5355,7 @@ export const MethodOptions = {
   isSDK(o: any): o is MethodOptionsSDKType {
     return o && (o.$typeUrl === MethodOptions.typeUrl || typeof o.deprecated === "boolean" && isSet(o.idempotency_level) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
-  encode(message: MethodOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MethodOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.deprecated === true) {
       writer.uint32(264).bool(message.deprecated);
     }
@@ -5370,8 +5370,8 @@ export const MethodOptions = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MethodOptions {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MethodOptions {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMethodOptions();
     while (reader.pos < end) {
@@ -5429,8 +5429,8 @@ function createBaseUninterpretedOption(): UninterpretedOption {
   return {
     name: [],
     identifierValue: "",
-    positiveIntValue: BigInt(0),
-    negativeIntValue: BigInt(0),
+    positiveIntValue: 0,
+    negativeIntValue: 0,
     doubleValue: 0,
     stringValue: new Uint8Array(),
     aggregateValue: ""
@@ -5455,17 +5455,17 @@ export const UninterpretedOption = {
   isSDK(o: any): o is UninterpretedOptionSDKType {
     return o && (o.$typeUrl === UninterpretedOption.typeUrl || Array.isArray(o.name) && (!o.name.length || UninterpretedOption_NamePart.isSDK(o.name[0])) && typeof o.identifier_value === "string" && typeof o.positive_int_value === "bigint" && typeof o.negative_int_value === "bigint" && typeof o.double_value === "number" && (o.string_value instanceof Uint8Array || typeof o.string_value === "string") && typeof o.aggregate_value === "string");
   },
-  encode(message: UninterpretedOption, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: UninterpretedOption, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.name) {
       UninterpretedOption_NamePart.encode(v!, writer.uint32(18).fork()).ldelim();
     }
     if (message.identifierValue !== "") {
       writer.uint32(26).string(message.identifierValue);
     }
-    if (message.positiveIntValue !== BigInt(0)) {
+    if (message.positiveIntValue !== 0) {
       writer.uint32(32).uint64(message.positiveIntValue);
     }
-    if (message.negativeIntValue !== BigInt(0)) {
+    if (message.negativeIntValue !== 0) {
       writer.uint32(40).int64(message.negativeIntValue);
     }
     if (message.doubleValue !== 0) {
@@ -5479,8 +5479,8 @@ export const UninterpretedOption = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): UninterpretedOption {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): UninterpretedOption {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseUninterpretedOption();
     while (reader.pos < end) {
@@ -5493,10 +5493,10 @@ export const UninterpretedOption = {
           message.identifierValue = reader.string();
           break;
         case 4:
-          message.positiveIntValue = reader.uint64();
+          message.positiveIntValue = Number(reader.uint64().toString());
           break;
         case 5:
-          message.negativeIntValue = reader.int64();
+          message.negativeIntValue = Number(reader.int64().toString());
           break;
         case 6:
           message.doubleValue = reader.double();
@@ -5518,8 +5518,8 @@ export const UninterpretedOption = {
     const message = createBaseUninterpretedOption();
     message.name = object.name?.map(e => UninterpretedOption_NamePart.fromPartial(e)) || [];
     message.identifierValue = object.identifierValue ?? "";
-    message.positiveIntValue = object.positiveIntValue !== undefined && object.positiveIntValue !== null ? BigInt(object.positiveIntValue.toString()) : BigInt(0);
-    message.negativeIntValue = object.negativeIntValue !== undefined && object.negativeIntValue !== null ? BigInt(object.negativeIntValue.toString()) : BigInt(0);
+    message.positiveIntValue = object.positiveIntValue !== undefined && object.positiveIntValue !== null ? Number(object.positiveIntValue.toString()) : 0;
+    message.negativeIntValue = object.negativeIntValue !== undefined && object.negativeIntValue !== null ? Number(object.negativeIntValue.toString()) : 0;
     message.doubleValue = object.doubleValue ?? 0;
     message.stringValue = object.stringValue ?? new Uint8Array();
     message.aggregateValue = object.aggregateValue ?? "";
@@ -5569,7 +5569,7 @@ export const UninterpretedOption_NamePart = {
   isSDK(o: any): o is UninterpretedOption_NamePartSDKType {
     return o && (o.$typeUrl === UninterpretedOption_NamePart.typeUrl || typeof o.name_part === "string" && typeof o.is_extension === "boolean");
   },
-  encode(message: UninterpretedOption_NamePart, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: UninterpretedOption_NamePart, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.namePart !== "") {
       writer.uint32(10).string(message.namePart);
     }
@@ -5578,8 +5578,8 @@ export const UninterpretedOption_NamePart = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): UninterpretedOption_NamePart {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): UninterpretedOption_NamePart {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseUninterpretedOption_NamePart();
     while (reader.pos < end) {
@@ -5649,7 +5649,7 @@ export const FeatureSet = {
   isSDK(o: any): o is FeatureSetSDKType {
     return o && (o.$typeUrl === FeatureSet.typeUrl || isSet(o.field_presence) && isSet(o.enum_type) && isSet(o.repeated_field_encoding) && isSet(o.utf8_validation) && isSet(o.message_encoding) && isSet(o.json_format) && isSet(o.enforce_naming_style));
   },
-  encode(message: FeatureSet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FeatureSet, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.fieldPresence !== 1) {
       writer.uint32(8).int32(message.fieldPresence);
     }
@@ -5673,8 +5673,8 @@ export const FeatureSet = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSet {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FeatureSet {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFeatureSet();
     while (reader.pos < end) {
@@ -5750,11 +5750,11 @@ export const FeatureSet_VisibilityFeature = {
   isSDK(o: any): o is FeatureSet_VisibilityFeatureSDKType {
     return o && o.$typeUrl === FeatureSet_VisibilityFeature.typeUrl;
   },
-  encode(_: FeatureSet_VisibilityFeature, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: FeatureSet_VisibilityFeature, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSet_VisibilityFeature {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FeatureSet_VisibilityFeature {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFeatureSet_VisibilityFeature();
     while (reader.pos < end) {
@@ -5810,7 +5810,7 @@ export const FeatureSetDefaults = {
   isSDK(o: any): o is FeatureSetDefaultsSDKType {
     return o && (o.$typeUrl === FeatureSetDefaults.typeUrl || Array.isArray(o.defaults) && (!o.defaults.length || FeatureSetDefaults_FeatureSetEditionDefault.isSDK(o.defaults[0])) && isSet(o.minimum_edition) && isSet(o.maximum_edition));
   },
-  encode(message: FeatureSetDefaults, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FeatureSetDefaults, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.defaults) {
       FeatureSetDefaults_FeatureSetEditionDefault.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -5822,8 +5822,8 @@ export const FeatureSetDefaults = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSetDefaults {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FeatureSetDefaults {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFeatureSetDefaults();
     while (reader.pos < end) {
@@ -5896,7 +5896,7 @@ export const FeatureSetDefaults_FeatureSetEditionDefault = {
   isSDK(o: any): o is FeatureSetDefaults_FeatureSetEditionDefaultSDKType {
     return o && (o.$typeUrl === FeatureSetDefaults_FeatureSetEditionDefault.typeUrl || isSet(o.edition));
   },
-  encode(message: FeatureSetDefaults_FeatureSetEditionDefault, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FeatureSetDefaults_FeatureSetEditionDefault, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.edition !== 1) {
       writer.uint32(24).int32(message.edition);
     }
@@ -5908,8 +5908,8 @@ export const FeatureSetDefaults_FeatureSetEditionDefault = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSetDefaults_FeatureSetEditionDefault {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FeatureSetDefaults_FeatureSetEditionDefault {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFeatureSetDefaults_FeatureSetEditionDefault();
     while (reader.pos < end) {
@@ -5978,14 +5978,14 @@ export const SourceCodeInfo = {
   isSDK(o: any): o is SourceCodeInfoSDKType {
     return o && (o.$typeUrl === SourceCodeInfo.typeUrl || Array.isArray(o.location) && (!o.location.length || SourceCodeInfo_Location.isSDK(o.location[0])));
   },
-  encode(message: SourceCodeInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SourceCodeInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.location) {
       SourceCodeInfo_Location.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SourceCodeInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SourceCodeInfo {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSourceCodeInfo();
     while (reader.pos < end) {
@@ -6048,7 +6048,7 @@ export const SourceCodeInfo_Location = {
   isSDK(o: any): o is SourceCodeInfo_LocationSDKType {
     return o && (o.$typeUrl === SourceCodeInfo_Location.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && Array.isArray(o.span) && (!o.span.length || typeof o.span[0] === "number") && typeof o.leading_comments === "string" && typeof o.trailing_comments === "string" && Array.isArray(o.leading_detached_comments) && (!o.leading_detached_comments.length || typeof o.leading_detached_comments[0] === "string"));
   },
-  encode(message: SourceCodeInfo_Location, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SourceCodeInfo_Location, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     writer.uint32(10).fork();
     for (const v of message.path) {
       writer.int32(v);
@@ -6070,8 +6070,8 @@ export const SourceCodeInfo_Location = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SourceCodeInfo_Location {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SourceCodeInfo_Location {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSourceCodeInfo_Location();
     while (reader.pos < end) {
@@ -6158,14 +6158,14 @@ export const GeneratedCodeInfo = {
   isSDK(o: any): o is GeneratedCodeInfoSDKType {
     return o && (o.$typeUrl === GeneratedCodeInfo.typeUrl || Array.isArray(o.annotation) && (!o.annotation.length || GeneratedCodeInfo_Annotation.isSDK(o.annotation[0])));
   },
-  encode(message: GeneratedCodeInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: GeneratedCodeInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.annotation) {
       GeneratedCodeInfo_Annotation.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): GeneratedCodeInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): GeneratedCodeInfo {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseGeneratedCodeInfo();
     while (reader.pos < end) {
@@ -6228,7 +6228,7 @@ export const GeneratedCodeInfo_Annotation = {
   isSDK(o: any): o is GeneratedCodeInfo_AnnotationSDKType {
     return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.source_file === "string" && typeof o.begin === "number" && typeof o.end === "number" && isSet(o.semantic));
   },
-  encode(message: GeneratedCodeInfo_Annotation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: GeneratedCodeInfo_Annotation, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     writer.uint32(10).fork();
     for (const v of message.path) {
       writer.int32(v);
@@ -6248,8 +6248,8 @@ export const GeneratedCodeInfo_Annotation = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): GeneratedCodeInfo_Annotation {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): GeneratedCodeInfo_Annotation {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseGeneratedCodeInfo_Annotation();
     while (reader.pos < end) {

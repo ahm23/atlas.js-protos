@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * PageRequest is to be embedded in gRPC request messages for efficient
@@ -25,12 +25,12 @@ export interface PageRequest {
    * It is less efficient than using key. Only one of offset or key should
    * be set.
    */
-  offset: bigint;
+  offset: number;
   /**
    * limit is the total number of results to be returned in the result page.
    * If left empty it will default to a value to be set by each app.
    */
-  limit: bigint;
+  limit: number;
   /**
    * count_total is set to true  to indicate that the result set should include
    * a count of the total number of items available for pagination in UIs.
@@ -63,8 +63,8 @@ export interface PageRequestProtoMsg {
  */
 export interface PageRequestSDKType {
   key: Uint8Array;
-  offset: bigint;
-  limit: bigint;
+  offset: number;
+  limit: number;
   count_total: boolean;
   reverse: boolean;
 }
@@ -91,7 +91,7 @@ export interface PageResponse {
    * total is total number of results available if PageRequest.count_total
    * was set, its value is undefined otherwise
    */
-  total: bigint;
+  total: number;
 }
 export interface PageResponseProtoMsg {
   typeUrl: "/cosmos.base.query.v1beta1.PageResponse";
@@ -111,13 +111,13 @@ export interface PageResponseProtoMsg {
  */
 export interface PageResponseSDKType {
   next_key: Uint8Array;
-  total: bigint;
+  total: number;
 }
 function createBasePageRequest(): PageRequest {
   return {
     key: new Uint8Array(),
-    offset: BigInt(0),
-    limit: BigInt(0),
+    offset: 0,
+    limit: 0,
     countTotal: false,
     reverse: false
   };
@@ -143,14 +143,14 @@ export const PageRequest = {
   isSDK(o: any): o is PageRequestSDKType {
     return o && (o.$typeUrl === PageRequest.typeUrl || (o.key instanceof Uint8Array || typeof o.key === "string") && typeof o.offset === "bigint" && typeof o.limit === "bigint" && typeof o.count_total === "boolean" && typeof o.reverse === "boolean");
   },
-  encode(message: PageRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PageRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.key.length !== 0) {
       writer.uint32(10).bytes(message.key);
     }
-    if (message.offset !== BigInt(0)) {
+    if (message.offset !== 0) {
       writer.uint32(16).uint64(message.offset);
     }
-    if (message.limit !== BigInt(0)) {
+    if (message.limit !== 0) {
       writer.uint32(24).uint64(message.limit);
     }
     if (message.countTotal === true) {
@@ -161,8 +161,8 @@ export const PageRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PageRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PageRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePageRequest();
     while (reader.pos < end) {
@@ -172,10 +172,10 @@ export const PageRequest = {
           message.key = reader.bytes();
           break;
         case 2:
-          message.offset = reader.uint64();
+          message.offset = Number(reader.uint64().toString());
           break;
         case 3:
-          message.limit = reader.uint64();
+          message.limit = Number(reader.uint64().toString());
           break;
         case 4:
           message.countTotal = reader.bool();
@@ -193,8 +193,8 @@ export const PageRequest = {
   fromPartial(object: Partial<PageRequest>): PageRequest {
     const message = createBasePageRequest();
     message.key = object.key ?? new Uint8Array();
-    message.offset = object.offset !== undefined && object.offset !== null ? BigInt(object.offset.toString()) : BigInt(0);
-    message.limit = object.limit !== undefined && object.limit !== null ? BigInt(object.limit.toString()) : BigInt(0);
+    message.offset = object.offset !== undefined && object.offset !== null ? Number(object.offset.toString()) : 0;
+    message.limit = object.limit !== undefined && object.limit !== null ? Number(object.limit.toString()) : 0;
     message.countTotal = object.countTotal ?? false;
     message.reverse = object.reverse ?? false;
     return message;
@@ -218,7 +218,7 @@ GlobalDecoderRegistry.registerAminoProtoMapping(PageRequest.aminoType, PageReque
 function createBasePageResponse(): PageResponse {
   return {
     nextKey: new Uint8Array(),
-    total: BigInt(0)
+    total: 0
   };
 }
 /**
@@ -242,17 +242,17 @@ export const PageResponse = {
   isSDK(o: any): o is PageResponseSDKType {
     return o && (o.$typeUrl === PageResponse.typeUrl || (o.next_key instanceof Uint8Array || typeof o.next_key === "string") && typeof o.total === "bigint");
   },
-  encode(message: PageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PageResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.nextKey.length !== 0) {
       writer.uint32(10).bytes(message.nextKey);
     }
-    if (message.total !== BigInt(0)) {
+    if (message.total !== 0) {
       writer.uint32(16).uint64(message.total);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PageResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PageResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePageResponse();
     while (reader.pos < end) {
@@ -262,7 +262,7 @@ export const PageResponse = {
           message.nextKey = reader.bytes();
           break;
         case 2:
-          message.total = reader.uint64();
+          message.total = Number(reader.uint64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -274,7 +274,7 @@ export const PageResponse = {
   fromPartial(object: Partial<PageResponse>): PageResponse {
     const message = createBasePageResponse();
     message.nextKey = object.nextKey ?? new Uint8Array();
-    message.total = object.total !== undefined && object.total !== null ? BigInt(object.total.toString()) : BigInt(0);
+    message.total = object.total !== undefined && object.total !== null ? Number(object.total.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: PageResponseProtoMsg): PageResponse {

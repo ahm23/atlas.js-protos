@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
 import { FileNode, FileNodeSDKType } from "./tree";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
@@ -201,11 +201,11 @@ export const QueryParamsRequest = {
   isSDK(o: any): o is QueryParamsRequestSDKType {
     return o && o.$typeUrl === QueryParamsRequest.typeUrl;
   },
-  encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
@@ -256,14 +256,14 @@ export const QueryParamsResponse = {
   isSDK(o: any): o is QueryParamsResponseSDKType {
     return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isSDK(o.params));
   },
-  encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
@@ -324,7 +324,7 @@ export const QueryFileNodeRequest = {
   isSDK(o: any): o is QueryFileNodeRequestSDKType {
     return o && (o.$typeUrl === QueryFileNodeRequest.typeUrl || typeof o.owner === "string" && typeof o.path === "string");
   },
-  encode(message: QueryFileNodeRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileNodeRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
@@ -333,8 +333,8 @@ export const QueryFileNodeRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileNodeRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileNodeRequest();
     while (reader.pos < end) {
@@ -393,14 +393,14 @@ export const QueryFileNodeResponse = {
   isSDK(o: any): o is QueryFileNodeResponseSDKType {
     return o && o.$typeUrl === QueryFileNodeResponse.typeUrl;
   },
-  encode(message: QueryFileNodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileNodeResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.node !== undefined) {
       FileNode.encode(message.node, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileNodeResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileNodeResponse();
     while (reader.pos < end) {
@@ -461,7 +461,7 @@ export const QueryFileTreePathsRequest = {
   isSDK(o: any): o is QueryFileTreePathsRequestSDKType {
     return o && (o.$typeUrl === QueryFileTreePathsRequest.typeUrl || typeof o.owner === "string" && typeof o.basepath === "string");
   },
-  encode(message: QueryFileTreePathsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileTreePathsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
@@ -470,8 +470,8 @@ export const QueryFileTreePathsRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileTreePathsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileTreePathsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileTreePathsRequest();
     while (reader.pos < end) {
@@ -530,14 +530,14 @@ export const QueryFileTreePathsResponse = {
   isSDK(o: any): o is QueryFileTreePathsResponseSDKType {
     return o && (o.$typeUrl === QueryFileTreePathsResponse.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
   },
-  encode(message: QueryFileTreePathsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileTreePathsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.paths) {
       writer.uint32(10).string(v!);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileTreePathsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileTreePathsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileTreePathsResponse();
     while (reader.pos < end) {
@@ -593,7 +593,7 @@ export const QueryFileNodeChildrenRequest = {
   isSDK(o: any): o is QueryFileNodeChildrenRequestSDKType {
     return o && (o.$typeUrl === QueryFileNodeChildrenRequest.typeUrl || typeof o.owner === "string" && typeof o.path === "string");
   },
-  encode(message: QueryFileNodeChildrenRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileNodeChildrenRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
@@ -602,8 +602,8 @@ export const QueryFileNodeChildrenRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeChildrenRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileNodeChildrenRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileNodeChildrenRequest();
     while (reader.pos < end) {
@@ -662,14 +662,14 @@ export const QueryFileNodeChildrenResponse = {
   isSDK(o: any): o is QueryFileNodeChildrenResponseSDKType {
     return o && (o.$typeUrl === QueryFileNodeChildrenResponse.typeUrl || Array.isArray(o.nodes) && (!o.nodes.length || FileNode.isSDK(o.nodes[0])));
   },
-  encode(message: QueryFileNodeChildrenResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryFileNodeChildrenResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.nodes) {
       FileNode.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryFileNodeChildrenResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryFileNodeChildrenResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryFileNodeChildrenResponse();
     while (reader.pos < end) {

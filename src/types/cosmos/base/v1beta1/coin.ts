@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { Decimal } from "@interchainjs/math";
 /**
@@ -134,7 +134,7 @@ export const Coin = {
   isSDK(o: any): o is CoinSDKType {
     return o && (o.$typeUrl === Coin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
   },
-  encode(message: Coin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Coin, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
@@ -143,8 +143,8 @@ export const Coin = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Coin {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Coin {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCoin();
     while (reader.pos < end) {
@@ -209,7 +209,7 @@ export const DecCoin = {
   isSDK(o: any): o is DecCoinSDKType {
     return o && (o.$typeUrl === DecCoin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
   },
-  encode(message: DecCoin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: DecCoin, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
@@ -218,8 +218,8 @@ export const DecCoin = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DecCoin {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): DecCoin {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDecCoin();
     while (reader.pos < end) {
@@ -281,14 +281,14 @@ export const IntProto = {
   isSDK(o: any): o is IntProtoSDKType {
     return o && (o.$typeUrl === IntProto.typeUrl || typeof o.int === "string");
   },
-  encode(message: IntProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: IntProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.int !== "") {
       writer.uint32(10).string(message.int);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): IntProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): IntProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseIntProto();
     while (reader.pos < end) {
@@ -346,14 +346,14 @@ export const DecProto = {
   isSDK(o: any): o is DecProtoSDKType {
     return o && (o.$typeUrl === DecProto.typeUrl || typeof o.dec === "string");
   },
-  encode(message: DecProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: DecProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.dec !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.dec, 18).atomics);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DecProto {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): DecProto {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDecProto();
     while (reader.pos < end) {

@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * Params defines the parameters for the bank module.
@@ -273,7 +273,7 @@ export const Params = {
   isSDK(o: any): o is ParamsSDKType {
     return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.send_enabled) && (!o.send_enabled.length || SendEnabled.isSDK(o.send_enabled[0])) && typeof o.default_send_enabled === "boolean");
   },
-  encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.sendEnabled) {
       SendEnabled.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -282,8 +282,8 @@ export const Params = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Params {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Params {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseParams();
     while (reader.pos < end) {
@@ -351,7 +351,7 @@ export const SendEnabled = {
   isSDK(o: any): o is SendEnabledSDKType {
     return o && (o.$typeUrl === SendEnabled.typeUrl || typeof o.denom === "string" && typeof o.enabled === "boolean");
   },
-  encode(message: SendEnabled, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SendEnabled, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
@@ -360,8 +360,8 @@ export const SendEnabled = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SendEnabled {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SendEnabled {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSendEnabled();
     while (reader.pos < end) {
@@ -423,7 +423,7 @@ export const Input = {
   isSDK(o: any): o is InputSDKType {
     return o && (o.$typeUrl === Input.typeUrl || typeof o.address === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])));
   },
-  encode(message: Input, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Input, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -432,8 +432,8 @@ export const Input = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Input {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Input {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseInput();
     while (reader.pos < end) {
@@ -500,7 +500,7 @@ export const Output = {
   isSDK(o: any): o is OutputSDKType {
     return o && (o.$typeUrl === Output.typeUrl || typeof o.address === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])));
   },
-  encode(message: Output, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Output, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -509,8 +509,8 @@ export const Output = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Output {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Output {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseOutput();
     while (reader.pos < end) {
@@ -580,14 +580,14 @@ export const Supply = {
   isSDK(o: any): o is SupplySDKType {
     return o && (o.$typeUrl === Supply.typeUrl || Array.isArray(o.total) && (!o.total.length || Coin.isSDK(o.total[0])));
   },
-  encode(message: Supply, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Supply, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.total) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Supply {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Supply {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSupply();
     while (reader.pos < end) {
@@ -654,7 +654,7 @@ export const DenomUnit = {
   isSDK(o: any): o is DenomUnitSDKType {
     return o && (o.$typeUrl === DenomUnit.typeUrl || typeof o.denom === "string" && typeof o.exponent === "number" && Array.isArray(o.aliases) && (!o.aliases.length || typeof o.aliases[0] === "string"));
   },
-  encode(message: DenomUnit, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: DenomUnit, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
@@ -666,8 +666,8 @@ export const DenomUnit = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DenomUnit {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): DenomUnit {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDenomUnit();
     while (reader.pos < end) {
@@ -740,7 +740,7 @@ export const Metadata = {
   isSDK(o: any): o is MetadataSDKType {
     return o && (o.$typeUrl === Metadata.typeUrl || typeof o.description === "string" && Array.isArray(o.denom_units) && (!o.denom_units.length || DenomUnit.isSDK(o.denom_units[0])) && typeof o.base === "string" && typeof o.display === "string" && typeof o.name === "string" && typeof o.symbol === "string" && typeof o.uri === "string" && typeof o.uri_hash === "string");
   },
-  encode(message: Metadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Metadata, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.description !== "") {
       writer.uint32(10).string(message.description);
     }
@@ -767,8 +767,8 @@ export const Metadata = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Metadata {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Metadata {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMetadata();
     while (reader.pos < end) {

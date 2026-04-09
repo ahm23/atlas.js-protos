@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { TxRpc } from "../../../types";
-import { BinaryReader } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { MsgUpdateParams, MsgUpdateParamsResponse, MsgRegisterProvider, MsgRegisterProviderResponse, MsgPostFile, MsgPostFileResponse, MsgBuyStorage, MsgBuyStorageResponse, MsgProveFile, MsgProveFileResponse, MsgDeleteFile, MsgDeleteFileResponse, MsgExpandStorage, MsgExpandStorageResponse } from "./tx";
 /** Msg defines the Msg service. */
 export interface Msg {
@@ -35,37 +35,37 @@ export class MsgClientImpl implements Msg {
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse> {
     const data = MsgUpdateParams.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "UpdateParams", data);
-    return promise.then(data => MsgUpdateParamsResponse.decode(new BinaryReader(data)));
+    return promise.then(data => MsgUpdateParamsResponse.decode(new _m0.Reader(data)));
   }
   registerProvider(request: MsgRegisterProvider): Promise<MsgRegisterProviderResponse> {
     const data = MsgRegisterProvider.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "RegisterProvider", data);
-    return promise.then(data => MsgRegisterProviderResponse.decode(new BinaryReader(data)));
+    return promise.then(data => MsgRegisterProviderResponse.decode(new _m0.Reader(data)));
   }
   postFile(request: MsgPostFile): Promise<MsgPostFileResponse> {
     const data = MsgPostFile.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "PostFile", data);
-    return promise.then(data => MsgPostFileResponse.decode(new BinaryReader(data)));
+    return promise.then(data => MsgPostFileResponse.decode(new _m0.Reader(data)));
   }
   buyStorage(request: MsgBuyStorage): Promise<MsgBuyStorageResponse> {
     const data = MsgBuyStorage.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "BuyStorage", data);
-    return promise.then(data => MsgBuyStorageResponse.decode(new BinaryReader(data)));
+    return promise.then(data => MsgBuyStorageResponse.decode(new _m0.Reader(data)));
   }
   proveFile(request: MsgProveFile): Promise<MsgProveFileResponse> {
     const data = MsgProveFile.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "ProveFile", data);
-    return promise.then(data => MsgProveFileResponse.decode(new BinaryReader(data)));
+    return promise.then(data => MsgProveFileResponse.decode(new _m0.Reader(data)));
   }
   deleteFile(request: MsgDeleteFile): Promise<MsgDeleteFileResponse> {
     const data = MsgDeleteFile.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "DeleteFile", data);
-    return promise.then(data => MsgDeleteFileResponse.decode(new BinaryReader(data)));
+    return promise.then(data => MsgDeleteFileResponse.decode(new _m0.Reader(data)));
   }
   expandStorage(request: MsgExpandStorage): Promise<MsgExpandStorageResponse> {
     const data = MsgExpandStorage.encode(request).finish();
     const promise = this.rpc.request("nebulix.storage.v1.Msg", "ExpandStorage", data);
-    return promise.then(data => MsgExpandStorageResponse.decode(new BinaryReader(data)));
+    return promise.then(data => MsgExpandStorageResponse.decode(new _m0.Reader(data)));
   }
 }
 export const createClientImpl = (rpc: TxRpc) => {

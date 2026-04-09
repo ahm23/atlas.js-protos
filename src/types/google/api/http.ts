@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../registry";
 /**
  * Defines the HTTP configuration for an API service. It contains a list of
@@ -709,7 +709,7 @@ export const Http = {
   isSDK(o: any): o is HttpSDKType {
     return o && (o.$typeUrl === Http.typeUrl || Array.isArray(o.rules) && (!o.rules.length || HttpRule.isSDK(o.rules[0])) && typeof o.fully_decode_reserved_expansion === "boolean");
   },
-  encode(message: Http, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Http, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.rules) {
       HttpRule.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -718,8 +718,8 @@ export const Http = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Http {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Http {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseHttp();
     while (reader.pos < end) {
@@ -1055,7 +1055,7 @@ export const HttpRule = {
   isSDK(o: any): o is HttpRuleSDKType {
     return o && (o.$typeUrl === HttpRule.typeUrl || typeof o.selector === "string" && typeof o.body === "string" && typeof o.response_body === "string" && Array.isArray(o.additional_bindings) && (!o.additional_bindings.length || HttpRule.isSDK(o.additional_bindings[0])));
   },
-  encode(message: HttpRule, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: HttpRule, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.selector !== "") {
       writer.uint32(10).string(message.selector);
     }
@@ -1088,8 +1088,8 @@ export const HttpRule = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): HttpRule {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): HttpRule {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseHttpRule();
     while (reader.pos < end) {
@@ -1187,7 +1187,7 @@ export const CustomHttpPattern = {
   isSDK(o: any): o is CustomHttpPatternSDKType {
     return o && (o.$typeUrl === CustomHttpPattern.typeUrl || typeof o.kind === "string" && typeof o.path === "string");
   },
-  encode(message: CustomHttpPattern, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: CustomHttpPattern, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.kind !== "") {
       writer.uint32(10).string(message.kind);
     }
@@ -1196,8 +1196,8 @@ export const CustomHttpPattern = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): CustomHttpPattern {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): CustomHttpPattern {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCustomHttpPattern();
     while (reader.pos < end) {
