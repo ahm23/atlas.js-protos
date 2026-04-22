@@ -55,14 +55,14 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@hyperweb/telescope": "file:E:/dev/telescope-build/packages/telescope/dist",
-    "@cosmology/ast": "file:E:/dev/telescope-build/packages/ast/dist",
-    "@cosmology/proto-parser": "file:E:/dev/telescope-build/packages/parser/dist",
+    "@ahm23/telescope": "^2.3.1",
+    "@ahm23/telescope-ast": "^2.3.1",
+    "@ahm23/telescope-lcd": "^0.17.1",
+    "@ahm23/telescope-proto-parser": "^2.2.2",
     "@cosmjs/amino": "0.29.4",
     "@cosmjs/proto-signing": "^0.38.1",
     "@cosmjs/stargate": "^0.38.1",
     "@cosmjs/tendermint-rpc": "^0.38.1",
-    "@cosmology/lcd": "^0.15.0",
     "@improbable-eng/grpc-web": "^0.15.0",
     "@improbable-eng/grpc-web-node-http-transport": "^0.15.0",
     "@interchainjs/cosmos": "^1.19.3",
@@ -71,14 +71,5 @@
     "cosmjs-types": "^0.11.0",
     "long": "^5.3.2",
     "protobufjs": "^8.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@cosmology/utils": "file:E:/dev/telescope-build/packages/utils/dist",
-      "@cosmology/types": "file:E:/dev/telescope-build/packages/types/dist",
-      "@cosmology/proto-parser": "file:E:/dev/telescope-build/packages/parser/dist",
-      "@cosmology/ast": "file:E:/dev/telescope-build/packages/ast/dist",
-      "@hyperweb/telescope": "file:E:/dev/telescope-build/packages/telescope/dist"
-    }
   }
 }
