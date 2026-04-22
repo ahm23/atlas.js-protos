@@ -1,5 +1,5 @@
 const { join } = require('path');
-const telescope = require('@hyperweb/telescope').default;
+const telescope = require('@ahm23/telescope').default;
 const rimraf = require('rimraf').rimrafSync;
 const { AMINO_MAP } = require('./aminos');
 
