@@ -6,11 +6,11 @@ import "amino/amino.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "nebulix/storage/v1/file.proto";
-import "nebulix/storage/v1/params.proto";
-import "nebulix/storage/v1/proof.proto";
-import "nebulix/storage/v1/provider.proto";
-import "nebulix/storage/v1/subscription.proto";
+import "atlas/storage/v1/file.proto";
+import "atlas/storage/v1/params.proto";
+import "atlas/storage/v1/proof.proto";
+import "atlas/storage/v1/provider.proto";
+import "atlas/storage/v1/subscription.proto";
 
 option go_package = "nebulix/x/storage/types";
 
@@ -18,52 +18,52 @@ option go_package = "nebulix/x/storage/types";
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/params";
+    option (google.api.http).get = "/atlas/storage/v1/params";
   }
 
   // Provider Queries a list of Provider items.
   rpc Provider(QueryProviderRequest) returns (QueryProviderResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/provider/{address}";
+    option (google.api.http).get = "/atlas/storage/v1/provider/{address}";
   }
 
   // Providers Queries a list of Providers items.
   rpc Providers(QueryProvidersRequest) returns (QueryProvidersResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/providers";
+    option (google.api.http).get = "/atlas/storage/v1/providers";
   }
 
   // File Queries a list of File items.
   rpc File(QueryFileRequest) returns (QueryFileResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/file/{fid}";
+    option (google.api.http).get = "/atlas/storage/v1/file/{fid}";
   }
 
   // Files Queries a list of Files items.
   rpc Files(QueryFilesRequest) returns (QueryFilesResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/files";
+    option (google.api.http).get = "/atlas/storage/v1/files";
   }
 
   // Subscription Queries a list of Subscription items.
   rpc Subscription(QuerySubscriptionRequest) returns (QuerySubscriptionResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/subscription";
+    option (google.api.http).get = "/atlas/storage/v1/subscription";
   }
 
   // Subscriptions Queries a list of Subscriptions items.
   rpc Subscriptions(QuerySubscriptionsRequest) returns (QuerySubscriptionsResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/subscriptions";
+    option (google.api.http).get = "/atlas/storage/v1/subscriptions";
   }
 
   // Challenges Queries a list of Challenges items.
   rpc Challenges(QueryChallengesRequest) returns (QueryChallengesResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/challenges";
+    option (google.api.http).get = "/atlas/storage/v1/challenges";
   }
 
   // StorageStats Queries a list of StorageStats items.
   rpc StorageStats(QueryStorageStatsRequest) returns (QueryStorageStatsResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/storage_stats";
+    option (google.api.http).get = "/atlas/storage/v1/storage_stats";
   }
 
   // FileStats Queries a list of FileStats items.
   rpc FileStats(QueryFileStatsRequest) returns (QueryFileStatsResponse) {
-    option (google.api.http).get = "/nebulix/storage/v1/file_stats";
+    option (google.api.http).get = "/atlas/storage/v1/file_stats";
   }
 }
 
