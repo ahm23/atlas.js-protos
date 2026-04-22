@@ -4,8 +4,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * File defines the File message.
  * @name File
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.File
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.File
  */
 export interface File {
   fid: string;
@@ -16,18 +16,18 @@ export interface File {
   fileSize: number;
   replicas: number;
   providers: string[];
+  unstableProviders: string[];
   start: number;
-  lastChallengedHeight: number;
 }
 export interface FileProtoMsg {
-  typeUrl: "/nebulix.storage.v1.File";
+  typeUrl: "/atlas.storage.v1.File";
   value: Uint8Array;
 }
 /**
  * File defines the File message.
  * @name FileSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.File
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.File
  */
 export interface FileSDKType {
   fid: string;
@@ -38,8 +38,8 @@ export interface FileSDKType {
   file_size: number;
   replicas: number;
   providers: string[];
+  unstable_providers: string[];
   start: number;
-  last_challenged_height: number;
 }
 function createBaseFile(): File {
   return {
@@ -51,23 +51,23 @@ function createBaseFile(): File {
     fileSize: 0,
     replicas: 0,
     providers: [],
-    start: 0,
-    lastChallengedHeight: 0
+    unstableProviders: [],
+    start: 0
   };
 }
 /**
  * File defines the File message.
  * @name File
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.File
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.File
  */
 export const File = {
-  typeUrl: "/nebulix.storage.v1.File",
+  typeUrl: "/atlas.storage.v1.File",
   is(o: any): o is File {
-    return o && (o.$typeUrl === File.typeUrl || typeof o.fid === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.lastChallengedHeight === "bigint");
+    return o && (o.$typeUrl === File.typeUrl || typeof o.fid === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && Array.isArray(o.unstableProviders) && (!o.unstableProviders.length || typeof o.unstableProviders[0] === "string") && typeof o.start === "bigint");
   },
   isSDK(o: any): o is FileSDKType {
-    return o && (o.$typeUrl === File.typeUrl || typeof o.fid === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.file_size === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && typeof o.start === "bigint" && typeof o.last_challenged_height === "bigint");
+    return o && (o.$typeUrl === File.typeUrl || typeof o.fid === "string" && typeof o.merkle === "string" && typeof o.creator === "string" && typeof o.subscription === "string" && typeof o.status === "string" && typeof o.file_size === "bigint" && typeof o.replicas === "number" && Array.isArray(o.providers) && (!o.providers.length || typeof o.providers[0] === "string") && Array.isArray(o.unstable_providers) && (!o.unstable_providers.length || typeof o.unstable_providers[0] === "string") && typeof o.start === "bigint");
   },
   encode(message: File, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.fid !== "") {
@@ -94,11 +94,11 @@ export const File = {
     for (const v of message.providers) {
       writer.uint32(66).string(v!);
     }
-    if (message.start !== 0) {
-      writer.uint32(72).int64(message.start);
+    for (const v of message.unstableProviders) {
+      writer.uint32(74).string(v!);
     }
-    if (message.lastChallengedHeight !== 0) {
-      writer.uint32(80).int64(message.lastChallengedHeight);
+    if (message.start !== 0) {
+      writer.uint32(80).int64(message.start);
     }
     return writer;
   },
@@ -134,10 +134,10 @@ export const File = {
           message.providers.push(reader.string());
           break;
         case 9:
-          message.start = Number(reader.int64().toString());
+          message.unstableProviders.push(reader.string());
           break;
         case 10:
-          message.lastChallengedHeight = Number(reader.int64().toString());
+          message.start = Number(reader.int64().toString());
           break;
         default:
           reader.skipType(tag & 7);
@@ -156,8 +156,8 @@ export const File = {
     message.fileSize = object.fileSize !== undefined && object.fileSize !== null ? Number(object.fileSize.toString()) : 0;
     message.replicas = object.replicas ?? 0;
     message.providers = object.providers?.map(e => e) || [];
+    message.unstableProviders = object.unstableProviders?.map(e => e) || [];
     message.start = object.start !== undefined && object.start !== null ? Number(object.start.toString()) : 0;
-    message.lastChallengedHeight = object.lastChallengedHeight !== undefined && object.lastChallengedHeight !== null ? Number(object.lastChallengedHeight.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: FileProtoMsg): File {
@@ -168,7 +168,7 @@ export const File = {
   },
   toProtoMsg(message: File): FileProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.File",
+      typeUrl: "/atlas.storage.v1.File",
       value: File.encode(message).finish()
     };
   },

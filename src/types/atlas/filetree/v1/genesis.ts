@@ -5,8 +5,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * GenesisState defines the filetree module's genesis state.
  * @name GenesisState
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.GenesisState
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.GenesisState
  */
 export interface GenesisState {
   /**
@@ -15,14 +15,14 @@ export interface GenesisState {
   params: Params;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.GenesisState";
+  typeUrl: "/atlas.filetree.v1.GenesisState";
   value: Uint8Array;
 }
 /**
  * GenesisState defines the filetree module's genesis state.
  * @name GenesisStateSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.GenesisState
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.GenesisState
  */
 export interface GenesisStateSDKType {
   params: ParamsSDKType;
@@ -35,11 +35,11 @@ function createBaseGenesisState(): GenesisState {
 /**
  * GenesisState defines the filetree module's genesis state.
  * @name GenesisState
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.GenesisState
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.GenesisState
  */
 export const GenesisState = {
-  typeUrl: "/nebulix.filetree.v1.GenesisState",
+  typeUrl: "/atlas.filetree.v1.GenesisState",
   is(o: any): o is GenesisState {
     return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params));
   },
@@ -82,7 +82,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.GenesisState",
+      typeUrl: "/atlas.filetree.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   },

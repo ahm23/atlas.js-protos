@@ -4,8 +4,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * Params defines the parameters for the module.
  * @name Params
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Params
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.Params
  */
 export interface Params {
   pricePerGbDay: number;
@@ -14,14 +14,14 @@ export interface Params {
   proofRoundBlocks: number;
 }
 export interface ParamsProtoMsg {
-  typeUrl: "/nebulix.storage.v1.Params";
+  typeUrl: "/atlas.storage.v1.Params";
   value: Uint8Array;
 }
 /**
  * Params defines the parameters for the module.
  * @name ParamsSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Params
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.Params
  */
 export interface ParamsSDKType {
   price_per_gb_day: number;
@@ -40,11 +40,11 @@ function createBaseParams(): Params {
 /**
  * Params defines the parameters for the module.
  * @name Params
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Params
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.Params
  */
 export const Params = {
-  typeUrl: "/nebulix.storage.v1.Params",
+  typeUrl: "/atlas.storage.v1.Params",
   aminoType: "nebulix/x/storage/Params",
   is(o: any): o is Params {
     return o && (o.$typeUrl === Params.typeUrl || typeof o.pricePerGbDay === "bigint" && typeof o.providerDeposit === "bigint" && typeof o.proofWindowBlocks === "bigint" && typeof o.proofRoundBlocks === "bigint");
@@ -109,7 +109,7 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.Params",
+      typeUrl: "/atlas.storage.v1.Params",
       value: Params.encode(message).finish()
     };
   },

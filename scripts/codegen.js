@@ -24,8 +24,8 @@ telescope({
       includes: {
         packages: [
           'google.protobuf.any',
-          'nebulix.storage.v1',
-          'nebulix.filetree.v1',
+          'atlas.storage.v1',
+          'atlas.filetree.v1',
           'cosmos.bank.v1beta1'
         ]
       },

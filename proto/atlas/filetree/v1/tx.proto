@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package nebulix.filetree.v1;
+package atlas.filetree.v1;
 
 import "amino/amino.proto";
 import "cosmos/msg/v1/msg.proto";

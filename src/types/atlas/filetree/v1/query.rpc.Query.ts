@@ -2,46 +2,46 @@
 import { TxRpc } from "../../../types";
 import * as _m0 from "protobufjs/minimal";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryParamsRequest, QueryParamsResponse, QueryFileNodeRequest, QueryFileNodeResponse, QueryFileTreePathsRequest, QueryFileTreePathsResponse, QueryFileNodeChildrenRequest, QueryFileNodeChildrenResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryTreeNodeRequest, QueryTreeNodeResponse, QueryFileTreePathsRequest, QueryFileTreePathsResponse, QueryTreeNodeChildrenRequest, QueryTreeNodeChildrenResponse } from "./query";
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Parameters queries the parameters of the module. */
   params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-  /** FileNode Queries a list of FileNode items. */
-  fileNode(request: QueryFileNodeRequest): Promise<QueryFileNodeResponse>;
+  /** TreeNode Queries a list of TreeNode items. */
+  treeNode(request: QueryTreeNodeRequest): Promise<QueryTreeNodeResponse>;
   /** FileTreePaths Queries a list of FileTreePaths items. */
   fileTreePaths(request: QueryFileTreePathsRequest): Promise<QueryFileTreePathsResponse>;
-  /** FileNodeChildren Queries a list of FileNodeChildren items. */
-  fileNodeChildren(request: QueryFileNodeChildrenRequest): Promise<QueryFileNodeChildrenResponse>;
+  /** TreeNodeChildren Queries a list of TreeNodeChildren items. */
+  treeNodeChildren(request: QueryTreeNodeChildrenRequest): Promise<QueryTreeNodeChildrenResponse>;
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: TxRpc;
   constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.params = this.params.bind(this);
-    this.fileNode = this.fileNode.bind(this);
+    this.treeNode = this.treeNode.bind(this);
     this.fileTreePaths = this.fileTreePaths.bind(this);
-    this.fileNodeChildren = this.fileNodeChildren.bind(this);
+    this.treeNodeChildren = this.treeNodeChildren.bind(this);
   }
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.filetree.v1.Query", "Params", data);
+    const promise = this.rpc.request("atlas.filetree.v1.Query", "Params", data);
     return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
   }
-  fileNode(request: QueryFileNodeRequest): Promise<QueryFileNodeResponse> {
-    const data = QueryFileNodeRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.filetree.v1.Query", "FileNode", data);
-    return promise.then(data => QueryFileNodeResponse.decode(new _m0.Reader(data)));
+  treeNode(request: QueryTreeNodeRequest): Promise<QueryTreeNodeResponse> {
+    const data = QueryTreeNodeRequest.encode(request).finish();
+    const promise = this.rpc.request("atlas.filetree.v1.Query", "TreeNode", data);
+    return promise.then(data => QueryTreeNodeResponse.decode(new _m0.Reader(data)));
   }
   fileTreePaths(request: QueryFileTreePathsRequest): Promise<QueryFileTreePathsResponse> {
     const data = QueryFileTreePathsRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.filetree.v1.Query", "FileTreePaths", data);
+    const promise = this.rpc.request("atlas.filetree.v1.Query", "FileTreePaths", data);
     return promise.then(data => QueryFileTreePathsResponse.decode(new _m0.Reader(data)));
   }
-  fileNodeChildren(request: QueryFileNodeChildrenRequest): Promise<QueryFileNodeChildrenResponse> {
-    const data = QueryFileNodeChildrenRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.filetree.v1.Query", "FileNodeChildren", data);
-    return promise.then(data => QueryFileNodeChildrenResponse.decode(new _m0.Reader(data)));
+  treeNodeChildren(request: QueryTreeNodeChildrenRequest): Promise<QueryTreeNodeChildrenResponse> {
+    const data = QueryTreeNodeChildrenRequest.encode(request).finish();
+    const promise = this.rpc.request("atlas.filetree.v1.Query", "TreeNodeChildren", data);
+    return promise.then(data => QueryTreeNodeChildrenResponse.decode(new _m0.Reader(data)));
   }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
@@ -51,14 +51,14 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
       return queryService.params(request);
     },
-    fileNode(request: QueryFileNodeRequest): Promise<QueryFileNodeResponse> {
-      return queryService.fileNode(request);
+    treeNode(request: QueryTreeNodeRequest): Promise<QueryTreeNodeResponse> {
+      return queryService.treeNode(request);
     },
     fileTreePaths(request: QueryFileTreePathsRequest): Promise<QueryFileTreePathsResponse> {
       return queryService.fileTreePaths(request);
     },
-    fileNodeChildren(request: QueryFileNodeChildrenRequest): Promise<QueryFileNodeChildrenResponse> {
-      return queryService.fileNodeChildren(request);
+    treeNodeChildren(request: QueryTreeNodeChildrenRequest): Promise<QueryTreeNodeChildrenResponse> {
+      return queryService.treeNodeChildren(request);
     }
   };
 };

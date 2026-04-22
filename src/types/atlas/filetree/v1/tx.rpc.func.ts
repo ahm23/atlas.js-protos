@@ -5,8 +5,8 @@ import { MsgUpdateParams, MsgPostNode, MsgDeleteNode } from "./tx";
  * UpdateParams defines a (governance) operation for updating the module
  * parameters. The authority defaults to the x/gov module account.
  * @name updateParams
- * @package nebulix.filetree.v1
- * @see proto service: nebulix.filetree.v1.UpdateParams
+ * @package atlas.filetree.v1
+ * @see proto service: atlas.filetree.v1.UpdateParams
  */
 export const updateParams = buildTx<MsgUpdateParams>({
   msg: MsgUpdateParams
@@ -14,8 +14,8 @@ export const updateParams = buildTx<MsgUpdateParams>({
 /**
  * PostNode defines the PostNode RPC.
  * @name postNode
- * @package nebulix.filetree.v1
- * @see proto service: nebulix.filetree.v1.PostNode
+ * @package atlas.filetree.v1
+ * @see proto service: atlas.filetree.v1.PostNode
  */
 export const postNode = buildTx<MsgPostNode>({
   msg: MsgPostNode
@@ -23,8 +23,8 @@ export const postNode = buildTx<MsgPostNode>({
 /**
  * DeleteNode defines the DeleteNode RPC.
  * @name deleteNode
- * @package nebulix.filetree.v1
- * @see proto service: nebulix.filetree.v1.DeleteNode
+ * @package atlas.filetree.v1
+ * @see proto service: atlas.filetree.v1.DeleteNode
  */
 export const deleteNode = buildTx<MsgDeleteNode>({
   msg: MsgDeleteNode

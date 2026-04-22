@@ -24,17 +24,17 @@ export class MsgClientImpl implements Msg {
   }
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse> {
     const data = MsgUpdateParams.encode(request).finish();
-    const promise = this.rpc.request("nebulix.filetree.v1.Msg", "UpdateParams", data);
+    const promise = this.rpc.request("atlas.filetree.v1.Msg", "UpdateParams", data);
     return promise.then(data => MsgUpdateParamsResponse.decode(new _m0.Reader(data)));
   }
   postNode(request: MsgPostNode): Promise<MsgPostNodeResponse> {
     const data = MsgPostNode.encode(request).finish();
-    const promise = this.rpc.request("nebulix.filetree.v1.Msg", "PostNode", data);
+    const promise = this.rpc.request("atlas.filetree.v1.Msg", "PostNode", data);
     return promise.then(data => MsgPostNodeResponse.decode(new _m0.Reader(data)));
   }
   deleteNode(request: MsgDeleteNode): Promise<MsgDeleteNodeResponse> {
     const data = MsgDeleteNode.encode(request).finish();
-    const promise = this.rpc.request("nebulix.filetree.v1.Msg", "DeleteNode", data);
+    const promise = this.rpc.request("atlas.filetree.v1.Msg", "DeleteNode", data);
     return promise.then(data => MsgDeleteNodeResponse.decode(new _m0.Reader(data)));
   }
 }

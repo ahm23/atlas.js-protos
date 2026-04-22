@@ -1,5 +1,5 @@
 syntax = "proto3";
-package nebulix.storage.module.v1;
+package atlas.storage.module.v1;
 
 import "cosmos/app/v1alpha1/module.proto";
 

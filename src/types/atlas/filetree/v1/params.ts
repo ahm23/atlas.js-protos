@@ -4,19 +4,19 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * Params defines the parameters for the module.
  * @name Params
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.Params
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.Params
  */
 export interface Params {}
 export interface ParamsProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.Params";
+  typeUrl: "/atlas.filetree.v1.Params";
   value: Uint8Array;
 }
 /**
  * Params defines the parameters for the module.
  * @name ParamsSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.Params
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.Params
  */
 export interface ParamsSDKType {}
 function createBaseParams(): Params {
@@ -25,11 +25,11 @@ function createBaseParams(): Params {
 /**
  * Params defines the parameters for the module.
  * @name Params
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.Params
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.Params
  */
 export const Params = {
-  typeUrl: "/nebulix.filetree.v1.Params",
+  typeUrl: "/atlas.filetree.v1.Params",
   aminoType: "nebulix/x/filetree/Params",
   is(o: any): o is Params {
     return o && o.$typeUrl === Params.typeUrl;
@@ -66,7 +66,7 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.Params",
+      typeUrl: "/atlas.filetree.v1.Params",
       value: Params.encode(message).finish()
     };
   },

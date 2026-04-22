@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package nebulix.storage.v1;
+package atlas.storage.v1;
 
 import "amino/amino.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";

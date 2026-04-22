@@ -10,26 +10,26 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
  * @name QueryParamsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryParamsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryParamsRequest
  */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryParamsRequest";
+  typeUrl: "/atlas.storage.v1.QueryParamsRequest";
   value: Uint8Array;
 }
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
  * @name QueryParamsRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryParamsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryParamsRequest
  */
 export interface QueryParamsRequestSDKType {}
 /**
  * QueryParamsResponse is response type for the Query/Params RPC method.
  * @name QueryParamsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryParamsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryParamsResponse
  */
 export interface QueryParamsResponse {
   /**
@@ -38,14 +38,14 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryParamsResponse";
+  typeUrl: "/atlas.storage.v1.QueryParamsResponse";
   value: Uint8Array;
 }
 /**
  * QueryParamsResponse is response type for the Query/Params RPC method.
  * @name QueryParamsResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryParamsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryParamsResponse
  */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
@@ -53,21 +53,21 @@ export interface QueryParamsResponseSDKType {
 /**
  * QueryProviderRequest defines the QueryProviderRequest message.
  * @name QueryProviderRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProviderRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProviderRequest
  */
 export interface QueryProviderRequest {
   address: string;
 }
 export interface QueryProviderRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryProviderRequest";
+  typeUrl: "/atlas.storage.v1.QueryProviderRequest";
   value: Uint8Array;
 }
 /**
  * QueryProviderRequest defines the QueryProviderRequest message.
  * @name QueryProviderRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProviderRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProviderRequest
  */
 export interface QueryProviderRequestSDKType {
   address: string;
@@ -75,21 +75,21 @@ export interface QueryProviderRequestSDKType {
 /**
  * QueryProviderResponse defines the QueryProviderResponse message.
  * @name QueryProviderResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProviderResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProviderResponse
  */
 export interface QueryProviderResponse {
   provider?: Provider;
 }
 export interface QueryProviderResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryProviderResponse";
+  typeUrl: "/atlas.storage.v1.QueryProviderResponse";
   value: Uint8Array;
 }
 /**
  * QueryProviderResponse defines the QueryProviderResponse message.
  * @name QueryProviderResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProviderResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProviderResponse
  */
 export interface QueryProviderResponseSDKType {
   provider?: ProviderSDKType;
@@ -97,39 +97,39 @@ export interface QueryProviderResponseSDKType {
 /**
  * QueryProvidersRequest defines the QueryProvidersRequest message.
  * @name QueryProvidersRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProvidersRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProvidersRequest
  */
 export interface QueryProvidersRequest {}
 export interface QueryProvidersRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryProvidersRequest";
+  typeUrl: "/atlas.storage.v1.QueryProvidersRequest";
   value: Uint8Array;
 }
 /**
  * QueryProvidersRequest defines the QueryProvidersRequest message.
  * @name QueryProvidersRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProvidersRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProvidersRequest
  */
 export interface QueryProvidersRequestSDKType {}
 /**
  * QueryProvidersResponse defines the QueryProvidersResponse message.
  * @name QueryProvidersResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProvidersResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProvidersResponse
  */
 export interface QueryProvidersResponse {
   providers: Provider[];
 }
 export interface QueryProvidersResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryProvidersResponse";
+  typeUrl: "/atlas.storage.v1.QueryProvidersResponse";
   value: Uint8Array;
 }
 /**
  * QueryProvidersResponse defines the QueryProvidersResponse message.
  * @name QueryProvidersResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProvidersResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProvidersResponse
  */
 export interface QueryProvidersResponseSDKType {
   providers: ProviderSDKType[];
@@ -137,21 +137,21 @@ export interface QueryProvidersResponseSDKType {
 /**
  * QueryFileRequest defines the QueryFileRequest message.
  * @name QueryFileRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileRequest
  */
 export interface QueryFileRequest {
   fid: string;
 }
 export interface QueryFileRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryFileRequest";
+  typeUrl: "/atlas.storage.v1.QueryFileRequest";
   value: Uint8Array;
 }
 /**
  * QueryFileRequest defines the QueryFileRequest message.
  * @name QueryFileRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileRequest
  */
 export interface QueryFileRequestSDKType {
   fid: string;
@@ -159,21 +159,21 @@ export interface QueryFileRequestSDKType {
 /**
  * QueryFileResponse defines the QueryFileResponse message.
  * @name QueryFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileResponse
  */
 export interface QueryFileResponse {
   file?: File;
 }
 export interface QueryFileResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryFileResponse";
+  typeUrl: "/atlas.storage.v1.QueryFileResponse";
   value: Uint8Array;
 }
 /**
  * QueryFileResponse defines the QueryFileResponse message.
  * @name QueryFileResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileResponse
  */
 export interface QueryFileResponseSDKType {
   file?: FileSDKType;
@@ -181,8 +181,8 @@ export interface QueryFileResponseSDKType {
 /**
  * QueryFilesRequest defines the QueryFilesRequest message.
  * @name QueryFilesRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFilesRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFilesRequest
  */
 export interface QueryFilesRequest {
   creator: string;
@@ -190,14 +190,14 @@ export interface QueryFilesRequest {
   pagination?: PageRequest;
 }
 export interface QueryFilesRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryFilesRequest";
+  typeUrl: "/atlas.storage.v1.QueryFilesRequest";
   value: Uint8Array;
 }
 /**
  * QueryFilesRequest defines the QueryFilesRequest message.
  * @name QueryFilesRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFilesRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFilesRequest
  */
 export interface QueryFilesRequestSDKType {
   creator: string;
@@ -207,22 +207,22 @@ export interface QueryFilesRequestSDKType {
 /**
  * QueryFilesResponse defines the QueryFilesResponse message.
  * @name QueryFilesResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFilesResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFilesResponse
  */
 export interface QueryFilesResponse {
   files: File[];
   pagination?: PageResponse;
 }
 export interface QueryFilesResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryFilesResponse";
+  typeUrl: "/atlas.storage.v1.QueryFilesResponse";
   value: Uint8Array;
 }
 /**
  * QueryFilesResponse defines the QueryFilesResponse message.
  * @name QueryFilesResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFilesResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFilesResponse
  */
 export interface QueryFilesResponseSDKType {
   files: FileSDKType[];
@@ -231,22 +231,22 @@ export interface QueryFilesResponseSDKType {
 /**
  * QuerySubscriptionRequest defines the QuerySubscriptionRequest message.
  * @name QuerySubscriptionRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionRequest
  */
 export interface QuerySubscriptionRequest {
   subscriberAddress: string;
   subscriptionId: string;
 }
 export interface QuerySubscriptionRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionRequest";
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionRequest";
   value: Uint8Array;
 }
 /**
  * QuerySubscriptionRequest defines the QuerySubscriptionRequest message.
  * @name QuerySubscriptionRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionRequest
  */
 export interface QuerySubscriptionRequestSDKType {
   subscriber_address: string;
@@ -255,21 +255,21 @@ export interface QuerySubscriptionRequestSDKType {
 /**
  * QuerySubscriptionResponse defines the QuerySubscriptionResponse message.
  * @name QuerySubscriptionResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionResponse
  */
 export interface QuerySubscriptionResponse {
   subscription?: StorageSubscription;
 }
 export interface QuerySubscriptionResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionResponse";
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionResponse";
   value: Uint8Array;
 }
 /**
  * QuerySubscriptionResponse defines the QuerySubscriptionResponse message.
  * @name QuerySubscriptionResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionResponse
  */
 export interface QuerySubscriptionResponseSDKType {
   subscription?: StorageSubscriptionSDKType;
@@ -277,22 +277,22 @@ export interface QuerySubscriptionResponseSDKType {
 /**
  * QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message.
  * @name QuerySubscriptionsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionsRequest
  */
 export interface QuerySubscriptionsRequest {
   subscriberAddress: string;
   pagination?: PageRequest;
 }
 export interface QuerySubscriptionsRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionsRequest";
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionsRequest";
   value: Uint8Array;
 }
 /**
  * QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message.
  * @name QuerySubscriptionsRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionsRequest
  */
 export interface QuerySubscriptionsRequestSDKType {
   subscriber_address: string;
@@ -301,22 +301,22 @@ export interface QuerySubscriptionsRequestSDKType {
 /**
  * QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message.
  * @name QuerySubscriptionsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionsResponse
  */
 export interface QuerySubscriptionsResponse {
   subscriptions: StorageSubscription[];
   pagination?: PageResponse;
 }
 export interface QuerySubscriptionsResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionsResponse";
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionsResponse";
   value: Uint8Array;
 }
 /**
  * QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message.
  * @name QuerySubscriptionsResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionsResponse
  */
 export interface QuerySubscriptionsResponseSDKType {
   subscriptions: StorageSubscriptionSDKType[];
@@ -325,22 +325,22 @@ export interface QuerySubscriptionsResponseSDKType {
 /**
  * QueryChallengesRequest defines the QueryChallengesRequest message.
  * @name QueryChallengesRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryChallengesRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryChallengesRequest
  */
 export interface QueryChallengesRequest {
   provider: string;
   pagination?: PageRequest;
 }
 export interface QueryChallengesRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryChallengesRequest";
+  typeUrl: "/atlas.storage.v1.QueryChallengesRequest";
   value: Uint8Array;
 }
 /**
  * QueryChallengesRequest defines the QueryChallengesRequest message.
  * @name QueryChallengesRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryChallengesRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryChallengesRequest
  */
 export interface QueryChallengesRequestSDKType {
   provider: string;
@@ -349,22 +349,22 @@ export interface QueryChallengesRequestSDKType {
 /**
  * QueryChallengesResponse defines the QueryChallengesResponse message.
  * @name QueryChallengesResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryChallengesResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryChallengesResponse
  */
 export interface QueryChallengesResponse {
   challenges: StorageChallenge[];
   pagination?: PageResponse;
 }
 export interface QueryChallengesResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryChallengesResponse";
+  typeUrl: "/atlas.storage.v1.QueryChallengesResponse";
   value: Uint8Array;
 }
 /**
  * QueryChallengesResponse defines the QueryChallengesResponse message.
  * @name QueryChallengesResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryChallengesResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryChallengesResponse
  */
 export interface QueryChallengesResponseSDKType {
   challenges: StorageChallengeSDKType[];
@@ -373,26 +373,26 @@ export interface QueryChallengesResponseSDKType {
 /**
  * QueryStorageStatsRequest defines the QueryStorageStatsRequest message.
  * @name QueryStorageStatsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryStorageStatsRequest
  */
 export interface QueryStorageStatsRequest {}
 export interface QueryStorageStatsRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest";
+  typeUrl: "/atlas.storage.v1.QueryStorageStatsRequest";
   value: Uint8Array;
 }
 /**
  * QueryStorageStatsRequest defines the QueryStorageStatsRequest message.
  * @name QueryStorageStatsRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryStorageStatsRequest
  */
 export interface QueryStorageStatsRequestSDKType {}
 /**
  * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
  * @name QueryStorageStatsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryStorageStatsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryStorageStatsResponse
  */
 export interface QueryStorageStatsResponse {
   subscriptionCount: number;
@@ -403,14 +403,14 @@ export interface QueryStorageStatsResponse {
   spaceAvailable: number;
 }
 export interface QueryStorageStatsResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryStorageStatsResponse";
+  typeUrl: "/atlas.storage.v1.QueryStorageStatsResponse";
   value: Uint8Array;
 }
 /**
  * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
  * @name QueryStorageStatsResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryStorageStatsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryStorageStatsResponse
  */
 export interface QueryStorageStatsResponseSDKType {
   subscription_count: number;
@@ -423,26 +423,26 @@ export interface QueryStorageStatsResponseSDKType {
 /**
  * QueryFileStatsRequest defines the QueryFileStatsRequest message.
  * @name QueryFileStatsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileStatsRequest
  */
 export interface QueryFileStatsRequest {}
 export interface QueryFileStatsRequestProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest";
+  typeUrl: "/atlas.storage.v1.QueryFileStatsRequest";
   value: Uint8Array;
 }
 /**
  * QueryFileStatsRequest defines the QueryFileStatsRequest message.
  * @name QueryFileStatsRequestSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileStatsRequest
  */
 export interface QueryFileStatsRequestSDKType {}
 /**
  * QueryFileStatsResponse defines the QueryFileStatsResponse message.
  * @name QueryFileStatsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileStatsResponse
  */
 export interface QueryFileStatsResponse {
   totalFiles: number;
@@ -450,14 +450,14 @@ export interface QueryFileStatsResponse {
   deadFiles: number;
 }
 export interface QueryFileStatsResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.QueryFileStatsResponse";
+  typeUrl: "/atlas.storage.v1.QueryFileStatsResponse";
   value: Uint8Array;
 }
 /**
  * QueryFileStatsResponse defines the QueryFileStatsResponse message.
  * @name QueryFileStatsResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileStatsResponse
  */
 export interface QueryFileStatsResponseSDKType {
   total_files: number;
@@ -470,11 +470,11 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
  * @name QueryParamsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryParamsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryParamsRequest
  */
 export const QueryParamsRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryParamsRequest",
+  typeUrl: "/atlas.storage.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
     return o && o.$typeUrl === QueryParamsRequest.typeUrl;
   },
@@ -510,7 +510,7 @@ export const QueryParamsRequest = {
   },
   toProtoMsg(message: QueryParamsRequest): QueryParamsRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryParamsRequest",
+      typeUrl: "/atlas.storage.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
   },
@@ -525,11 +525,11 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
 /**
  * QueryParamsResponse is response type for the Query/Params RPC method.
  * @name QueryParamsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryParamsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryParamsResponse
  */
 export const QueryParamsResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryParamsResponse",
+  typeUrl: "/atlas.storage.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
     return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
   },
@@ -572,7 +572,7 @@ export const QueryParamsResponse = {
   },
   toProtoMsg(message: QueryParamsResponse): QueryParamsResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryParamsResponse",
+      typeUrl: "/atlas.storage.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
   },
@@ -592,11 +592,11 @@ function createBaseQueryProviderRequest(): QueryProviderRequest {
 /**
  * QueryProviderRequest defines the QueryProviderRequest message.
  * @name QueryProviderRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProviderRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProviderRequest
  */
 export const QueryProviderRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryProviderRequest",
+  typeUrl: "/atlas.storage.v1.QueryProviderRequest",
   is(o: any): o is QueryProviderRequest {
     return o && (o.$typeUrl === QueryProviderRequest.typeUrl || typeof o.address === "string");
   },
@@ -639,7 +639,7 @@ export const QueryProviderRequest = {
   },
   toProtoMsg(message: QueryProviderRequest): QueryProviderRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryProviderRequest",
+      typeUrl: "/atlas.storage.v1.QueryProviderRequest",
       value: QueryProviderRequest.encode(message).finish()
     };
   },
@@ -654,11 +654,11 @@ function createBaseQueryProviderResponse(): QueryProviderResponse {
 /**
  * QueryProviderResponse defines the QueryProviderResponse message.
  * @name QueryProviderResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProviderResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProviderResponse
  */
 export const QueryProviderResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryProviderResponse",
+  typeUrl: "/atlas.storage.v1.QueryProviderResponse",
   is(o: any): o is QueryProviderResponse {
     return o && o.$typeUrl === QueryProviderResponse.typeUrl;
   },
@@ -701,7 +701,7 @@ export const QueryProviderResponse = {
   },
   toProtoMsg(message: QueryProviderResponse): QueryProviderResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryProviderResponse",
+      typeUrl: "/atlas.storage.v1.QueryProviderResponse",
       value: QueryProviderResponse.encode(message).finish()
     };
   },
@@ -719,11 +719,11 @@ function createBaseQueryProvidersRequest(): QueryProvidersRequest {
 /**
  * QueryProvidersRequest defines the QueryProvidersRequest message.
  * @name QueryProvidersRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProvidersRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProvidersRequest
  */
 export const QueryProvidersRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryProvidersRequest",
+  typeUrl: "/atlas.storage.v1.QueryProvidersRequest",
   is(o: any): o is QueryProvidersRequest {
     return o && o.$typeUrl === QueryProvidersRequest.typeUrl;
   },
@@ -759,7 +759,7 @@ export const QueryProvidersRequest = {
   },
   toProtoMsg(message: QueryProvidersRequest): QueryProvidersRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryProvidersRequest",
+      typeUrl: "/atlas.storage.v1.QueryProvidersRequest",
       value: QueryProvidersRequest.encode(message).finish()
     };
   },
@@ -774,11 +774,11 @@ function createBaseQueryProvidersResponse(): QueryProvidersResponse {
 /**
  * QueryProvidersResponse defines the QueryProvidersResponse message.
  * @name QueryProvidersResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryProvidersResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryProvidersResponse
  */
 export const QueryProvidersResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryProvidersResponse",
+  typeUrl: "/atlas.storage.v1.QueryProvidersResponse",
   is(o: any): o is QueryProvidersResponse {
     return o && (o.$typeUrl === QueryProvidersResponse.typeUrl || Array.isArray(o.providers) && (!o.providers.length || Provider.is(o.providers[0])));
   },
@@ -821,7 +821,7 @@ export const QueryProvidersResponse = {
   },
   toProtoMsg(message: QueryProvidersResponse): QueryProvidersResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryProvidersResponse",
+      typeUrl: "/atlas.storage.v1.QueryProvidersResponse",
       value: QueryProvidersResponse.encode(message).finish()
     };
   },
@@ -841,11 +841,11 @@ function createBaseQueryFileRequest(): QueryFileRequest {
 /**
  * QueryFileRequest defines the QueryFileRequest message.
  * @name QueryFileRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileRequest
  */
 export const QueryFileRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryFileRequest",
+  typeUrl: "/atlas.storage.v1.QueryFileRequest",
   is(o: any): o is QueryFileRequest {
     return o && (o.$typeUrl === QueryFileRequest.typeUrl || typeof o.fid === "string");
   },
@@ -888,7 +888,7 @@ export const QueryFileRequest = {
   },
   toProtoMsg(message: QueryFileRequest): QueryFileRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryFileRequest",
+      typeUrl: "/atlas.storage.v1.QueryFileRequest",
       value: QueryFileRequest.encode(message).finish()
     };
   },
@@ -903,11 +903,11 @@ function createBaseQueryFileResponse(): QueryFileResponse {
 /**
  * QueryFileResponse defines the QueryFileResponse message.
  * @name QueryFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileResponse
  */
 export const QueryFileResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryFileResponse",
+  typeUrl: "/atlas.storage.v1.QueryFileResponse",
   is(o: any): o is QueryFileResponse {
     return o && o.$typeUrl === QueryFileResponse.typeUrl;
   },
@@ -950,7 +950,7 @@ export const QueryFileResponse = {
   },
   toProtoMsg(message: QueryFileResponse): QueryFileResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryFileResponse",
+      typeUrl: "/atlas.storage.v1.QueryFileResponse",
       value: QueryFileResponse.encode(message).finish()
     };
   },
@@ -972,11 +972,11 @@ function createBaseQueryFilesRequest(): QueryFilesRequest {
 /**
  * QueryFilesRequest defines the QueryFilesRequest message.
  * @name QueryFilesRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFilesRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFilesRequest
  */
 export const QueryFilesRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryFilesRequest",
+  typeUrl: "/atlas.storage.v1.QueryFilesRequest",
   is(o: any): o is QueryFilesRequest {
     return o && (o.$typeUrl === QueryFilesRequest.typeUrl || typeof o.creator === "string" && typeof o.subscription === "string");
   },
@@ -1033,7 +1033,7 @@ export const QueryFilesRequest = {
   },
   toProtoMsg(message: QueryFilesRequest): QueryFilesRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryFilesRequest",
+      typeUrl: "/atlas.storage.v1.QueryFilesRequest",
       value: QueryFilesRequest.encode(message).finish()
     };
   },
@@ -1054,11 +1054,11 @@ function createBaseQueryFilesResponse(): QueryFilesResponse {
 /**
  * QueryFilesResponse defines the QueryFilesResponse message.
  * @name QueryFilesResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFilesResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFilesResponse
  */
 export const QueryFilesResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryFilesResponse",
+  typeUrl: "/atlas.storage.v1.QueryFilesResponse",
   is(o: any): o is QueryFilesResponse {
     return o && (o.$typeUrl === QueryFilesResponse.typeUrl || Array.isArray(o.files) && (!o.files.length || File.is(o.files[0])));
   },
@@ -1108,7 +1108,7 @@ export const QueryFilesResponse = {
   },
   toProtoMsg(message: QueryFilesResponse): QueryFilesResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryFilesResponse",
+      typeUrl: "/atlas.storage.v1.QueryFilesResponse",
       value: QueryFilesResponse.encode(message).finish()
     };
   },
@@ -1130,11 +1130,11 @@ function createBaseQuerySubscriptionRequest(): QuerySubscriptionRequest {
 /**
  * QuerySubscriptionRequest defines the QuerySubscriptionRequest message.
  * @name QuerySubscriptionRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionRequest
  */
 export const QuerySubscriptionRequest = {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionRequest",
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionRequest",
   is(o: any): o is QuerySubscriptionRequest {
     return o && (o.$typeUrl === QuerySubscriptionRequest.typeUrl || typeof o.subscriberAddress === "string" && typeof o.subscriptionId === "string");
   },
@@ -1184,7 +1184,7 @@ export const QuerySubscriptionRequest = {
   },
   toProtoMsg(message: QuerySubscriptionRequest): QuerySubscriptionRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QuerySubscriptionRequest",
+      typeUrl: "/atlas.storage.v1.QuerySubscriptionRequest",
       value: QuerySubscriptionRequest.encode(message).finish()
     };
   },
@@ -1199,11 +1199,11 @@ function createBaseQuerySubscriptionResponse(): QuerySubscriptionResponse {
 /**
  * QuerySubscriptionResponse defines the QuerySubscriptionResponse message.
  * @name QuerySubscriptionResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionResponse
  */
 export const QuerySubscriptionResponse = {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionResponse",
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionResponse",
   is(o: any): o is QuerySubscriptionResponse {
     return o && o.$typeUrl === QuerySubscriptionResponse.typeUrl;
   },
@@ -1246,7 +1246,7 @@ export const QuerySubscriptionResponse = {
   },
   toProtoMsg(message: QuerySubscriptionResponse): QuerySubscriptionResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QuerySubscriptionResponse",
+      typeUrl: "/atlas.storage.v1.QuerySubscriptionResponse",
       value: QuerySubscriptionResponse.encode(message).finish()
     };
   },
@@ -1267,11 +1267,11 @@ function createBaseQuerySubscriptionsRequest(): QuerySubscriptionsRequest {
 /**
  * QuerySubscriptionsRequest defines the QuerySubscriptionsRequest message.
  * @name QuerySubscriptionsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionsRequest
  */
 export const QuerySubscriptionsRequest = {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionsRequest",
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionsRequest",
   is(o: any): o is QuerySubscriptionsRequest {
     return o && (o.$typeUrl === QuerySubscriptionsRequest.typeUrl || typeof o.subscriberAddress === "string");
   },
@@ -1321,7 +1321,7 @@ export const QuerySubscriptionsRequest = {
   },
   toProtoMsg(message: QuerySubscriptionsRequest): QuerySubscriptionsRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QuerySubscriptionsRequest",
+      typeUrl: "/atlas.storage.v1.QuerySubscriptionsRequest",
       value: QuerySubscriptionsRequest.encode(message).finish()
     };
   },
@@ -1342,11 +1342,11 @@ function createBaseQuerySubscriptionsResponse(): QuerySubscriptionsResponse {
 /**
  * QuerySubscriptionsResponse defines the QuerySubscriptionsResponse message.
  * @name QuerySubscriptionsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QuerySubscriptionsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QuerySubscriptionsResponse
  */
 export const QuerySubscriptionsResponse = {
-  typeUrl: "/nebulix.storage.v1.QuerySubscriptionsResponse",
+  typeUrl: "/atlas.storage.v1.QuerySubscriptionsResponse",
   is(o: any): o is QuerySubscriptionsResponse {
     return o && (o.$typeUrl === QuerySubscriptionsResponse.typeUrl || Array.isArray(o.subscriptions) && (!o.subscriptions.length || StorageSubscription.is(o.subscriptions[0])));
   },
@@ -1396,7 +1396,7 @@ export const QuerySubscriptionsResponse = {
   },
   toProtoMsg(message: QuerySubscriptionsResponse): QuerySubscriptionsResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QuerySubscriptionsResponse",
+      typeUrl: "/atlas.storage.v1.QuerySubscriptionsResponse",
       value: QuerySubscriptionsResponse.encode(message).finish()
     };
   },
@@ -1418,11 +1418,11 @@ function createBaseQueryChallengesRequest(): QueryChallengesRequest {
 /**
  * QueryChallengesRequest defines the QueryChallengesRequest message.
  * @name QueryChallengesRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryChallengesRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryChallengesRequest
  */
 export const QueryChallengesRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryChallengesRequest",
+  typeUrl: "/atlas.storage.v1.QueryChallengesRequest",
   is(o: any): o is QueryChallengesRequest {
     return o && (o.$typeUrl === QueryChallengesRequest.typeUrl || typeof o.provider === "string");
   },
@@ -1472,7 +1472,7 @@ export const QueryChallengesRequest = {
   },
   toProtoMsg(message: QueryChallengesRequest): QueryChallengesRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryChallengesRequest",
+      typeUrl: "/atlas.storage.v1.QueryChallengesRequest",
       value: QueryChallengesRequest.encode(message).finish()
     };
   },
@@ -1493,11 +1493,11 @@ function createBaseQueryChallengesResponse(): QueryChallengesResponse {
 /**
  * QueryChallengesResponse defines the QueryChallengesResponse message.
  * @name QueryChallengesResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryChallengesResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryChallengesResponse
  */
 export const QueryChallengesResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryChallengesResponse",
+  typeUrl: "/atlas.storage.v1.QueryChallengesResponse",
   is(o: any): o is QueryChallengesResponse {
     return o && (o.$typeUrl === QueryChallengesResponse.typeUrl || Array.isArray(o.challenges) && (!o.challenges.length || StorageChallenge.is(o.challenges[0])));
   },
@@ -1547,7 +1547,7 @@ export const QueryChallengesResponse = {
   },
   toProtoMsg(message: QueryChallengesResponse): QueryChallengesResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryChallengesResponse",
+      typeUrl: "/atlas.storage.v1.QueryChallengesResponse",
       value: QueryChallengesResponse.encode(message).finish()
     };
   },
@@ -1566,11 +1566,11 @@ function createBaseQueryStorageStatsRequest(): QueryStorageStatsRequest {
 /**
  * QueryStorageStatsRequest defines the QueryStorageStatsRequest message.
  * @name QueryStorageStatsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryStorageStatsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryStorageStatsRequest
  */
 export const QueryStorageStatsRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest",
+  typeUrl: "/atlas.storage.v1.QueryStorageStatsRequest",
   is(o: any): o is QueryStorageStatsRequest {
     return o && o.$typeUrl === QueryStorageStatsRequest.typeUrl;
   },
@@ -1606,7 +1606,7 @@ export const QueryStorageStatsRequest = {
   },
   toProtoMsg(message: QueryStorageStatsRequest): QueryStorageStatsRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryStorageStatsRequest",
+      typeUrl: "/atlas.storage.v1.QueryStorageStatsRequest",
       value: QueryStorageStatsRequest.encode(message).finish()
     };
   },
@@ -1626,11 +1626,11 @@ function createBaseQueryStorageStatsResponse(): QueryStorageStatsResponse {
 /**
  * QueryStorageStatsResponse defines the QueryStorageStatsResponse message.
  * @name QueryStorageStatsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryStorageStatsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryStorageStatsResponse
  */
 export const QueryStorageStatsResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryStorageStatsResponse",
+  typeUrl: "/atlas.storage.v1.QueryStorageStatsResponse",
   is(o: any): o is QueryStorageStatsResponse {
     return o && (o.$typeUrl === QueryStorageStatsResponse.typeUrl || typeof o.subscriptionCount === "number" && typeof o.spacePurchased === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.spaceReplicas === "bigint" && typeof o.providerCount === "number" && typeof o.spaceAvailable === "bigint");
   },
@@ -1708,7 +1708,7 @@ export const QueryStorageStatsResponse = {
   },
   toProtoMsg(message: QueryStorageStatsResponse): QueryStorageStatsResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryStorageStatsResponse",
+      typeUrl: "/atlas.storage.v1.QueryStorageStatsResponse",
       value: QueryStorageStatsResponse.encode(message).finish()
     };
   },
@@ -1721,11 +1721,11 @@ function createBaseQueryFileStatsRequest(): QueryFileStatsRequest {
 /**
  * QueryFileStatsRequest defines the QueryFileStatsRequest message.
  * @name QueryFileStatsRequest
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileStatsRequest
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileStatsRequest
  */
 export const QueryFileStatsRequest = {
-  typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest",
+  typeUrl: "/atlas.storage.v1.QueryFileStatsRequest",
   is(o: any): o is QueryFileStatsRequest {
     return o && o.$typeUrl === QueryFileStatsRequest.typeUrl;
   },
@@ -1761,7 +1761,7 @@ export const QueryFileStatsRequest = {
   },
   toProtoMsg(message: QueryFileStatsRequest): QueryFileStatsRequestProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryFileStatsRequest",
+      typeUrl: "/atlas.storage.v1.QueryFileStatsRequest",
       value: QueryFileStatsRequest.encode(message).finish()
     };
   },
@@ -1778,11 +1778,11 @@ function createBaseQueryFileStatsResponse(): QueryFileStatsResponse {
 /**
  * QueryFileStatsResponse defines the QueryFileStatsResponse message.
  * @name QueryFileStatsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.QueryFileStatsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.QueryFileStatsResponse
  */
 export const QueryFileStatsResponse = {
-  typeUrl: "/nebulix.storage.v1.QueryFileStatsResponse",
+  typeUrl: "/atlas.storage.v1.QueryFileStatsResponse",
   is(o: any): o is QueryFileStatsResponse {
     return o && (o.$typeUrl === QueryFileStatsResponse.typeUrl || typeof o.totalFiles === "bigint" && typeof o.strayFiles === "bigint" && typeof o.deadFiles === "bigint");
   },
@@ -1839,7 +1839,7 @@ export const QueryFileStatsResponse = {
   },
   toProtoMsg(message: QueryFileStatsResponse): QueryFileStatsResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.QueryFileStatsResponse",
+      typeUrl: "/atlas.storage.v1.QueryFileStatsResponse",
       value: QueryFileStatsResponse.encode(message).finish()
     };
   },

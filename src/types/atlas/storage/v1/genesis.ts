@@ -5,8 +5,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * GenesisState defines the storage module's genesis state.
  * @name GenesisState
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.GenesisState
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.GenesisState
  */
 export interface GenesisState {
   /**
@@ -15,14 +15,14 @@ export interface GenesisState {
   params: Params;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/nebulix.storage.v1.GenesisState";
+  typeUrl: "/atlas.storage.v1.GenesisState";
   value: Uint8Array;
 }
 /**
  * GenesisState defines the storage module's genesis state.
  * @name GenesisStateSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.GenesisState
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.GenesisState
  */
 export interface GenesisStateSDKType {
   params: ParamsSDKType;
@@ -35,11 +35,11 @@ function createBaseGenesisState(): GenesisState {
 /**
  * GenesisState defines the storage module's genesis state.
  * @name GenesisState
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.GenesisState
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.GenesisState
  */
 export const GenesisState = {
-  typeUrl: "/nebulix.storage.v1.GenesisState",
+  typeUrl: "/atlas.storage.v1.GenesisState",
   is(o: any): o is GenesisState {
     return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params));
   },
@@ -82,7 +82,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.GenesisState",
+      typeUrl: "/atlas.storage.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   },

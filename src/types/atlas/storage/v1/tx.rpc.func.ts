@@ -5,24 +5,24 @@ import { MsgUpdateParams, MsgRegisterProvider, MsgPostFile, MsgBuyStorage, MsgPr
  * UpdateParams defines a (governance) operation for updating the module
  * parameters. The authority defaults to the x/gov module account.
  * @name updateParams
- * @package nebulix.storage.v1
- * @see proto service: nebulix.storage.v1.UpdateParams
+ * @package atlas.storage.v1
+ * @see proto service: atlas.storage.v1.UpdateParams
  */
 export const updateParams = buildTx<MsgUpdateParams>({
   msg: MsgUpdateParams
 });
 /**
  * @name registerProvider
- * @package nebulix.storage.v1
- * @see proto service: nebulix.storage.v1.RegisterProvider
+ * @package atlas.storage.v1
+ * @see proto service: atlas.storage.v1.RegisterProvider
  */
 export const registerProvider = buildTx<MsgRegisterProvider>({
   msg: MsgRegisterProvider
 });
 /**
  * @name postFile
- * @package nebulix.storage.v1
- * @see proto service: nebulix.storage.v1.PostFile
+ * @package atlas.storage.v1
+ * @see proto service: atlas.storage.v1.PostFile
  */
 export const postFile = buildTx<MsgPostFile>({
   msg: MsgPostFile
@@ -30,8 +30,8 @@ export const postFile = buildTx<MsgPostFile>({
 /**
  * BuyStorage defines the BuyStorage RPC.
  * @name buyStorage
- * @package nebulix.storage.v1
- * @see proto service: nebulix.storage.v1.BuyStorage
+ * @package atlas.storage.v1
+ * @see proto service: atlas.storage.v1.BuyStorage
  */
 export const buyStorage = buildTx<MsgBuyStorage>({
   msg: MsgBuyStorage
@@ -39,8 +39,8 @@ export const buyStorage = buildTx<MsgBuyStorage>({
 /**
  * ProveFile defines the ProveFile RPC.
  * @name proveFile
- * @package nebulix.storage.v1
- * @see proto service: nebulix.storage.v1.ProveFile
+ * @package atlas.storage.v1
+ * @see proto service: atlas.storage.v1.ProveFile
  */
 export const proveFile = buildTx<MsgProveFile>({
   msg: MsgProveFile
@@ -48,8 +48,8 @@ export const proveFile = buildTx<MsgProveFile>({
 /**
  * DeleteFile defines the DeleteFile RPC.
  * @name deleteFile
- * @package nebulix.storage.v1
- * @see proto service: nebulix.storage.v1.DeleteFile
+ * @package atlas.storage.v1
+ * @see proto service: atlas.storage.v1.DeleteFile
  */
 export const deleteFile = buildTx<MsgDeleteFile>({
   msg: MsgDeleteFile
@@ -57,8 +57,8 @@ export const deleteFile = buildTx<MsgDeleteFile>({
 /**
  * ExpandStorage defines the ExpandStorage RPC.
  * @name expandStorage
- * @package nebulix.storage.v1
- * @see proto service: nebulix.storage.v1.ExpandStorage
+ * @package atlas.storage.v1
+ * @see proto service: atlas.storage.v1.ExpandStorage
  */
 export const expandStorage = buildTx<MsgExpandStorage>({
   msg: MsgExpandStorage

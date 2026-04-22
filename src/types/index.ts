@@ -6,7 +6,7 @@
   */
  
 export * from "./amino/bundle";
-export * from "./nebulix/bundle";
+export * from "./atlas/bundle";
 export * from "./cosmos_proto/bundle";
 export * from "./cosmos/bundle";
 export * from "./gogoproto/bundle";

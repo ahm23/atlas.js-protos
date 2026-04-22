@@ -5,8 +5,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * @name MsgUpdateParams
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgUpdateParams
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
   /**
@@ -19,14 +19,14 @@ export interface MsgUpdateParams {
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.MsgUpdateParams";
+  typeUrl: "/atlas.filetree.v1.MsgUpdateParams";
   value: Uint8Array;
 }
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * @name MsgUpdateParamsSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgUpdateParams
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -36,27 +36,27 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
  * @name MsgUpdateParamsResponse
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgUpdateParamsResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.MsgUpdateParamsResponse";
+  typeUrl: "/atlas.filetree.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
  * @name MsgUpdateParamsResponseSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgUpdateParamsResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 /**
  * MsgPostNode defines the MsgPostNode message.
  * @name MsgPostNode
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgPostNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgPostNode
  */
 export interface MsgPostNode {
   creator: string;
@@ -65,14 +65,14 @@ export interface MsgPostNode {
   contents: string;
 }
 export interface MsgPostNodeProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.MsgPostNode";
+  typeUrl: "/atlas.filetree.v1.MsgPostNode";
   value: Uint8Array;
 }
 /**
  * MsgPostNode defines the MsgPostNode message.
  * @name MsgPostNodeSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgPostNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgPostNode
  */
 export interface MsgPostNodeSDKType {
   creator: string;
@@ -83,40 +83,40 @@ export interface MsgPostNodeSDKType {
 /**
  * MsgPostNodeResponse defines the MsgPostNodeResponse message.
  * @name MsgPostNodeResponse
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgPostNodeResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgPostNodeResponse
  */
 export interface MsgPostNodeResponse {}
 export interface MsgPostNodeResponseProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.MsgPostNodeResponse";
+  typeUrl: "/atlas.filetree.v1.MsgPostNodeResponse";
   value: Uint8Array;
 }
 /**
  * MsgPostNodeResponse defines the MsgPostNodeResponse message.
  * @name MsgPostNodeResponseSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgPostNodeResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgPostNodeResponse
  */
 export interface MsgPostNodeResponseSDKType {}
 /**
  * MsgDeleteNode defines the MsgDeleteNode message.
  * @name MsgDeleteNode
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgDeleteNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgDeleteNode
  */
 export interface MsgDeleteNode {
   creator: string;
   path: string;
 }
 export interface MsgDeleteNodeProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.MsgDeleteNode";
+  typeUrl: "/atlas.filetree.v1.MsgDeleteNode";
   value: Uint8Array;
 }
 /**
  * MsgDeleteNode defines the MsgDeleteNode message.
  * @name MsgDeleteNodeSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgDeleteNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgDeleteNode
  */
 export interface MsgDeleteNodeSDKType {
   creator: string;
@@ -125,19 +125,19 @@ export interface MsgDeleteNodeSDKType {
 /**
  * MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message.
  * @name MsgDeleteNodeResponse
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgDeleteNodeResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgDeleteNodeResponse
  */
 export interface MsgDeleteNodeResponse {}
 export interface MsgDeleteNodeResponseProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.MsgDeleteNodeResponse";
+  typeUrl: "/atlas.filetree.v1.MsgDeleteNodeResponse";
   value: Uint8Array;
 }
 /**
  * MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message.
  * @name MsgDeleteNodeResponseSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgDeleteNodeResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgDeleteNodeResponse
  */
 export interface MsgDeleteNodeResponseSDKType {}
 function createBaseMsgUpdateParams(): MsgUpdateParams {
@@ -149,11 +149,11 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * @name MsgUpdateParams
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgUpdateParams
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgUpdateParams
  */
 export const MsgUpdateParams = {
-  typeUrl: "/nebulix.filetree.v1.MsgUpdateParams",
+  typeUrl: "/atlas.filetree.v1.MsgUpdateParams",
   aminoType: "nebulix/x/filetree/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
@@ -204,7 +204,7 @@ export const MsgUpdateParams = {
   },
   toProtoMsg(message: MsgUpdateParams): MsgUpdateParamsProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.MsgUpdateParams",
+      typeUrl: "/atlas.filetree.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
   },
@@ -224,11 +224,11 @@ function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
  * @name MsgUpdateParamsResponse
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgUpdateParamsResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgUpdateParamsResponse
  */
 export const MsgUpdateParamsResponse = {
-  typeUrl: "/nebulix.filetree.v1.MsgUpdateParamsResponse",
+  typeUrl: "/atlas.filetree.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
@@ -264,7 +264,7 @@ export const MsgUpdateParamsResponse = {
   },
   toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.MsgUpdateParamsResponse",
+      typeUrl: "/atlas.filetree.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
   },
@@ -282,11 +282,11 @@ function createBaseMsgPostNode(): MsgPostNode {
 /**
  * MsgPostNode defines the MsgPostNode message.
  * @name MsgPostNode
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgPostNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgPostNode
  */
 export const MsgPostNode = {
-  typeUrl: "/nebulix.filetree.v1.MsgPostNode",
+  typeUrl: "/atlas.filetree.v1.MsgPostNode",
   is(o: any): o is MsgPostNode {
     return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.nodeType === "string" && typeof o.contents === "string");
   },
@@ -350,7 +350,7 @@ export const MsgPostNode = {
   },
   toProtoMsg(message: MsgPostNode): MsgPostNodeProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.MsgPostNode",
+      typeUrl: "/atlas.filetree.v1.MsgPostNode",
       value: MsgPostNode.encode(message).finish()
     };
   },
@@ -363,11 +363,11 @@ function createBaseMsgPostNodeResponse(): MsgPostNodeResponse {
 /**
  * MsgPostNodeResponse defines the MsgPostNodeResponse message.
  * @name MsgPostNodeResponse
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgPostNodeResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgPostNodeResponse
  */
 export const MsgPostNodeResponse = {
-  typeUrl: "/nebulix.filetree.v1.MsgPostNodeResponse",
+  typeUrl: "/atlas.filetree.v1.MsgPostNodeResponse",
   is(o: any): o is MsgPostNodeResponse {
     return o && o.$typeUrl === MsgPostNodeResponse.typeUrl;
   },
@@ -403,7 +403,7 @@ export const MsgPostNodeResponse = {
   },
   toProtoMsg(message: MsgPostNodeResponse): MsgPostNodeResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.MsgPostNodeResponse",
+      typeUrl: "/atlas.filetree.v1.MsgPostNodeResponse",
       value: MsgPostNodeResponse.encode(message).finish()
     };
   },
@@ -419,11 +419,11 @@ function createBaseMsgDeleteNode(): MsgDeleteNode {
 /**
  * MsgDeleteNode defines the MsgDeleteNode message.
  * @name MsgDeleteNode
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgDeleteNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgDeleteNode
  */
 export const MsgDeleteNode = {
-  typeUrl: "/nebulix.filetree.v1.MsgDeleteNode",
+  typeUrl: "/atlas.filetree.v1.MsgDeleteNode",
   is(o: any): o is MsgDeleteNode {
     return o && (o.$typeUrl === MsgDeleteNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string");
   },
@@ -473,7 +473,7 @@ export const MsgDeleteNode = {
   },
   toProtoMsg(message: MsgDeleteNode): MsgDeleteNodeProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.MsgDeleteNode",
+      typeUrl: "/atlas.filetree.v1.MsgDeleteNode",
       value: MsgDeleteNode.encode(message).finish()
     };
   },
@@ -486,11 +486,11 @@ function createBaseMsgDeleteNodeResponse(): MsgDeleteNodeResponse {
 /**
  * MsgDeleteNodeResponse defines the MsgDeleteNodeResponse message.
  * @name MsgDeleteNodeResponse
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.MsgDeleteNodeResponse
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.MsgDeleteNodeResponse
  */
 export const MsgDeleteNodeResponse = {
-  typeUrl: "/nebulix.filetree.v1.MsgDeleteNodeResponse",
+  typeUrl: "/atlas.filetree.v1.MsgDeleteNodeResponse",
   is(o: any): o is MsgDeleteNodeResponse {
     return o && o.$typeUrl === MsgDeleteNodeResponse.typeUrl;
   },
@@ -526,7 +526,7 @@ export const MsgDeleteNodeResponse = {
   },
   toProtoMsg(message: MsgDeleteNodeResponse): MsgDeleteNodeResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.MsgDeleteNodeResponse",
+      typeUrl: "/atlas.filetree.v1.MsgDeleteNodeResponse",
       value: MsgDeleteNodeResponse.encode(message).finish()
     };
   },

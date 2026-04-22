@@ -43,52 +43,52 @@ export class QueryClientImpl implements Query {
   }
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "Params", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "Params", data);
     return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
   }
   provider(request: QueryProviderRequest): Promise<QueryProviderResponse> {
     const data = QueryProviderRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "Provider", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "Provider", data);
     return promise.then(data => QueryProviderResponse.decode(new _m0.Reader(data)));
   }
   providers(request: QueryProvidersRequest = {}): Promise<QueryProvidersResponse> {
     const data = QueryProvidersRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "Providers", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "Providers", data);
     return promise.then(data => QueryProvidersResponse.decode(new _m0.Reader(data)));
   }
   file(request: QueryFileRequest): Promise<QueryFileResponse> {
     const data = QueryFileRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "File", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "File", data);
     return promise.then(data => QueryFileResponse.decode(new _m0.Reader(data)));
   }
   files(request: QueryFilesRequest): Promise<QueryFilesResponse> {
     const data = QueryFilesRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "Files", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "Files", data);
     return promise.then(data => QueryFilesResponse.decode(new _m0.Reader(data)));
   }
   subscription(request: QuerySubscriptionRequest): Promise<QuerySubscriptionResponse> {
     const data = QuerySubscriptionRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "Subscription", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "Subscription", data);
     return promise.then(data => QuerySubscriptionResponse.decode(new _m0.Reader(data)));
   }
   subscriptions(request: QuerySubscriptionsRequest): Promise<QuerySubscriptionsResponse> {
     const data = QuerySubscriptionsRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "Subscriptions", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "Subscriptions", data);
     return promise.then(data => QuerySubscriptionsResponse.decode(new _m0.Reader(data)));
   }
   challenges(request: QueryChallengesRequest): Promise<QueryChallengesResponse> {
     const data = QueryChallengesRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "Challenges", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "Challenges", data);
     return promise.then(data => QueryChallengesResponse.decode(new _m0.Reader(data)));
   }
   storageStats(request: QueryStorageStatsRequest = {}): Promise<QueryStorageStatsResponse> {
     const data = QueryStorageStatsRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "StorageStats", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "StorageStats", data);
     return promise.then(data => QueryStorageStatsResponse.decode(new _m0.Reader(data)));
   }
   fileStats(request: QueryFileStatsRequest = {}): Promise<QueryFileStatsResponse> {
     const data = QueryFileStatsRequest.encode(request).finish();
-    const promise = this.rpc.request("nebulix.storage.v1.Query", "FileStats", data);
+    const promise = this.rpc.request("atlas.storage.v1.Query", "FileStats", data);
     return promise.then(data => QueryFileStatsResponse.decode(new _m0.Reader(data)));
   }
 }

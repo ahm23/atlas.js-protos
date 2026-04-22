@@ -2,59 +2,162 @@
 import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
- * @name FileNode
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.FileNode
+ * @name AuthorityBundle
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.AuthorityBundle
  */
-export interface FileNode {
-  nodeType: string;
-  contents: string;
+export interface AuthorityBundle {
+  address: string;
+  secret: string;
 }
-export interface FileNodeProtoMsg {
-  typeUrl: "/nebulix.filetree.v1.FileNode";
+export interface AuthorityBundleProtoMsg {
+  typeUrl: "/atlas.filetree.v1.AuthorityBundle";
   value: Uint8Array;
 }
 /**
- * @name FileNodeSDKType
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.FileNode
+ * @name AuthorityBundleSDKType
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.AuthorityBundle
  */
-export interface FileNodeSDKType {
+export interface AuthorityBundleSDKType {
+  address: string;
+  secret: string;
+}
+/**
+ * @name TreeNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.TreeNode
+ */
+export interface TreeNode {
+  nodeType: string;
+  contents: string;
+  readers: AuthorityBundle[];
+  editors: AuthorityBundle[];
+}
+export interface TreeNodeProtoMsg {
+  typeUrl: "/atlas.filetree.v1.TreeNode";
+  value: Uint8Array;
+}
+/**
+ * @name TreeNodeSDKType
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.TreeNode
+ */
+export interface TreeNodeSDKType {
   node_type: string;
   contents: string;
+  readers: AuthorityBundleSDKType[];
+  editors: AuthorityBundleSDKType[];
 }
-function createBaseFileNode(): FileNode {
+function createBaseAuthorityBundle(): AuthorityBundle {
   return {
-    nodeType: "",
-    contents: ""
+    address: "",
+    secret: ""
   };
 }
 /**
- * @name FileNode
- * @package nebulix.filetree.v1
- * @see proto type: nebulix.filetree.v1.FileNode
+ * @name AuthorityBundle
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.AuthorityBundle
  */
-export const FileNode = {
-  typeUrl: "/nebulix.filetree.v1.FileNode",
-  is(o: any): o is FileNode {
-    return o && (o.$typeUrl === FileNode.typeUrl || typeof o.nodeType === "string" && typeof o.contents === "string");
+export const AuthorityBundle = {
+  typeUrl: "/atlas.filetree.v1.AuthorityBundle",
+  is(o: any): o is AuthorityBundle {
+    return o && (o.$typeUrl === AuthorityBundle.typeUrl || typeof o.address === "string" && typeof o.secret === "string");
   },
-  isSDK(o: any): o is FileNodeSDKType {
-    return o && (o.$typeUrl === FileNode.typeUrl || typeof o.node_type === "string" && typeof o.contents === "string");
+  isSDK(o: any): o is AuthorityBundleSDKType {
+    return o && (o.$typeUrl === AuthorityBundle.typeUrl || typeof o.address === "string" && typeof o.secret === "string");
   },
-  encode(message: FileNode, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(message: AuthorityBundle, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.address !== "") {
+      writer.uint32(10).string(message.address);
+    }
+    if (message.secret !== "") {
+      writer.uint32(18).string(message.secret);
+    }
+    return writer;
+  },
+  decode(input: _m0.Reader | Uint8Array, length?: number): AuthorityBundle {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseAuthorityBundle();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.secret = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<AuthorityBundle>): AuthorityBundle {
+    const message = createBaseAuthorityBundle();
+    message.address = object.address ?? "";
+    message.secret = object.secret ?? "";
+    return message;
+  },
+  fromProtoMsg(message: AuthorityBundleProtoMsg): AuthorityBundle {
+    return AuthorityBundle.decode(message.value);
+  },
+  toProto(message: AuthorityBundle): Uint8Array {
+    return AuthorityBundle.encode(message).finish();
+  },
+  toProtoMsg(message: AuthorityBundle): AuthorityBundleProtoMsg {
+    return {
+      typeUrl: "/atlas.filetree.v1.AuthorityBundle",
+      value: AuthorityBundle.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
+};
+GlobalDecoderRegistry.register(AuthorityBundle.typeUrl, AuthorityBundle);
+function createBaseTreeNode(): TreeNode {
+  return {
+    nodeType: "",
+    contents: "",
+    readers: [],
+    editors: []
+  };
+}
+/**
+ * @name TreeNode
+ * @package atlas.filetree.v1
+ * @see proto type: atlas.filetree.v1.TreeNode
+ */
+export const TreeNode = {
+  typeUrl: "/atlas.filetree.v1.TreeNode",
+  is(o: any): o is TreeNode {
+    return o && (o.$typeUrl === TreeNode.typeUrl || typeof o.nodeType === "string" && typeof o.contents === "string" && Array.isArray(o.readers) && (!o.readers.length || AuthorityBundle.is(o.readers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.is(o.editors[0])));
+  },
+  isSDK(o: any): o is TreeNodeSDKType {
+    return o && (o.$typeUrl === TreeNode.typeUrl || typeof o.node_type === "string" && typeof o.contents === "string" && Array.isArray(o.readers) && (!o.readers.length || AuthorityBundle.isSDK(o.readers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.isSDK(o.editors[0])));
+  },
+  encode(message: TreeNode, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.nodeType !== "") {
       writer.uint32(10).string(message.nodeType);
     }
     if (message.contents !== "") {
       writer.uint32(18).string(message.contents);
     }
+    for (const v of message.readers) {
+      AuthorityBundle.encode(v!, writer.uint32(26).fork()).ldelim();
+    }
+    for (const v of message.editors) {
+      AuthorityBundle.encode(v!, writer.uint32(34).fork()).ldelim();
+    }
     return writer;
   },
-  decode(input: _m0.Reader | Uint8Array, length?: number): FileNode {
+  decode(input: _m0.Reader | Uint8Array, length?: number): TreeNode {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseFileNode();
+    const message = createBaseTreeNode();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -64,6 +167,12 @@ export const FileNode = {
         case 2:
           message.contents = reader.string();
           break;
+        case 3:
+          message.readers.push(AuthorityBundle.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.editors.push(AuthorityBundle.decode(reader, reader.uint32()));
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -71,24 +180,31 @@ export const FileNode = {
     }
     return message;
   },
-  fromPartial(object: Partial<FileNode>): FileNode {
-    const message = createBaseFileNode();
+  fromPartial(object: Partial<TreeNode>): TreeNode {
+    const message = createBaseTreeNode();
     message.nodeType = object.nodeType ?? "";
     message.contents = object.contents ?? "";
+    message.readers = object.readers?.map(e => AuthorityBundle.fromPartial(e)) || [];
+    message.editors = object.editors?.map(e => AuthorityBundle.fromPartial(e)) || [];
     return message;
   },
-  fromProtoMsg(message: FileNodeProtoMsg): FileNode {
-    return FileNode.decode(message.value);
+  fromProtoMsg(message: TreeNodeProtoMsg): TreeNode {
+    return TreeNode.decode(message.value);
   },
-  toProto(message: FileNode): Uint8Array {
-    return FileNode.encode(message).finish();
+  toProto(message: TreeNode): Uint8Array {
+    return TreeNode.encode(message).finish();
   },
-  toProtoMsg(message: FileNode): FileNodeProtoMsg {
+  toProtoMsg(message: TreeNode): TreeNodeProtoMsg {
     return {
-      typeUrl: "/nebulix.filetree.v1.FileNode",
-      value: FileNode.encode(message).finish()
+      typeUrl: "/atlas.filetree.v1.TreeNode",
+      value: TreeNode.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(TreeNode.typeUrl)) {
+      return;
+    }
+    AuthorityBundle.registerTypeUrl();
+  }
 };
-GlobalDecoderRegistry.register(FileNode.typeUrl, FileNode);
+GlobalDecoderRegistry.register(TreeNode.typeUrl, TreeNode);

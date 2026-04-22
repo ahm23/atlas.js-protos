@@ -5,8 +5,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * @name MsgUpdateParams
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParams
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
   /**
@@ -19,14 +19,14 @@ export interface MsgUpdateParams {
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgUpdateParams";
+  typeUrl: "/atlas.storage.v1.MsgUpdateParams";
   value: Uint8Array;
 }
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * @name MsgUpdateParamsSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParams
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -36,27 +36,27 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
  * @name MsgUpdateParamsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParamsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgUpdateParamsResponse";
+  typeUrl: "/atlas.storage.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
  * @name MsgUpdateParamsResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParamsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 /**
  * MsgRegisterProvider defines the MsgRegisterProvider message.
  * @name MsgRegisterProvider
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProvider
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgRegisterProvider
  */
 export interface MsgRegisterProvider {
   creator: string;
@@ -64,14 +64,14 @@ export interface MsgRegisterProvider {
   capacity: number;
 }
 export interface MsgRegisterProviderProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgRegisterProvider";
+  typeUrl: "/atlas.storage.v1.MsgRegisterProvider";
   value: Uint8Array;
 }
 /**
  * MsgRegisterProvider defines the MsgRegisterProvider message.
  * @name MsgRegisterProviderSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProvider
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgRegisterProvider
  */
 export interface MsgRegisterProviderSDKType {
   creator: string;
@@ -81,26 +81,26 @@ export interface MsgRegisterProviderSDKType {
 /**
  * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
  * @name MsgRegisterProviderResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProviderResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgRegisterProviderResponse
  */
 export interface MsgRegisterProviderResponse {}
 export interface MsgRegisterProviderResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgRegisterProviderResponse";
+  typeUrl: "/atlas.storage.v1.MsgRegisterProviderResponse";
   value: Uint8Array;
 }
 /**
  * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
  * @name MsgRegisterProviderResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProviderResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgRegisterProviderResponse
  */
 export interface MsgRegisterProviderResponseSDKType {}
 /**
  * MsgPostFile defines the MsgPostFile message.
  * @name MsgPostFile
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgPostFile
  */
 export interface MsgPostFile {
   creator: string;
@@ -111,14 +111,14 @@ export interface MsgPostFile {
   subscription: string;
 }
 export interface MsgPostFileProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgPostFile";
+  typeUrl: "/atlas.storage.v1.MsgPostFile";
   value: Uint8Array;
 }
 /**
  * MsgPostFile defines the MsgPostFile message.
  * @name MsgPostFileSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgPostFile
  */
 export interface MsgPostFileSDKType {
   creator: string;
@@ -131,21 +131,21 @@ export interface MsgPostFileSDKType {
 /**
  * MsgPostFileResponse defines the MsgPostFileResponse message.
  * @name MsgPostFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgPostFileResponse
  */
 export interface MsgPostFileResponse {
   startBlock: number;
 }
 export interface MsgPostFileResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgPostFileResponse";
+  typeUrl: "/atlas.storage.v1.MsgPostFileResponse";
   value: Uint8Array;
 }
 /**
  * MsgPostFileResponse defines the MsgPostFileResponse message.
  * @name MsgPostFileResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgPostFileResponse
  */
 export interface MsgPostFileResponseSDKType {
   start_block: number;
@@ -153,8 +153,8 @@ export interface MsgPostFileResponseSDKType {
 /**
  * MsgBuyStorage defines the MsgBuyStorage message.
  * @name MsgBuyStorage
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorage
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgBuyStorage
  */
 export interface MsgBuyStorage {
   creator: string;
@@ -164,14 +164,14 @@ export interface MsgBuyStorage {
   isDefault: boolean;
 }
 export interface MsgBuyStorageProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgBuyStorage";
+  typeUrl: "/atlas.storage.v1.MsgBuyStorage";
   value: Uint8Array;
 }
 /**
  * MsgBuyStorage defines the MsgBuyStorage message.
  * @name MsgBuyStorageSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorage
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgBuyStorage
  */
 export interface MsgBuyStorageSDKType {
   creator: string;
@@ -183,21 +183,21 @@ export interface MsgBuyStorageSDKType {
 /**
  * MsgBuyStorageResponse defines the MsgBuyStorageResponse message.
  * @name MsgBuyStorageResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorageResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgBuyStorageResponse
  */
 export interface MsgBuyStorageResponse {
   subscriptionId: string;
 }
 export interface MsgBuyStorageResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgBuyStorageResponse";
+  typeUrl: "/atlas.storage.v1.MsgBuyStorageResponse";
   value: Uint8Array;
 }
 /**
  * MsgBuyStorageResponse defines the MsgBuyStorageResponse message.
  * @name MsgBuyStorageResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorageResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgBuyStorageResponse
  */
 export interface MsgBuyStorageResponseSDKType {
   SubscriptionId: string;
@@ -205,8 +205,8 @@ export interface MsgBuyStorageResponseSDKType {
 /**
  * MsgProveFile defines the MsgProveFile message.
  * @name MsgProveFile
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgProveFile
  */
 export interface MsgProveFile {
   creator: string;
@@ -215,16 +215,17 @@ export interface MsgProveFile {
   data: Uint8Array;
   hashes: Uint8Array[];
   chunk: number;
+  path: number;
 }
 export interface MsgProveFileProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgProveFile";
+  typeUrl: "/atlas.storage.v1.MsgProveFile";
   value: Uint8Array;
 }
 /**
  * MsgProveFile defines the MsgProveFile message.
  * @name MsgProveFileSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgProveFile
  */
 export interface MsgProveFileSDKType {
   creator: string;
@@ -233,44 +234,45 @@ export interface MsgProveFileSDKType {
   data: Uint8Array;
   hashes: Uint8Array[];
   chunk: number;
+  path: number;
 }
 /**
  * MsgProveFileResponse defines the MsgProveFileResponse message.
  * @name MsgProveFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgProveFileResponse
  */
 export interface MsgProveFileResponse {}
 export interface MsgProveFileResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgProveFileResponse";
+  typeUrl: "/atlas.storage.v1.MsgProveFileResponse";
   value: Uint8Array;
 }
 /**
  * MsgProveFileResponse defines the MsgProveFileResponse message.
  * @name MsgProveFileResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgProveFileResponse
  */
 export interface MsgProveFileResponseSDKType {}
 /**
  * MsgDeleteFile defines the MsgDeleteFile message.
  * @name MsgDeleteFile
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgDeleteFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgDeleteFile
  */
 export interface MsgDeleteFile {
   creator: string;
   fileId: string;
 }
 export interface MsgDeleteFileProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgDeleteFile";
+  typeUrl: "/atlas.storage.v1.MsgDeleteFile";
   value: Uint8Array;
 }
 /**
  * MsgDeleteFile defines the MsgDeleteFile message.
  * @name MsgDeleteFileSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgDeleteFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgDeleteFile
  */
 export interface MsgDeleteFileSDKType {
   creator: string;
@@ -279,26 +281,26 @@ export interface MsgDeleteFileSDKType {
 /**
  * MsgDeleteFileResponse defines the MsgDeleteFileResponse message.
  * @name MsgDeleteFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgDeleteFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgDeleteFileResponse
  */
 export interface MsgDeleteFileResponse {}
 export interface MsgDeleteFileResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgDeleteFileResponse";
+  typeUrl: "/atlas.storage.v1.MsgDeleteFileResponse";
   value: Uint8Array;
 }
 /**
  * MsgDeleteFileResponse defines the MsgDeleteFileResponse message.
  * @name MsgDeleteFileResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgDeleteFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgDeleteFileResponse
  */
 export interface MsgDeleteFileResponseSDKType {}
 /**
  * MsgExpandStorage defines the MsgExpandStorage message.
  * @name MsgExpandStorage
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgExpandStorage
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgExpandStorage
  */
 export interface MsgExpandStorage {
   creator: string;
@@ -307,14 +309,14 @@ export interface MsgExpandStorage {
   bytes: number;
 }
 export interface MsgExpandStorageProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgExpandStorage";
+  typeUrl: "/atlas.storage.v1.MsgExpandStorage";
   value: Uint8Array;
 }
 /**
  * MsgExpandStorage defines the MsgExpandStorage message.
  * @name MsgExpandStorageSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgExpandStorage
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgExpandStorage
  */
 export interface MsgExpandStorageSDKType {
   creator: string;
@@ -325,8 +327,8 @@ export interface MsgExpandStorageSDKType {
 /**
  * MsgExpandStorageResponse defines the MsgExpandStorageResponse message.
  * @name MsgExpandStorageResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgExpandStorageResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgExpandStorageResponse
  */
 export interface MsgExpandStorageResponse {
   subscriptionId: string;
@@ -334,14 +336,14 @@ export interface MsgExpandStorageResponse {
   newSpaceAvailable: number;
 }
 export interface MsgExpandStorageResponseProtoMsg {
-  typeUrl: "/nebulix.storage.v1.MsgExpandStorageResponse";
+  typeUrl: "/atlas.storage.v1.MsgExpandStorageResponse";
   value: Uint8Array;
 }
 /**
  * MsgExpandStorageResponse defines the MsgExpandStorageResponse message.
  * @name MsgExpandStorageResponseSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgExpandStorageResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgExpandStorageResponse
  */
 export interface MsgExpandStorageResponseSDKType {
   subscription_id: string;
@@ -357,11 +359,11 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * @name MsgUpdateParams
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParams
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgUpdateParams
  */
 export const MsgUpdateParams = {
-  typeUrl: "/nebulix.storage.v1.MsgUpdateParams",
+  typeUrl: "/atlas.storage.v1.MsgUpdateParams",
   aminoType: "nebulix/x/storage/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
@@ -412,7 +414,7 @@ export const MsgUpdateParams = {
   },
   toProtoMsg(message: MsgUpdateParams): MsgUpdateParamsProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgUpdateParams",
+      typeUrl: "/atlas.storage.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
   },
@@ -432,11 +434,11 @@ function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
  * @name MsgUpdateParamsResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgUpdateParamsResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgUpdateParamsResponse
  */
 export const MsgUpdateParamsResponse = {
-  typeUrl: "/nebulix.storage.v1.MsgUpdateParamsResponse",
+  typeUrl: "/atlas.storage.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
@@ -472,7 +474,7 @@ export const MsgUpdateParamsResponse = {
   },
   toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgUpdateParamsResponse",
+      typeUrl: "/atlas.storage.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
   },
@@ -489,11 +491,11 @@ function createBaseMsgRegisterProvider(): MsgRegisterProvider {
 /**
  * MsgRegisterProvider defines the MsgRegisterProvider message.
  * @name MsgRegisterProvider
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProvider
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgRegisterProvider
  */
 export const MsgRegisterProvider = {
-  typeUrl: "/nebulix.storage.v1.MsgRegisterProvider",
+  typeUrl: "/atlas.storage.v1.MsgRegisterProvider",
   is(o: any): o is MsgRegisterProvider {
     return o && (o.$typeUrl === MsgRegisterProvider.typeUrl || typeof o.creator === "string" && typeof o.hostname === "string" && typeof o.capacity === "bigint");
   },
@@ -550,7 +552,7 @@ export const MsgRegisterProvider = {
   },
   toProtoMsg(message: MsgRegisterProvider): MsgRegisterProviderProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgRegisterProvider",
+      typeUrl: "/atlas.storage.v1.MsgRegisterProvider",
       value: MsgRegisterProvider.encode(message).finish()
     };
   },
@@ -563,11 +565,11 @@ function createBaseMsgRegisterProviderResponse(): MsgRegisterProviderResponse {
 /**
  * MsgRegisterProviderResponse defines the MsgRegisterProviderResponse message.
  * @name MsgRegisterProviderResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgRegisterProviderResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgRegisterProviderResponse
  */
 export const MsgRegisterProviderResponse = {
-  typeUrl: "/nebulix.storage.v1.MsgRegisterProviderResponse",
+  typeUrl: "/atlas.storage.v1.MsgRegisterProviderResponse",
   is(o: any): o is MsgRegisterProviderResponse {
     return o && o.$typeUrl === MsgRegisterProviderResponse.typeUrl;
   },
@@ -603,7 +605,7 @@ export const MsgRegisterProviderResponse = {
   },
   toProtoMsg(message: MsgRegisterProviderResponse): MsgRegisterProviderResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgRegisterProviderResponse",
+      typeUrl: "/atlas.storage.v1.MsgRegisterProviderResponse",
       value: MsgRegisterProviderResponse.encode(message).finish()
     };
   },
@@ -623,11 +625,11 @@ function createBaseMsgPostFile(): MsgPostFile {
 /**
  * MsgPostFile defines the MsgPostFile message.
  * @name MsgPostFile
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgPostFile
  */
 export const MsgPostFile = {
-  typeUrl: "/nebulix.storage.v1.MsgPostFile",
+  typeUrl: "/atlas.storage.v1.MsgPostFile",
   is(o: any): o is MsgPostFile {
     return o && (o.$typeUrl === MsgPostFile.typeUrl || typeof o.creator === "string" && typeof o.fid === "string" && (o.merkle instanceof Uint8Array || typeof o.merkle === "string") && typeof o.fileSize === "bigint" && typeof o.replicas === "number" && typeof o.subscription === "string");
   },
@@ -705,7 +707,7 @@ export const MsgPostFile = {
   },
   toProtoMsg(message: MsgPostFile): MsgPostFileProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgPostFile",
+      typeUrl: "/atlas.storage.v1.MsgPostFile",
       value: MsgPostFile.encode(message).finish()
     };
   },
@@ -720,11 +722,11 @@ function createBaseMsgPostFileResponse(): MsgPostFileResponse {
 /**
  * MsgPostFileResponse defines the MsgPostFileResponse message.
  * @name MsgPostFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgPostFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgPostFileResponse
  */
 export const MsgPostFileResponse = {
-  typeUrl: "/nebulix.storage.v1.MsgPostFileResponse",
+  typeUrl: "/atlas.storage.v1.MsgPostFileResponse",
   is(o: any): o is MsgPostFileResponse {
     return o && (o.$typeUrl === MsgPostFileResponse.typeUrl || typeof o.startBlock === "bigint");
   },
@@ -767,7 +769,7 @@ export const MsgPostFileResponse = {
   },
   toProtoMsg(message: MsgPostFileResponse): MsgPostFileResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgPostFileResponse",
+      typeUrl: "/atlas.storage.v1.MsgPostFileResponse",
       value: MsgPostFileResponse.encode(message).finish()
     };
   },
@@ -786,11 +788,11 @@ function createBaseMsgBuyStorage(): MsgBuyStorage {
 /**
  * MsgBuyStorage defines the MsgBuyStorage message.
  * @name MsgBuyStorage
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorage
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgBuyStorage
  */
 export const MsgBuyStorage = {
-  typeUrl: "/nebulix.storage.v1.MsgBuyStorage",
+  typeUrl: "/atlas.storage.v1.MsgBuyStorage",
   is(o: any): o is MsgBuyStorage {
     return o && (o.$typeUrl === MsgBuyStorage.typeUrl || typeof o.creator === "string" && typeof o.receiver === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint" && typeof o.isDefault === "boolean");
   },
@@ -861,7 +863,7 @@ export const MsgBuyStorage = {
   },
   toProtoMsg(message: MsgBuyStorage): MsgBuyStorageProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgBuyStorage",
+      typeUrl: "/atlas.storage.v1.MsgBuyStorage",
       value: MsgBuyStorage.encode(message).finish()
     };
   },
@@ -876,11 +878,11 @@ function createBaseMsgBuyStorageResponse(): MsgBuyStorageResponse {
 /**
  * MsgBuyStorageResponse defines the MsgBuyStorageResponse message.
  * @name MsgBuyStorageResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgBuyStorageResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgBuyStorageResponse
  */
 export const MsgBuyStorageResponse = {
-  typeUrl: "/nebulix.storage.v1.MsgBuyStorageResponse",
+  typeUrl: "/atlas.storage.v1.MsgBuyStorageResponse",
   is(o: any): o is MsgBuyStorageResponse {
     return o && (o.$typeUrl === MsgBuyStorageResponse.typeUrl || typeof o.subscriptionId === "string");
   },
@@ -923,7 +925,7 @@ export const MsgBuyStorageResponse = {
   },
   toProtoMsg(message: MsgBuyStorageResponse): MsgBuyStorageResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgBuyStorageResponse",
+      typeUrl: "/atlas.storage.v1.MsgBuyStorageResponse",
       value: MsgBuyStorageResponse.encode(message).finish()
     };
   },
@@ -937,22 +939,23 @@ function createBaseMsgProveFile(): MsgProveFile {
     fid: "",
     data: new Uint8Array(),
     hashes: [],
-    chunk: 0
+    chunk: 0,
+    path: 0
   };
 }
 /**
  * MsgProveFile defines the MsgProveFile message.
  * @name MsgProveFile
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgProveFile
  */
 export const MsgProveFile = {
-  typeUrl: "/nebulix.storage.v1.MsgProveFile",
+  typeUrl: "/atlas.storage.v1.MsgProveFile",
   is(o: any): o is MsgProveFile {
-    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challengeId === "string" && typeof o.fid === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
+    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challengeId === "string" && typeof o.fid === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint" && typeof o.path === "bigint");
   },
   isSDK(o: any): o is MsgProveFileSDKType {
-    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challenge_id === "string" && typeof o.fid === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint");
+    return o && (o.$typeUrl === MsgProveFile.typeUrl || typeof o.creator === "string" && typeof o.challenge_id === "string" && typeof o.fid === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.hashes) && (!o.hashes.length || o.hashes[0] instanceof Uint8Array || typeof o.hashes[0] === "string") && typeof o.chunk === "bigint" && typeof o.path === "bigint");
   },
   encode(message: MsgProveFile, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
@@ -972,6 +975,9 @@ export const MsgProveFile = {
     }
     if (message.chunk !== 0) {
       writer.uint32(48).uint64(message.chunk);
+    }
+    if (message.path !== 0) {
+      writer.uint32(56).uint64(message.path);
     }
     return writer;
   },
@@ -1000,6 +1006,9 @@ export const MsgProveFile = {
         case 6:
           message.chunk = Number(reader.uint64().toString());
           break;
+        case 7:
+          message.path = Number(reader.uint64().toString());
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1015,6 +1024,7 @@ export const MsgProveFile = {
     message.data = object.data ?? new Uint8Array();
     message.hashes = object.hashes?.map(e => e) || [];
     message.chunk = object.chunk !== undefined && object.chunk !== null ? Number(object.chunk.toString()) : 0;
+    message.path = object.path !== undefined && object.path !== null ? Number(object.path.toString()) : 0;
     return message;
   },
   fromProtoMsg(message: MsgProveFileProtoMsg): MsgProveFile {
@@ -1025,7 +1035,7 @@ export const MsgProveFile = {
   },
   toProtoMsg(message: MsgProveFile): MsgProveFileProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgProveFile",
+      typeUrl: "/atlas.storage.v1.MsgProveFile",
       value: MsgProveFile.encode(message).finish()
     };
   },
@@ -1038,11 +1048,11 @@ function createBaseMsgProveFileResponse(): MsgProveFileResponse {
 /**
  * MsgProveFileResponse defines the MsgProveFileResponse message.
  * @name MsgProveFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgProveFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgProveFileResponse
  */
 export const MsgProveFileResponse = {
-  typeUrl: "/nebulix.storage.v1.MsgProveFileResponse",
+  typeUrl: "/atlas.storage.v1.MsgProveFileResponse",
   is(o: any): o is MsgProveFileResponse {
     return o && o.$typeUrl === MsgProveFileResponse.typeUrl;
   },
@@ -1078,7 +1088,7 @@ export const MsgProveFileResponse = {
   },
   toProtoMsg(message: MsgProveFileResponse): MsgProveFileResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgProveFileResponse",
+      typeUrl: "/atlas.storage.v1.MsgProveFileResponse",
       value: MsgProveFileResponse.encode(message).finish()
     };
   },
@@ -1094,11 +1104,11 @@ function createBaseMsgDeleteFile(): MsgDeleteFile {
 /**
  * MsgDeleteFile defines the MsgDeleteFile message.
  * @name MsgDeleteFile
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgDeleteFile
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgDeleteFile
  */
 export const MsgDeleteFile = {
-  typeUrl: "/nebulix.storage.v1.MsgDeleteFile",
+  typeUrl: "/atlas.storage.v1.MsgDeleteFile",
   is(o: any): o is MsgDeleteFile {
     return o && (o.$typeUrl === MsgDeleteFile.typeUrl || typeof o.creator === "string" && typeof o.fileId === "string");
   },
@@ -1148,7 +1158,7 @@ export const MsgDeleteFile = {
   },
   toProtoMsg(message: MsgDeleteFile): MsgDeleteFileProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgDeleteFile",
+      typeUrl: "/atlas.storage.v1.MsgDeleteFile",
       value: MsgDeleteFile.encode(message).finish()
     };
   },
@@ -1161,11 +1171,11 @@ function createBaseMsgDeleteFileResponse(): MsgDeleteFileResponse {
 /**
  * MsgDeleteFileResponse defines the MsgDeleteFileResponse message.
  * @name MsgDeleteFileResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgDeleteFileResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgDeleteFileResponse
  */
 export const MsgDeleteFileResponse = {
-  typeUrl: "/nebulix.storage.v1.MsgDeleteFileResponse",
+  typeUrl: "/atlas.storage.v1.MsgDeleteFileResponse",
   is(o: any): o is MsgDeleteFileResponse {
     return o && o.$typeUrl === MsgDeleteFileResponse.typeUrl;
   },
@@ -1201,7 +1211,7 @@ export const MsgDeleteFileResponse = {
   },
   toProtoMsg(message: MsgDeleteFileResponse): MsgDeleteFileResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgDeleteFileResponse",
+      typeUrl: "/atlas.storage.v1.MsgDeleteFileResponse",
       value: MsgDeleteFileResponse.encode(message).finish()
     };
   },
@@ -1219,11 +1229,11 @@ function createBaseMsgExpandStorage(): MsgExpandStorage {
 /**
  * MsgExpandStorage defines the MsgExpandStorage message.
  * @name MsgExpandStorage
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgExpandStorage
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgExpandStorage
  */
 export const MsgExpandStorage = {
-  typeUrl: "/nebulix.storage.v1.MsgExpandStorage",
+  typeUrl: "/atlas.storage.v1.MsgExpandStorage",
   is(o: any): o is MsgExpandStorage {
     return o && (o.$typeUrl === MsgExpandStorage.typeUrl || typeof o.creator === "string" && typeof o.subscriptionId === "string" && typeof o.duration === "bigint" && typeof o.bytes === "bigint");
   },
@@ -1287,7 +1297,7 @@ export const MsgExpandStorage = {
   },
   toProtoMsg(message: MsgExpandStorage): MsgExpandStorageProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgExpandStorage",
+      typeUrl: "/atlas.storage.v1.MsgExpandStorage",
       value: MsgExpandStorage.encode(message).finish()
     };
   },
@@ -1304,11 +1314,11 @@ function createBaseMsgExpandStorageResponse(): MsgExpandStorageResponse {
 /**
  * MsgExpandStorageResponse defines the MsgExpandStorageResponse message.
  * @name MsgExpandStorageResponse
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.MsgExpandStorageResponse
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.MsgExpandStorageResponse
  */
 export const MsgExpandStorageResponse = {
-  typeUrl: "/nebulix.storage.v1.MsgExpandStorageResponse",
+  typeUrl: "/atlas.storage.v1.MsgExpandStorageResponse",
   is(o: any): o is MsgExpandStorageResponse {
     return o && (o.$typeUrl === MsgExpandStorageResponse.typeUrl || typeof o.subscriptionId === "string" && typeof o.newExpiration === "bigint" && typeof o.newSpaceAvailable === "bigint");
   },
@@ -1365,7 +1375,7 @@ export const MsgExpandStorageResponse = {
   },
   toProtoMsg(message: MsgExpandStorageResponse): MsgExpandStorageResponseProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.MsgExpandStorageResponse",
+      typeUrl: "/atlas.storage.v1.MsgExpandStorageResponse",
       value: MsgExpandStorageResponse.encode(message).finish()
     };
   },

@@ -4,8 +4,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * Provider defines the Provider message.
  * @name Provider
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Provider
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.Provider
  */
 export interface Provider {
   address: string;
@@ -16,14 +16,14 @@ export interface Provider {
   creditDelta: number;
 }
 export interface ProviderProtoMsg {
-  typeUrl: "/nebulix.storage.v1.Provider";
+  typeUrl: "/atlas.storage.v1.Provider";
   value: Uint8Array;
 }
 /**
  * Provider defines the Provider message.
  * @name ProviderSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Provider
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.Provider
  */
 export interface ProviderSDKType {
   address: string;
@@ -46,11 +46,11 @@ function createBaseProvider(): Provider {
 /**
  * Provider defines the Provider message.
  * @name Provider
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.Provider
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.Provider
  */
 export const Provider = {
-  typeUrl: "/nebulix.storage.v1.Provider",
+  typeUrl: "/atlas.storage.v1.Provider",
   is(o: any): o is Provider {
     return o && (o.$typeUrl === Provider.typeUrl || typeof o.address === "string" && typeof o.hostname === "string" && typeof o.spaceAvailable === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.createdAt === "bigint" && typeof o.creditDelta === "bigint");
   },
@@ -128,7 +128,7 @@ export const Provider = {
   },
   toProtoMsg(message: Provider): ProviderProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.Provider",
+      typeUrl: "/atlas.storage.v1.Provider",
       value: Provider.encode(message).finish()
     };
   },

@@ -6,8 +6,8 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * File defines the File message.
  * @name StorageSubscription
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.StorageSubscription
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.StorageSubscription
  */
 export interface StorageSubscription {
   id: string;
@@ -20,14 +20,14 @@ export interface StorageSubscription {
   credits: string;
 }
 export interface StorageSubscriptionProtoMsg {
-  typeUrl: "/nebulix.storage.v1.StorageSubscription";
+  typeUrl: "/atlas.storage.v1.StorageSubscription";
   value: Uint8Array;
 }
 /**
  * File defines the File message.
  * @name StorageSubscriptionSDKType
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.StorageSubscription
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.StorageSubscription
  */
 export interface StorageSubscriptionSDKType {
   id: string;
@@ -54,11 +54,11 @@ function createBaseStorageSubscription(): StorageSubscription {
 /**
  * File defines the File message.
  * @name StorageSubscription
- * @package nebulix.storage.v1
- * @see proto type: nebulix.storage.v1.StorageSubscription
+ * @package atlas.storage.v1
+ * @see proto type: atlas.storage.v1.StorageSubscription
  */
 export const StorageSubscription = {
-  typeUrl: "/nebulix.storage.v1.StorageSubscription",
+  typeUrl: "/atlas.storage.v1.StorageSubscription",
   is(o: any): o is StorageSubscription {
     return o && (o.$typeUrl === StorageSubscription.typeUrl || typeof o.id === "string" && Timestamp.is(o.start) && Timestamp.is(o.end) && typeof o.status === "string" && typeof o.spaceAvailable === "bigint" && typeof o.spaceUsed === "bigint" && typeof o.replicaSpaceUsed === "bigint" && typeof o.credits === "string");
   },
@@ -150,7 +150,7 @@ export const StorageSubscription = {
   },
   toProtoMsg(message: StorageSubscription): StorageSubscriptionProtoMsg {
     return {
-      typeUrl: "/nebulix.storage.v1.StorageSubscription",
+      typeUrl: "/atlas.storage.v1.StorageSubscription",
       value: StorageSubscription.encode(message).finish()
     };
   },

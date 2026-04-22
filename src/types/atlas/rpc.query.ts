@@ -9,12 +9,12 @@ export const createRPCQueryClient = async ({
   const tmClient = await connectComet(rpcEndpoint);
   const client = new QueryClient(tmClient);
   return {
-    nebulix: {
+    atlas: {
       filetree: {
-        v1: (await import("../atlas/filetree/v1/query.rpc.Query")).createRpcQueryExtension(client)
+        v1: (await import("./filetree/v1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       storage: {
-        v1: (await import("../atlas/storage/v1/query.rpc.Query")).createRpcQueryExtension(client)
+        v1: (await import("./storage/v1/query.rpc.Query")).createRpcQueryExtension(client)
       }
     },
     cosmos: {
