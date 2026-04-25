@@ -6,7 +6,7 @@
 */
 
 import * as _m0 from "protobufjs/minimal";
-import { Any, AnyAmino } from "./google/protobuf/any";
+import { Any, AnyAmino } from "cosmjs-types/google/protobuf/any";
 import { IProtoType, TelescopeGeneratedCodec } from "./types";
 
 export class GlobalDecoderRegistry {
@@ -98,7 +98,7 @@ export class GlobalDecoderRegistry {
     return GlobalDecoderRegistry.getDecoder<T, SDK, Amino>(typeUrl);
   }
   static wrapAny(obj: unknown): Any {
-    if(Any.is(obj)){
+    if (Any.is(obj)) {
       return obj;
     }
 

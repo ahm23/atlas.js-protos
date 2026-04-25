@@ -31,7 +31,7 @@ export interface AuthorityBundleSDKType {
 export interface TreeNode {
   nodeType: string;
   contents: string;
-  readers: AuthorityBundle[];
+  viewers: AuthorityBundle[];
   editors: AuthorityBundle[];
 }
 export interface TreeNodeProtoMsg {
@@ -46,7 +46,7 @@ export interface TreeNodeProtoMsg {
 export interface TreeNodeSDKType {
   node_type: string;
   contents: string;
-  readers: AuthorityBundleSDKType[];
+  viewers: AuthorityBundleSDKType[];
   editors: AuthorityBundleSDKType[];
 }
 function createBaseAuthorityBundle(): AuthorityBundle {
@@ -122,7 +122,7 @@ function createBaseTreeNode(): TreeNode {
   return {
     nodeType: "",
     contents: "",
-    readers: [],
+    viewers: [],
     editors: []
   };
 }
@@ -134,10 +134,10 @@ function createBaseTreeNode(): TreeNode {
 export const TreeNode = {
   typeUrl: "/atlas.filetree.v1.TreeNode",
   is(o: any): o is TreeNode {
-    return o && (o.$typeUrl === TreeNode.typeUrl || typeof o.nodeType === "string" && typeof o.contents === "string" && Array.isArray(o.readers) && (!o.readers.length || AuthorityBundle.is(o.readers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.is(o.editors[0])));
+    return o && (o.$typeUrl === TreeNode.typeUrl || typeof o.nodeType === "string" && typeof o.contents === "string" && Array.isArray(o.viewers) && (!o.viewers.length || AuthorityBundle.is(o.viewers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.is(o.editors[0])));
   },
   isSDK(o: any): o is TreeNodeSDKType {
-    return o && (o.$typeUrl === TreeNode.typeUrl || typeof o.node_type === "string" && typeof o.contents === "string" && Array.isArray(o.readers) && (!o.readers.length || AuthorityBundle.isSDK(o.readers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.isSDK(o.editors[0])));
+    return o && (o.$typeUrl === TreeNode.typeUrl || typeof o.node_type === "string" && typeof o.contents === "string" && Array.isArray(o.viewers) && (!o.viewers.length || AuthorityBundle.isSDK(o.viewers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.isSDK(o.editors[0])));
   },
   encode(message: TreeNode, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.nodeType !== "") {
@@ -146,7 +146,7 @@ export const TreeNode = {
     if (message.contents !== "") {
       writer.uint32(18).string(message.contents);
     }
-    for (const v of message.readers) {
+    for (const v of message.viewers) {
       AuthorityBundle.encode(v!, writer.uint32(26).fork()).ldelim();
     }
     for (const v of message.editors) {
@@ -168,7 +168,7 @@ export const TreeNode = {
           message.contents = reader.string();
           break;
         case 3:
-          message.readers.push(AuthorityBundle.decode(reader, reader.uint32()));
+          message.viewers.push(AuthorityBundle.decode(reader, reader.uint32()));
           break;
         case 4:
           message.editors.push(AuthorityBundle.decode(reader, reader.uint32()));
@@ -184,7 +184,7 @@ export const TreeNode = {
     const message = createBaseTreeNode();
     message.nodeType = object.nodeType ?? "";
     message.contents = object.contents ?? "";
-    message.readers = object.readers?.map(e => AuthorityBundle.fromPartial(e)) || [];
+    message.viewers = object.viewers?.map(e => AuthorityBundle.fromPartial(e)) || [];
     message.editors = object.editors?.map(e => AuthorityBundle.fromPartial(e)) || [];
     return message;
   },

@@ -6,7 +6,7 @@
 */
 
 import * as _m0 from "protobufjs/minimal";
-import { Any } from "./google/protobuf/any";
+import { Any } from "cosmjs-types/google/protobuf/any";
 
 import { HttpEndpoint } from "@interchainjs/types";
 

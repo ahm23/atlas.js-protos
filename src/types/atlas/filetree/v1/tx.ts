@@ -1,5 +1,6 @@
 //@ts-nocheck
 import { Params, ParamsSDKType } from "./params";
+import { AuthorityBundle, AuthorityBundleSDKType } from "./tree";
 import * as _m0 from "protobufjs/minimal";
 import { GlobalDecoderRegistry } from "../../../registry";
 /**
@@ -63,6 +64,8 @@ export interface MsgPostNode {
   path: string;
   nodeType: string;
   contents: string;
+  viewers: AuthorityBundle[];
+  editors: AuthorityBundle[];
 }
 export interface MsgPostNodeProtoMsg {
   typeUrl: "/atlas.filetree.v1.MsgPostNode";
@@ -79,6 +82,8 @@ export interface MsgPostNodeSDKType {
   path: string;
   node_type: string;
   contents: string;
+  viewers: AuthorityBundleSDKType[];
+  editors: AuthorityBundleSDKType[];
 }
 /**
  * MsgPostNodeResponse defines the MsgPostNodeResponse message.
@@ -154,7 +159,7 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
  */
 export const MsgUpdateParams = {
   typeUrl: "/atlas.filetree.v1.MsgUpdateParams",
-  aminoType: "nebulix/x/filetree/MsgUpdateParams",
+  aminoType: "atlas/x/filetree/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
@@ -276,7 +281,9 @@ function createBaseMsgPostNode(): MsgPostNode {
     creator: "",
     path: "",
     nodeType: "",
-    contents: ""
+    contents: "",
+    viewers: [],
+    editors: []
   };
 }
 /**
@@ -288,10 +295,10 @@ function createBaseMsgPostNode(): MsgPostNode {
 export const MsgPostNode = {
   typeUrl: "/atlas.filetree.v1.MsgPostNode",
   is(o: any): o is MsgPostNode {
-    return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.nodeType === "string" && typeof o.contents === "string");
+    return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.nodeType === "string" && typeof o.contents === "string" && Array.isArray(o.viewers) && (!o.viewers.length || AuthorityBundle.is(o.viewers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.is(o.editors[0])));
   },
   isSDK(o: any): o is MsgPostNodeSDKType {
-    return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.node_type === "string" && typeof o.contents === "string");
+    return o && (o.$typeUrl === MsgPostNode.typeUrl || typeof o.creator === "string" && typeof o.path === "string" && typeof o.node_type === "string" && typeof o.contents === "string" && Array.isArray(o.viewers) && (!o.viewers.length || AuthorityBundle.isSDK(o.viewers[0])) && Array.isArray(o.editors) && (!o.editors.length || AuthorityBundle.isSDK(o.editors[0])));
   },
   encode(message: MsgPostNode, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
@@ -305,6 +312,12 @@ export const MsgPostNode = {
     }
     if (message.contents !== "") {
       writer.uint32(34).string(message.contents);
+    }
+    for (const v of message.viewers) {
+      AuthorityBundle.encode(v!, writer.uint32(42).fork()).ldelim();
+    }
+    for (const v of message.editors) {
+      AuthorityBundle.encode(v!, writer.uint32(50).fork()).ldelim();
     }
     return writer;
   },
@@ -327,6 +340,12 @@ export const MsgPostNode = {
         case 4:
           message.contents = reader.string();
           break;
+        case 5:
+          message.viewers.push(AuthorityBundle.decode(reader, reader.uint32()));
+          break;
+        case 6:
+          message.editors.push(AuthorityBundle.decode(reader, reader.uint32()));
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -340,6 +359,8 @@ export const MsgPostNode = {
     message.path = object.path ?? "";
     message.nodeType = object.nodeType ?? "";
     message.contents = object.contents ?? "";
+    message.viewers = object.viewers?.map(e => AuthorityBundle.fromPartial(e)) || [];
+    message.editors = object.editors?.map(e => AuthorityBundle.fromPartial(e)) || [];
     return message;
   },
   fromProtoMsg(message: MsgPostNodeProtoMsg): MsgPostNode {
@@ -354,7 +375,12 @@ export const MsgPostNode = {
       value: MsgPostNode.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgPostNode.typeUrl)) {
+      return;
+    }
+    AuthorityBundle.registerTypeUrl();
+  }
 };
 GlobalDecoderRegistry.register(MsgPostNode.typeUrl, MsgPostNode);
 function createBaseMsgPostNodeResponse(): MsgPostNodeResponse {
